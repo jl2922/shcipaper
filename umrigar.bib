@@ -1,0 +1,2260 @@
+﻿@article{ChiHolOttUmrShaZim-JPCA-18,
+Author = {Alan D. Chien and Adam A. Holmes and Matthew Otten and C. J. Umrigar and Sandeep Sharma},
+Title = {Excited States of Methylene, Polyenes, and Ozone from Heat-Bath Configuration Interaction},
+Journal = {J. Phys. Chem. A},
+Year = {2018},
+Volume = {122},
+Pages = {2714},
+}
+
+@article{HolUmrSha-JCP-17,
+Author = {Holmes, Adam A. and Umrigar, C. J. and Sharma, Sandeep},
+Title = {Excited states using semistochastic heat-bath configuration interaction},
+Journal = {J. Chem. Phys.},
+Year = {2017},
+Volume = {147},
+Number = {16},
+Month = {OCT 28},
+Abstract = {We extend our recently developed heat-bath configuration interaction
+   (HCI) algorithm, and our semistochastic algorithm for performing
+   multireference perturbation theory, to calculate excited-state
+   wavefunctions and energies. We employ time-reversal symmetry, which
+   reduces the memory requirements by more than a factor of two. An
+   extrapolation technique is introduced to reliably extrapolate HCI
+   energies to the full CI limit. The resulting algorithm is used to
+   compute fourteen low-lying potential energy surfaces of the carbon dimer
+   using the cc-pV5Z basis set, with an estimated error in energy of 30-50
+   mu Ha compared to full CI. The excitation energies obtained using our
+   algorithm have a mean absolute deviation of 0.02 eV compared to
+   experimental values. Published by AIP Publishing.},
+Article-Number = {164111},
+ISSN = {0021-9606},
+EISSN = {1089-7690},
+Unique-ID = {ISI:000414177600045},
+}
+DOI = {10.1063/1.4998614},
+
+@article{ShaHolJeaAlaUmr-JCTC-17,
+Author = {Sharma, Sandeep and Holmes, Adam A. and Jeanmairet, Guillaume and
+   Alavi, Ali and Umrigar, C. J.},
+Title = {Semistochastic Heat-Bath Configuration Interaction Method: Selected
+   Configuration Interaction with Semistochastic Perturbation Theory},
+Journal = {J. Chem. Theory Comput.},
+Year = {2017},
+Volume = {13},
+Number = {4},
+Pages = {1595-1604},
+Month = {APR},
+Abstract = {We extend the recently proposed heat-bath configuration interaction
+   (HCI) method {[}Holmes, Tubman, Umrigar, J. Chem. Theory Comput. 2016,
+   12, 3674], by introducing a semistochastic algorithm for performing
+   multireference Epstein -Nesbet perturbation theory, in order to
+   completely eliminate the severe memory bottleneck of the original
+   method. The proposed algorithm has several attractive features. First,
+   there is no sign problem that plagues several quantum Monte Carlo
+   methods. Second, instead of using Metropolis Hastings sampling, we use
+   the Alias method to directly sample determinants from the reference wave
+   function, thus avoiding correlations between consecutive samples. Third,
+   in addition to removing the memory bottleneck, semistochastic HCI (SHCI)
+   is faster than the deterministic variant for many systems if a
+   stochastic error of 0.1 mHa is acceptable. Fourth, within the SHCI
+   algorithm one can trade memory for a modest increase in computer time.
+   Fifth, the perturbative calculation is embarrassingly parallel. The SHCI
+   algorithm extends the range of applicability of the original algorithm,
+   allowing us to calculate the correlation energy of very large active
+   spaces. We demonstrate this by performing calculations on several first
+   row dimers including F-2 with an active space of (14e, 108o), Mn-Salen
+   cluster with an active space of (28e, 22o), and Cr-2 dimer with up to a
+   quadruple-zeta( basis set with an active space of (12e, 190o). For these
+   systems we were able to obtain better than 1 mHa accuracy with a wall
+   time of merely 55 s, 37 s, and 56 min on 1, 1, and 4 nodes,
+   respectively.},
+DOI = {10.1021/acs.jctc.6b01028},
+ISSN = {1549-9618},
+EISSN = {1549-9626},
+Unique-ID = {ISI:000399264200011},
+}
+note = {http://arxiv.org/abs/1610.06660}
+
+@article{HolTubUmr-JCTC-16,
+Author = {A. A. Holmes and Norm M. Tubman and C. J. Umrigar},
+Title = {Heat-bath Configuration Interaction: An efficient selected CI algorithm inspired by heat-bath sampling},
+Journal = {J. Chem. Theory Comput.},
+Volume = {12},
+Pages = {3674-3680},
+Year = {2016}}
+Abstract = {We introduce a new selected configuration interaction plus perturbation
+   theory algorithm that is based on a deterministic analog of our recent
+   efficient heat-bath sampling algorithm. This Heat-bath Configuration
+   Interaction (HCI) algorithm makes use of two parameters that control the
+   trade-off between speed and accuracy, one which controls the selection
+   of determinants to add to a variational wave function and one which
+   controls the selection of determinants used to compute the perturbative
+   correction to the variational energy. We show that HCI provides an
+   accurate treatment of both static and dynamic correlation by computing
+   the potential energy curve of the multireference carbon dimer in the
+   cc-pVDZ basis. We then demonstrate the speed and accuracy of HCI by
+   recovering the full configuration interaction energy of both the carbon
+   dimer in the cc-pVTZ basis and the strongly correlated chromium dimer in
+   the Ahlrichs VDZ basis, correlating all electrons, to an accuracy of
+   better than 1 mHa, in just a few minutes on a single core. These systems
+   have full variational spaces of 3 x 10(14) and 2 x 10(22) determinants,
+   respectively.},
+}
+note = {http://arxiv.org/abs/1606.07453}
+
+@article{HolChaUmr-JCTC-16,
+Author = {A. A. Holmes and Hitesh J. Changlani and C. J. Umrigar},
+Title = {Efficient Heat-Bath Sampling in Fock Space},
+Journal = {J. Chem. Theory Comput.},
+Year = {2016},
+Volume = {12},
+Abstract = {We introduce an algorithm for sampling many-body
+quantum states in Fock space. The algorithm efficiently samples states
+with probability approximately proportional to an arbitrary function of the
+second-quantized Hamiltonian matrix element connecting the sampled
+state to the current state. We apply the new sampling algorithm to the
+recently developed semistochastic full configuration interaction quantum
+Monte Carlo (S-FCIQMC) method, a semistochastic implementation of
+the power method for projecting out the ground state energy in a basis of
+Slater determinants. Our new sampling method requires modest additional
+computational time and memory compared to uniform sampling but
+results in newly spawned weights that are approximately of the same
+magnitude, thereby greatly improving the efficiency of projection. A
+comparison in efficiency between our sampling algorithm and uniform
+sampling is performed on the all-electron nitrogen dimer at equilibrium in Dunning’s cc-pVXZ basis sets with X ∈ {D, T, Q , 5},
+demonstrating a large gain in efficiency that increases with basis set size. In addition, a comparison in efficiency is performed on
+three all-electron first-row dimers, B$_2$ , N$_2$, and F$_2$, in a cc-pVQZ basis, demonstrating that the gain in efficiency compared to
+uniform sampling also increases dramatically with the number of electrons.},
+Pages = {1561},
+}
+note = {http://arxiv.org/abs/1512.03757}
+
+@article{Umr-JCP-15,
+Author = {C. J. Umrigar},
+Title = {Observations on variational and projector Monte Carlo methods},
+Journal = {J. Chem. Phys.},
+Year = {2015},
+Volume = {143},
+Abstract = {Variational Monte Carlo and various projector Monte Carlo (PMC) methods are presented in a unified manner. Similarities and differences between the methods and choices made in designing the methods are discussed. Both methods where the Monte Carlo walk is performed in a discrete space and methods where it is performed in a continuous space are considered. It is pointed out that the usual prescription for importance sampling may not be advantageous depending on the particular quantum Monte Carlo method used and the observables of interest, so alternate prescriptions are presented. The nature of the sign problem is discussed for various versions of PMC methods. A prescription for an exact PMC method in real space, i.e., a method that does not make a fixed-node or similar approximation and does not have a finite basis error, is presented. This method is likely to be practical for systems with a small number of electrons. Approximate PMC methods that are applicable to larger systems and go beyond the fixed-node approximation are also discussed.},
+Article-Number = {164105},
+}
+
+@INPROCEEDINGS{TouAssUmr-AQC-15,
+ author = {Julien Toulouse and Roland Assaraf and C. J. Umrigar},
+ title = "{Introduction to the variational and diffusion Monte Carlo methods}",
+ booktitle = {Advances in Quantum Chemistry},
+ year = {2015},
+ editor = {Philip Hoggan and Telhat \"{O}zdo\u{g}an},
+ volume = {73},
+Abstract = {We provide a pedagogical introduction to the two main variants of real-space quantum Monte
+Carlo methods for electronic-structure calculations: variational Monte Carlo (VMC) and dif-
+fusion Monte Carlo (DMC). Assuming no prior knowledge on the subject, we review in depth
+the Metropolis-Hastings algorithm used in VMC for sampling the square of an approximate
+wave function, discussing details important for applications to electronic systems. We also re-
+view in detail the more sophisticated DMC algorithm within the fixed-node approximation,
+introduced to avoid the infamous Fermionic sign problem, which allows one to sample a more
+accurate approximation to the ground-state wave function. Throughout this review, we discuss
+the statistical methods used for evaluating expectation values and statistical uncertainties. In
+particular, we show how to estimate nonlinear functions of expectation values and their statis-
+tical uncertainties.},
+Pages = {285},
+}
+
+A. He{\ss}elmann, Julien Toulouse, Michael Towler, C. J. Umrigar and Andreas G\"orling
+What are the true Kohn-Sham bandgaps of semiconductors?
+
+@article{ParUmrAlfPetHenWil-JCoP-15,
+Author = {William D. Parker and C.J. Umrigar and Dario Alf\'e and F.R. Petruzielo and Richard G. Hennig and and John W. Wilkins},
+Title = {Comparison of polynomial approximations to speed up planewave-based quantum Monte Carlo calculations},
+Journal = {Journal of Computational Physics},
+Year = {2015},
+Volume = {287},
+Abstract = {The computational cost of quantum Monte Carlo (QMC) calculations of realistic periodic
+systems depends strongly on the method of storing and evaluating the many-particle wave
+function. Previous work by Williamson et al. (2001) [35] and Alfè and Gillan, (2004) [36]
+has demonstrated the reduction of the O ( N 3 ) cost of evaluating the Slater determinant 
+with planewaves to O ( N 2 ) using localized basis functions. We compare four polynomial
+approximations as basis functions – interpolating Lagrange polynomials, interpolating
+piecewise-polynomial-form (pp-) splines, and basis-form (B-) splines (interpolating and 
+smoothing). All these basis functions provide a similar speedup relative to the planewave
+basis. The pp-splines have eight times the memory requirement of the other methods. To
+test the accuracy of the basis functions, we apply them to the ground state structures
+of Si, Al, and MgO. The polynomial approximations differ in accuracy most strongly for
+MgO, and smoothing B-splines most closely reproduce the planewave value for of the
+variational Monte Carlo energy. Using separate approximations for the Laplacian of the
+orbitals increases the accuracy sufficiently to justify the increased memory requirement,
+making smoothing B-splines, with separate approximation for the Laplacian, the preferred
+choice for approximating planewave-represented orbitals in QMC calculations.},
+Pages = {77},
+}
+
+@article{MirUmrMorGor-JCP-14,
+Author = {Andre Mirtschink and C. J. Umrigar and John D. Morgan III and and Paola Gori-Giorgi},
+Title = {Energy density functionals from the strong-coupling limit applied
+to the anions of the He isoelectronic series},
+Journal = {J. Chem. Phys.},
+Year = {2014},
+Volume = {140},
+Number = {10},
+Month = {MAR 14},
+Abstract = {Anions and radicals are important for many applications including environmental chemistry, semi-
+conductors, and charge transfer, but are poorly described by the available approximate energy density
+functionals. Here we test an approximate exchange-correlation functional based on the exact strong-
+coupling limit of the Hohenberg-Kohn functional on the prototypical case of the He isoelectronic
+series with varying nuclear charge Z < 2, which includes weakly bound negative ions and a quantum
+phase transition at a critical value of Z, representing a big challenge for density functional theory. We
+use accurate wavefunction calculations to validate our results, comparing energies and Kohn-Sham
+potentials, thus also providing useful reference data close to and at the quantum phase transition. We
+show that our functional is able to bind H− and to capture in general the physics of loosely bound
+anions, with a tendency to strongly overbind that can be proven mathematically. We also include
+corrections based on the uniform electron gas which improve the results.},
+Article-Number = {18A532},
+}
+
+@article{ShaYanBooUmrCha-JCP-14,
+Author = {Sandeep Sharma and Takeshi Yanai and George Booth and C. J. Umrigar and Garnet Kin-Lic Chan},
+Title = {Spectroscopic accuracy directly from quantum chemistry: Application to
+   ground and excited states of beryllium dimer},
+Journal = {J. Chem. Phys.},
+Year = {2014},
+Volume = {140},
+Number = {10},
+Month = {MAR 14},
+Abstract = {We combine explicit correlation via the canonical transcorrelation
+   approach with the density matrix renormalization group and initiator
+   full configuration interaction quantum Monte Carlo methods to compute a
+   near-exact beryllium dimer curve, without the use of composite methods.
+   In particular, our direct density matrix renormalization group
+   calculations produce a well-depth of D-e = 931.2 cm(-1) which agrees
+   very well with recent experimentally derived estimates D-e = 929.7 +/- 2
+   cm(-1) {[}J. M. Merritt, V. E. Bondybey, and M. C. Heaven, Science 324,
+   1548 (2009)] and D-e = 934.6 cm(-1) {[}K. Patkowski, V. Spirko, and K.
+   Szalewicz, Science 326, 1382 (2009)], as well the best composite
+   theoretical estimates, D-e = 938 +/- 15 cm(-1) {[}K. Patkowski, R.
+   Podeszwa, and K. Szalewicz, J. Phys. Chem. A 111, 12822 (2007)] and D-e
+   = 935.1 +/- 10 cm(-1) {[}J. Koput, Phys. Chem. Chem. Phys. 13, 20311
+   (2011)]. Our results suggest possible inaccuracies in the functional
+   form of the potential used at shorter bond lengths to fit the
+   experimental data {[}J. M. Merritt, V. E. Bondybey, and M. C. Heaven,
+   Science 324, 1548 (2009)]. With the density matrix renormalization group
+   we also compute near-exact vertical excitation energies at the
+   equilibrium geometry. These provide non-trivial benchmarks for quantum
+   chemical methods for excited states, and illustrate the surprisingly
+   large error that remains for 1 (1)Sigma(-)(g) state with approximate
+   multi-reference configuration interaction and equation-of-motion coupled
+   cluster methods. Overall, we demonstrate that explicitly correlated
+   density matrix renormalization group and initiator full configuration
+   interaction quantum Monte Carlo methods allow us to fully converge to
+   the basis set and correlation limit of the non-relativistic Schrodinger
+   equation in small molecules. (C) 2014 AIP Publishing LLC.},
+DOI = {10.1063/1.4867383},
+Article-Number = {104112},
+ISSN = {0021-9606},
+EISSN = {1089-7690},
+Unique-ID = {ISI:000334120300013},
+}
+
+@article{BleHesUmrGor-PRA-13,
+Author = {P. Bleiziffer and A. He{\ss}elmann and C. J. Umrigar and Andreas G\"orling},
+Title = {Influence of the exchange-correlation potential in methods based on
+    time-dependent density-functional theory},
+Journal = {Phys. Rev. A},
+Year = {2013},
+Volume = {88},
+Number = {},
+Month = {Oct},
+Article-Number = {042513},
+Abstract = {Time-dependent density-functional methods are used to compute excitation energies and, via the adiabatic-connection fluctuation-dissipation theorem, ground-state correlation energies of atoms, ions, and the H2 molecule at various bond lengths. Various exchange-correlation potentials vxc and exchange-correlation kernels fxc are tested. Accurate exchange-correlation potentials are found to be essential for getting accurate energies. Methods employing in the Kohn-Sham self-consistency process the exact local Kohn-Sham exchange potential while neglecting completely the correlation potential lead to better excitation and correlation energies than methods with exchange-correlation potentials within the local density approximation or the generalized gradient approximation. Taking into account the exact exchange-correlation potential and thus the exact Kohn-Sham potential further improves excitation and correlation energies.},
+}
+
+@article{MehUmrMeyBar-PRL-13,
+Author = {Mehta, Abhijit C. and Umrigar, C. J. and Meyer, Julia S. and Baranger,
+   Harold U.},
+Title = {Zigzag Phase Transition in Quantum Wires},
+Journal = {Phys. Rev. Lett.},
+Year = {2013},
+Volume = {110},
+Number = {24},
+Month = {Jun 11},
+Abstract = {We study the quantum phase transition of interacting electrons in
+   quantum wires from a one-dimensional (1D) linear configuration to a
+   quasi-1D zigzag arrangement using quantum Monte Carlo methods. As the
+   density increases from its lowest values, first, the electrons form a
+   linear Wigner crystal, then, the symmetry about the axis of the wire is
+   broken as the electrons order in a quasi-1D zigzag phase, and, finally,
+   the electrons form a disordered liquidlike phase. We show that the
+   linear to zigzag phase transition is not destroyed by the strong quantum
+   fluctuations present in narrow wires; it has characteristics which are
+   qualitatively different from the classical transition.},
+DOI = {10.1103/PhysRevLett.110.246802},
+Article-Number = {246802},
+ISSN = {0031-9007},
+Unique-ID = {ISI:000320282600016},
+}
+
+@article{PetHolChaNigUmr-PRL-12,
+Author = {F. R. Petruzielo and A. A. Holmes and Hitesh J. Changlani and M. P. Nightingale and C. J. Umrigar},
+Title = {Semistochastic Projector Monte Carlo Method},
+Journal = {Phys. Rev. Lett.},
+Year = {2012},
+Volume = {109},
+Number = {23},
+Month = {Dec 4},
+Abstract = {We introduce a semistochastic implementation of the power method to
+   compute, for very large matrices, the dominant eigenvalue and
+   expectation values involving the corresponding eigenvector. The method
+   is semistochastic in that the matrix multiplication is partially
+   implemented numerically exactly and partially stochastically with
+   respect to expectation values only. Compared to a fully stochastic
+   method, the semistochastic approach significantly reduces the
+   computational time required to obtain the eigenvalue to a specified
+   statistical uncertainty. This is demonstrated by the application of the
+   semistochastic quantum Monte Carlo method to systems with a sign
+   problem: the fermion Hubbard model and the carbon dimer.},
+Article-Number = {230201},
+ISSN = {0031-9007},
+Unique-ID = {ISI:000312011200001},
+}
+
+@article{PetTouUmr-JCP-12,
+Author = {Petruzielo, F. R. and Toulouse, Julien and Umrigar, C. J.},
+Title = {Approaching chemical accuracy with quantum Monte Carlo},
+Journal = {J. Chem. Phys.},
+Year = {2012},
+Volume = {136},
+Number = {12},
+Month = {Mar 28},
+Abstract = {A quantum Monte Carlo study of the atomization energies for the G2 set
+   of molecules is presented. Basis size dependence of diffusion Monte
+   Carlo atomization energies is studied with a single determinant
+   Slater-Jastrow trial wavefunction formed from Hartree-Fock orbitals.
+   With the largest basis set, the mean absolute deviation from
+   experimental atomization energies for the G2 set is 3.0 kcal/mol.
+   Optimizing the orbitals within variational Monte Carlo improves the
+   agreement between diffusion Monte Carlo and experiment, reducing the
+   mean absolute deviation to 2.1 kcal/mol. Moving beyond a single
+   determinant Slater-Jastrow trial wavefunction, diffusion Monte Carlo
+   with a small complete active space Slater-Jastrow trial wavefunction
+   results in near chemical accuracy. In this case, the mean absolute
+   deviation from experimental atomization energies is 1.2 kcal/mol. It is
+   shown from calculations on systems containing phosphorus that the
+   accuracy can be further improved by employing a larger active space. (C)
+   2012 American Institute of Physics.
+   {[}http://dx.doi.org/10.1063/1.3697846]},
+DOI = {10.1063/1.3697846},
+Article-Number = {124116},
+ISSN = {0021-9606},
+ResearcherID-Numbers = {Toulouse, Julien/A-1376-2010},
+Unique-ID = {ISI:000302216200020},
+}
+
+@article{NeuUmrCha-PRB-12,
+Author = {Neuscamman, Eric and Umrigar, C. J. and Chan, Garnet Kin-Lic},
+Title = {Optimizing large parameter sets in variational quantum Monte Carlo},
+Journal = {Phys. Rev. B},
+Year = {2012},
+Volume = {85},
+Number = {4},
+Abstract = {We present a technique for optimizing hundreds of thousands of
+   variational parameters in variational quantum Monte Carlo. By
+   introducing iterative Krylov subspace solvers and by multiplying by the
+   Hamiltonian and overlap matrices as they are sampled, we remove the need
+   to construct and store these matrices and thus bypass the most expensive
+   steps of the stochastic reconfiguration and linear method optimization
+   techniques. We demonstrate the effectiveness of this approach by using
+   stochastic reconfiguration to optimize a correlator product state wave
+   function with a Pfaffian reference for four example systems. In two
+   examples on the two dimensional Fermionic Hubbard model, we study 16 and
+   64 site lattices, recovering energies accurate to 1\% in the smaller
+   lattice and predicting particle-hole phase separation in the larger. In
+   two examples involving an ab initio Hamiltonian, we investigate the
+   potential energy curve of a symmetrically dissociated 4 x 4 hydrogen
+   lattice as well as the singlet-triplet gap in free base porphin. In the
+   hydrogen system we recover 98\% or more of the correlation energy at all
+   geometries, while for porphin we compute the gap in a 24 orbital active
+   space to within 0.02 eV of the exact result. The number of variational
+   parameters in these examples ranges from 4 x 10(3) to 5 x 10(5).},
+DOI = {10.1103/PhysRevB.85.045103},
+Pages = {045103},
+ISSN = {1098-0121},
+Unique-ID = {ISI:000298865200001},
+}
+
+@INPROCEEDINGS{ReiTouAssUmrHog-Boo-12,
+ author = "{Peter Reinhardt and Julien Toulouse and Roland Assaraf and C. J. Umrigar and Philip Hoggan}",
+ title = "{Quantum Monte Carlo facing the Hartree-Fock symmetry dilemma: The case of Hydrogen rings}",
+ booktitle = "Advances in Quantum Monte Carlo",
+ year = "2012",
+ editor = "ed. by Shigenori Tanaka and Stuart M. Rothstein and William A. Lester",
+Series = {ACS Symposium Series},
+Volume = {1094},
+Pages = {53-63},
+Note = {Symposium on Advances in Quantum Monte Carlo, Honolulu, HI, DEC 15-20,
+   2010},
+Organization = {Amer Chem Soc, Phys Chem Div; Silicon Graph Inc},
+Abstract = {When using Hartree-Fock (HF) trial wave functions in quantum Monte Carlo
+   calculations, one faces, in case of HF instabilities, the HF symmetry
+   dilemma in choosing between the symmetry-adapted solution of higher HF
+   energy and symmetry-broken solutions of lower HF energies. In this work,
+   we have examined the HF symmetry dilemma in hydrogen rings which present
+   singlet instabilities for sufficiently large rings. We have found that
+   the symmetry-adapted HF wave function gives a lower energy both in
+   variational Monte Carlo and in fixed-node diffusion Monte Carlo. This
+   indicates that the symmetry-adapted wave function has more accurate
+   nodes than the symmetry-broken wave functions, and thus suggests that
+   spatial symmetry is an important criterion for selecting good trial wave
+   functions. (C) 2012 American Chemical Society},
+ISSN = {0097-6156},
+ISBN = {978-0-8412-2750-7},
+ResearcherID-Numbers = {Toulouse, Julien/A-1376-2010},
+Unique-ID = {ISI:000316716800005},
+}
+
+
+@INPROCEEDINGS{TouCafReiHogUmr-Boo-12,
+ author = "{Julien Toulouse and Michel Caffarel and Peter Reinhardt and Philip Hoggan and C. J. Umrigar}",
+ title = "{Quantum Monte Carlo calculations of electronic excitations energies: The case of the singlet $n \to \pi^*$ (CO) transition in Acrolein}",
+ booktitle = "Advances in the Theory of Quantum Systems in Chemistry and Physics and Physics",
+ year = "2012",
+ editor = "ed. by Philip E. Hoggan and Erkki J. Brandas and Jean Maruani and Piotr Piecuch and Geraldo Delgado-Barrio",
+ volume = "B22",
+ number = "",
+ series = "Progress in Theoretical Chemistry and Physics",
+Pages = {343-351},
+Note = {15th International Workshop on Quantum Systems in Chemistry and Physics
+   (QSCP), Magdalene Coll, Cambridge, ENGLAND, AUG 31-SEP 05, 2010},
+Organization = {Trinity Coll; Q-Chem; RSC},
+Abstract = {We report state-of-the-art quantum Monte Carlo calculations of the
+   singlet n -> pi{*} (CO) vertical excitation energy in the acrolein
+   molecule, extending the recent study of Bouabca et al. {[}J Chem Phys
+   130: 114107, 2009]. We investigate the effect of using a Slater basis
+   set instead of a Gaussian basis set, and of using state-average versus
+   state-specific complete-active-space (CAS) wave functions, with or
+   without reoptimization of the coefficients of the configuration state
+   functions (CSFs) and of the orbitals in variational Monte Carlo (VMC).
+   It is found that, with the Slater basis set used here, both
+   state-average and state-specific CAS(6,5) wave functions give an
+   accurate excitation energy in diffusion Monte Carlo (DMC), with or
+   without reoptimization of the CSF and orbital coefficients in the
+   presence of the Jastrow factor. In contrast, the CAS(2,2) wave functions
+   require reoptimization of the CSF and orbital coefficients to give a
+   good DMC excitation energy. Our best estimates of the vertical
+   excitation energy are between 3.86 and 3.89 eV.},
+DOI = {10.1007/978-94-007-2076-3\_19},
+ISSN = {1567-7354},
+ISBN = {978-94-007-2076-3},
+ResearcherID-Numbers = {Toulouse, Julien/A-1376-2010},
+Unique-ID = {ISI:000301339000019},
+}
+
+@article{BraTouCafUmr-JCP-11,
+Author = {Braida, Benoit and Toulouse, Julien and Caffarel, Michel and Umrigar, C.
+   J.},
+Title = {Quantum Monte Carlo with Jastrow-valence-bond wave functions},
+Journal = {J. Chem. Phys.},
+Year = {2011},
+Volume = {134},
+Number = {8},
+Month = {Feb 28},
+Abstract = {We consider the use in quantum Monte Carlo calculations of two types of
+   valence bond wave functions based on strictly localized active orbitals,
+   namely valence bond self-consistent-field and breathing-orbital valence
+   bond wave functions. Complemented by a Jastrow factor, these
+   Jastrow-valence-bond wave functions are tested by computing the
+   equilibrium well depths of the four diatomic molecules C2,N-2, O-2, and
+   F-2 in both variational Monte Carlo and diffusion Monte Carlo. We show
+   that it is possible to design compact wave functions based on chemical
+   grounds that are capable of describing both static and dynamic electron
+   correlations. These wave functions can be systematically improved by
+   inclusion of valence bond structures corresponding to additional bonding
+   patterns. (C) 2011 American Institute of Physics.
+   {[}doi:10.1063/1.3555821]},
+DOI = {10.1063/1.3555821},
+Article-Number = {084108},
+ISSN = {0021-9606},
+ResearcherID-Numbers = {Toulouse, Julien/A-1376-2010},
+Unique-ID = {ISI:000287811300011},
+}
+
+@article{PetTouUmr-JCP-11,
+Author = {Petruzielo, F. R. and Toulouse, Julien and Umrigar, C. J.},
+Title = {Basis set construction for molecular electronic structure theory:
+   Natural orbital and Gauss-Slater basis for smooth pseudopotentials},
+Journal = {J. Chem. Phys.},
+Year = {2011},
+Volume = {134},
+Number = {6},
+Month = {Feb 14},
+Abstract = {A simple yet general method for constructing basis sets for molecular
+   electronic structure calculations is presented. These basis sets consist
+   of atomic natural orbitals from a multiconfigurational self-consistent
+   field calculation supplemented with primitive functions, chosen such
+   that the asymptotics are appropriate for the potential of the system.
+   Primitives are optimized for the homonuclear diatomic molecule to
+   produce a balanced basis set. Two general features that facilitate this
+   basis construction are demonstrated. First, weak coupling exists between
+   the optimal exponents of primitives with different angular momenta.
+   Second, the optimal primitive exponents for a chosen system depend
+   weakly on the particular level of theory employed for optimization. The
+   explicit case considered here is a basis set appropriate for the
+   Burkatzki-Filippi-Dolg pseudopotentials. Since these pseudopotentials
+   are finite at nuclei and have a Coulomb tail, the recently proposed
+   Gauss-Slater functions are the appropriate primitives. Double-and
+   triple-zeta bases are developed for elements hydrogen through argon.
+   These new bases offer significant gains over the corresponding
+   Burkatzki-Filippi-Dolg bases at various levels of theory. Using a
+   Gaussian expansion of the basis functions, these bases can be employed
+   in any electronic structure method. Quantum Monte Carlo provides an
+   added benefit: expansions are unnecessary since the integrals are
+   evaluated numerically. (C) 2011 American Institute of Physics.
+   {[}doi:10.1063/1.3551512]},
+DOI = {10.1063/1.3551512},
+Article-Number = {064104},
+ISSN = {0021-9606},
+ResearcherID-Numbers = {Toulouse, Julien/A-1376-2010},
+Unique-ID = {ISI:000287327400005},
+}
+
+@article{HenWadDriParUmrWil-PRB-10,
+Author = {Hennig, R. G. and Wadehra, A. and Driver, K. P. and Parker, W. D. and
+   Umrigar, C. J. and Wilkins, J. W.},
+Title = {Phase transformation in Si from semiconducting diamond to metallic
+   beta-Sn phase in QMC and DFT under hydrostatic and anisotropic stress},
+Journal = {Phys. Rev. B},
+Year = {2010},
+Volume = {82},
+Number = {1},
+Month = {Jul 2},
+Abstract = {Silicon undergoes a phase transition from the semiconducting diamond
+   phase to the metallic beta-Sn phase under pressure. We use quantum Monte
+   Carlo calculations to predict the transformation pressure and compare
+   the results to density-functional calculations employing the
+   local-density approximation, the generalized-gradient approximations
+   PBE, PW91, WC, AM05, PBEsol, and the hybrid functional HSE06 for the
+   exchange-correlation functional. Diffusion Monte Carlo predicts a
+   transition pressure of 14.0 +/- 1.0 GPa slightly above the
+   experimentally observed transition pressure range of 11.3-12.6 GPa. The
+   HSE06 hybrid functional predicts a transition pressure of 12.4 GPa in
+   excellent agreement with experiments. Exchange-correlation functionals
+   using the local-density approximation and generalized-gradient
+   approximations result in transition pressures ranging from 3.5 to 10.0
+   GPa, well below the experimental values. The transition pressure is
+   sensitive to stress anisotropy. Anisotropy in the stress along any of
+   the cubic axes of the diamond phase of silicon lowers the equilibrium
+   transition pressure and may explain the discrepancy between the various
+   experimental values as well as the small overestimate of the quantum
+   Monte Carlo transition pressure.},
+DOI = {10.1103/PhysRevB.82.014101},
+Article-Number = {014101},
+ISSN = {1098-0121},
+ResearcherID-Numbers = {Hennig, Richard/A-2978-2008
+   Parker, William/B-4970-2012},
+ORCID-Numbers = {Hennig, Richard/0000-0003-4933-7686
+   Parker, William/0000-0003-2454-6094},
+Unique-ID = {ISI:000279468300001},
+}
+
+@article{GhaAmsHenRoyGoeLenUmr-PRB-10,
+Author = {Ghasemi, S. Alireza and Amsler, Maximilian and Hennig, Richard G. and
+   Roy, Shantanu and Goedecker, Stefan and Lenosky, Thomas J. and Umrigar,
+   C. J. and Genovese, Luigi and Morishita, Tetsuya and Nishio, Kengo},
+Title = {Energy landscape of silicon systems and its description by force fields,
+   tight binding schemes, density functional methods, and quantum Monte
+   Carlo methods},
+Journal = {Phys. Rev. B},
+Year = {2010},
+Volume = {81},
+Number = {21},
+Month = {Jun 9},
+Abstract = {The accuracy of the fundamental properties of the energy landscape of
+   silicon systems obtained from density functional theory with various
+   exchange-correlation functionals, a tight binding scheme, and force
+   fields is studied. Depending on the application, quantum Monte Carlo or
+   density functional theory results serve as quasiexact reference values.
+   In addition to the well-known accuracy of density functional methods for
+   geometric ground states and metastable configurations we find that
+   density functional methods give a similar accuracy for transition states
+   and thus a good overall description of the energy landscape of the
+   silicon systems. On the other hand, force fields give a very poor
+   description of the landscape that are in most cases too rough and
+   contain many spurious local minima and saddle points or ones that have
+   the wrong height.},
+DOI = {10.1103/PhysRevB.81.214107},
+Article-Number = {214107},
+ISSN = {1098-0121},
+ResearcherID-Numbers = {Genovese, Luigi/C-5937-2011
+   Hennig, Richard/A-2978-2008
+   Amsler, Maximilian/H-4718-2013},
+ORCID-Numbers = {Genovese, Luigi/0000-0003-1747-0247
+   Hennig, Richard/0000-0003-4933-7686
+   },
+Unique-ID = {ISI:000278555300002},
+}
+
+@article{PetTouUmr-JCP-10,
+Author = {Petruzielo, F. R. and Toulouse, Julien and Umrigar, C. J.},
+Title = {Compact and flexible basis functions for quantum Monte Carlo
+   calculations},
+Journal = {J. Chem. Phys.},
+Year = {2010},
+Volume = {132},
+Number = {9},
+Month = {Mar 7},
+Abstract = {Molecular calculations in quantum Monte Carlo frequently employ a mixed
+   basis consisting of contracted and primitive Gaussian functions. While
+   standard basis sets of varying size and accuracy are available in the
+   literature, we demonstrate that reoptimizing the primitive function
+   exponents within quantum Monte Carlo yields more compact basis sets for
+   a given accuracy. Particularly large gains are achieved for highly
+   excited states. For calculations using nondiverging pseudopotentials, we
+   introduce Gauss-Slater basis functions that behave as Gaussians at short
+   distances and Slaters at long distances. These basis functions further
+   improve the energy and fluctuations of the local energy for a given
+   basis size. Gains achieved by exponent optimization and Gauss-Slater
+   basis use are exemplified by calculations for the ground state of
+   carbon, the lowest lying excited states of carbon with (5)S(o), (3)P(o),
+   (1)D(o), and (3)F(o) symmetries, carbon dimer, and naphthalene.
+   Basis-size reduction enables quantum Monte Carlo treatment of larger
+   molecules at high accuracy.},
+DOI = {10.1063/1.3342062},
+Article-Number = {094109},
+ISSN = {0021-9606},
+ResearcherID-Numbers = {Toulouse, Julien/A-1376-2010},
+Unique-ID = {ISI:000275245400011},
+}
+
+@article{ChaKinUmrCha-PRB-09,
+Author = {Changlani, Hitesh J. and Kinder, Jesse M. and Umrigar, C. J. and Chan,
+   Garnet Kin-Lic},
+Title = {Approximating strongly correlated wave functions with correlator product
+   states},
+Journal = {Phys. Rev. B},
+Year = {2009},
+Volume = {80},
+Number = {24},
+Month = {Dec},
+Abstract = {We describe correlator product states, a class of numerically efficient
+   many-body wave functions to describe strongly correlated wave functions
+   in any dimension. Correlator product states introduce direct
+   correlations between physical degrees of freedom in a simple way, yet
+   provide the flexibility to describe a wide variety of systems. We show
+   that many interesting wave functions can be mapped exactly onto
+   correlator product states, including Laughlin's quantum Hall wave
+   function, Kitaev's toric code states, and Huse and Elser's frustrated
+   spin states. We also outline the relationship between correlator product
+   states and other common families of variational wave functions such as
+   matrix product states, tensor product states, and resonating
+   valence-bond states. Variational calculations for the Heisenberg and
+   spinless Hubbard models demonstrate the promise of correlator product
+   states for describing both two-dimensional and fermion correlations.
+   Even in one-dimensional systems, correlator product states are
+   competitive with matrix product states for a fixed number of variational
+   parameters.},
+DOI = {10.1103/PhysRevB.80.245116},
+Article-Number = {245116},
+ISSN = {1098-0121},
+Unique-ID = {ISI:000273229200060},
+}
+
+@article{GucUmrJiaBar-PRB-09,
+Author = {G\"uclu, A. D. and Umrigar, C. J. and Jiang, Hong and Baranger, Harold
+   U.},
+Title = {Localization in an inhomogeneous quantum wire},
+Journal = {Phys. Rev. B},
+Year = {2009},
+Volume = {80},
+Number = {20},
+Month = {Nov},
+Abstract = {We study interaction-induced localization of electrons in an
+   inhomogeneous quasi-one-dimensional system-a wire with two regions, one
+   at low density and the other high. Quantum Monte Carlo techniques are
+   used to treat the strong Coulomb interactions in the low-density region,
+   where localization of electrons occurs. The nature of the transition
+   from high to low density depends on the density gradient-if it is steep,
+   a barrier develops between the two regions, causing Coulomb blockade
+   effects. Ferromagnetic spin polarization does not appear for any
+   parameters studied. The picture emerging is in good agreement with
+   measurements of tunneling between wires.},
+DOI = {10.1103/PhysRevB.80.201302},
+Article-Number = {201302},
+ISSN = {1098-0121},
+ResearcherID-Numbers = {Jiang, Hong/G-6787-2011},
+Unique-ID = {ISI:000272311400008},
+}
+
+@article{ZimTouZhaMusUmr-JCP-09,
+Author = {Zimmerman, Paul M. and Toulouse, Julien and Zhang, Zhiyong and Musgrave,
+   Charles B. and Umrigar, C. J.},
+Title = {Excited states of methylene from quantum Monte Carlo},
+Journal = {J. Chem. Phys.},
+Year = {2009},
+Volume = {131},
+Number = {12},
+Month = {Sep 28},
+Abstract = {The ground and lowest three adiabatic excited states of methylene are
+   computed using the variational Monte Carlo and diffusion Monte Carlo
+   (DMC) methods using progressively larger Jastrow-Slater multideterminant
+   complete active space (CAS) wave functions. The highest of these states
+   has the same symmetry, (1)A(1), as the first excited state. The DMC
+   excitation energies obtained using any of the CAS wave functions are in
+   excellent agreement with experiment, but single-determinant wave
+   functions do not yield accurate DMC energies of the states of (1)A(1)
+   symmetry, indicating that it is important to include in the wave
+   function Slater determinants that describe static (strong) correlation.
+   Excitation energies obtained using recently proposed pseudopotentials
+   {[}Burkatzki et al., J. Chem. Phys. 126, 234105 (2007)] differ from the
+   all-electron excitation energies by at most 0.04 eV. (C) 2009 American
+   Institute of Physics. {[}doi:10.1063/1.3220671]},
+DOI = {10.1063/1.3220671},
+Article-Number = {124103},
+ISSN = {0021-9606},
+ResearcherID-Numbers = {Toulouse, Julien/A-1376-2010},
+Unique-ID = {ISI:000270380300007},
+}
+
+@article{UmrTou-APACS-09,
+Author = {Umrigar, Cyrus J. and Toulouse, Julien},
+Title = {Static and dynamic correlation effects in quantum Monte Carlo methods},
+Journal = {ABSTRACTS OF PAPERS OF THE AMERICAN CHEMICAL SOCIETY},
+Year = {2009},
+Volume = {238},
+Meeting Abstract = {266-PHYS},
+Month = {Aug 16},
+ISSN = {0065-7727},
+Unique-ID = {ISI:000207861909482},
+}
+
+@article{ZhaLawJafUmrTou-APACS-09,
+Author = {Zhang, Zhiyong and Lawson, John and Jaffe, Richard L. and Umrigar, Cyrus
+   J. and Toulouse, Julien},
+Title = {Quantum Monte Carlo study of low-lying electronic states and
+   thermochemistry of small molecules},
+Journal = {ABSTRACTS OF PAPERS OF THE AMERICAN CHEMICAL SOCIETY},
+Year = {2009},
+Volume = {238},
+Meeting Abstract = {343-COMP},
+Month = {Aug 16},
+ISSN = {0065-7727},
+Unique-ID = {ISI:000207861904274},
+}
+
+@article{ZimZhaMusTouUmr-APACS-09,
+Author = {Zimmerman, Paul and Zhang, Zhiyong and Musgrave, Charles and Toulouse,
+   Julien and Umrigar, Cyrus J.},
+Title = {Quantum Monte Carlo study of methylene excited states},
+Journal = {ABSTRACTS OF PAPERS OF THE AMERICAN CHEMICAL SOCIETY},
+Year = {2009},
+Volume = {238},
+Meeting Abstract = {344-COMP},
+Month = {Aug 16},
+ISSN = {0065-7727},
+Unique-ID = {ISI:000207861904263},
+}
+
+@article{ZenGeiRuaUmrCho-PRB-09,
+Author = {Zeng, Lang and Geist, W. and Ruan, W. Y. and Umrigar, C. J. and Chou, M.
+   Y.},
+Title = {Path to Wigner localization in circular quantum dots},
+Journal = {Phys. Rev. B},
+Year = {2009},
+Volume = {79},
+Number = {23},
+Month = {Jun},
+Abstract = {Accurate multideterminant ground-state energies of circular quantum dots
+   containing N <= 13 electrons as a function of interaction strength have
+   been evaluated by the diffusion quantum Monte Carlo method. Two unique
+   features are found for these confined two-dimensional systems: (1) as
+   the electron density decreases, the quantum dots favor states with zero
+   orbital angular momentum (L = 0); and (2) for some values of N, the
+   ground state cannot be fully spin-polarized because of a symmetry
+   constraint.},
+DOI = {10.1103/PhysRevB.79.235334},
+Article-Number = {235334},
+ISSN = {1098-0121},
+ResearcherID-Numbers = {Chou, Mei-Yin/D-3898-2012},
+Unique-ID = {ISI:000267699500104},
+}
+
+@article{TouUmrAss-APACS-09,
+Author = {Toulouse, Julien and Umrigar, Cyrus J. and Assaraf, Roland},
+Title = {Recent advances in quantum Monte Carlo for quantum chemistry:
+   Optimization of wave functions and calculation of observables},
+Journal = {ABSTRACTS OF PAPERS OF THE AMERICAN CHEMICAL SOCIETY},
+Year = {2009},
+Volume = {237},
+Meeting Abstract = {89-COMP},
+Month = {Mar 22},
+ISSN = {0065-7727},
+Unique-ID = {ISI:000207857803531},
+}
+
+@article{UmrTouNig-APACS-09,
+Author = {Umrigar, Cyrus J. and Toulouse, Julien and Nightingale, Peter},
+Title = {Optimal wave functions for diffusion Monte Carlo},
+Journal = {ABSTRACTS OF PAPERS OF THE AMERICAN CHEMICAL SOCIETY},
+Year = {2009},
+Volume = {237},
+Meeting Abstract = {87-COMP},
+Month = {Mar 22},
+ISSN = {0065-7727},
+Unique-ID = {ISI:000207857803647},
+}
+
+@article{LawBauTouFilUmr-CPL-08,
+Author = {Lawson, John W. and Bauschlicher, Jr., Charles W. and Toulouse, Julien
+   and Filippi, Claudia and Umrigar, C. J.},
+Title = {Quantum Monte Carlo study of the cooperative binding of NO(2) to
+   fragment models of carbon nanotubes},
+Journal = {CHEMICAL PHYSICS Lett.},
+Year = {2008},
+Volume = {466},
+Number = {4-6},
+Pages = {170-175},
+Month = {Dec 4},
+Abstract = {Previous calculations on model systems for the cooperative binding of
+   two NO(2) molecules to carbon nanotubes using density functional theory
+   and second order Moller-Plesset perturbation theory gave results
+   differing by 30 kcal/mol. Quantum Monte Carlo calculations are performed
+   to study the role of electronic correlations in these systems and
+   resolve the discrepancy between these previous calculations. Compared to
+   QMC binding energies, MP2 and LDA are shown to overbind, while B3LYP and
+   BPW91 underbind. PW91 gives the best agreement with QMC with a binding
+   energy differing by only 3 kcal/mol. Basis set effects are also shown to
+   be important. Published by Elsevier B. V.},
+DOI = {10.1016/j.cplett.2008.10.066},
+ISSN = {0009-2614},
+ResearcherID-Numbers = {Toulouse, Julien/A-1376-2010},
+Unique-ID = {ISI:000261184100014},
+}
+
+@article{TouUmr-JCP-08,
+Author = {Toulouse, Julien and Umrigar, C. J.},
+Title = {Full optimization of Jastrow-Slater wave functions with application to
+   the first-row atoms and homonuclear diatomic molecules},
+Journal = {J. Chem. Phys.},
+Year = {2008},
+Volume = {128},
+Number = {17},
+Month = {May 7},
+Abstract = {We pursue the development and application of the recently introduced
+   linear optimization method for determining the optimal linear and
+   nonlinear parameters of Jastrow-Slater wave functions in a variational
+   Monte Carlo framework. In this approach, the optimal parameters are
+   found iteratively by diagonalizing the Hamiltonian matrix in the space
+   spanned by the wave function and its first-order derivatives, making use
+   of a strong zero-variance principle. We extend the method to optimize
+   the exponents of the basis functions, simultaneously with all the other
+   parameters, namely, the Jastrow, configuration state function, and
+   orbital parameters. We show that the linear optimization method can be
+   thought of as a so-called augmented Hessian approach, which helps
+   explain the robustness of the method and permits us to extend it to
+   minimize a linear combination of the energy and the energy variance. We
+   apply the linear optimization method to obtain the complete ground-state
+   potential energy curve of the C(2) molecule up to the dissociation limit
+   and discuss size consistency and broken spin-symmetry issues in quantum
+   Monte Carlo calculations. We perform calculations for the first-row
+   atoms and homonuclear diatomic molecules with fully optimized
+   Jastrow-Slater wave functions, and we demonstrate that molecular well
+   depths can be obtained with near chemical accuracy quite systematically
+   at the diffusion Monte Carlo level for these. systems. (C) 2008 American
+   Institute of Physics.},
+DOI = {10.1063/1.2908237},
+Article-Number = {174101},
+ISSN = {0021-9606},
+ResearcherID-Numbers = {Toulouse, Julien/A-1376-2010},
+Unique-ID = {ISI:000256232400003},
+}
+
+@article{Al-Umr-JCP-08,
+Author = {Al-Saidia, W. A. and Umrigar, C. J.},
+Title = {Fixed-node diffusion Monte Carlo study of the structures of m-benzyne},
+Journal = {J. Chem. Phys.},
+Year = {2008},
+Volume = {128},
+Number = {15},
+Month = {Apr 21},
+Abstract = {Diffusion Monte Carlo (DMC) calculations are performed on the monocyclic
+   and bicyclic forms of m-benzyne, which are the equilibrium structures at
+   the CCSD (T) and CCSD levels of coupled cluster theory. We employed
+   multiconfiguration self-consistent field trial wave functions which are
+   constructed from a carefully selected eight-electrons-in-eight-orbitals
+   complete active space {[}CAS(8,8)], with configuration state function
+   coefficients that are reoptimized in the presence of a Jastrow factor.
+   The DMC calculations show that the monocyclic structure is lower in
+   energy than the bicyclic structure by 1.9(2) kcal/mole, which is in
+   excellent agreement with the best coupled cluster results. (c) 2008
+   American Institute of Physics.},
+DOI = {10.1063/1.2902979},
+Article-Number = {154324},
+ISSN = {0021-9606},
+Unique-ID = {ISI:000255228900045},
+}
+
+@article{GucGhoUmrBar-PRB-08,
+Author = {G"uclu, A. D. and Ghosal, Amit and Umrigar, C. J. and Baranger, Harold
+   U.},
+Title = {Interaction-induced strong localization in quantum dots},
+Journal = {Phys. Rev. B},
+Year = {2008},
+Volume = {77},
+Number = {4},
+Month = {Jan},
+Abstract = {We argue that Coulomb blockade phenomena are a useful probe of the
+   crossover to strong correlation in quantum dots. Through calculations at
+   low density using variational and diffusion quantum Monte Carlo (up to
+   r(s)similar to 55), we find that the addition energy shows a clear
+   progression from features associated with shell structure to those
+   caused by commensurability of a Wigner crystal. This crossover (which
+   occurs near r(s)similar to 20 for spin-polarized electrons) is, then, a
+   signature of interaction-driven localization. As the addition energy is
+   directly measurable in Coulomb blockade conductance experiments, this
+   provides a direct probe of localization in the low density electron gas.},
+DOI = {10.1103/PhysRevB.77.041301},
+Article-Number = {041301},
+ISSN = {1098-0121},
+Unique-ID = {ISI:000252863100003},
+}
+
+@inproceedings{EslKikCepPurWalKraZhaKenHenUmrBajKolMitSri-JPCS-08,
+Author = {Esler, Kenneth P. and Kim, Jeongnim and Ceperley, David M. and Purwanto,
+   Wirawan and Walter, Eric J. and Krakauer, Henry and Zhang, Shiwei and
+   Kent, Paul R. C. and Hennig, Richard G. and Umrigar, Cyrus and Bajdich,
+   Michal and Kolorenc, Jindrich and Mitas, Lubos and Srinivasan, Ashok},
+Editor = {Stevens, RL},
+Title = {Quantum Monte Carlo algorithms for electronic structure at the
+   petascale; the endstation project - art. no. 012057},
+Booktitle = {SCIDAC 2008: SCIENTIFIC DISCOVERY THROUGH ADVANCED COMPUTING},
+Series = {JOURNAL OF PHYSICS CONFERENCE SERIES},
+Year = {2008},
+Volume = {125},
+Pages = {12057},
+Note = {4th Annual Scientific Discovery through Advanced Computing Conference
+   (SciDAC 2008), Seattle, WA, JUL 13-17, 2008},
+Organization = {US DOE Off Sci; Cray; IBM; Intel; HP; SiCortex},
+Abstract = {Over the past two decades, continuum quantum Monte Carlo (QMC) has
+   proved to be an invaluable tool for predicting of the properties of
+   matter from fundamental principles. By solving the Schrodinger equation
+   through a stochastic projection, it achieves the greatest accuracy and
+   reliability of methods available for physical systems containing more
+   than a few quantum particles. QMC enjoys scaling favorable to quantum
+   chemical methods, with a computational effort which grows with the
+   second or third power of system size. This accuracy and scalability has
+   enabled scientific discovery across a broad spectrum of disciplines. The
+   current methods perform very efficiently at the terascale. The quantum
+   Monte Carlo Endstation project is a collaborative effort among
+   researchers in the field to develop a new generation of algorithms, and
+   their efficient implementations, which will take advantage of the
+   upcoming petaflop architectures. Some aspects of these developments are
+   discussed here. These tools will expand the accuracy, efficiency and
+   range of QMC applicability and enable us to tackle challenges which are
+   currently out of reach. The methods will be applied to several important
+   problems including electronic and structural properties of water,
+   transition metal oxides, nanosystems and ultracold atoms.},
+DOI = {10.1088/1742-6596/125/1/012057},
+ISSN = {1742-6588},
+ResearcherID-Numbers = {Kent, Paul/A-6756-2008
+   Ceperley, David/A-6858-2008
+   Hennig, Richard/A-2978-2008
+   Kolorenc, Jindrich/G-5405-2014},
+ORCID-Numbers = {Kent, Paul/0000-0001-5539-4017
+   Hennig, Richard/0000-0003-4933-7686
+   Kolorenc, Jindrich/0000-0003-2627-8302},
+Unique-ID = {ISI:000260370700058},
+}
+
+@article{GhoGucUmrUllBar-PRB-07,
+Author = {Ghosal, Amit and G\"uclu, A. D. and Umrigar, C. J. and Ullmo, Denis and
+   Baranger, Harold U.},
+Title = {Incipient Wigner localization in circular quantum dots},
+Journal = {Phys. Rev. B},
+Year = {2007},
+Volume = {76},
+Number = {8},
+Month = {Aug},
+Abstract = {We study the development of electron-electron correlations in circular
+   quantum dots as the density is decreased. We consider a wide range of
+   both electron number, N <= 20, and electron gas parameter, r(s)less than
+   or similar to 18, using the diffusion quantum Monte Carlo technique.
+   Features associated with correlation appear to develop very differently
+   in quantum dots than in bulk. The main reason is that translational
+   symmetry is necessarily broken in a dot, leading to density modulation
+   and inhomogeneity. Electron-electron interactions act to enhance this
+   modulation ultimately leading to localization. This process appears to
+   be completely smooth and occurs over a wide range of density. Thus there
+   is a broad regime of ``incipient{''} Wigner crystallization in these
+   quantum dots. Our specific conclusions are (i) the density develops
+   sharp rings while the pair density shows both radial and angular
+   inhomogeneity; (ii) the spin of the ground state is consistent with
+   Hund's (first) rule throughout our entire range of r(s) for all 4 <= N
+   <= 20; (iii) the addition energy curve first becomes smoother as
+   interactions strengthen-the mesoscopic fluctuations are damped by
+   correlation-and then starts to show features characteristic of the
+   classical addition energy; (iv) localization effects are stronger for a
+   smaller number of electrons; (v) finally, the gap to certain spin
+   excitations becomes small at the strong interaction (large r(s)) side of
+   our regime.},
+DOI = {10.1103/PhysRevB.76.085341},
+Article-Number = {085341},
+ISSN = {1098-0121},
+Unique-ID = {ISI:000249155400093},
+}
+
+@article{ColPedLipUmr-PSSBSSP-07,
+Author = {Colletti, Leonardo and Pederiva, Francesco and Lipparini, Enrico and
+   Umrigar, Cyrus J.},
+Title = {Spin- and charge-density excitations in quantum dots via Quantum Monte
+   Carlo simulation},
+Journal = {Physica STATUS SOLIDI B-BASIC SOLID STATE PHYSICS},
+Year = {2007},
+Volume = {244},
+Number = {7},
+Pages = {2317-2321},
+Month = {Jul},
+Note = {30th International Conference of Theoretical Physics, Ustron, POLAND,
+   Sep 09-14, 2006},
+Abstract = {The calculation of the polarizability provides a method of calculating
+   the collective-modes excitation energies of an electronic system.
+   However, the polarizability is a correlated quantity, thus demanding a
+   major effort when Monte Carlo methods are used for its evaluation.
+   Nevertheless, Quantum Monte Carlo results represent the benchmark in
+   most many-body physics. We applied a correlated Variational and
+   Diffusion Monte Carlo scheme to a GaAs-AlGaAs quantum dot. Comparison
+   with Raman scattering experiments and previous calculations is
+   considerable. (c) 2007 WILEY-VCH Verlag GmbH \& Co. KGaA, Weinheim.},
+DOI = {10.1002/pssb.200674605},
+ISSN = {0370-1972},
+ResearcherID-Numbers = {Colletti, Leonardo/F-9381-2011},
+Unique-ID = {ISI:000248061600005},
+}
+
+@article{TouAssandUmr-JCP-07,
+Author = {Toulouse, Julien and Assaraf, Roland and Umrigar, C. J.},
+Title = {Zero-variance zero-bias quantum Monte Carlo estimators of the
+   spherically and system-averaged pair density},
+Journal = {J. Chem. Phys.},
+Year = {2007},
+Volume = {126},
+Number = {24},
+Month = {Jun 28},
+Abstract = {We construct improved quantum Monte Carlo estimators for the spherically
+   and system-averaged electron pair density (i.e., the probability density
+   of finding two electrons separated by a relative distance u), also known
+   as the spherically averaged electron position intracule density I(u),
+   using the general zero-variance zero-bias principle for observables,
+   introduced by Assaraf and Caffarel. The calculation of I(u) is made
+   vastly more efficient by replacing the average of the local
+   delta-function operator by the average of a smooth nonlocal operator
+   that has several orders of magnitude smaller variance. These new
+   estimators also reduce the systematic error (or bias) of the intracule
+   density due to the approximate trial wave function. Used in combination
+   with the optimization of an increasing number of parameters in trial
+   Jastrow-Slater wave functions, they allow one to obtain well converged
+   correlated intracule densities for atoms and molecules. These ideas can
+   be applied to calculating any pair-correlation function in classical or
+   quantum Monte Carlo calculations. (c) 2007 American Institute of
+   Physics.},
+DOI = {10.1063/1.2746029},
+Article-Number = {244112},
+ISSN = {0021-9606},
+ResearcherID-Numbers = {Toulouse, Julien/A-1376-2010},
+Unique-ID = {ISI:000247625800018},
+}
+
+@article{UmrTouFilSorHen-PRL-07,
+Author = {Umrigar, C. J. and Toulouse, Julien and Filippi, Claudia and Sorella, S.
+   and Hennig, R. G.},
+Title = {Alleviation of the fermion-sign problem by optimization of many-body
+   wave functions},
+Journal = {Phys. Rev. Lett.},
+Year = {2007},
+Volume = {98},
+Number = {11},
+Month = {Mar 16},
+Abstract = {We present a simple, robust, and highly efficient method for optimizing
+   all parameters of many-body wave functions in quantum Monte Carlo
+   calculations, applicable to continuum systems and lattice models. Based
+   on a strong zero-variance principle, diagonalization of the Hamiltonian
+   matrix in the space spanned by the wave function and its derivatives
+   determines the optimal parameters. It systematically reduces the
+   fixed-node error, as demonstrated by the calculation of the binding
+   energy of the small but challenging C-2 molecule to the experimental
+   accuracy of 0.02 eV.},
+DOI = {10.1103/PhysRevLett.98.110201},
+Article-Number = {110201},
+ISSN = {0031-9007},
+ResearcherID-Numbers = {Toulouse, Julien/A-1376-2010
+   Hennig, Richard/A-2978-2008},
+ORCID-Numbers = {Hennig, Richard/0000-0003-4933-7686},
+Unique-ID = {ISI:000244959300001},
+}
+
+@article{TouUmr-JCP-07,
+Author = {Toulouse, Julien and Umrigar, C. J.},
+Title = {Optimization of quantum Monte Carlo wave functions by energy
+   minimization},
+Journal = {J. Chem. Phys.},
+Year = {2007},
+Volume = {126},
+Number = {8},
+Month = {Feb 28},
+Abstract = {We study three wave function optimization methods based on energy
+   minimization in a variational Monte Carlo framework: the Newton, linear,
+   and perturbative methods. In the Newton method, the parameter variations
+   are calculated from the energy gradient and Hessian, using a reduced
+   variance statistical estimator for the latter. In the linear method, the
+   parameter variations are found by diagonalizing a nonsymmetric estimator
+   of the Hamiltonian matrix in the space spanned by the wave function and
+   its derivatives with respect to the parameters, making use of a strong
+   zero-variance principle. In the less computationally expensive
+   perturbative method, the parameter variations are calculated by
+   approximately solving the generalized eigenvalue equation of the linear
+   method by a nonorthogonal perturbation theory. These general methods are
+   illustrated here by the optimization of wave functions consisting of a
+   Jastrow factor multiplied by an expansion in configuration state
+   functions (CSFs) for the C(2) molecule, including both valence and core
+   electrons in the calculation. The Newton and linear methods are very
+   efficient for the optimization of the Jastrow, CSF, and orbital
+   parameters. The perturbative method is a good alternative for the
+   optimization of just the CSF and orbital parameters. Although the
+   optimization is performed at the variational Monte Carlo level, we
+   observe for the C(2) molecule studied here, and for other systems we
+   have studied, that as more parameters in the trial wave functions are
+   optimized, the diffusion Monte Carlo total energy improves
+   monotonically, implying that the nodal hypersurface also improves
+   monotonically. (c) 2007 American Institute of Physics.},
+DOI = {10.1063/1.2437215},
+Article-Number = {084102},
+ISSN = {0021-9606},
+ResearcherID-Numbers = {Toulouse, Julien/A-1376-2010},
+Unique-ID = {ISI:000244530900003},
+}
+
+@article{HelHenGoeUmrDelLen-PRB-07,
+Author = {Hellmann, Waldemar and Hennig, R. G. and Goedecker, Stefan and Umrigar,
+   C. J. and Delley, Bernard and Lenosky, T.},
+Title = {Questioning the existence of a unique ground-state structure for Si
+   clusters},
+Journal = {Phys. Rev. B},
+Year = {2007},
+Volume = {75},
+Number = {8},
+Month = {Feb},
+Abstract = {Density functional and quantum Monte Carlo calculations challenge the
+   existence of a unique ground-state structure for certain Si clusters.
+   For Si clusters with more than a dozen atoms the lowest ten isomers are
+   close in energy and for some clusters entropic effects change the
+   energetic ordering of the configurations. Isotope pure configurations
+   with rotational symmetry and symmetric configurations containing one
+   additional isotope are disfavored by these effects. Comparisons with
+   experiment are thus difficult since a mixture of configurations is to be
+   expected at thermal equilibrium.},
+DOI = {10.1103/PhysRevB.75.085411},
+Article-Number = {085411},
+ISSN = {1098-0121},
+ResearcherID-Numbers = {Hennig, Richard/A-2978-2008},
+ORCID-Numbers = {Hennig, Richard/0000-0003-4933-7686},
+Unique-ID = {ISI:000244533800070},
+}
+
+@article{BatHeyHenUbeMarSchUmrWil-PRB-06,
+Author = {Batista, Enrique R. and Heyd, Jochen and Hennig, Richard G. and
+   Uberuaga, Blas P. and Martin, Richard L. and Scuseria, Gustavo E. and
+   Umrigar, C. J. and Wilkins, John W.},
+Title = {Comparison of screened hybrid density functional theory to diffusion
+   Monte Carlo in calculations of total energies of silicon phases and
+   defects},
+Journal = {Phys. Rev. B},
+Year = {2006},
+Volume = {74},
+Number = {12},
+Month = {Sep},
+Abstract = {Nearly quantitative agreement between density functional theory (DFT)
+   and diffusion Monte Carlo (DMC) calculations is shown for the prediction
+   of defect properties using the Heyd-Scuseria-Ernzerhof (HSE)
+   screened-exchange hybrid functional. The HSE functional enables accurate
+   computations on complex systems, such as defects, where traditional DFT
+   may be inadequate and DMC calculation computationally unfeasible. The
+   screened-exchange hybrid functional retains the benefits of earlier
+   hybrid functionals in terms of treating strongly correlated insulators
+   but unlike them it can be applied to metallic phases. This study
+   concentrates on the DFT energetic predictions of point defects in
+   silicon and on phase energy differences between the diamond and metallic
+   beta-tin phases.},
+DOI = {10.1103/PhysRevB.74.121102},
+Article-Number = {121102},
+ISSN = {1098-0121},
+ResearcherID-Numbers = {Hennig, Richard/A-2978-2008
+   Scuseria, Gustavo/F-6508-2011},
+ORCID-Numbers = {Hennig, Richard/0000-0003-4933-7686
+   },
+Unique-ID = {ISI:000240872500002},
+}
+
+@article{GhoGucUmrUllBar-NP-06,
+Author = {Ghosal, Amit and G\"uclu, A. D. and Umrigar, C. J. and Ullmo, Denis and
+   Baranger, Harold U.},
+Title = {Correlation-induced inhomogeneity in circular quantumdots},
+Journal = {NATURE PHYSICS},
+Year = {2006},
+Volume = {2},
+Number = {5},
+Pages = {336-340},
+Month = {May},
+Abstract = {Properties of the `electron gas' - in which conduction electrons
+   interact by means of Coulomb forces but ionic potentials are neglected -
+   change dramatically depending on the balance between kinetic energy and
+   Coulomb repulsion. The limits are well understood(1). For very weak
+   interactions ( high density), the system behaves as a Fermi liquid, with
+   delocalized electrons. In contrast, in the strongly interacting limit (
+   low density), the electrons localize and order into a Wigner crystal
+   phase. The physics at intermediate densities, however, remains a subject
+   of fundamental research(2-8). Here, we study the intermediate-density
+   electron gas confined to a circular disc, where the degree of
+   confinement can be tuned to control the density. Using accurate quantum
+   Monte Carlo techniques(9), we show that the electron - electron
+   correlation induced by an increase of the interaction first smoothly
+   causes rings, and then angular modulation, without any signature of a
+   sharp transition in this density range. This suggests that
+   inhomogeneities in a confined system, which exist even without
+   interactions, are significantly enhanced by correlations.},
+DOI = {10.1038/nphys293},
+ISSN = {1745-2473},
+Unique-ID = {ISI:000237648400023},
+}
+
+@article{EdwPinSchMarThoHjaUmr-PRB-06,
+Author = {Edwards, AH and Pineda, AC and Schultz, PA and Martin, MG and Thompson,
+   AP and Hjalmarson, HP and Umrigar, CJ},
+Title = {Electronic structure of intrinsic defects in crystalline germanium
+   telluride},
+Journal = {Phys. Rev. B},
+Year = {2006},
+Volume = {73},
+Number = {4},
+Month = {Jan},
+Abstract = {Germanium telluride undergoes rapid transition between polycrystalline
+   and amorphous states under either optical or electrical excitation.
+   While the crystalline phases are predicted to be semiconductors,
+   polycrystalline germanium telluride always exhibits p-type metallic
+   conductivity. We present a study of the electronic structure and
+   formation energies of the vacancy and antisite defects in both known
+   crystalline phases. We show that these intrinsic defects determine the
+   nature of free-carrier transport in crystalline germanium telluride.
+   Germanium vacancies require roughly one-third the energy of the other
+   three defects to form, making this by far the most favorable intrinsic
+   defect. While the tellurium antisite and vacancy induce gap states, the
+   germanium counterparts do not. A simple counting argument, reinforced by
+   integration over the density of states, predicts that the germanium
+   vacancy leads to empty states at the top of the valence band, thus
+   giving a complete explanation of the observed p-type metallic
+   conduction.},
+DOI = {10.1103/PhysRevB.73.045210},
+Article-Number = {045210},
+ISSN = {1098-0121},
+Unique-ID = {ISI:000235009700060},
+}
+
+@article{JeoGucUmrJai-PRB-05,
+Author = {Jeon, GS and G\"uclu, AD and Umrigar, CJ and Jain, JK},
+Title = {Composite-fermion antiparticle description of the hole excitation in a
+   maximum-density droplet with a small number of electrons},
+Journal = {Phys. Rev. B},
+Year = {2005},
+Volume = {72},
+Number = {24},
+Month = {Dec},
+Abstract = {The maximum-density droplet of quantum dots in a high magnetic field,
+   which is a finite-size realization of the state at filling factor 1,
+   becomes unstable to the creation of a central hole (provided it contains
+   a small number of electrons) as the magnetic field is increased or the
+   strength of the confinement potential reduced. The simplest model for
+   the hole is as a vortex at the center, which, however, is renormalized
+   by edge excitations. We show that an accurate description of the actual
+   hole state is achieved in terms of a ``composite-fermion
+   antiparticle,{''} which is surprising in view of the fact that composite
+   fermions are thought to be relevant only in the fractional Hall regime.
+   We extend these considerations to multiple holes in the maximum-density
+   droplet, and also to the quasihole at nu=1/3. The effect of Landau-level
+   mixing is also considered through a diffusion Monte Carlo calculation.},
+DOI = {10.1103/PhysRevB.72.245312},
+Article-Number = {245312},
+ISSN = {1098-0121},
+Unique-ID = {ISI:000234342900056},
+}
+
+@article{GucJeoUmrJai-PRB-05,
+Author = {G\"uclu, AD and Jeon, GS and Umrigar, CJ and Jain, JK},
+Title = {Quantum Monte Carlo study of composite fermions in quantum dots: The
+   effect of Landau-level mixing},
+Journal = {Phys. Rev. B},
+Year = {2005},
+Volume = {72},
+Number = {20},
+Month = {Nov},
+Abstract = {Composite fermion wave functions projected onto the lowest Landau level,
+   provide an accurate description of two-dimensional quantum dots in the
+   limit of strong magnetic fields. We show that the range of validity of
+   these wave functions can be extended to smaller magnetic fields by
+   incorporating Landau level mixing effects with the variational and
+   diffusion Monte Carlo methods. We apply our method to 14 and 15 electron
+   systems to study ground state properties in the fractional quantum Hall
+   regime. Landau level mixing is found to be important for a quantitative
+   understanding of experimental addition spectra.},
+DOI = {10.1103/PhysRevB.72.205327},
+Article-Number = {205327},
+ISSN = {1098-0121},
+Unique-ID = {ISI:000233603900080},
+}
+
+@article{GucUmr-PRB-05,
+Author = {G\"uclu, AD and Umrigar, CJ},
+Title = {Maximum-density droplet to lower-density droplet transition in quantum
+   dots},
+Journal = {Phys. Rev. B},
+Year = {2005},
+Volume = {72},
+Number = {4},
+Month = {Jul},
+Abstract = {We show that the Landau level mixing in two-dimensional quantum dot wave
+   functions can be taken into account very effectively by multiplying the
+   exact lowest Landau level wave functions by a Jastrow factor which is
+   optimized by variance minimization. The comparison between exact
+   diagonalization and fixed phase diffusion Monte Carlo results suggests
+   that the phase of the many-body wave functions are not affected much by
+   Landau level mixing. We apply these wave functions to study the
+   transition from the maximum density droplet state {[}incipient integer
+   quantum Hall state with angular momentum L=N(N-1)/2] to lower density
+   droplet states {[}L > N(N-1)/2].},
+DOI = {10.1103/PhysRevB.72.045309},
+Article-Number = {045309},
+ISSN = {1098-0121},
+Unique-ID = {ISI:000230890300092},
+}
+
+@article{GhoUmrJiaUllBar-PRB-05,
+Author = {Ghosal, A and Umrigar, CJ and Jiang, H and Ullmo, D and Baranger, HU},
+Title = {Interaction effects in the mesoscopic regime: A quantum Monte Carlo
+   study of irregular quantum dotsInteraction effects in the mesoscopic
+   regime: A quantum Monte Carlo study of irregular quantum dots},
+Journal = {Phys. Rev. B},
+Year = {2005},
+Volume = {71},
+Number = {24},
+Month = {Jun},
+Abstract = {We address the issue of accurately treating interaction effects in the
+   mesoscopic regime by investigating the ground-state properties of
+   isolated irregular quantum dots. Quantum Monte Carlo techniques are used
+   to calculate the distributions of ground-state spin and addition energy.
+   We find a reduced probability of high spin and a somewhat larger
+   even/odd alternation in the addition energy from quantum Monte Carlo
+   than in local spin-density-functional theory. In both approaches, the
+   even/odd effect gets smaller with increasing number of electrons,
+   contrary to the theoretical understanding of large dots. We argue that
+   the local spin-density approximation overpredicts the effects of
+   interactions in quantum dots.},
+DOI = {10.1103/PhysRevB.71.241306},
+Article-Number = {241306},
+ISSN = {1098-0121},
+ResearcherID-Numbers = {Jiang, Hong/G-6787-2011},
+Unique-ID = {ISI:000230276900010},
+}
+
+@article{UmrFil-PRL-05,
+Author = {Umrigar, CJ and Filippi, C},
+Title = {Energy and variance optimization of many-body wave functions},
+Journal = {Phys. Rev. Lett.},
+Year = {2005},
+Volume = {94},
+Number = {15},
+Month = {Apr 22},
+Abstract = {We present a simple, robust, and efficient method for varying the
+   parameters in a many-body wave function to optimize the expectation
+   value of the energy. The effectiveness of the method is demonstrated by
+   optimizing the parameters in flexible Jastrow factors that include
+   3-body electron-electron-nucleus correlation terms for the NO2 and
+   decapentaene (C10H12) molecules. The basic idea is to add terms to the
+   straightforward expression for the Hessian of the energy that have zero
+   expectation value, but that cancel much of the statistical fluctuations
+   for a finite Monte Carlo sample. The method is compared to what is
+   currently the most popular method for optimizing many-body wave
+   functions, namely, minimization of the variance of the local energy. The
+   most efficient wave function is obtained by optimizing a linear
+   combination of the energy and the variance.},
+DOI = {10.1103/PhysRevLett.94.150201},
+Article-Number = {150201},
+ISSN = {0031-9007},
+Unique-ID = {ISI:000228632500001},
+}
+
+@article{Umr-APACS-03,
+Author = {Umrigar, CJ},
+Title = {Diffusion Monte Carlo studies of excitation energies in solids and
+   quantum dots.},
+Journal = {ABSTRACTS OF PAPERS OF THE AMERICAN CHEMICAL SOCIETY},
+Year = {2003},
+Volume = {226},
+Number = {2},
+Meeting Abstract = {456-PHYS},
+Pages = {U338},
+Month = {Sep},
+Note = {226th National Meeting of the American-Chemical-Society, NEW YORK, NEW
+   YORK, Sep 07-11, 2003},
+Organization = {Amer Chem Soc},
+ISSN = {0065-7727},
+Unique-ID = {ISI:000187062501738},
+}
+
+@article{ColPedLipUmr-EPJB-02,
+Author = {Colletti, L and Pederiva, F and Lipparini, E and Umrigar, CJ},
+Title = {Investigation of excitation energies and Hund's rule in open shell
+   quantum dots by diffusion Monte Carlo},
+Journal = {EUROPEAN PHYSICAL JOURNAL B},
+Year = {2002},
+Volume = {27},
+Number = {3},
+Pages = {385-392},
+Month = {Jun},
+Abstract = {We use diffusion Monte Carlo to study the ground state, the low-lying
+   excitation spectrum and the spin densities of circular quantum dots with
+   parabolic radial potentials containing N = 16 and N = 24 electrons, each
+   having four open-shell electrons and compare the results to those
+   obtained from Hartree-Fock (HF) and density functional local spin
+   density approximation (LSDA) calculations. We find that Hund's first
+   rule is obeyed in both cases and that neither HF nor LSDA correctly
+   predict the ordering of the energy levels.},
+DOI = {10.1140/epjb/e2002-00169-x},
+ISSN = {1434-6028},
+ResearcherID-Numbers = {Colletti, Leonardo/F-9381-2011},
+Unique-ID = {ISI:000176565700014},
+}
+
+@article{PedUmrLip-PRB-00,
+Author = {Pederiva, F and Umrigar, CJ and Lipparini, E},
+Title = {Diffusion Monte Carlo study of circular quantum dots},
+Journal = {Phys. Rev. B},
+Year = {2000},
+Volume = {62},
+Number = {12},
+Pages = {8120-8125},
+Month = {Sep 15},
+Abstract = {We present ground- and excited-state energies obtained from diffusion
+   Monte Carlo (DMC) calculations, using accurate multiconfiguration wave
+   functions, for N electrons (N less than or equal to 13) confined to a
+   circular quantum dot. We compare the density and correlation energies to
+   the predictions of local spin density approximation (LSDA) theory, and
+   analyze the electron-electron pair-correlation functions. The DMC
+   estimated change in electrochemical potential as a function of the
+   number of electrons in the dot is compared to that from LSDA and HF
+   calculations. Hund's first rule is found to be satisfied for all dots
+   except N = 4 for which there is a near degeneracy.},
+DOI = {10.1103/PhysRevB.62.8120},
+ISSN = {0163-1829},
+Unique-ID = {ISI:000089593400067},
+}
+
+@INPROCEEDINGS{FilUmr-Boo-00,
+author = "{C. Filippi and C. J. Umrigar}",
+title = "{Interatomic Forces and Correlated Sampling in Quantum Monte Carlo}",
+booktitle = "Recent Advances in Quantum Monte Carlo Methods",
+year = "2002",
+editor = "ed. by William A. Lester and Stuart M. Rothstein and Shigenori Tanaka",
+Series = {Recent Advances in Computational Chemistry},
+Volume = {2},
+Pages = {12-29},
+Note = {Symposium on Advances in Quantum Monte Carlo, Honolulu, HI, DEC, 2000},
+Publisher = {World Scientific},
+}
+
+@article{FilUmr-PRB-00,
+Author = {Filippi, C and Umrigar, CJ},
+Title = {Correlated sampling in quantum Monte Carlo: A route to forces},
+Journal = {Phys. Rev. B},
+Year = {2000},
+Volume = {61},
+Number = {24},
+Pages = {R16291-R16294},
+Month = {Jun 15},
+Abstract = {In order to find the equilibrium geometries of molecules and solids and
+   to perform ab initio molecular dynamics, it is necessary to calculate
+   the forces on the nuclei. We present a correlated sampling method to
+   efficiently calculate numerical forces and potential energy surfaces in
+   diffusion Monte Carlo. This method employs a coordinate transformation,
+   earlier used in variational Monte Carlo, to greatly reduce the
+   statistical error. Results are presented for first-row diatomic
+   molecules.},
+DOI = {10.1103/PhysRevB.61.R16291},
+ISSN = {1098-0121},
+Unique-ID = {ISI:000088008400003},
+}
+
+@incollection{NigUmr-ACP-99,
+Author = {Nightingale, MP and Umrigar, CJ},
+Title = {Monte Carlo eigenvalue methods in quantum mechanics and statistical
+   mechanics},
+Booktitle = {MONTE CARLO METHODS IN CHEMICAL PHYSICS},
+Series = {ADVANCES IN CHEMICAL PHYSICS},
+Year = {1999},
+Volume = {105},
+Pages = {65-115},
+DOI = {10.1002/9780470141649.ch4},
+ISSN = {0065-2385},
+Unique-ID = {ISI:000077656300004},
+}
+
+@inproceedings{Umr-NATO-99,
+Author = {Umrigar, CJ},
+Editor = {Nightingale, MP and Umrigar, CJ},
+Title = {Variational Monte Carlo basics and applications to atoms and molecules},
+Booktitle = {QUANTUM MONTE CARLO METHODS IN PHYSICS AND CHEMISTRY},
+Series = {NATO ADVANCED SCIENCE INSTITUTES SERIES, SERIES C, MATHEMATICAL AND
+   PHYSICAL SCIENCES},
+Year = {1999},
+Volume = {525},
+Pages = {129-160},
+Note = {NATO Advanced Study Institute on Quantum Monte Carlo Methods in Physics
+   and Chemistry, CORNELL UNIV, ITHACA, NY, JUL 12-24, 1998},
+Organization = {NATO Adv Study Inst; Natl Sci Fdn; Ctr Europeen Calcul Atom Molec;
+   Cornell Univ},
+Abstract = {The two ingredients of variational Monte Carlo, viz., the Metropolis
+   method for sampling any known probability distribution and the variance
+   minimization method for optimizing trial wavefunctions are discussed.
+   General issues, related to the efficiency of the methods, such as the
+   choice of the Metropolis proposal matrix, are emphasised. The ideas are
+   illustrated by examples from electronic structure calculations of atoms
+   and molecules.},
+ISSN = {0258-2023},
+ISBN = {0-7923-5551-2},
+Unique-ID = {ISI:000079219100005},
+}
+
+@article{GoeUmr-PRL-98,
+Author = {Goedecker, S and Umrigar, CJ},
+Title = {Natural orbital functional for the many-electron problem},
+Journal = {Phys. Rev. Lett.},
+Year = {1998},
+Volume = {81},
+Number = {4},
+Pages = {866-869},
+Month = {Jul 27},
+Abstract = {The exchange-correlation energy in Kohn-Sham density functional theory
+   is expressed as a functional of the electronic density and the Kohn-Sham
+   orbitals. An alternative to Kohn-Sham theory is to express the energy as
+   a functional of the reduced first-order density matrix or equivalently
+   the natural orbitals. We present an approximate, simple, and
+   parameter-free functional of the natural orbitals, based solely on
+   scaling arguments and the near satisfaction of a sum rule. Our tests on
+   atoms show that it yields on average more accurate energies and charge
+   densities than the Hartree-Fock method, the local density approximation,
+   and the generalized gradient approximations.},
+DOI = {10.1103/PhysRevLett.81.866},
+ISSN = {0031-9007},
+Unique-ID = {ISI:000075055100033},
+}
+
+@article{HuaFilUmr-JCP-98,
+Author = {Huang, CJ and Filippi, C and Umrigar, CJ},
+Title = {Spin contamination in quantum Monte Carlo wave functions},
+Journal = {J. Chem. Phys.},
+Year = {1998},
+Volume = {108},
+Number = {21},
+Pages = {8838-8847},
+Month = {Jun 1},
+Abstract = {The wave function usually employed in quantum Monte Carlo (QMC)
+   electronic structure calculations is the product of a Jastrow factor and
+   a sum of products of up-spin and down-spin determinants. Typically, a
+   different Jastrow factor is used for parallel- and antiparallel-spin
+   electrons in order to satisfy the cusp conditions and thereby ensure
+   that the local energy at electron-electron coincidence points is finite.
+   However, when the Jastrow factor is not completely symmetric under
+   interchange of the spatial coordinates of the electrons, the resulting
+   wave function may not be an eigenstate of the spill operator (S) over
+   cap(2). For the Li and Be atoms, we evaluate the spin contamination in a
+   variety of wave functions with progressively higher body-order
+   correlations in the Jastrow factor. The spin contamination is found to
+   be small for all the wave functions (10(-3)-10(-5)), the smaller values
+   being obtained for the more accurate wave functions. On the other hand,
+   if we eliminate the spin contamination by employing asymmetric Jastrow
+   (and sacrificing the parallel-spin cusp condition), the resulting wave
+   functions typically have about 20\%-40\% larger root mean square
+   fluctuations in the local energy. A wave function which both satisfies
+   the cusp conditions and has definite spin can be constructed, but for
+   systems with many electrons, its computational cost is higher than for
+   the commonly used QMC wave functions. (C) 1995 American Institute of
+   Physics. {[}S0021-9606(98)02720-2]},
+DOI = {10.1063/1.476330},
+ISSN = {0021-9606},
+Unique-ID = {ISI:000075255900009},
+}
+
+@article{SavUmrGon-CPL-98,
+Author = {Savin, A and Umrigar, CJ and Gonze, X},
+Title = {Relationship of Kohn-Sham eigenvalues to excitation energies},
+Journal = {CHEMICAL PHYSICS Lett.},
+Year = {1998},
+Volume = {288},
+Number = {2-4},
+Pages = {391-395},
+Month = {May 22},
+Abstract = {In Kohn-Sham density functional theory, only the highest occupied
+   eigenvalue has a rigorous physical meaning, viz., it is the negative of
+   the lowest ionization energy. Here, we demonstrate that for finite
+   systems, the unoccupied true Kohn-Sham eigenvalues las opposed to the
+   those obtained from the commonly used approximate density functionals)
+   are also meaningful in that good approximations to excitation energies
+   can be obtained from them. We argue that the explanation for this
+   observed behavior is that, at large distances, the Kohn-Sham orbitals
+   and the quasiparticle amplitudes satisfy the same equation to order
+   1/r(4). (C) 1998 Elsevier Science B.V. All rights reserved.},
+DOI = {10.1016/S0009-2614(98)00316-9},
+ISSN = {0009-2614},
+ResearcherID-Numbers = {Savin, Andreas/B-2415-2009},
+ORCID-Numbers = {Savin, Andreas/0000-0001-8401-8037},
+Unique-ID = {ISI:000074007900035},
+}
+
+@article{Al-ResUmr-PRA-98,
+Author = {Al-Sharif, AI and Resta, R and Umrigar, CJ},
+Title = {Evidence of physical reality in the Kohn-Sham potential: The case of
+   atomic Ne},
+Journal = {Phys. Rev. A},
+Year = {1998},
+Volume = {57},
+Number = {4},
+Pages = {2466-2469},
+Month = {Apr},
+Abstract = {There is no simple and rigorous relationship between the Kohn-Sham (KS)
+   potential and the genuine excited states of a system. Here we analyze
+   the spectrum of a very accurate KS potential for atomic Ne, and we show,
+   through a quantum-defect analysis, that its highest Rydberg states are
+   in surprisingly good agreement with the corresponding atomic
+   excitations. This indicates that the KS potential is a very accurate
+   approximation of the effective optical potential ``felt{''} by an
+   electron which orbits semiclassically far away in the field of the
+   daughter cation.},
+DOI = {10.1103/PhysRevA.57.2466},
+ISSN = {1050-2947},
+Unique-ID = {ISI:000073243700031}
+}
+
+@inproceedings{UmrSavGon-Brisbane-98,
+Author = {Umrigar, CJ and Savin, A and Gonze, X},
+Editor = {Dobson, JF and Vignale, G and Das, MP},
+Title = {Are unoccupied Kohn-Sham eigenvalues related to excitation energies?},
+Booktitle = {ELECTRONIC DENSITY FUNCTIONAL THEORY: RECENT PROGRESS AND NEW DIRECTIONS},
+Year = {1998},
+Pages = {167-176},
+Note = {International Workshop on Electronic Density Functional Theory - Recent
+   Progress and New Directions, NATHAN, AUSTRALIA, JUL 14-19, 1996},
+ISBN = {0-306-45834-9},
+Unique-ID = {ISI:000074127200012},
+}
+
+@article{FilUmrGon-JCP-97,
+Author = {Filippi, C and Umrigar, CJ and Gonze, X},
+Title = {Excitation energies from density functional perturbation theory},
+Journal = {J. Chem. Phys.},
+Year = {1997},
+Volume = {107},
+Number = {23},
+Pages = {9994-10002},
+Month = {Dec 15},
+Abstract = {We consider two perturbative schemes to calculate excitation energies,
+   each employing the Kohn-Sham Hamiltonian as the unperturbed system.
+   Using accurate exchange-correlation potentials generated from
+   essentially exact densities and their exchange components determined by
+   a recently proposed method, we evaluate energy differences between the
+   groundstate and excited states in first-order perturbation theory for
+   the helium, ionized lithium and beryllium atoms. It was recently
+   observed that the zeroth-order excitations energies, simply given by the
+   difference of the Kohn-Sham eigenvalues, almost always lie between the
+   singlet and triplet experimental excitations energies, corrected for
+   relativistic and finite nuclear mass effects. The first-order
+   corrections provide about a factor of two improvement in one of the
+   perturbative schemes but not in the other. The excitation energies
+   within perturbation theory are found to be more accurate than the
+   excitations obtained within Delta SCF while, for a two-electron system,
+   they coincide with the ones obtained in time-dependent density
+   functional theory within the single-pole approximation using our
+   accurate static exchange-correlation potential and the time-dependent
+   optimized effective potential kernel. We find that the agreement between
+   the experimental and the perturbative excitation energies deteriorates
+   significantly if potentials from approximate functionals such as the
+   local density approximation and the optimized effective potential method
+   are employed instead of the true Kohn-Sham potential. (C) 1997 American
+   Institute of Physics. {[}S0021-9606(97)03147-4].},
+DOI = {10.1063/1.475304},
+ISSN = {0021-9606},
+Unique-ID = {ISI:A1997YK98200034},
+}
+
+@article{HuaUmrNig-JCP-97,
+Author = {Huang, CJ and Umrigar, CJ and Nightingale, MP},
+Title = {Accuracy of electronic wave functions in quantum Monte Carlo: The effect
+   of high-order correlations},
+Journal = {J. Chem. Phys.},
+Year = {1997},
+Volume = {107},
+Number = {8},
+Pages = {3007},
+Month = {Aug 22},
+Abstract = {Compact and accurate wave functions can be constructed by quantum Monte
+   Carlo methods. Typically, these wave functions consist of a sum of a
+   small number of Slater determinants multiplied by a Jastrow factor. In
+   this paper we study the importance of including high-order,
+   nucleus-three-electron correlations in the Jastrow factor. An efficient
+   algorithm based on the theory of invariants is used to compute the
+   high-body correlations. We observe significant improvements in the
+   variational Monte Carlo energy and in the fluctuations of the local
+   energies but not in the fixed-node diffusion Monte Carlo energies.
+   Improvements for the ground states of physical, fermionic atoms are
+   found to be smaller than those for the ground states of fictitious,
+   bosonic atoms, indicating that errors in the nodal surfaces of the
+   fermionic wave functions are a limiting factor. (C) 1997 American
+   Institute of Physics.},
+DOI = {10.1063/1.474658},
+ISSN = {0021-9606},
+Unique-ID = {ISI:A1997XR57200034},
+}
+
+@article{HuaUmr-PRA-97,
+Author = {Huang, CJ and Umrigar, CJ},
+Title = {Local correlation energies of two-electron atoms and model systems},
+Journal = {Phys. Rev. A},
+Year = {1997},
+Volume = {56},
+Number = {1},
+Pages = {290-296},
+Month = {Jul},
+Abstract = {We present nearly local definitions of correlation energy density, and
+   its potential and kinetic components, and evaluate them for several
+   two-electron systems. This information should provide valuable guidance
+   in constructing better correlation functionals than those in common use.
+   In addition, we demonstrate that the quantum chemistry and the
+   density-functional definitions of the correlation energy rapidly
+   approach one another as the atomic number increases.},
+DOI = {10.1103/PhysRevA.56.290},
+ISSN = {1050-2947},
+Unique-ID = {ISI:A1997XL64500034},
+}
+
+@article{Umr-APACS-97,
+Author = {Umrigar, CJ},
+Title = {Prospects for improved density functionals},
+Journal = {ABSTRACTS OF PAPERS OF THE AMERICAN CHEMICAL SOCIETY},
+Year = {1997},
+Volume = {213},
+Number = {1},
+Pages = {122-COMP},
+Month = {Apr 13},
+ISSN = {0065-7727},
+Unique-ID = {ISI:A1997WP18502754},
+}
+
+@article{GoeUmr-PRA-97,
+Author = {Goedecker, S and Umrigar, CJ},
+Title = {Critical assessment of the self-interaction-corrected
+   local-density-functional method and its algorithmic implementation},
+Journal = {Phys. Rev. A},
+Year = {1997},
+Volume = {55},
+Number = {3},
+Pages = {1765-1771},
+Month = {Mar},
+Abstract = {We calculate the electronic structure of several atoms and small
+   molecules by direct minimization of the
+   self-interaction-corrected-local-density-(SIC-LDA) functional. To do
+   this, we first derive an expression for the gradient of this functional
+   under the constraint that the orbitals be orthogonal and then show that
+   previously given expressions do not correctly incorporate this
+   constraint. In our atomic calculations, the SIC-LDA yields total
+   energies, ionization energies, and charge densities that are superior to
+   results obtained with the local density approximation (LDA). However,
+   for molecules, SIC-LDA gives bond lengths and reaction energies that are
+   inferior to those obtained from LDA. The nonlocal Beck-Lee-Yang-Parr
+   functional, which we include as a representative generalized gradient
+   approximation functional, outperforms both LDA and SIC-LDA for all
+   ground-state properties we considered.},
+DOI = {10.1103/PhysRevA.55.1765},
+ISSN = {1050-2947},
+Unique-ID = {ISI:A1997WN17400030},
+}
+
+@inproceedings{FilGonUmr-Review-96,
+Author = {Claudia Filippi, Xavier Gonze and C. J. Umrigar},
+Editor = {J. M. Seminario},
+Title = {Generalized gradient approximations to density functional theory: Comparion with exact results},
+Booktitle = {Recent Developments and Applications of Density Functional Theory},
+Year = {1996},
+}
+
+@article{FilUmrGon-PRA-96,
+Author = {Filippi, C and Umrigar, CJ and Gonze, X},
+Title = {Separation of the exchange-correlation potential into exchange plus
+   correlation: An optimized effective potential approach},
+Journal = {Phys. Rev. A},
+Year = {1996},
+Volume = {54},
+Number = {6},
+Pages = {4810-4814},
+Month = {Dec},
+Abstract = {Most approximate exchange-correlation functionals used within
+   density-functional theory are constructed as the sum of two distinct
+   contributions for exchange and correlation. Separating the exchange
+   component from the entire functional is useful since, for exchange,
+   exact relations exist under uniform density scaling and spin scaling. In
+   the past, accurate exchange-correlation potentials have been generated
+   from essentially exact densities but they have not been correctly
+   decomposed into their separate exchange and correlation components
+   (except for two-electron systems). Using a recently proposed method,
+   equivalent to the solution of an optimized effective potential problem
+   with the corresponding orbitals replaced by the exact Kohn-Sham
+   orbitals, we obtain the separation according to the density functional
+   theory definition. We compare the results for the Ne and Be atoms with
+   those obtained by the previously used approximate separation scheme.},
+DOI = {10.1103/PhysRevA.54.4810},
+ISSN = {1050-2947},
+Unique-ID = {ISI:A1996VX71400032},
+}
+
+@article{FilUmr-JCP-96,
+Author = {Filippi, C and Umrigar, CJ},
+Title = {Multiconfiguration wave functions for quantum Monte Carlo calculations
+   of first-row diatomic molecules},
+Journal = {J. Chem. Phys.},
+Year = {1996},
+Volume = {105},
+Number = {1},
+Pages = {213-226},
+Month = {Jul 1},
+Abstract = {We use the variance minimization method to determine accurate wave
+   functions for first-row homonuclear diatomic molecules. The form of the
+   wave function is a product of a sum of determinants and a generalized
+   Jastrow factor. One of the important features of the calculation is that
+   we are including low-lying determinants corresponding to single and
+   double excitations from the Hartree-Fock configuration within the space
+   of orbitals whose atomic principal quantum numbers do not exceed those
+   occurring in the Hartree-Fock configuration. The idea is that
+   near-degeneracy correlation is most effectively described by a linear
+   combination of low-lying determinants whereas dynamic correlation is
+   well described by the generalized Jastrow factor. All the parameters
+   occurring in both the determinantal and the Jastrow parts of the wave
+   function are optimized. The optimized wave functions recover 79\%-94\%
+   of the correlation energy in variational Monte Carlo and 93\%-99\% of
+   the correlation energy in diffusion Monte Carlo. (C) 1996 American
+   Institute of Physics.},
+DOI = {10.1063/1.471865},
+ISSN = {0021-9606},
+Unique-ID = {ISI:A1996UU15600020},
+}
+
+@article{CIOSTETANUMR-JCP-95,
+Author = {CIOSLOWSKI, J and STEFANOV, BB and TAN, A and UMRIGAR, CJ},
+Title = {ELECTRON INTRACULE DENSITIES WITH CORRECT ELECTRON COALESCENCE CUSPS
+   FROM HILLER-SUCHER-FEINBERG-TYPE IDENTITIES},
+Journal = {J. Chem. Phys.},
+Year = {1995},
+Volume = {103},
+Number = {14},
+Pages = {6093-6103},
+Month = {Oct 8},
+Abstract = {Identities for the electron intracule density I(R) in atoms and
+   molecules are derived within the Hiller-Sucher-Feinberg (HSF) formalism.
+   It is proven that, when applied to arbitrary (exact or approximate)
+   electronic wave functions, these identities produce intracule densities
+   that satisfy a modified condition for the electron coalescence cusp. A
+   corollary of this proof provides a new, simplified derivation of the
+   cusp condition for the exact I(R). An expression for the Hartree-Fock
+   approximation to the HSF electron intracule density that contains only
+   two- and three-electron terms is obtained and its properties are
+   analyzed. A simple scaling of the three-electron contributions in this
+   expression assures integrability of the approximate I(R) and improves
+   its overall accuracy. Numerical tests carried out for the H-, He, Li+,
+   Be2+, Li, and Be systems demonstrate that the application of the scaled
+   HSF-type identity to Hartree-Fock wave functions affords dramatic
+   improvements in the short-range behavior of the electron intracule
+   density. (C) 1995 American Institute of Physics.},
+DOI = {10.1063/1.470437},
+ISSN = {0021-9606},
+ResearcherID-Numbers = {Stefanov, Boris/E-8905-2012},
+Unique-ID = {ISI:A1995RY16800022},
+}
+
+@article{KHESINUMR-PRB-95,
+Author = {KHEIN, A and SINGH, DJ and UMRIGAR, CJ},
+Title = {ALL-ELECTRON STUDY OF GRADIENT CORRECTIONS TO THE LOCAL-DENSITY
+   FUNCTIONAL IN METALLIC SYSTEMS},
+Journal = {Phys. Rev. B},
+Year = {1995},
+Volume = {51},
+Number = {7},
+Pages = {4105-4109},
+Month = {Feb 15},
+DOI = {10.1103/PhysRevB.51.4105},
+ISSN = {0163-1829},
+ResearcherID-Numbers = {Singh, David/I-2416-2012},
+Unique-ID = {ISI:A1995QH86900010},
+}
+
+@article{FILSINUMR-PRB-94,
+Author = {FILIPPI, C and SINGH, DJ and UMRIGAR, CJ},
+Title = {ALL-ELECTRON LOCAL-DENSITY AND GENERALIZED-GRADIENT CALCULATIONS OF THE
+   STRUCTURAL-PROPERTIES OF SEMICONDUCTORS},
+Journal = {Phys. Rev. B},
+Year = {1994},
+Volume = {50},
+Number = {20},
+Pages = {14947-14951},
+Month = {Nov 15},
+DOI = {10.1103/PhysRevB.50.14947},
+ISSN = {0163-1829},
+ResearcherID-Numbers = {Singh, David/I-2416-2012},
+Unique-ID = {ISI:A1994PV86500023},
+}
+
+@article{UmrGon-PRA-94,
+Author = {UMRIGAR, CJ and GONZE, X},
+Title = {ACCURATE EXCHANGE-CORRELATION POTENTIALS AND TOTAL-ENERGY COMPONENTS FOR
+   THE HELIUM ISOELECTRONIC SERIES},
+Journal = {Phys. Rev. A},
+Year = {1994},
+Volume = {50},
+Number = {5},
+Pages = {3827-3837},
+Month = {Nov},
+DOI = {10.1103/PhysRevA.50.3827},
+ISSN = {1050-2947},
+Unique-ID = {ISI:A1994PR43500038}
+}
+
+@article{FilUmrTau-JCP-94,
+Author = {Filippi, C and Umrigar, CJ and Taut, M},
+Title = {COMPARISON OF EXACT AND APPROXIMATE DENSITY FUNCTIONALS FOR AN EXACTLY
+   SOLUBLE MODEL},
+Journal = {J. Chem. Phys.},
+Year = {1994},
+Volume = {100},
+Number = {2},
+Pages = {1290-1296},
+Month = {Jan 15},
+Abstract = {We consider a model, given by two interacting electrons in an external
+   harmonic potential, that can be solved analytically for a discrete and
+   infinite set of values of the spring constant. The knowledge of the
+   exact electronic density allows us to construct the exact
+   exchange-correlation potential; and exchange-correlation energy by
+   inverting the Kohn-Sham equation. The exact exchange-correlation
+   potential and energy are compared with the corresponding quantities,
+   obtained for the same densities, using approximate density functionals,
+   namely the local density approximation and several generalized gradient
+   approximations. We consider two values of the spring constant in order
+   to study the system in the low correlation case (high value of the
+   spring constant) and in the high correlation case (low value of the
+   spring constant). In both cases, the exchange-correlation potentials
+   corresponding to approximate density functionals differ from the exact
+   one over the entire spatial range. The approximate correlation
+   potentials bear no resemblance to the exact ones. The exchange energy
+   for generalized gradient approximation functionals is much improved
+   compared to the result obtained within the local density approximation
+   but the correlation energy is only a little improved.},
+DOI = {10.1063/1.466658},
+ISSN = {0021-9606},
+Unique-ID = {ISI:A1994MT00700055}
+}
+
+@article{UMRNIGRUN-JCP-93,
+Author = {UMRIGAR, CJ and NIGHTINGALE, MP and RUNGE, KJ},
+Title = {A DIFFUSION MONTE-CARLO ALGORITHM WITH VERY SMALL TIME-STEP ERRORS},
+Journal = {J. Chem. Phys.},
+Year = {1993},
+Volume = {99},
+Number = {4},
+Pages = {2865-2890},
+Month = {Aug 15},
+Abstract = {We propose modifications to the simple diffusion Monte Carlo algorithm
+   that greatly reduce the time-step error. The improved algorithm has a
+   time-step error smaller by a factor of 70 to 300 in the energy of Be,
+   Li2 and Ne. For other observables the improvement is yet larger. The
+   effective time step possible with the improved algorithm is typically a
+   factor of a few hundred larger than the time step used in domain Green
+   function Monte Carlo. We also present an optimized 109 parameter trial
+   wave function for Be which, used in combination with our algorithm,
+   yields an exceedingly accurate ground state energy. A simple solution to
+   the population control bias in diffusion Monte Carlo is also discussed.},
+DOI = {10.1063/1.465195},
+ISSN = {0021-9606},
+Unique-ID = {ISI:A1993LR05600059},
+}
+
+@article{UMR-PRL-93,
+Author = {UMRIGAR, CJ},
+Title = {ACCELERATED METROPOLIS METHOD},
+Journal = {Phys. Rev. Lett.},
+Year = {1993},
+Volume = {71},
+Number = {3},
+Pages = {408-411},
+Month = {Jul 19},
+Abstract = {It is shown that the freedom in the choice of the proposal matrix in the
+   generalized Metropolis method can be used to greatly enhance the
+   efficiency of the method. For example, the difficulties associated with
+   the existence of multiple length scales in electronic structure
+   calculations can be avoided by making an intelligent choice. Results are
+   presented for Ne, Ar, and Li2.},
+DOI = {10.1103/PhysRevLett.71.408},
+ISSN = {0031-9007},
+Unique-ID = {ISI:A1993LN18500026},
+}
+
+@article{BALUMRDEL-PRB-92,
+Author = {BALLONE, P and UMRIGAR, CJ and DELALY, P},
+Title = {ENERGIES, DENSITIES, AND PAIR CORRELATION-FUNCTIONS OF JELLIUM SPHERES
+   BY THE VARIATIONAL MONTE-CARLO METHOD},
+Journal = {Phys. Rev. B},
+Year = {1992},
+Volume = {45},
+Number = {11},
+Pages = {6293-6296},
+Month = {Mar 15},
+Abstract = {By the variational Monte Carlo technique, we determine accurate wave
+   functions for N electrons (N less-than-or-equal-to 20) confined by the
+   electrostatic potential of positively charged jellium spheres.  The
+   quality of the wave functions is tested by the diffusion Monte Carlo
+   method.  This shows that 90\% of the fixed-node correlation energy is
+   recovered by the variational computation.  We analyze the
+   electron-electron correlation functions and we compare the density, the
+   total, exchange, and correlation energies, and ionization potentials to
+   the predictions of the local-density approximation to density-functional
+   theory.},
+DOI = {10.1103/PhysRevB.45.6293},
+ISSN = {0163-1829},
+Unique-ID = {ISI:A1992HJ81200072},
+}
+
+@article{MYEUMRSETMOR-PRA-91,
+Author = {MYERS, CR and UMRIGAR, CJ and SETHNA, JP and MORGAN, JD},
+Title = {FOCKS EXPANSION, KATOS CUSP CONDITIONS, AND THE EXPONENTIAL ANSATZ},
+Journal = {Phys. Rev. A},
+Year = {1991},
+Volume = {44},
+Number = {9},
+Pages = {5537-5546},
+Month = {Nov 1},
+Abstract = {We have examined the recent solution of the Fock expansion through O(r2)
+   for the ground state of the helium atom and have verified that it
+   correctly treats the discontinuity in the local energy characteristic of
+   the triple-collision point.  We have also developed an exponential
+   representation of the Fock expansion that satisfies Kato's cusp
+   conditions for two-particle collisions even when the expansion is
+   truncated at a finite order.},
+DOI = {10.1103/PhysRevA.44.5537},
+ISSN = {1050-2947},
+Unique-ID = {ISI:A1991GP38800025},
+}
+
+@article{UMR-IJQC-89,
+Author = {C. J. UMRIGAR},
+Title = {2 ASPECTS OF QUANTUM MONTE-CARLO - DETERMINATION OF ACCURATE
+   WAVEFUNCTIONS AND DETERMINATION OF POTENTIAL-ENERGY SURFACES OF
+   MOLECULES},
+Journal = {INTERNATIONAL JOURNAL OF QUANTUM CHEMISTRY},
+Year = {1989},
+Number = {23},
+Pages = {217-230},
+ISSN = {0020-7608},
+Unique-ID = {ISI:A1989CG50700024},
+}
+
+@article{UMRWILWIL-PRL-88,
+Author = {UMRIGAR, CJ and WILSON, KG and WILKINS, JW},
+Title = {OPTIMIZED TRIAL WAVE-FUNCTIONS FOR QUANTUM MONTE-CARLO CALCULATIONS},
+Journal = {Phys. Rev. Lett.},
+Year = {1988},
+Volume = {60},
+Number = {17},
+Pages = {1719-1722},
+Month = {Apr 25},
+DOI = {10.1103/PhysRevLett.60.1719},
+ISSN = {0031-9007},
+Unique-ID = {ISI:A1988N069600010},
+}
+
+@article{PINVOSUMR-JPFP-86,
+Author = {PINDOR, AJ and VOSKO, SH and UMRIGAR, CJ},
+Title = {CALCULATED AGAINST EXPERIMENTAL CHARGE-DENSITY DISTRIBUTION OF BE METAL},
+Journal = {JOURNAL OF PHYSICS F-METAL PHYSICS},
+Year = {1986},
+Volume = {16},
+Number = {9},
+Pages = {1207-1212},
+Month = {Sep},
+DOI = {10.1088/0305-4608/16/9/012},
+ISSN = {0305-4608},
+Unique-ID = {ISI:A1986D850800012},
+}
+
+@article{GUPWILUMR-JSP-86,
+Author = {GUPTA, R and WILSON, KG and UMRIGAR, C},
+Title = {IMPROVED MONTE-CARLO RENORMALIZATION-GROUP METHOD},
+Journal = {JOURNAL OF STATISTICAL PHYSICS},
+Year = {1986},
+Volume = {43},
+Number = {5-6},
+Pages = {1095-1099},
+Month = {Jun},
+DOI = {10.1007/BF02628333},
+ISSN = {0022-4715},
+Unique-ID = {ISI:A1986D083800034},
+}
+
+@article{KARMANUMR-SS-86,
+Author = {KARIKORPI, M and MANNINEN, M and UMRIGAR, C},
+Title = {CALCULATION OF HELIUM DIFFRACTION FROM METAL-SURFACES},
+Journal = {SURFACE SCIENCE},
+Year = {1986},
+Volume = {169},
+Number = {2-3},
+Pages = {299-316},
+Month = {Apr},
+DOI = {10.1016/0039-6028(86)90612-6},
+ISSN = {0039-6028},
+Unique-ID = {ISI:A1986C406900019},
+}
+
+@article{BENWOOUMR-JPCSP-85,
+Author = {BENESH, GA and WOOLLEY, AM and UMRIGAR, C},
+Title = {THE PRESSURE DEPENDENCES OF TIS2 AND TISE2 BAND STRUCTURES},
+Journal = {JOURNAL OF PHYSICS C-SOLID STATE PHYSICS},
+Year = {1985},
+Volume = {18},
+Number = {8},
+Pages = {1595-1603},
+DOI = {10.1088/0022-3719/18/8/007},
+ISSN = {0022-3719},
+Unique-ID = {ISI:A1985AEG2900007},
+}
+
+@article{UMRWIL-PRL-85,
+Author = {UMRIGAR, C and WILKINS, JW},
+Title = {ADSORPTION SITE, ADSORPTION ENERGY, AND NORMAL VIBRATION FREQUENCY OF H
+   ON NI(100) VIA TOTAL-ENERGY CALCULATIONS},
+Journal = {Phys. Rev. Lett.},
+Year = {1985},
+Volume = {54},
+Number = {14},
+Pages = {1551-1554},
+DOI = {10.1103/PhysRevLett.54.1551},
+ISSN = {0031-9007},
+Unique-ID = {ISI:A1985AEW3300024},
+}
+
+@article{MANNORPUSUMR-PRB-84,
+Author = {MANNINEN, M and NORSKOV, JK and PUSKA, MJ and UMRIGAR, C},
+Title = {REPULSIVE INTERACTION OF THE HELIUM ATOM WITH A METAL-SURFACE},
+Journal = {Phys. Rev. B},
+Year = {1984},
+Volume = {29},
+Number = {4},
+Pages = {2314-2316},
+DOI = {10.1103/PhysRevB.29.2314},
+ISSN = {0163-1829},
+ResearcherID-Numbers = {Puska, Martti/E-7362-2012},
+Unique-ID = {ISI:A1984SD22400102},
+}
+
+@article{DOWHESPLUSAKRHOUMR-PRL-84,
+Author = {DOWBEN, PA and HESKETT, D and PLUMMER, EW and SAKISAKA, Y and RHODIN, TN
+   and UMRIGAR, C},
+Title = {SURFACE-WAVE-INDUCED INTERFERENCE EFFECTS IN ANGLE-RESOLVED
+   PHOTOEMISSION},
+Journal = {Phys. Rev. Lett.},
+Year = {1984},
+Volume = {53},
+Number = {15},
+Pages = {1493-1496},
+DOI = {10.1103/PhysRevLett.53.1493},
+ISSN = {0031-9007},
+Unique-ID = {ISI:A1984TL30400024},
+}
+
+@article{MANNORUMR-JPFP-82,
+Author = {MANNINEN, M and NORSKOV, JK and UMRIGAR, C},
+Title = {RARE-GAS-METAL PAIR POTENTIAL - HE-VACANCY INTERACTION},
+Journal = {JOURNAL OF PHYSICS F-METAL PHYSICS},
+Year = {1982},
+Volume = {12},
+Number = {2},
+Pages = {L7-L11},
+DOI = {10.1088/0305-4608/12/2/001},
+ISSN = {0305-4608},
+Unique-ID = {ISI:A1982NA59300001},
+}
+
+@article{MANNORUMR-SS-82,
+Author = {MANNINEN, M and NORSKOV, JK and UMRIGAR, C},
+Title = {CALCULATION OF THE HELIUM DIFFRACTION FROM THE RECONSTRUCTED AU(110)
+   SURFACE},
+Journal = {SURFACE SCIENCE},
+Year = {1982},
+Volume = {119},
+Number = {2-3},
+Pages = {L393-L400},
+DOI = {10.1016/0039-6028(82)90287-4},
+ISSN = {0039-6028},
+Unique-ID = {ISI:A1982PF74100005},
+}
+
+@article{UmrEllWanKraPos-PRB-82,
+Author = {UMRIGAR, C and ELLIS, DE and WANG, D and KRAKAUER, H and POSTERNAK, M},
+Title = {BAND-STRUCTURE, INTERCALATION, AND INTERLAYER INTERACTIONS OF
+   TRANSITION-METAL DICHALCOGENIDES - TIS2 AND LITIS2},
+Journal = {PHYSICAL REVIEW B},
+Year = {1982},
+Volume = {26},
+Number = {9},
+Pages = {4935-4950},
+DOI = {10.1103/PhysRevB.26.4935},
+ISSN = {1098-0121},
+Unique-ID = {ISI:A1982PP34500015},
+}
+
+@article{ManNorUmr-SS-82,
+Author = {MANNINEN, M and NORSKOV, JK and UMRIGAR, C},
+Title = {CALCULATION OF THE HELIUM DIFFRACTION FROM THE RECONSTRUCTED AU(110)
+   SURFACE},
+Journal = {SURFACE SCIENCE},
+Year = {1982},
+Volume = {119},
+Number = {2-3},
+Pages = {L393-L400},
+DOI = {10.1016/0039-6028(82)90287-4},
+ISSN = {0039-6028},
+Unique-ID = {ISI:A1982PF74100005},
+}
+
+@article{UmrEll-PRB-80,
+Author = {UMRIGAR, C and ELLIS, DE},
+Title = {EMBEDDED CLUSTER MODEL OF NBO2 - COMPTON PROFILE AND ELECTRONIC-SPECTRA},
+Journal = {PHYSICAL REVIEW B},
+Year = {1980},
+Volume = {21},
+Number = {2},
+Pages = {852-861},
+DOI = {10.1103/PhysRevB.21.852},
+ISSN = {0163-1829},
+Unique-ID = {ISI:A1980JF27700058},
+}
+
+@article{BhaUmrKet-MCLC-77,
+Author = {BHATTACHARYA, S and UMRIGAR, CJ and KETTERSON, JB},
+Title = {ANISOTROPIC ULTRASOUND PROPAGATION IN A SMECTIC-C LIQUID-CRYSTAL},
+Journal = {MOLECULAR CRYSTALS AND LIQUID CRYSTALS},
+Year = {1977},
+Volume = {40},
+Number = {1-4},
+Pages = {79-89},
+DOI = {10.1080/15421407708084472},
+ISSN = {0140-6566},
+ResearcherID-Numbers = {Ketterson, John/B-7234-2009},
+Unique-ID = {ISI:A1977DS82700006},
+}

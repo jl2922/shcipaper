@@ -1,0 +1,1624 @@
+﻿@article{WouNakVanCha-PRB-14,
+Author = {Sebastian Wouters and Brecht Verstichel and Dimitri Van Neck and Garnet Kin-Lic Chan},
+Title = {{Projector quantum Monte Carlo with matrix product states}},
+Journal = {{Phys. Rev. B}},
+Year = {{2014}},
+Volume = {{90}},
+Month = {{Jul 14}},
+Abstract = {{We marry tensor network states (TNS) and projector quantum Monte Carlo (PMC) to overcome the high computational scaling of TNS and the sign problem of PMC. Using TNS as trial wave functions provides a route to systematically improve the sign structure and to eliminate the bias in fixed-node and constrained-path PMC. As a specific example, we describe phaseless auxiliary-field quantum Monte Carlo with matrix product states (MPS-AFQMC). MPS-AFQMC improves significantly on the density-matrix renormalization group (DMRG) ground-state energy. For the J1−J2 model on two-dimensional square lattices, we observe with MPS-AFQMC an order of magnitude reduction in the error for all couplings, compared to DMRG. The improvement is independent of walker bond dimension, and we therefore use bond dimension 1 for the walkers. The computational cost of MPS-AFQMC is then quadratic in the bond dimension of the trial wave function, which is lower than the cubic scaling of DMRG. The error due to the constrained-path bias is proportional to the variational error of the trial wave function. We show that for the J1−J2 model on two-dimensional square lattices, a linear extrapolation of the MPS-AFQMC energy with the discarded weight from the DMRG calculation allows us to remove the constrained-path bias. Extensions to other tensor networks are briefly discussed.}},
+Article-Number = {{045104}},
+}
+
+
+@article{WouNakVanCha-PRB-13,
+Author = {Wouters, Sebastian and Nakatani, Naoki and Van Neck, Dimitri and Chan,
+   Garnet Kin-Lic},
+Title = {{Thouless theorem for matrix product states and subsequent post density
+   matrix renormalization group methods}},
+Journal = {{Phys. Rev. B}},
+Year = {{2013}},
+Volume = {{88}},
+Number = {{7}},
+Month = {{Aug 12}},
+Abstract = {{The similarities between Hartree-Fock (HF) theory and the density matrix
+   renormalization group (DMRG) are explored. Both methods can be
+   formulated as the variational optimization of a wave-function Ansatz.
+   Linearization of the time-dependent variational principle near a
+   variational minimum allows to derive the random phase approximation
+   (RPA). We show that the nonredundant parameterization of the matrix
+   product state (MPS) tangent space {[}J. Haegeman, J. I. Cirac, T. J.
+   Osborne, I. Pizorn, H. Verschelde, and F. Verstraete, Phys. Rev. Lett.
+   107, 070601 (2011)] leads to the Thouless theorem for MPS, i.e., an
+   explicit nonredundant parameterization of the entire MPS manifold,
+   starting from a specific MPS reference. Excitation operators are
+   identified, which extends the analogy between HF and DMRG to the
+   Tamm-Dancoff approximation (TDA), the configuration interaction (CI)
+   expansion, and coupled cluster theory. For a small one-dimensional
+   Hubbard chain, we use a CI-MPS Ansatz with single and double excitations
+   to improve on the ground state and to calculate low-lying excitation
+   energies. For a symmetry-broken ground state of this model, we show that
+   RPA-MPS allows to retrieve the Goldstone mode. We also discuss
+   calculations of the RPA-MPS correlation energy. With the long-range
+   quantum chemical Pariser-Parr-Pople Hamiltonian, low-lying TDA-MPS and
+   RPA-MPS excitation energies for polyenes are obtained.}},
+DOI = {{10.1103/PhysRevB.88.075122}},
+Article-Number = {{075122}},
+ISSN = {{1098-0121}},
+Unique-ID = {{ISI:000323032700003}},
+}
+
+@article{KurChaYan-NC-13,
+Author = {Kurashige, Yuki and Chan, Garnet Kin-Lic and Yanai, Takeshi},
+Title = {{Entangled quantum electronic wavefunctions of the Mn4CaO5 cluster in
+   photosystem II}},
+Journal = {{NATURE CHEMISTRY}},
+Year = {{2013}},
+Volume = {{5}},
+Number = {{8}},
+Pages = {{660-666}},
+Month = {{Aug}},
+Abstract = {{It is a long-standing goal to understand the reaction mechanisms of
+   catalytic metalloenzymes at an entangled many-electron level, but this
+   is hampered by the exponential complexity of quantum mechanics. Here, by
+   exploiting the special structure of physical quantum states and using
+   the density matrix renormalization group, we compute near-exact
+   many-electron wavefunctions of the Mn4CaO5 cluster of photosystem II,
+   with more than 1 x 10(18) quantum degrees of freedom. This is the first
+   treatment of photosystem II beyond the single-electron picture of
+   density functional theory. Our calculations support recent modifications
+   to the structure determined by X-ray crystallography. We further
+   identify multiple low-lying energy surfaces associated with the
+   structural distortion seen using X-ray crystallography, highlighting
+   multistate reactivity in the chemistry of the cluster. Direct
+   determination of Mn spin-projections from our wavefunctions suggests
+   that current candidates that have been recently distinguished using
+   parameterized spin models should be reassessed. Through entanglement
+   maps, we reveal rich information contained in the wavefunctions on
+   bonding changes in the cycle.}},
+DOI = {{10.1038/NCHEM.1677}},
+ISSN = {{1755-4330}},
+Unique-ID = {{ISI:000322117100009}},
+}
+
+@article{NakCha-JCP-13,
+Author = {Nakatani, Naoki and Chan, Garnet Kin-Lic},
+Title = {{Efficient tree tensor network states (TTNS) for quantum chemistry:
+   Generalizations of the density matrix renormalization group algorithm}},
+Journal = {{J. Chem. Phys.}},
+Year = {{2013}},
+Volume = {{138}},
+Number = {{13}},
+Month = {{Apr 7}},
+Abstract = {{We investigate tree tensor network states for quantum chemistry. Tree
+   tensor network states represent one of the simplest generalizations of
+   matrix product states and the density matrix renormalization group.
+   While matrix product states encode a one-dimensional entanglement
+   structure, tree tensor network states encode a tree entanglement
+   structure, allowing for a more flexible description of general
+   molecules. We describe an optimal tree tensor network state algorithm
+   for quantum chemistry. We introduce the concept of half-renormalization
+   which greatly improves the efficiency of the calculations. Using our
+   efficient formulation we demonstrate the strengths and weaknesses of
+   tree tensor network states versus matrix product states. We carry out
+   benchmark calculations both on tree systems (hydrogen trees and
+   pi-conjugated dendrimers) as well as non-tree molecules (hydrogen
+   chains, nitrogen dimer, and chromium dimer). In general, tree tensor
+   network states require much fewer renormalized states to achieve the
+   same accuracy as matrix product states. In non-tree molecules, whether
+   this translates into a computational savings is system dependent, due to
+   the higher prefactor and computational scaling associated with tree
+   algorithms. In tree like molecules, tree network states are easily
+   superior to matrix product states. As an illustration, our largest
+   dendrimer calculation with tree tensor network states correlates 110
+   electrons in 110 active orbitals. (C) 2013 American Institute of
+   Physics. {[}http://dx.doi.org/10.1063/1.4798639]}},
+DOI = {{10.1063/1.4798639}},
+Article-Number = {{134113}},
+ISSN = {{0021-9606}},
+Unique-ID = {{ISI:000317788500013}},
+}
+
+@article{KniCha-JCC-13,
+Author = {Knizia, Gerald and Chan, Garnet Kin-Lic},
+Title = {{Density Matrix Embedding: A Strong-Coupling Quantum Embedding Theory}},
+Journal = {{J. Chem. Theory Comput.}},
+Year = {{2013}},
+Volume = {{9}},
+Number = {{3}},
+Pages = {{1428-1432}},
+Month = {{Mar}},
+Abstract = {{We extend our density matrix embedding theory (DMET) {[}Phys. Rev. Lett.
+   2012, 109, 186404] from lattice models to the full chemical Hamiltonian.
+   DMET allows the many-body embedding of arbitrary fragments of a quantum
+   system, even when such fragments are open systems and strongly coupled
+   to their environment (e.g., by covalent bonds). In DMET, empirical
+   approaches to strong coupling, such as link atoms or boundary regions,
+   are replaced by a small, rigorous quantum bath designed to reproduce the
+   entanglement between a fragment and its environment. We describe the
+   theory and demonstrate its feasibility in strongly correlated hydrogen
+   ring and grid models; these are not only beyond the scope of traditional
+   embeddings but even challenge conventional quantum chemistry methods
+   themselves. We find that DMET correctly describes the notoriously
+   difficult symmetric dissociation of a 4 X 3 hydrogen atom grid, even
+   when the treated fragments are as small as single hydrogen atoms. We
+   expect that DMET will open up new ways of treating complex strongly
+   coupled, strongly correlated systems in terms of their individual
+   fragments.}},
+DOI = {{10.1021/ct301044e}},
+ISSN = {{1549-9618}},
+Unique-ID = {{ISI:000316168700014}},
+}
+
+@article{SchYanChaManWer-JCP-13,
+Author = {Schuetz, Martin and Yang, Jun and Chan, Garnet Kin-Lic and Manby,
+   Frederick R. and Werner, Hans-Joachim},
+Title = {{The orbital-specific virtual local triples correction: OSV-L(T)}},
+Journal = {{J. Chem. Phys.}},
+Year = {{2013}},
+Volume = {{138}},
+Number = {{5}},
+Month = {{Feb 7}},
+Abstract = {{A local method based on orbital specific virtuals (OSVs) for calculating
+   the perturbative triples correction in local coupled cluster
+   calculations is presented. In contrast to the previous approach based on
+   projected atomic orbitals (PAOs), described by Schutz {[}J. Chem. Phys.
+   113, 9986 (2000)], the new scheme works without any ad hoc truncations
+   of the virtual space to domains. A single threshold defines the pair and
+   triple specific virtual spaces completely and automatically. It is
+   demonstrated that the computational cost of the method scales linearly
+   with molecular size. Employing the recommended threshold a similar
+   fraction of the correlation energy is recovered as with the original PAO
+   method at a somewhat lower cost. A benchmark for 52 reactions
+   demonstrates that for reaction energies the intrinsic accuracy of the
+   coupled cluster with singles and doubles excitations and a perturbative
+   treatment of triples excitations method can be reached by OSV-local
+   coupled cluster theory with singles and doubles and perturbative
+   triples, provided a MP2 correction is applied that accounts for basis
+   set incompleteness errors as well as for remaining domain errors. As an
+   application example the interaction energies of the guanine-cytosine
+   dimers in the Watson-Crick and stacked arrangements are investigated at
+   the level of local coupled cluster theory with singles and doubles and
+   perturbative triples. Based on these calculations we propose new
+   complete-basis-set-limit estimates for these interaction energies at
+   this level of theory. (C) 2013 American Institute of Physics.
+   {[}http://dx.doi.org/10.1063/1.4789415]}},
+DOI = {{10.1063/1.4789415}},
+Article-Number = {{054109}},
+ISSN = {{0021-9606}},
+ResearcherID-Numbers = {{Schutz, Martin/C-6096-2008
+   Yang, Jun/H-8411-2013}},
+ORCID-Numbers = {{Schutz, Martin/0000-0002-2688-3214
+   Yang, Jun/0000-0001-8701-9297}},
+Unique-ID = {{ISI:000314746400011}},
+}
+
+@article{BooCha-JCP-13,
+Author = {Booth, George H. and Chan, Garnet Kin-Lic},
+Title = {{Communication: Excited states, dynamic correlation functions and
+   spectral properties from full configuration interaction quantum Monte
+   Carlo (vol 137, 191102, 2012)}},
+Journal = {{J. Chem. Phys.}},
+Year = {{2013}},
+Volume = {{138}},
+Number = {{2}},
+Month = {{Jan 14}},
+DOI = {{10.1063/1.4773062}},
+Article-Number = {{029901}},
+ISSN = {{0021-9606}},
+Unique-ID = {{ISI:000313642500072}},
+}
+
+@article{BooCha-JCP-12,
+Author = {Booth, George H. and Chan, Garnet Kin-Lic},
+Title = {{Communication: Excited states, dynamic correlation functions and
+   spectral properties from full configuration interaction quantum Monte
+   Carlo}},
+Journal = {{J. Chem. Phys.}},
+Year = {{2012}},
+Volume = {{137}},
+Number = {{19}},
+Month = {{Nov 21}},
+Abstract = {{In this communication, we propose a method for obtaining isolated
+   excited states within the full configuration interaction quantum Monte
+   Carlo framework. This method allows for stable sampling with respect to
+   collapse to lower energy states and requires no uncontrolled
+   approximations. In contrast with most previous methods to extract
+   excited state information from quantum Monte Carlo methods, this results
+   from a modification to the underlying propagator, and does not require
+   explicit orthogonalization, analytic continuation, transient estimators,
+   or restriction of the Hilbert space via a trial wavefunction.
+   Furthermore, we show that the propagator can directly yield
+   frequency-domain correlation functions and spectral functions such as
+   the density of states which are difficult to obtain within a traditional
+   quantum Monte Carlo framework. We demonstrate this approach with pilot
+   applications to the neon atom and beryllium dimer. (C) 2012 American
+   Institute of Physics. {[}http://dx.doi.org/10.1063/1.4766327]}},
+DOI = {{10.1063/1.4766327}},
+Article-Number = {{191102}},
+ISSN = {{0021-9606}},
+Unique-ID = {{ISI:000311458900002}},
+}
+
+@article{KniCha-PRL-12,
+Author = {Knizia, Gerald and Chan, Garnet Kin-Lic},
+Title = {{Density Matrix Embedding: A Simple Alternative to Dynamical Mean-Field
+   Theory}},
+Journal = {{Phys. Rev. Lett.}},
+Year = {{2012}},
+Volume = {{109}},
+Number = {{18}},
+Month = {{Nov 2}},
+Abstract = {{We introduce density matrix embedding theory (DMET), a quantum embedding
+   theory for computing frequency-independent quantities, such as
+   ground-state properties, of infinite systems. Like dynamical mean-field
+   theory, DMET maps the bulk interacting system to a simpler impurity
+   model and is exact in the noninteracting and atomic limits. Unlike
+   dynamical mean-field theory, DMET is formulated in terms of the
+   frequency-independent local density matrix, rather than the local
+   Green's function. In addition, it features a finite, algebraically
+   constructible bath of only one bath site per impurity site, with no bath
+   discretization error. Frequency independence and the minimal bath make
+   DMET a computationally simple and efficient method. We test the theory
+   in the one-dimensional and two-dimensional Hubbard models at and away
+   from half filling, and we find that compared to benchmark data, total
+   energies, correlation functions, and metal-insulator transitions are
+   well reproduced, at a tiny computational cost.}},
+DOI = {{10.1103/PhysRevLett.109.186404}},
+Article-Number = {{186404}},
+ISSN = {{0031-9007}},
+Unique-ID = {{ISI:000310612000024}},
+}
+
+@article{WatCha-JCC-12,
+Author = {Watson, Mark A. and Chan, Garnet Kin-Lic},
+Title = {{Excited States of Butadiene to Chemical Accuracy: Reconciling Theory and
+   Experiment}},
+Journal = {{J. Chem. Theory Comput.}},
+Year = {{2012}},
+Volume = {{8}},
+Number = {{11}},
+Pages = {{4013-4018}},
+Month = {{Nov}},
+Abstract = {{We obtain the vertical excitation energies of the notoriously
+   challenging lowest-lying dark and bright excitations of trans-butadiene
+   to chemical accuracy using high-order equation-of-motion coupled-cluster
+   theory. Convergence is demonstrated in both the one particle basis set
+   (up to augmented quintuple zeta quality) and the coupled cluster
+   expansion (including up to connected quadruple excitations) within an
+   incremental scheme. Our best estimates' for the bright 1(1)B(u)(+) and
+   dark 2(1)A(g)(-) vertical transitions are 6.21 +/- 0.02 eV and 6.39 +/-
+   0.07 eV, respectively, establishing definitively that the vertical
+   1(1)B(u)(+) transition lies below the 2(1)A(g)(-) transition. Our
+   1(1)B(u)(+) excitation energy remains significantly higher than the
+   generally cited experimental value of 5.92 eV. To rationalize this
+   difference, we have computed the zero point vibrational energy
+   corrections, which reduce the theoretical 1(1)B(u)(+) excitation energy
+   to 6.11 eV. We also correct for nonverticality in the experimental value
+   by recomputing the transition as the weighted intensity average of the
+   electron impact energy loss spectra, which gives the range 5.96-6.05 eV.
+   The corrected best theoretical and experimental 1(1)B(u)(+) excitation
+   energies are then in good agreement, resolving a long-standing
+   discrepancy.}},
+DOI = {{10.1021/ct300591z}},
+ISSN = {{1549-9618}},
+Unique-ID = {{ISI:000311191900004}},
+}
+
+@article{Cha-WRMS-12,
+Author = {Chan, Garnet Kin-Lic},
+Title = {{Low entanglement wavefunctions}},
+Journal = {{WILEY INTERDISCIPLINARY REVIEWS-COMPUTATIONAL MOLECULAR SCIENCE}},
+Year = {{2012}},
+Volume = {{2}},
+Number = {{6}},
+Pages = {{907-920}},
+Month = {{Nov-Dec}},
+Abstract = {{We review a class of efficient wavefunction approximations that are
+   based around the limit of low entanglement. These wavefunctions, which
+   go by such names as matrix product states and tensor network states,
+   occupy a different region of Hilbert space from wavefunctions built
+   around the HartreeFock limit. The best known class of low entanglement
+   wavefunctions, the matrix product states, forms the variational space of
+   the density matrix renormalization group algorithm. Because of their
+   different structure to many other quantum chemistry wavefunctions, low
+   entanglement approximations hold promise for problems conventionally
+   considered hard in quantum chemistry, and in particular problems which
+   have a multireference or strong correlation nature. In this review, we
+   describe low entanglement wavefunctions at an introductory level,
+   focusing on the main theoretical ideas. Topics covered include the
+   theory of efficient wavefunction approximations, entanglement, matrix
+   product states, and tensor network states including the tree tensor
+   network, projected entangled pair states, and the multiscale
+   entanglement renormalization ansatz. (c) 2012 John Wiley \& Sons, Ltd.}},
+DOI = {{10.1002/wcms.1095}},
+ISSN = {{1759-0876}},
+Unique-ID = {{ISI:000309592500006}},
+}
+
+@article{ZgiGulCha-PRB-12,
+Author = {Zgid, Dominika and Gull, Emanuel and Chan, Garnet Kin-Lic},
+Title = {{Truncated configuration interaction expansions as solvers for correlated
+   quantum impurity models and dynamical mean-field theory}},
+Journal = {{Phys. Rev. B}},
+Year = {{2012}},
+Volume = {{86}},
+Number = {{16}},
+Month = {{Oct 22}},
+Abstract = {{The development of polynomial cost solvers for correlated quantum
+   impurity models, with controllable errors, is a central challenge in
+   quantum many-body physics, where these models find applications ranging
+   from nanoscience to the dynamical mean-field theory (DMFT). Here, we
+   describe how configuration interaction (CI) approximations to exact
+   diagonalization (ED) may be used as solvers in DMFT. CI approximations
+   retain the main advantages of ED, such as the ability to treat general
+   interactions and off-diagonal hybridizations and to obtain real spectral
+   information, but are of polynomial cost. Furthermore, their errors can
+   be controlled by monitoring the convergence of physical quantities as a
+   function of the CI hierarchy. Using benchmark DMFT applications, such as
+   single-site DMFT of the one-dimensional Hubbard model and 2 x 2 cluster
+   DMFT of the two-dimensional Hubbard model, we show that CI
+   approximations allow us to obtain near-exact ED results for a tiny
+   fraction of the cost. This is true over the entire range of interaction
+   strengths including ``difficult{''} regimes, such as in the pseudogap
+   phase of the two-dimensional Hubbard model. We use the ability of CI
+   approximations to treat large numbers of orbitals to demonstrate
+   convergence of the bath representation in the 2 x 2 cluster DMFT using a
+   24-bath orbital representation. CI approximations thus form a promising
+   route to extend ED to problems that are currently difficult to study
+   using other solvers such as continuous-time quantum Monte Carlo,
+   including impurity models with large numbers of orbitals and general
+   interactions.}},
+DOI = {{10.1103/PhysRevB.86.165128}},
+Article-Number = {{165128}},
+ISSN = {{1098-0121}},
+ResearcherID-Numbers = {{Gull, Emanuel/A-2362-2010}},
+ORCID-Numbers = {{Gull, Emanuel/0000-0002-6082-1260}},
+Unique-ID = {{ISI:000310131300005}},
+}
+
+@article{NeuCha-PRB-12,
+Author = {Neuscamman, Eric and Chan, Garnet Kin-Lic},
+Title = {{Correlator product state study of molecular magnetism in the giant
+   Keplerate Mo72Fe30}},
+Journal = {{Phys. Rev. B}},
+Year = {{2012}},
+Volume = {{86}},
+Number = {{6}},
+Month = {{Aug 1}},
+Abstract = {{We have studied the properties of the giant Keplerate molecular magnet
+   Mo72Fe30, as a function of applied magnetic field, using the correlator
+   product state (CPS) tensor network ansatz. The magnet is modeled with an
+   S = 5/2 antiferromagnetic Heisenberg Hamiltonian on the 30-site
+   icosidodecahedron lattice, a model for which exact diagonalization is
+   infeasible. The CPS ansatz produces significant improvements in
+   variational energies relative to previous studies using the density
+   matrix renormalization group, a result of its superior ability to handle
+   strong correlation in two-dimensional spin systems. The CPS results
+   reaffirm that the ground-state energies adhere qualitatively to the
+   parabolic progression of the rotational band model (RBM), but show
+   important deviations near 1/3 of the saturation field. These deviations
+   predict anomalous behavior in the differential magnetization and heat
+   capacity that can not be explained by the RBM alone. Finally, we show
+   that these energetic deviations originate from a qualitative change in
+   the ground state that resembles a finite-size analog of a phase
+   transition.}},
+DOI = {{10.1103/PhysRevB.86.064402}},
+Article-Number = {{064402}},
+ISSN = {{1098-0121}},
+Unique-ID = {{ISI:000306992000002}},
+}
+
+@article{YanChaManSchWer-JCP-12,
+Author = {Yang, Jun and Chan, Garnet Kin-Lic and Manby, Frederick R. and Schuetz,
+   Martin and Werner, Hans-Joachim},
+Title = {{The orbital-specific-virtual local coupled cluster singles and doubles
+   method}},
+Journal = {{J. Chem. Phys.}},
+Year = {{2012}},
+Volume = {{136}},
+Number = {{14}},
+Month = {{Apr 14}},
+Abstract = {{We extend the orbital-specific-virtual tensor factorization, introduced
+   for local Moller-Plesset perturbation theory in Ref. {[}J. Yang, Y.
+   Kurashige, F. R. Manby and G. K. L. Chan, J. Chem. Phys. 134, 044123
+   (2011)], to local coupled cluster singles and doubles theory
+   (OSV-LCCSD). The method is implemented by modifying an efficient
+   projected-atomic-orbital local coupled cluster program (PAO-LCCSD)
+   described recently, {[}H.-J. Werner and M. Schutz, J. Chem. Phys. 135,
+   144116 (2011)]. By comparison of both methods we find that the compact
+   representation of the amplitudes in the OSV approach affords various
+   advantages, including smaller computational time requirements (for
+   comparable accuracy), as well as a more systematic control of the error
+   through a single energy threshold. Overall, the OSV-LCCSD approach
+   together with an MP2 correction yields small domain errors in practical
+   calculations. The applicability of the OSV-LCCSD is demonstrated for
+   molecules with up to 73 atoms and realistic basis sets (up to 2334 basis
+   functions). (C) 2012 American Institute of Physics.
+   {[}http://dx.doi.org/10.1063/1.3696963]}},
+DOI = {{10.1063/1.3696963}},
+Article-Number = {{144105}},
+ISSN = {{0021-9606}},
+ResearcherID-Numbers = {{Schutz, Martin/C-6096-2008
+   Werner, Hans-Joachim/G-9509-2011
+   Yang, Jun/H-8411-2013}},
+ORCID-Numbers = {{Schutz, Martin/0000-0002-2688-3214
+   Yang, Jun/0000-0001-8701-9297}},
+Unique-ID = {{ISI:000303146800007}},
+}
+
+@article{KurYanChaMan-JCP-12,
+Author = {Kurashige, Yuki and Yang, Jun and Chan, Garnet K. -L. and Manby,
+   Frederick R.},
+Title = {{Optimization of orbital-specific virtuals in local Moller-Plesset
+   perturbation theory}},
+Journal = {{J. Chem. Phys.}},
+Year = {{2012}},
+Volume = {{136}},
+Number = {{12}},
+Month = {{Mar 28}},
+Abstract = {{We present an orbital-optimized version of our orbital-specific-virtuals
+   second-order Moller-Plesset perturbation theory (OSV-MP2). The OSV model
+   is a local correlation ansatz with a small basis of virtual functions
+   for each occupied orbital. It is related to the Pulay-Saebo approach, in
+   which domains of virtual orbitals are drawn from a single set of
+   projected atomic orbitals; but here the virtual functions associated
+   with a particular occupied orbital are specifically tailored to the
+   correlation effects in which that orbital participates. In this study,
+   the shapes of the OSVs are optimized simultaneously with the OSV-MP2
+   amplitudes by minimizing the Hylleraas functional or approximations to
+   it. It is found that optimized OSVs are considerably more accurate than
+   the OSVs obtained through singular value decomposition of diagonal
+   blocks of MP2 amplitudes, as used in our earlier work. Orbital-optimized
+   OSV-MP2 recovers smooth potential energy surfaces regardless of the
+   number of virtuals. Full optimization is still computationally
+   demanding, but orbital optimization in a diagonal or Kapuy-type MP2
+   approximation provides an attractive scheme for determining accurate
+   OSVs. (C) 2012 American Institute of Physics.
+   {[}http://dx.doi.org/10.1063/1.3696962]}},
+DOI = {{10.1063/1.3696962}},
+Article-Number = {{124106}},
+ISSN = {{0021-9606}},
+ResearcherID-Numbers = {{Yang, Jun/H-8411-2013}},
+ORCID-Numbers = {{Yang, Jun/0000-0001-8701-9297}},
+Unique-ID = {{ISI:000302216200010}},
+}
+
+@article{ShaCha-JCP-12,
+Author = {Sharma, Sandeep and Chan, Garnet Kin-Lic},
+Title = {{Spin-adapted density matrix renormalization group algorithms for quantum
+   chemistry}},
+Journal = {{J. Chem. Phys.}},
+Year = {{2012}},
+Volume = {{136}},
+Number = {{12}},
+Month = {{Mar 28}},
+Abstract = {{We extend the spin-adapted density matrix renormalization group (DMRG)
+   algorithm of McCulloch and Gulacsi {[}Europhys. Lett. 57, 852 (2002)] to
+   quantum chemical Hamiltonians. This involves using a quasi-density
+   matrix, to ensure that the renormalized DMRG states are eigenfunctions
+   of (S) over cap (2), and the Wigner-Eckart theorem, to reduce overall
+   storage and computational costs. We argue that the spin-adapted DMRG
+   algorithm is most advantageous for low spin states. Consequently, we
+   also implement a singlet-embedding strategy due to Tatsuaki {[}Phys.
+   Rev. E 61, 3199 (2000)] where we target high spin states as a component
+   of a larger fictitious singlet system. Finally, we present an efficient
+   algorithm to calculate one-and two-body reduced density matrices from
+   the spin-adapted wavefunctions. We evaluate our developments with
+   benchmark calculations on transition metal system active space models.
+   These include the Fe2S2, {[}Fe2S2(SCH3)(4)](2-), and Cr-2 systems. In
+   the case of Fe2S2, the spin-ladder spacing is on the microHartree scale,
+   and here we show that we can target such very closely spaced states. In
+   {[}Fe2S2(SCH3)(4)](2-), we calculate particle and spin correlation
+   functions, to examine the role of sulfur bridging orbitals in the
+   electronic structure. In Cr-2 we demonstrate that spin-adaptation with
+   the Wigner-Eckart theorem and using singlet embedding can yield up to an
+   order of magnitude increase in computational efficiency. Overall, these
+   calculations demonstrate the potential of using spin-adaptation to
+   extend the range of DMRG calculations in complex transition metal
+   problems. (C) 2012 American Institute of Physics.
+   {[}http://dx.doi.org/10.1063/1.3695642]}},
+DOI = {{10.1063/1.3695642}},
+Article-Number = {{124121}},
+ISSN = {{0021-9606}},
+Unique-ID = {{ISI:000302216200025}},
+}
+
+@article{NeuUmrCha-PRB-12,
+Author = {Neuscamman, Eric and Umrigar, C. J. and Chan, Garnet Kin-Lic},
+Title = {{Optimizing large parameter sets in variational quantum Monte Carlo}},
+Journal = {{Phys. Rev. B}},
+Year = {{2012}},
+Volume = {{85}},
+Number = {{4}},
+Month = {{Jan 5}},
+Abstract = {{We present a technique for optimizing hundreds of thousands of
+   variational parameters in variational quantum Monte Carlo. By
+   introducing iterative Krylov subspace solvers and by multiplying by the
+   Hamiltonian and overlap matrices as they are sampled, we remove the need
+   to construct and store these matrices and thus bypass the most expensive
+   steps of the stochastic reconfiguration and linear method optimization
+   techniques. We demonstrate the effectiveness of this approach by using
+   stochastic reconfiguration to optimize a correlator product state wave
+   function with a Pfaffian reference for four example systems. In two
+   examples on the two dimensional Fermionic Hubbard model, we study 16 and
+   64 site lattices, recovering energies accurate to 1\% in the smaller
+   lattice and predicting particle-hole phase separation in the larger. In
+   two examples involving an ab initio Hamiltonian, we investigate the
+   potential energy curve of a symmetrically dissociated 4 x 4 hydrogen
+   lattice as well as the singlet-triplet gap in free base porphin. In the
+   hydrogen system we recover 98\% or more of the correlation energy at all
+   geometries, while for porphin we compute the gap in a 24 orbital active
+   space to within 0.02 eV of the exact result. The number of variational
+   parameters in these examples ranges from 4 x 10(3) to 5 x 10(5).}},
+DOI = {{10.1103/PhysRevB.85.045103}},
+Article-Number = {{045103}},
+ISSN = {{1098-0121}},
+Unique-ID = {{ISI:000298865200001}},
+}
+
+@article{YanKurNeuCha-PCCP-12,
+Author = {Yanai, Takeshi and Kurashige, Yuki and Neuscamman, Eric and Chan, Garnet
+   Kin-Lic},
+Title = {{Extended implementation of canonical transformation theory:
+   parallelization and a new level-shifted condition}},
+Journal = {{PHYSICAL CHEMISTRY CHEMICAL PHYSICS}},
+Year = {{2012}},
+Volume = {{14}},
+Number = {{21}},
+Pages = {{7809-7820}},
+Abstract = {{The canonical transformation (CT) theory has been developed as a
+   multireference electronic structure method to compute high-level dynamic
+   correlation on top of a large active space reference treated with the ab
+   initio density matrix renormalization group method. This article
+   describes a parallelized algorithm and implementation of the CT theory
+   to handle large computational demands of the CT calculation, which has
+   the same scaling as the coupled cluster singles and doubles theory. To
+   stabilize the iterative solution of the CT method, a modification to the
+   CT amplitude equation is introduced with the inclusion of a level shift
+   parameter. The level-shifted condition has been found to effectively
+   remove a type of intruder state that arises in the linear equations of
+   CT and to address the discontinuity problems in the potential energy
+   curves observed in the previous CT studies.}},
+DOI = {{10.1039/c2cp23767a}},
+ISSN = {{1463-9076}},
+Unique-ID = {{ISI:000304002300023}},
+}
+
+@article{HacFraWolCha-C-11,
+Author = {Hachmann, Johannes and Frazier, Brenda A. and Wolczanski, Peter T. and
+   Chan, Garnet Kin-Lic},
+Title = {{A Theoretical Study of the 3d-M(smif)2 Complexes: Structure, Magnetism,
+   and Oxidation States}},
+Journal = {{CHEMPHYSCHEM}},
+Year = {{2011}},
+Volume = {{12}},
+Number = {{17}},
+Pages = {{3236-3244}},
+Month = {{Dec 9}},
+Abstract = {{We carry out a theoretical investigation of the recently reported
+   M(smif)2 series1,?2 and find a number of interesting phenomena. These
+   include complex potential energy surfaces with near-degenerate
+   stationary points, low-lying states, non-trivial electron
+   configurations, as well as non-innocent ligand behavior. The M(smif)2
+   exhibit a delicate balance between geometry and electronic structure,
+   which has implications not only for their reactivity but also for
+   controlling their properties through ligand design. We address
+   methodological issues and show how conceptual quantities such as
+   oxidation states and electronic configurations can be extracted through
+   a simple analysis of the electron and spin densitieswithout a
+   complicated examination of the underlying orbitals.}},
+DOI = {{10.1002/cphc.201100286}},
+ISSN = {{1439-4235}},
+Unique-ID = {{ISI:000297693200019}},
+}
+
+@article{NeuChaKinCha-PRB-11,
+Author = {Neuscamman, Eric and Changlani, Hitesh and Kinder, Jesse and Chan,
+   Garnet Kin-Lic},
+Title = {{Nonstochastic algorithms for Jastrow-Slater and correlator product state
+   wave functions}},
+Journal = {{Phys. Rev. B}},
+Year = {{2011}},
+Volume = {{84}},
+Number = {{20}},
+Month = {{Nov 17}},
+Abstract = {{Jastrow-Slater and correlator product state wave functions, two classes
+   of quantum many-body wave functions, are commonly studied using Monte
+   Carlo methods with the associated drawbacks of stochastic error. Here we
+   show that efficient nonstochastic algorithms for these wave functions
+   exist, both for observable evaluation and for optimization. The
+   algorithms rely on the structure of these states as a product of local,
+   commuting, invertible operators acting on a simple reference wave
+   function. We describe the nonstochastic energy evaluation and
+   optimization algorithms, and demonstrate them with applications to the
+   Heisenberg and spinless and full Hubbard models. Our results demonstrate
+   that the nonstochastic algorithms yield optimized wave functions and
+   energies very close to those obtained with the variational Monte Carlo
+   algorithm. Such algorithms provide new criteria for identifying new
+   classes of wave functions for efficient computational simulation.}},
+DOI = {{10.1103/PhysRevB.84.205132}},
+Article-Number = {{205132}},
+ISSN = {{1098-0121}},
+Unique-ID = {{ISI:000297106600006}},
+}
+
+@article{KinChaPar-PRB-11,
+Author = {Kinder, Jesse M. and Chan, Garnet Kin-Lic and Park, Jiwoong},
+Title = {{Uniform peak optical conductivity in single-walled carbon nanotubes}},
+Journal = {{Phys. Rev. B}},
+Year = {{2011}},
+Volume = {{84}},
+Number = {{12}},
+Month = {{Sep 12}},
+Abstract = {{Recent Rayleigh scattering measurements show that all single-walled
+   carbon nanotubes have a peak optical conductivity of approximately 8
+   e(2)/h, independent of radius, chiral angle, or whether the nanotube is
+   semiconducting or metallic {[}D. Y. Joh et al., Nat. Nanotechnol. 6, 51
+   ( 2011)]. We show that this uniform peak conductivity is a consequence
+   of the relativistic band structure and strength of the Coulomb
+   interaction in carbon nanotubes. We also show that a simple exciton
+   model accurately describes the general phenomenology and the numerical
+   value of the peak optical conductivity. Our work illustrates the need
+   for careful treatment of relaxation mechanisms in modeling the
+   optoelectronic properties of carbon nanotubes.}},
+DOI = {{10.1103/PhysRevB.84.125428}},
+Article-Number = {{125428}},
+ISSN = {{1098-0121}},
+ResearcherID-Numbers = {{Park, Jiwoong/C-2327-2013}},
+Unique-ID = {{ISI:000294777800013}},
+}
+
+@article{Cha-APACS-11,
+Author = {Chan, Garnet K.},
+Title = {{Density matrixes in many-electron problems in molecules and solids}},
+Journal = {{ABSTRACTS OF PAPERS OF THE AMERICAN CHEMICAL SOCIETY}},
+Year = {{2011}},
+Volume = {{242}},
+Month = {{Aug 28}},
+Note = {{242nd National Meeting of the American-Chemical-Society (ACS), Denver,
+   CO, Aug 28-Sep 01, 2011}},
+Organization = {{Amer Chem Soc (ACS)}},
+ISSN = {{0065-7727}},
+Unique-ID = {{ISI:000299378306054}},
+}
+
+@article{TamParShuZhoSanZheYan-AN-11,
+Author = {Tam, Eugenia S. and Parks, Joshua J. and Shum, William W. and Zhong,
+   Yu-Wu and Santiago-Berrios, Mitk'El B. and Zheng, Xiao and Yang, Weitao
+   and Chan, Garnet K-L. and Abruna, Hector D. and Ralph, Daniel C.},
+Title = {{Single-Molecule Conductance of Pyridine-Terminated Dithienylethene
+   Switch Molecules}},
+Journal = {{ACS NANO}},
+Year = {{2011}},
+Volume = {{5}},
+Number = {{6}},
+Pages = {{5115-5123}},
+Month = {{Jun}},
+Abstract = {{We have investigated the conductance of individual optically switchable
+   dithienylethene molecules in birth their conducting closed configuration
+   and nonconducting open configuration, using the technique of repeatedly
+   formed break-junctions. We employed pyridine groups to link the
+   molecules to gold electrodes in order to achieve relatively well-defined
+   molecular contacts and stable conductance. For the closed form of each
+   molecule, we observed a peak in the conductance histogram constructed
+   without any data selection, allowing us to determine the conductance of
+   the fully stretched molecules. For two different dithlenylethene
+   derivatives, these closed-configuration conductances were (3.3 +/- 0.5)
+   x 10(-5) 60 and (1.5 +/- 0.5) x 10(-6) Go, where 60 is the conductance
+   quantum. For the open configuration of the molecules, the existence of
+   electrical conduction via the molecule was evident in traces of
+   conductance versus junction displacement, but the conductance of the
+   fully stretched molecules was less than the noise floor of our
+   measurement. We can set a lower limit of 30 for the on/off ratio for the
+   simplest dithienylethene derivative we have investigated. Density
+   functional theory calculations predict an on/off ratio consistent with
+   this result.}},
+DOI = {{10.1021/nn201199b}},
+ISSN = {{1936-0851}},
+ResearcherID-Numbers = {{Parks, Joshua/B-9889-2009
+   Zheng, Xiao/C-2644-2009}},
+ORCID-Numbers = {{Parks, Joshua/0000-0003-4374-3317
+   Zheng, Xiao/0000-0002-9804-1833}},
+Unique-ID = {{ISI:000292055200101}},
+}
+
+@article{Cha-APACS-11,
+Author = {Chan, Garnet Kin-Lic},
+Title = {{Marrying wavefunctions from quantum chemistry and quantum information}},
+Journal = {{ABSTRACTS OF PAPERS OF THE AMERICAN CHEMICAL SOCIETY}},
+Year = {{2011}},
+Volume = {{241}},
+Month = {{Mar 27}},
+Note = {{241st National Meeting and Exposition of the American-Chemical-Society
+   (ACS), Anaheim, CA, Mar 27-31, 2011}},
+Organization = {{Amer Chem Soc}},
+ISSN = {{0065-7727}},
+Unique-ID = {{ISI:000291982804311}},
+}
+
+@article{ZgiCha-JCP-11,
+Author = {Zgid, Dominika and Chan, Garnet Kin-Lic},
+Title = {{Dynamical mean-field theory from a quantum chemical perspective}},
+Journal = {{J. Chem. Phys.}},
+Year = {{2011}},
+Volume = {{134}},
+Number = {{9}},
+Month = {{Mar 7}},
+Abstract = {{We investigate the dynamical mean-field theory (DMFT) from a quantum
+   chemical perspective. Dynamical mean-field theory offers a formalism to
+   extend quantum chemical methods for finite systems to infinite periodic
+   problems within a local correlation approximation. In addition, quantum
+   chemical techniques can be used to construct new ab initio Hamiltonians
+   and impurity solvers for DMFT. Here, we explore some ways in which these
+   things may be achieved. First, we present an informal overview of
+   dynamical mean-field theory to connect to quantum chemical language.
+   Next, we describe an implementation of dynamical mean-field theory where
+   we start from an ab initio Hartree-Fock Hamiltonian that avoids double
+   counting issues present in many applications of DMFT. We then explore
+   the use of the configuration interaction hierarchy in DMFT as an
+   approximate solver for the impurity problem. We also investigate some
+   numerical issues of convergence within DMFT. Our studies are carried out
+   in the context of the cubic hydrogen model, a simple but challenging
+   test for correlation methods. Finally, we finish with some conclusions
+   for future directions. (C) 2011 American Institute of Physics. {[}doi:
+   10.1063/1.3556707]}},
+DOI = {{10.1063/1.3556707}},
+Article-Number = {{094115}},
+ISSN = {{0021-9606}},
+Unique-ID = {{ISI:000288085300017}},
+}
+
+@article{YanKurManCha-JCP-11,
+Author = {Yang, Jun and Kurashige, Yuki and Manby, Frederick R. and Chan, Garnet
+   K. L.},
+Title = {{Tensor factorizations of local second-order Moller-Plesset theory}},
+Journal = {{J. Chem. Phys.}},
+Year = {{2011}},
+Volume = {{134}},
+Number = {{4}},
+Month = {{Jan 28}},
+Abstract = {{Efficient electronic structure methods can be built around efficient
+   tensor representations of the wavefunction. Here we first describe a
+   general view of tensor factorization for the compact representation of
+   electronic wavefunctions. Next, we use this language to construct a
+   low-complexity representation of the doubles amplitudes in local
+   second-order Moller-Plesset perturbation theory. We introduce two
+   approximations-the direct orbital-specific virtual approximation and the
+   full orbital-specific virtual approximation. In these approximations,
+   each occupied orbital is associated with a small set of correlating
+   virtual orbitals. Conceptually, the representation lies between the
+   projected atomic orbital representation in Pulay-Saebo local correlation
+   theories and pair natural orbital correlation theories. We have tested
+   the orbital-specific virtual approximations on a variety of systems and
+   properties including total energies, reaction energies, and potential
+   energy curves. Compared to the Pulay-Saebo ansatz, we find that these
+   approximations exhibit favorable accuracy and computational times while
+   yielding smooth potential energy curves. (C) 2011 American Institute of
+   Physics. {[}doi:10.1063/1.3528935]}},
+DOI = {{10.1063/1.3528935}},
+Article-Number = {{044123}},
+ISSN = {{0021-9606}},
+ResearcherID-Numbers = {{Manby, Frederick/E-8671-2011
+   Yang, Jun/H-8411-2013}},
+ORCID-Numbers = {{Yang, Jun/0000-0001-8701-9297}},
+Unique-ID = {{ISI:000286897600028}},
+}
+
+@incollection{ChaSha-ARPC-11,
+Author = {Chan, Garnet Kin-Lic and Sharma, Sandeep},
+Editor = {{Leone, SR and Cremer, PS and Groves, JT and Johnson, MA}},
+Title = {{The Density Matrix Renormalization Group in Quantum Chemistry}},
+Series = {{Annu. Rev. Phys. Chem.}},
+Year = {{2011}},
+Volume = {{62}},
+Pages = {{465-481}},
+Abstract = {{The density matrix renormalization group is a method that is useful for
+   describing molecules that have strongly correlated electrons. Here we
+   provide a pedagogical overview of the basic challenges of strong
+   correlation, how the density matrix renormalization group works, a
+   survey of its existing applications to molecular problems, and some
+   thoughts on the future of the method.}},
+DOI = {{10.1146/annurev-physchem-032210-103338}},
+ISSN = {{0066-426X}},
+ISBN = {{978-0-8243-1062-2}},
+Unique-ID = {{ISI:000290636800022}},
+}
+
+@article{JohHerJuKinSegJohCha-NL-11,
+Author = {Joh, Daniel Y. and Herman, Lihong H. and Ju, Sang-Yong and Kinder, Jesse
+   and Segal, Michael A. and Johnson, Jeffreys N. and Chan, Garnet K. L.
+   and Park, Jiwoong},
+Title = {{On-Chip Rayleigh Imaging and Spectroscopy of Carbon Nanotubes}},
+Journal = {{NANO Lett.}},
+Year = {{2011}},
+Volume = {{11}},
+Number = {{1}},
+Pages = {{1-7}},
+Month = {{Jan}},
+Abstract = {{We report a novel on-chip Rayleigh imaging technique using wide-field
+   laser illumination to measure optical scattering from individual
+   single-walled carbon nanotubes (SWNTs) on a solid substrate with high
+   spatial and spectral resolution. This method in conjunction with
+   calibrated AFM measurements accurately measures the resonance energies
+   and diameters for a large number of SWNTs in parallel. We apply this
+   technique for fast mapping of key SWNT parameters, including the
+   electronic-types and chiral indices for individual SWNTs, position and
+   frequency of chirality-changing events, and intertube interactions in
+   both bundled and distant SWNTs.}},
+DOI = {{10.1021/nl1012568}},
+ISSN = {{1530-6984}},
+ResearcherID-Numbers = {{Ju, Sang-Yong/A-5257-2009
+   Park, Jiwoong/C-2327-2013}},
+ORCID-Numbers = {{Ju, Sang-Yong/0000-0002-6939-5296
+   }},
+Unique-ID = {{ISI:000286029400001}},
+}
+
+@article{JohKinHerJuSegJohCha-NN-11,
+Author = {Joh, Daniel Y. and Kinder, Jesse and Herman, Lihong H. and Ju, Sang-Yong
+   and Segal, Michael A. and Johnson, Jeffreys N. and Chan, Garnet K. -L.
+   and Park, Jiwoong},
+Title = {{Single-walled carbon nanotubes as excitonic optical wires}},
+Journal = {{NATURE NANOTECHNOLOGY}},
+Year = {{2011}},
+Volume = {{6}},
+Number = {{1}},
+Pages = {{51-56}},
+Month = {{Jan}},
+Abstract = {{Although metallic nanostructures are useful for nanoscale optics, all of
+   their key optical properties are determined by their geometry. This
+   makes it difficult to adjust these properties independently, and can
+   restrict applications. Here we use the absolute intensity of Rayleigh
+   scattering to show that single-walled carbon nanotubes can form ideal
+   optical wires. The spatial distribution of the radiation scattered by
+   the nanotubes is determined by their shape, but the intensity and
+   spectrum of the scattered radiation are determined by exciton dynamics,
+   quantum-dot-like optical resonances and other intrinsic properties.
+   Moreover, the nanotubes display a uniform peak optical conductivity of
+   similar to 8 e(2)/h, which we derive using an exciton model, suggesting
+   universal behaviour similar to that observed in nanotube conductance. We
+   further demonstrate a radiative coupling between two distant nanotubes,
+   with potential applications in metamaterials and optical antennas.}},
+DOI = {{10.1038/NNANO.2010.248}},
+ISSN = {{1748-3387}},
+ResearcherID-Numbers = {{Ju, Sang-Yong/A-5257-2009
+   Park, Jiwoong/C-2327-2013}},
+ORCID-Numbers = {{Ju, Sang-Yong/0000-0002-6939-5296
+   }},
+Unique-ID = {{ISI:000285574000013}},
+}
+
+@article{NeuYanCha-JCP-10,
+Author = {Neuscamman, Eric and Yanai, Takeshi and Chan, Garnet Kin-Lic},
+Title = {{Strongly contracted canonical transformation theory}},
+Journal = {{J. Chem. Phys.}},
+Year = {{2010}},
+Volume = {{132}},
+Number = {{2}},
+Month = {{Jan 14}},
+Abstract = {{Canonical transformation (CT) theory describes dynamic correlation in
+   multireference systems with large active spaces. Here we discuss CT
+   theory's intruder state problem and why our previous approach of overlap
+   matrix truncation becomes infeasible for sufficiently large active
+   spaces. We propose the use of strongly and weakly contracted excitation
+   operators as alternatives for dealing with intruder states in CT theory.
+   The performance of these operators is evaluated for the H(2)O, N(2), and
+   NiO molecules, with comparisons made to complete active space second
+   order perturbation theory and Davidson-corrected multireference
+   configuration interaction theory. Finally, using a combination of
+   strongly contracted CT theory and orbital-optimized density matrix
+   renormalization group theory, we evaluate the singlet-triplet gap of
+   free base porphin using an active space containing all 24 out-of-plane
+   2p orbitals. Modeling dynamic correlation with an active space of this
+   size is currently only possible using CT theory.}},
+DOI = {{10.1063/1.3274822}},
+Article-Number = {{024106}},
+ISSN = {{0021-9606}},
+Unique-ID = {{ISI:000273689000008}},
+}
+
+@article{YanKurNeuCha-JCP-10,
+Author = {Yanai, Takeshi and Kurashige, Yuki and Neuscamman, Eric and Chan, Garnet
+   Kin-Lic},
+Title = {{Multireference quantum chemistry through a joint density matrix
+   renormalization group and canonical transformation theory}},
+Journal = {{J. Chem. Phys.}},
+Year = {{2010}},
+Volume = {{132}},
+Number = {{2}},
+Month = {{Jan 14}},
+Abstract = {{We describe the joint application of the density matrix renormalization
+   group and canonical transformation theory to multireference quantum
+   chemistry. The density matrix renormalization group provides the ability
+   to describe static correlation in large active spaces, while the
+   canonical transformation theory provides a high-order description of the
+   dynamic correlation effects. We demonstrate the joint theory in two
+   benchmark systems designed to test the dynamic and static correlation
+   capabilities of the methods, namely, (i) total correlation energies in
+   long polyenes and (ii) the isomerization curve of the {[}Cu(2)O(2)](2+)
+   core. The largest complete active spaces and atomic orbital basis sets
+   treated by the joint DMRG-CT theory in these systems correspond to a
+   (24e,24o) active space and 268 atomic orbitals in the polyenes and a
+   (28e,32o) active space and 278 atomic orbitals in {[}Cu(2)O(2)](2+).}},
+DOI = {{10.1063/1.3275806}},
+Article-Number = {{024105}},
+ISSN = {{0021-9606}},
+Unique-ID = {{ISI:000273689000007}},
+}
+
+@article{NeuYanCha-IRPC-10,
+Author = {Neuscamman, Eric and Yanai, Takeshi and Chan, Garnet Kin-Lic},
+Title = {{A review of canonical transformation theory}},
+Journal = {{INTERNATIONAL REVIEWS IN PHYSICAL CHEMISTRY}},
+Year = {{2010}},
+Volume = {{29}},
+Number = {{2}},
+Pages = {{231-271}},
+Abstract = {{Canonical transformation (CT) theory targets the description of dynamic
+   correlation in multireference quantum chemistry problems. When combined
+   with a static correlation quantum chemistry method, it enables the
+   quantitative description of chemical processes involving electronic
+   structure not described by a single electronic configuration. We argue
+   that many multireference dynamic correlation methods display
+   unsatisfactory characteristics, including lack of size-consistency, a
+   low-order treatment of correlation, and a poor computational scaling. By
+   contrast, CT theory is based on an exponential ansatz that is rigorously
+   size-consistent, reduces in a single-reference limit to a coupled
+   cluster theory, and has an n6 computational scaling with system and
+   active space size. The efficient formulation of CT theory has allowed it
+   to be applied to difficult systems in conjunction with active spaces
+   with more than 30 orbitals, beyond the reach of traditional methods,
+   with an accuracy that far exceeds multireference perturbation theories.
+   Here we review the basic motivation, formulation, and implementation of
+   CT theory, as well as survey some of our recent applications and
+   possible future directions.}},
+DOI = {{10.1080/01442351003620540}},
+ISSN = {{0144-235X}},
+Unique-ID = {{ISI:000277457900001}},
+}
+
+@article{ChaKinUmrCha-PRB-09,
+Author = {Changlani, Hitesh J. and Kinder, Jesse M. and Umrigar, C. J. and Chan,
+   Garnet Kin-Lic},
+Title = {{Approximating strongly correlated wave functions with correlator product
+   states}},
+Journal = {{Phys. Rev. B}},
+Year = {{2009}},
+Volume = {{80}},
+Number = {{24}},
+Month = {{Dec}},
+Abstract = {{We describe correlator product states, a class of numerically efficient
+   many-body wave functions to describe strongly correlated wave functions
+   in any dimension. Correlator product states introduce direct
+   correlations between physical degrees of freedom in a simple way, yet
+   provide the flexibility to describe a wide variety of systems. We show
+   that many interesting wave functions can be mapped exactly onto
+   correlator product states, including Laughlin's quantum Hall wave
+   function, Kitaev's toric code states, and Huse and Elser's frustrated
+   spin states. We also outline the relationship between correlator product
+   states and other common families of variational wave functions such as
+   matrix product states, tensor product states, and resonating
+   valence-bond states. Variational calculations for the Heisenberg and
+   spinless Hubbard models demonstrate the promise of correlator product
+   states for describing both two-dimensional and fermion correlations.
+   Even in one-dimensional systems, correlator product states are
+   competitive with matrix product states for a fixed number of variational
+   parameters.}},
+DOI = {{10.1103/PhysRevB.80.245116}},
+Article-Number = {{245116}},
+ISSN = {{1098-0121}},
+Unique-ID = {{ISI:000273229200060}},
+}
+
+@article{DorNeuCha-APACS-09,
+Author = {Dorando, Jonathan J. and Neuscamman, Eric and Chan, Garnet Kin-Lic},
+Title = {{Deriving effective Hamiltonians from canonical transformation theory}},
+Journal = {{ABSTRACTS OF PAPERS OF THE AMERICAN CHEMICAL SOCIETY}},
+Year = {{2009}},
+Volume = {{238}},
+Month = {{Aug 16}},
+ISSN = {{0065-7727}},
+Unique-ID = {{ISI:000207861909616}},
+}
+
+@article{GhoZgiNeuYanCha-APACS-09,
+Author = {Ghosh, Debashree and Zgid, Dominika and Neuscamman, Eric and Yanai,
+   Takeshi and Chan, Garnet K.},
+Title = {{Canonical transformation and 2nd order perturbation on DMRG-SCF and its
+   application on polyenes and carotenoids}},
+Journal = {{ABSTRACTS OF PAPERS OF THE AMERICAN CHEMICAL SOCIETY}},
+Year = {{2009}},
+Volume = {{238}},
+Month = {{Aug 16}},
+ISSN = {{0065-7727}},
+Unique-ID = {{ISI:000207861909465}},
+}
+
+@article{GhoNeuYanCha-APACS-09,
+Author = {Ghosh, Debashree and Neuscamman, Eric and Yanai, Takeshi and Chan,
+   Garnet K.},
+Title = {{Density matrix renormalization group self consistent field: Canonical
+   transformation calculation on conjugated polyenes}},
+Journal = {{ABSTRACTS OF PAPERS OF THE AMERICAN CHEMICAL SOCIETY}},
+Year = {{2009}},
+Volume = {{238}},
+Month = {{Aug 16}},
+ISSN = {{0065-7727}},
+Unique-ID = {{ISI:000207861904209}},
+}
+
+@article{HacWolCha-APACS-09,
+Author = {Hachmann, Johannes and Wolczanski, Peter T. and Chan, Garnet Kin-Lic},
+Title = {{Electronic structure of 3D-M(smif)(2): A case study for computational
+   investigations of transition metal complexes and their spectroscopic
+   characterization}},
+Journal = {{ABSTRACTS OF PAPERS OF THE AMERICAN CHEMICAL SOCIETY}},
+Year = {{2009}},
+Volume = {{238}},
+Month = {{Aug 16}},
+ISSN = {{0065-7727}},
+Unique-ID = {{ISI:000207861904269}},
+}
+
+@article{HacDorGhoCha-APACS-09,
+Author = {Hachmann, Johannes and Dorando, Jonathan J. and Ghosh, Debashree and
+   Chan, Garnet Kin-Lic},
+Title = {{Application of ab initio DMRG to the electron correlation problem in
+   conjugated pi-electron systems}},
+Journal = {{ABSTRACTS OF PAPERS OF THE AMERICAN CHEMICAL SOCIETY}},
+Year = {{2009}},
+Volume = {{238}},
+Month = {{Aug 16}},
+ISSN = {{0065-7727}},
+Unique-ID = {{ISI:000207861909581}},
+}
+
+@article{KinChaCha-APACS-09,
+Author = {Kinder, Jesse M. and Changlani, Hitesh and Chan, Garnet K.},
+Title = {{Correlator product states: Variational wave functions for strongly
+   correlated many-body systems}},
+Journal = {{ABSTRACTS OF PAPERS OF THE AMERICAN CHEMICAL SOCIETY}},
+Year = {{2009}},
+Volume = {{238}},
+Month = {{Aug 16}},
+ISSN = {{0065-7727}},
+Unique-ID = {{ISI:000207861909541}},
+}
+
+@article{NeuYanCha-APACS-09,
+Author = {Neuscamman, Eric and Yanai, Takeshi and Chan, Garnet K.},
+Title = {{Canonical transformation theory: Review and selected applications}},
+Journal = {{ABSTRACTS OF PAPERS OF THE AMERICAN CHEMICAL SOCIETY}},
+Year = {{2009}},
+Volume = {{238}},
+Month = {{Aug 16}},
+ISSN = {{0065-7727}},
+Unique-ID = {{ISI:000207861909578}},
+}
+
+@article{NeuYanCha-APACS-09,
+Author = {Neuscamman, Eric and Yanai, Takeshi and Chan, Garnet K.},
+Title = {{Canonical transformation theory: Dynamic correlation for large active
+   spaces}},
+Journal = {{ABSTRACTS OF PAPERS OF THE AMERICAN CHEMICAL SOCIETY}},
+Year = {{2009}},
+Volume = {{238}},
+Month = {{Aug 16}},
+ISSN = {{0065-7727}},
+Unique-ID = {{ISI:000207861909222}},
+}
+
+@article{RalZgiCha-APACS-09,
+Author = {Ralph, Claire C. and Zgid, Dominika and Chan, Garnet K.},
+Title = {{Orbital ordering in density matrix renormalization group methods}},
+Journal = {{ABSTRACTS OF PAPERS OF THE AMERICAN CHEMICAL SOCIETY}},
+Year = {{2009}},
+Volume = {{238}},
+Month = {{Aug 16}},
+ISSN = {{0065-7727}},
+Unique-ID = {{ISI:000207861904072}},
+}
+
+@article{ZgiCha-APACS-09,
+Author = {Zgid, Dominika and Chan, Garnet Kin-Lic},
+Title = {{Development of a new solver for dynamical mean field theory (DMFT) based
+   on the complete active space self consistent field (CASSCF) approach}},
+Journal = {{ABSTRACTS OF PAPERS OF THE AMERICAN CHEMICAL SOCIETY}},
+Year = {{2009}},
+Volume = {{238}},
+Month = {{Aug 16}},
+ISSN = {{0065-7727}},
+Unique-ID = {{ISI:000207861909622}},
+}
+
+@article{ZgiCha-APACS-09,
+Author = {Zgid, Dominika and Chan, Garnet Kin-Lic},
+Title = {{How quantum chemistry methods can be used to treat strongly correlated
+   solids without the burden of explicit treatment of periodic boundary
+   conditions}},
+Journal = {{ABSTRACTS OF PAPERS OF THE AMERICAN CHEMICAL SOCIETY}},
+Year = {{2009}},
+Volume = {{238}},
+Month = {{Aug 16}},
+ISSN = {{0065-7727}},
+Unique-ID = {{ISI:000207861909493}},
+}
+
+@article{YanKurGhoCha-IJQC-09,
+Author = {Yanai, Takeshi and Kurashige, Yuki and Ghosh, Debashree and Chan, Garnet
+   Kin-Lic},
+Title = {{Accelerating Convergence in Iterative Solution for Large-Scale Complete
+   Active Space Self-Consistent-Field Calculations}},
+Journal = {{INTERNATIONAL JOURNAL OF QUANTUM CHEMISTRY}},
+Year = {{2009}},
+Volume = {{109}},
+Number = {{10}},
+Pages = {{2178-2190}},
+Month = {{Aug 15}},
+Abstract = {{An algorithm that accelerates the convergence of the iterative
+   optimization of the complete active space self-consistent field (CASSCF)
+   wavefunction so as to find a optimum solution in fewer macroiterations
+   is described. The algorithm is oriented to large-scale CASSCF problems
+   that are to be solved with a combination of density matrix
+   renormalization group (DMRG) method for the configuration interaction
+   (CI) process. The algorithm is based on the alternating (or two-step)
+   CASSCF optimization in which the CI and molecular orbital (MO)
+   parameters are optimized separately. Convergence ratio is improved by
+   finding further optimized MOs from a linear extrapolation of the MO sets
+   of the iteration history. The acceleration results in fewer
+   diagonalizations in a total CASSCF calculation to save a considerable
+   computational cost. The convergence performance is examined in a couple
+   of realistic applications on SiC(3) and poly (phenyl)carbenes. For
+   poly(phenyl)carbenes, the large-size CASSCF calculations with
+   CAS(30e,30o) that entails full pi valence space as well as sp(2) orbital
+   space of carbenes are performed by using the practical implementation of
+   DMRG-CASSCF in conjunction with the acceleration technique. (C) 2009
+   Wiley Periodicals, Inc. Int J Quantum Chem 109: 2178-2190, 2009}},
+DOI = {{10.1002/qua.22099}},
+ISSN = {{0020-7608}},
+Unique-ID = {{ISI:000267086900012}},
+}
+
+@article{KinDorWanCha-NL-09,
+Author = {Kinder, Jesse M. and Dorando, Jonathan J. and Wang, Haitao and Chan,
+   Garnet Kin-Luc},
+Title = {{Perfect Reflection of Chiral Fermions in Gated Graphene Nanoribbons (vol
+   9, pg 1983, 2009)}},
+Journal = {{NANO Lett.}},
+Year = {{2009}},
+Volume = {{9}},
+Number = {{8}},
+Pages = {{3087}},
+Month = {{Aug}},
+DOI = {{10.1021/nl902119m}},
+ISSN = {{1530-6984}},
+Unique-ID = {{ISI:000268797200051}},
+}
+
+@article{ZgiGhoNeuCha-JCP-09,
+Author = {Zgid, Dominika and Ghosh, Debashree and Neuscamman, Eric and Chan,
+   Garnet Kin-Lic},
+Title = {{A study of cumulant approximations to n-electron valence multireference
+   perturbation theory}},
+Journal = {{J. Chem. Phys.}},
+Year = {{2009}},
+Volume = {{130}},
+Number = {{19}},
+Month = {{May 21}},
+Abstract = {{We investigate the possibility of reducing the complexity of
+   multireference perturbation theory through cumulant based approximations
+   to the high-order density matrices that appear in such theories. Our
+   test cases show that while the cumulant approximated forms are degraded
+   in accuracy relative to the parent theory and exhibit intruder state
+   problems that must be carefully handled, they may provide a route to a
+   simple estimation of dynamic correlation when the parent perturbation
+   theory is infeasible. Nonetheless, further work is clearly needed on
+   better approximations to the denominators in the perturbation theory.}},
+DOI = {{10.1063/1.3132922}},
+Article-Number = {{194107}},
+ISSN = {{0021-9606}},
+Unique-ID = {{ISI:000266967700007}},
+}
+
+@article{DorHacCha-JCP-09,
+Author = {Dorando, Jonathan J. and Hachmann, Johannes and Chan, Garnet Kin-Lic},
+Title = {{Analytic response theory for the density matrix renormalization group}},
+Journal = {{J. Chem. Phys.}},
+Year = {{2009}},
+Volume = {{130}},
+Number = {{18}},
+Month = {{May 14}},
+Abstract = {{We propose an analytic response theory for the density matrix
+   renormalization group, whereby response properties correspond to
+   analytic derivatives of density matrix renormalization group observables
+   with respect to the applied perturbations. Both static and
+   frequency-dependent response theories are formulated and implemented. We
+   evaluate our pilot implementation by calculating static and
+   frequency-dependent polarizabilities of short oligodiacetylenes. The
+   analytic response theory is competitive with dynamical density matrix
+   renormalization group methods and yields significantly improved
+   accuracies when using a small number of density matrix renormalization
+   group states. Strengths and weaknesses of the analytic approach are
+   discussed.}},
+DOI = {{10.1063/1.3121422}},
+Article-Number = {{184111}},
+ISSN = {{0021-9606}},
+Unique-ID = {{ISI:000266263200012}},
+}
+
+@article{KinDorWanCha-NL-09,
+Author = {Kinder, Jesse M. and Dorando, Jonathan J. and Wang, Haitao and Chan,
+   Garnet Kin-Lic},
+Title = {{Perfect Reflection of Chiral Fermions in Gated Graphene Nanoribbons}},
+Journal = {{NANO Lett.}},
+Year = {{2009}},
+Volume = {{9}},
+Number = {{5}},
+Pages = {{1980-1983}},
+Month = {{May}},
+Abstract = {{We describe the results of a theoretical study of transport through
+   gated metallic graphene nanoribbons using a nonequilibrium Green
+   function method. Although analogies with quantum field theory predict
+   perfect transmission of chiral fermions through gated regions in one
+   dimension, we find perfect reflection of chiral fermions in armchair
+   ribbons for specific configurations of the gate. This effect should be
+   measurable in narrow graphene constrictions gated by a charged carbon
+   nanotube.}},
+DOI = {{10.1021/nl900227e}},
+ISSN = {{1530-6984}},
+Unique-ID = {{ISI:000266157100044}},
+}
+
+@article{NeuYanCha-JCP-09,
+Author = {Neuscamman, Eric and Yanai, Takeshi and Chan, Garnet Kin-Lic},
+Title = {{Quadratic canonical transformation theory and higher order density
+   matrices (vol 130, 124102, 2009)}},
+Journal = {{J. Chem. Phys.}},
+Year = {{2009}},
+Volume = {{130}},
+Number = {{16}},
+Month = {{Apr 28}},
+DOI = {{10.1063/1.3125004}},
+Article-Number = {{169901}},
+ISSN = {{0021-9606}},
+Unique-ID = {{ISI:000266885200088}},
+}
+
+@article{NeuYanCha-JCP-09,
+Author = {Neuscamman, Eric and Yanai, Takeshi and Chan, Garnet Kin-Lic},
+Title = {{Quadratic canonical transformation theory and higher order density
+   matrices}},
+Journal = {{J. Chem. Phys.}},
+Year = {{2009}},
+Volume = {{130}},
+Number = {{12}},
+Month = {{Mar 28}},
+Abstract = {{Canonical transformation (CT) theory provides a rigorously
+   size-extensive description of dynamic correlation in multireference
+   systems, with an accuracy superior to and cost scaling lower than
+   complete active space second order perturbation theory. Here we expand
+   our previous theory by investigating (i) a commutator approximation that
+   is applied at quadratic, as opposed to linear, order in the effective
+   Hamiltonian, and (ii) incorporation of the three-body reduced density
+   matrix in the operator and density matrix decompositions. The quadratic
+   commutator approximation improves CT's accuracy when used with a
+   single-determinant reference, repairing the previous formal disadvantage
+   of the single-reference linear CT theory relative to singles and doubles
+   coupled cluster theory. Calculations on the BH and HF binding curves
+   confirm this improvement. In multireference systems, the three-body
+   reduced density matrix increases the overall accuracy of the CT theory.
+   Tests on the H(2)O and N(2) binding curves yield results highly
+   competitive with expensive state-of-the-art multireference methods, such
+   as the multireference Davidson-corrected configuration interaction
+   (MRCI+Q), averaged coupled pair functional, and averaged quadratic
+   coupled cluster theories.}},
+DOI = {{10.1063/1.3086932}},
+Article-Number = {{124102}},
+ISSN = {{0021-9606}},
+Unique-ID = {{ISI:000264775200005}},
+}
+
+@article{Cha-APACS-09,
+Author = {Chan, Garnet K.},
+Title = {{PHYS 157-Strongly interacting electrons in chemistry}},
+Journal = {{ABSTRACTS OF PAPERS OF THE AMERICAN CHEMICAL SOCIETY}},
+Year = {{2009}},
+Volume = {{237}},
+Month = {{Mar 22}},
+ISSN = {{0065-7727}},
+Unique-ID = {{ISI:000207857808190}},
+}
+
+@article{HacDorCha-APACS-08,
+Author = {Hachmann, Johannes and Dorando, Jonathan J. and Chan, Garnet Kin-Lic},
+Title = {{PHYS 481-Application of ab initio DMRG to organic electronic materials}},
+Journal = {{ABSTRACTS OF PAPERS OF THE AMERICAN CHEMICAL SOCIETY}},
+Year = {{2008}},
+Volume = {{236}},
+Month = {{Aug 17}},
+Note = {{236th National Meeting of the American-Chemical-Society, Philadelphia,
+   PA, Aug 17-21, 2008}},
+Organization = {{Amer Chem Soc}},
+ISSN = {{0065-7727}},
+Unique-ID = {{ISI:000270256307460}},
+}
+
+@article{GhoHacYanCha-JCP-08,
+Author = {Ghosh, Debashree and Hachmann, Johannes and Yanai, Takeshi and Chan,
+   Garnet Kin-Lic},
+Title = {{Orbital optimization in the density matrix renormalization group, with
+   applications to polyenes and ss-carotene}},
+Journal = {{J. Chem. Phys.}},
+Year = {{2008}},
+Volume = {{128}},
+Number = {{14}},
+Month = {{Apr 14}},
+Abstract = {{In previous work we have shown that the density matrix renormalization
+   group (DMRG) enables near-exact calculations in active spaces much
+   larger than are possible with traditional complete active space
+   algorithms. Here, we implement orbital optimization with the DMRG to
+   further allow the self-consistent improvement of the active orbitals, as
+   is done in the complete active space self-consistent field (CASSCF)
+   method. We use our resulting DMRG-CASSCF method to study the low-lying
+   excited states of the all-trans polyenes UP to C(24)H(26) as well as
+   ss-carotene, correlating with near-exact accuracy the optimized complete
+   pi-valence space with up to 24 active electrons and orbitals, and
+   analyze our results in the light of the recent discovery from resonance
+   Raman experiments of new optically dark states in the spectrum. (c) 2008
+   American Institute of Physics.}},
+DOI = {{10.1063/1.2883976}},
+Article-Number = {{144117}},
+ISSN = {{0021-9606}},
+Unique-ID = {{ISI:000255470300017}},
+}
+
+@article{Cha-PCCP-08,
+Author = {Chan, Garnet Kin-Lic},
+Title = {{Density matrix renormalisation group Lagrangians}},
+Journal = {{PHYSICAL CHEMISTRY CHEMICAL PHYSICS}},
+Year = {{2008}},
+Volume = {{10}},
+Number = {{23}},
+Pages = {{3454-3459}},
+Abstract = {{We introduce a Lagrangian formulation of the density matrix
+   renormalisation group (DMRG). We present Lagrangians which, when
+   minimised, yield the optimal DMRG wavefunction in a variational sense,
+   both within the general matrix product ansatz and within the canonical
+   form of the matrix product that is constructed within the DMRG sweep
+   algorithm. Some of the results obtained are similar to elementary
+   expressions in Hartree-Fock theory, and we draw attention to such
+   analogies. The Lagrangians introduced here will be useful in developing
+   theories of analytic response and derivatives in the DMRG.}},
+DOI = {{10.1039/b805292c}},
+ISSN = {{1463-9076}},
+Unique-ID = {{ISI:000256475500018}},
+}
+
+@article{WanCha-PRB-07,
+Author = {Wang, Haitao and Chan, Garnet Kin-Lic},
+Title = {{Self-interaction and molecular Coulomb blockade transport in ab initio
+   Hartree-Fock theory}},
+Journal = {{Phys. Rev. B}},
+Year = {{2007}},
+Volume = {{76}},
+Number = {{19}},
+Month = {{Nov}},
+Abstract = {{We calculate the transport characteristics of a cobalt polypyridyl
+   molecular complex in the Coulomb blockade regime using ab initio
+   Hartree-Fock theory. We reproduce qualitative features of the Coulomb
+   blockade such as integer charging and linear dependence of the maximum
+   conductance bias with gate voltage, and we analyze the connections
+   between such features and the correct description of electron
+   self-interaction in a mean-field theory.}},
+DOI = {{10.1103/PhysRevB.76.193310}},
+Article-Number = {{193310}},
+ISSN = {{1098-0121}},
+Unique-ID = {{ISI:000251326800022}},
+}
+
+@article{HacDorAviCha-JCP-07,
+Author = {Hachmann, Johannes and Dorando, Jonathan J. and Aviles, Michael and
+   Chan, Garnet Kin-Lic},
+Title = {{The radical character of the acenes: A density matrix renormalization
+   group study}},
+Journal = {{J. Chem. Phys.}},
+Year = {{2007}},
+Volume = {{127}},
+Number = {{13}},
+Month = {{Oct 7}},
+Abstract = {{We present a detailed investigation of the acene series using high-level
+   wave function theory. Our ab initio density matrix renormalization group
+   algorithm has enabled us to carry out complete active space calculations
+   on the acenes from napthalene to dodecacene correlating the full
+   pi-valence space. While we find that the ground state is a singlet for
+   all chain lengths, examination of several measures of radical character,
+   including the natural orbitals, effective number of unpaired electrons,
+   and various correlation functions, suggests that the longer acene ground
+   states are polyradical in nature. (C) 2007 American Institute of
+   Physics.}},
+DOI = {{10.1063/1.2768362}},
+Article-Number = {{134309}},
+ISSN = {{0021-9606}},
+Unique-ID = {{ISI:000249974300023}},
+}
+
+@article{YanCha-JCP-07,
+Author = {Yanai, Takeshi and Chan, Garnet Kin-Lic},
+Title = {{Canonical transformation theory from extended normal ordering}},
+Journal = {{J. Chem. Phys.}},
+Year = {{2007}},
+Volume = {{127}},
+Number = {{10}},
+Month = {{Sep 14}},
+Abstract = {{The canonical transformation theory of Yanai and Chan {[}J. Chem. Phys.
+   124, 194106 (2006)] provides a rigorously size-extensive description of
+   dynamical correlation in multireference problems. Here we describe a new
+   formulation of the theory based on the extended normal ordering
+   procedure of Mukherjee and Kutzelnigg {[}J. Chem. Phys. 107, 432
+   (1997)]. On studies of the water, nitrogen, and iron oxide potential
+   energy curves, the linearized canonical transformation singles and
+   doubles theory is competitive in accuracy with some of the best
+   multireference methods, such as the multireference averaged coupled pair
+   functional, while computational timings (in the case of the iron oxide
+   molecule) are two to three orders of magnitude faster and comparable to
+   those of the complete active space second-order perturbation theory. The
+   results presented here are greatly improved both in accuracy and in cost
+   over our earlier study as the result of a new numerical algorithm for
+   solving the amplitude equations.}},
+DOI = {{10.1063/1.2761870}},
+Article-Number = {{104107}},
+ISSN = {{0021-9606}},
+Unique-ID = {{ISI:000249474400008}},
+}
+
+@article{DorHacCha-JCP-07,
+Author = {Dorando, Jonathan J. and Hachmann, Johannes and Chan, Garnet Kin-Lic},
+Title = {{Targeted excited state algorithms}},
+Journal = {{J. Chem. Phys.}},
+Year = {{2007}},
+Volume = {{127}},
+Number = {{8}},
+Month = {{Aug 28}},
+Abstract = {{To overcome the limitations of the traditional state-averaging
+   approaches in excited state calculations, where one solves and
+   represents all states between the ground state and excited state of
+   interest, we have investigated a number of new excited state algorithms.
+   Building on the work of van der Vorst and Sleijpen {[}SIAM J. Matrix
+   Anal. Appl. 17, 401 (1996)], we have implemented harmonic Davidson and
+   state-averaged harmonic Davidson algorithms within the context of the
+   density matrix renormalization group (DMRG). We have assessed their
+   accuracy and stability of convergence in complete-active-space DMRG
+   calculations on the low-lying excited states in the acenes ranging from
+   naphthalene to pentacene. We find that both algorithms offer increased
+   accuracy over the traditional state-averaged Davidson approach, and, in
+   particular, the state-averaged harmonic Davidson algorithm offers an
+   optimal combination of accuracy and stability in convergence.(C) 2007
+   American Institute of Physics.}},
+DOI = {{10.1063/102768360}},
+Article-Number = {{084109}},
+ISSN = {{0021-9606}},
+Unique-ID = {{ISI:000249156300011}},
+}
+
+@article{DorHacCha-APACS-07,
+Author = {Dorando, Jonathan J. and Hachmann, Johannes and Chan, Garnet Kin-Lic},
+Title = {{PHYS 74-Targeting individual excited states in DMRG}},
+Journal = {{ABSTRACTS OF PAPERS OF THE AMERICAN CHEMICAL SOCIETY}},
+Year = {{2007}},
+Volume = {{234}},
+Month = {{Aug 19}},
+ISSN = {{0065-7727}},
+Unique-ID = {{ISI:000207593907636}},
+}
+
+@article{HacDorCha-APACS-07,
+Author = {Hachmann, Johannes and Dorando, Jonathan J. and Chan, Garnet Kin-Lic},
+Title = {{PHYS 463-The hidden radical nature of the acenes}},
+Journal = {{ABSTRACTS OF PAPERS OF THE AMERICAN CHEMICAL SOCIETY}},
+Year = {{2007}},
+Volume = {{234}},
+Month = {{Aug 19}},
+ISSN = {{0065-7727}},
+Unique-ID = {{ISI:000207593907641}},
+}
+
+@incollection{ ISI:000266712300013,
+Author = {Chan, Garnet Kin-Lic and Yanai, Takeshi},
+Editor = {{Mazziotti, DA}},
+Title = {{CANONICAL TRANSFORMATION THEORY FOR DYNAMIC CORRELATIONS IN
+   MULTIREFERENCE PROBLEMS}},
+Booktitle = {{REDUCED-DENSITY-MATRIX MECHANICS - WITH APPLICATION TO MANY-ELECTRON
+   ATOMS AND MOLECULES}},
+Series = {{ADVANCES IN CHEMICAL PHYSICS}},
+Year = {{2007}},
+Volume = {{134}},
+Pages = {{343-384}},
+ISSN = {{0065-2385}},
+ISBN = {{978-0-471-79056-3}},
+Unique-ID = {{ISI:000266712300013}},
+}
+
+@article{HacCarCha-JCP-06,
+Author = {Hachmann, Johannes and Cardoen, Wim and Chan, Garnet Kin-Lic},
+Title = {{Multireference correlation in long molecules with the quadratic scaling
+   density matrix renormalization group}},
+Journal = {{J. Chem. Phys.}},
+Year = {{2006}},
+Volume = {{125}},
+Number = {{14}},
+Month = {{Oct 14}},
+Abstract = {{We have devised a local ab initio density matrix renormalization group
+   algorithm to describe multireference correlations in large systems. For
+   long molecules that are extended in one of their spatial dimensions, we
+   can obtain an exact characterization of correlation, in the given basis,
+   with a cost that scales only quadratically with the size of the system.
+   The reduced scaling is achieved solely through integral screening and
+   without the construction of correlation domains. We demonstrate the
+   scaling, convergence, and robustness of the algorithm in polyenes and
+   hydrogen chains. We converge to exact correlation energies (in the sense
+   of full configuration interaction, with 1-10 mu E(h) precision) in all
+   cases and correlate up to 100 electrons in 100 active orbitals. We
+   further use our algorithm to obtain exact energies for the
+   metal-insulator transition in hydrogen chains and compare and contrast
+   our results with those from conventional quantum chemical methods. (c)
+   American Institute of Physics.}},
+DOI = {{10.1063/1.2345196}},
+Article-Number = {{144101}},
+ISSN = {{0021-9606}},
+Unique-ID = {{ISI:000241248400004}},
+}
+
+@article{HacCarCha-APACS-06,
+Author = {Hachmann, Johannes and Cardoen, Wim R. and Chan, Garnet K-L},
+Title = {{Quadratic scaling multireference correlation in polyenes and long
+   molecules with the local density matrix renormalization group}},
+Journal = {{ABSTRACTS OF PAPERS OF THE AMERICAN CHEMICAL SOCIETY}},
+Year = {{2006}},
+Volume = {{232}},
+Pages = {{13}},
+Month = {{Sep 10}},
+ISSN = {{0065-7727}},
+Unique-ID = {{ISI:000207781604010}},
+}
+
+@article{ChaYan-APACS-06,
+Author = {Chan, Garnet K. and Yanai, Takeshi},
+Title = {{A canonical transformation theory for multireference problems}},
+Journal = {{ABSTRACTS OF PAPERS OF THE AMERICAN CHEMICAL SOCIETY}},
+Year = {{2006}},
+Volume = {{231}},
+Month = {{Mar 26}},
+Note = {{231st National Meeting of the American-Chemical-Society, Atlanta, GA,
+   Mar 26-30, 2006}},
+Organization = {{Amer Chem Soc}},
+ISSN = {{0065-7727}},
+Unique-ID = {{ISI:000238125903651}},
+}
+
+@article{HinWanCha-APACS-06,
+Author = {Hino, Osamu and Wang, Haitao and Chan, Garnet K.},
+Title = {{The calculation of molecular conductance}},
+Journal = {{ABSTRACTS OF PAPERS OF THE AMERICAN CHEMICAL SOCIETY}},
+Year = {{2006}},
+Volume = {{231}},
+Month = {{Mar 26}},
+Note = {{231st National Meeting of the American-Chemical-Society, Atlanta, GA,
+   Mar 26-30, 2006}},
+Organization = {{Amer Chem Soc}},
+ISSN = {{0065-7727}},
+Unique-ID = {{ISI:000238125908641}},
+}
+
+@article{WanHinCha-APACS-06,
+Author = {Wang, Haitao and Hino, Osamu and Chan, Garnet K.},
+Title = {{Exact correlated calculations of molecular conductance}},
+Journal = {{ABSTRACTS OF PAPERS OF THE AMERICAN CHEMICAL SOCIETY}},
+Year = {{2006}},
+Volume = {{231}},
+Month = {{Mar 26}},
+Note = {{231st National Meeting of the American-Chemical-Society, Atlanta, GA,
+   Mar 26-30, 2006}},
+Organization = {{Amer Chem Soc}},
+ISSN = {{0065-7727}},
+Unique-ID = {{ISI:000238125908601}},
+}
