@@ -166,7 +166,7 @@ We use our algorithm to calculate an accurate benchmark energy for the chromium 
 Our largest calculation uses two billion Slater determinants in the variational space, and
 semistochastically includes perturbative contributions from trillions of additional determinants with better than 0.01~mHa statistical uncertainty.
 % semistochastically includes perturbative contributions from trillions of additional determinants to obtain better than 0.01~mHa statistical uncertainty.
-%Using two billion variational determinants and trillions of effective perturbative determinants, we estimate the full-CI energy of this system to be $-2099.9224(6)$ Ha.
+%Using two billion variational determinants and trillions of effective perturbative determinants, we estimate the full-CI energy of this system to be $-2099.9224(6)$~Ha.
 
 % Our algorithm extends
 
@@ -282,8 +282,8 @@ We also describe important implementation details of the algorithm, including th
 %adequate for computing a realistic potential energy curve.
 %Recently DMRG and its perturbative extension (p-DMRG)~\cite{GuoLiCha-JCTC-18} have been used to calculate the ground state energy of Cr$_2$ using the same number of correlated
 %electrons and the same basis as in our calculation.
-%Using up to $2\times10^9$ determinants and extrapolating the total energy, we estimate the full-CI energy at equilibrium in this large active space to be $-2099.9224(6)$ Ha.
-%This compares well with a p-DMRG energy of $-2099.9225$ Ha using a quadratic extrapolation.
+%Using up to $2\times10^9$ determinants and extrapolating the total energy, we estimate the full-CI energy at equilibrium in this large active space to be $-2099.9224(6)$~Ha.
+%This compares well with a p-DMRG energy of $-2099.9225$~Ha using a quadratic extrapolation.
 %(The linear extrapolation used in Ref.~\onlinecite{GuoLiCha-JCTC-18} gives an energy of $-2099.9201$.)
 %It should be noted that the $2\times10^9$ determinants used in our SHCI calculations are two orders of magnitude larger than the largest number of determinants
 %used in any other SCI+PT method ($2\times10^7$ were used in Ref.~\cite{GarSceLooCaf-JCP-17}.)
@@ -621,12 +621,12 @@ Notation& \multicolumn{1}{c}{Description}\\
 %$\alpha, \alpha'$ & Symbol for the alpha strings\\
 %$\beta, \beta'$& Symbol for the beta strings\\
 %$i_D$, $i_\alpha$
-$\vecD$ & The array of determinants in $\V$ \\
-& in the order they were generated. \\
+$\vecD$ & The array of determinants in $\V$ in the order\\
+& they were generated. \\
 &\\
-$\veca$ & The array of all alpha strings, without repeats that\\
-&are present in at least one determinant in $\V$ in the \\
-&order they were generated. \\
+$\veca$ & The array of all alpha strings, without repeats\\
+& that are present in at least one determinant in\\
+& $\V$ in the order they were generated. \\
 &\\
 %\{$\alpha^{(-1)}$\} & The array of all alpha strings for $n_\alpha-1$ electrons that\\
 %&can be obtained by removing one electron from the \{$\alpha$\}. \\
@@ -634,8 +634,8 @@ $\veca$ & The array of all alpha strings, without repeats that\\
 $\ia(\alpha)$ & Hash map that takes an alpha string, $\alpha$, \\
 & and returns its index, $\ia$, in $\veca$. \\
 &\\
-$\veciDa(\ia)$ & The array of determinant indices in $\vecD$ \\
-& such that the alpha strings of those determinants \\
+$\veciDa(\ia)$ & The array of determinant indices in $\vecD$ such\\
+& that the alpha strings of those determinants \\
 & have index $\ia$ in $\veca$. \\
 %$\veciDa(\ia)$ & The array of determinant indices $\veciDa$ \\
 %& that have $\alpha_{\ia}$ as their alpha string. \\
@@ -645,23 +645,23 @@ $\veciDa(\ia)$ & The array of determinant indices in $\vecD$ \\
 %& the variational space $\V$. The determinant indices \\
 %& in $\veciDa(i_{\alpha_i})$ are either sorted by $i_D$ or by $\ib$ \\
 %& (the indices of their beta strings in $\vecb$). \\
-& The elements of $\veciDa(\ia)$ are sorted either by their \\
-& values, or by the indices of their beta strings in $\vecb$. \\
-& (See text for details.)\\
+& The elements of $\veciDa(\ia)$ are sorted either by\\
+& their values, or by the indices of their beta \\
+& strings in $\vecb$. (See text for details.)\\
 &\\
-$\veciba(\ia)$ & The array of all beta string indices in $\beta$ \\
-& that appear with $\alpha_{\ia}$ in a determinant. \\
-& It is sorted so that the elements of $\veciDa(\ia)$ and $\veciba(\ia)$ \\
-& are always in correspondence.\\
+$\veciba(\ia)$ & The array of all beta string indices in $\beta$ that\\
+& appear with $\alpha_{\ia}$ in a determinant. \\
+& It is sorted so that the elements of $\veciDa(\ia)$ \\
+& and $\veciba(\ia)$ are always in correspondence.\\
 &\\
 %$\vecia(\alpha^{(-1)})$ & Hash map that gives the array of indices of \\
 %& alpha strings in the array $\veca$ that can give $\alpha^{(-1)}$ \\
 %& upon removing an electron.\\
 %&\\
 $\vecia(\alpha^{(-1)})$ & Hash map that takes an alpha string with one \\
-& less electron, $\alpha^{(-1)}$, and returns an array of indices \\
-& of alpha strings in $\veca$ that can give $\alpha^{(-1)}$ \\
-& upon removing an electron.  These are \\
+& less electron, $\alpha^{(-1)}$, and returns an array of  \\
+& indices of alpha strings in $\veca$ that can give  \\
+& $\alpha^{(-1)}$ upon removing an electron.  These are \\
 & generated only for the $\alpha$'s present in the new \\
 & determinants.\\
 % &\\
@@ -1021,7 +1021,7 @@ When we decrease the memory by a factor of four, the total CPU time of the origi
     \caption{
     % {\color{red} Can you include the sample size, number of samples and the cost/sample for atleast the original algorithm (preferably for all). The cost/sample hopefully scales linearly with the size of sample. The data in this table can be used to emphasize that even if the product sample size X the number of samples (which should be proportional to the cpu cost) is the same, the calculation with larger sample size will be more efficient. This is quite non-intuitive and is the main motivation for developing the new algorithm -- Sandeep.}\\
     Computational cost of perturbative correction for a copper atom in a cc-pVTZ basis.
-    The variational space has 19 million determinants for $\epsilon_1=5\times10^{-5}$ Ha and the perturbative space has 35 billion determinants for $\epsilon_2=10^{-7}$ Ha.
+    The variational space has 19 million determinants for $\epsilon_1=5\times10^{-5}$~Ha and the perturbative space has 35 billion determinants for $\epsilon_2=10^{-7}$~Ha.
     HCI uses the deterministic perturbation of Ref.~\onlinecite{HolTubUmr-JCTC-16}.
     SHCI uses the 2-step semistochastic perturbation algorithm of Ref.~\onlinecite{ShaHolJeaAlaUmr-JCTC-17}.
     Improved SHCI introduces the 3-step batch perturbation that significantly improves the efficiency of SHCI, especially for memory constrained cases.
@@ -1057,8 +1057,8 @@ perturbative batches is randomly selected per variational sample.
 \end{enumerate}
 %The cutoffs get progressively smaller, i.e., $\epsilon_1 > \epsilon_2^{\rm dtm} > \epsilon_2^{\rm psto} > \epsilon_2$.
 The choice of these parameters depends on the system and the desired statistical error, but
-reaonable choices for a target error around 0.01~mHa are  $\epsilon_2^{\rm dtm} = \max(\epsilon_{1}/50,10^{-6} {\rm Ha})$,
-$\epsilon_2^{\rm psto} = \max(\epsilon_{1}/500,10^{-7} {\rm Ha})$, and,
+reaonable choices for a target error around 0.01~mHa are  $\epsilon_2^{\rm dtm} = \max(\epsilon_{1}/50,10^{-6}$~Ha),
+$\epsilon_2^{\rm psto} = \max(\epsilon_{1}/500,10^{-7}$~Ha), and,
 $\epsilon_2 = \epsilon_{1}/10^6$.
 %Of course, for small systems we can use smaller values of $\epsilon_2^{\rm dtm}$ and $\epsilon_2^{\rm psto}$, and employ
 %just the first two, or even just the first step of the perturbative calculation.
@@ -1114,7 +1114,7 @@ where $h(D)$ is the hash function and $B$ is the hash value space for a batch.
 This method solves the memory bottleneck in a different way than the original SHCI algorithm.
 We could do the full calculation in this way, i.e., use a very small value for $\epsilon_2^{\rm dtm}$,
 but it is much more efficient to only evaluate the large contributions here and leave the huge number of small contributions to the later stochastic steps.
-Typically, we choose $\epsilon_2^{\rm dtm} = \max(\epsilon_{1}/50, 10^{-6} {\rm Ha})$ for a target error of $10^{-5}$~Ha.
+Typically, we choose $\epsilon_2^{\rm dtm} = \max(\epsilon_{1}/50, 10^{-6}$~Ha) for a target error of $10^{-5}$~Ha.
 %The threshold $10^{-6}$ depends on the target statistic error we want.
 %From our experience, $10^{-6}$ is usually around the optimal choice for a target error of $10^{-5}$~mHa.
 % but since it requires regenerating the perturbative space for each batch, this is not
@@ -1154,7 +1154,7 @@ When the standard deviation of the total correction is smaller than 40\% of the 
 %However, since we have a good hash function, a single batch is often enough to reach a statistical error below that threshold
 However, a single batch is often sufficient to reach a statistical error below that threshold,
 and we have never found a case where we need to evaluate more than 10\% of the batches.
-Typically, for a target statistical error of $10^{-5}$ Ha, we choose $\epsilon_2^{\rm psto} = \max(\epsilon_{1}/500, 10^{-7} {\rm Ha})$.
+Typically, for a target statistical error of $10^{-5}$~Ha, we choose $\epsilon_2^{\rm psto} = \max(\epsilon_{1}/500, 10^{-7}$~Ha).
 
 % we estimate the total correction and its standard deviation based on the assumption that the sum and the standard deviation of the corrections from each of the remaining batches are the same as the averages of the evaluated batches.
 % This assumption is based on our numerous empirical evidence that both the sum and standard deviation almost do not change between batches.
@@ -1175,9 +1175,9 @@ or, by using a larger number of variational determinants and selecting just one 
 The latter allows us to use much larger variational samples.
 Using larger variational samples is advantageous because we find that the additional fluctuations
 due to sampling the perturbative determinants is much smaller than the reduction in the fluctuations due to having larger variational samples.
-Typically, we use $\epsilon_2 = 10^{-6} \epsilon_{1}$.  Since the smallest $\epsilon_{1}$ that we use is typically around $10^{-5}$ Ha,
+Typically, we use $\epsilon_2 = 10^{-6} \epsilon_{1}$.  Since the smallest $\epsilon_{1}$ that we use is typically around $10^{-5}$~Ha,
 this value is in fact much smaller than is needed to ensure that the perturbative correction is fully converged.
-For a statistical error of $10^{-5}$ Ha, 128 batches are usually good choices to start with.
+For a statistical error of $10^{-5}$~Ha, 128 batches are usually good choices to start with.
 The size of the variational sample is chosen so that a single perturbative batch fits in the available memory.
 We use a minimum of 10 samples in our stochastic step in order to get a meaningful estimate of the uncertainty.
 On large memory machines, we often achieve a much smaller statistical error than the target with 10 samples.
@@ -1438,17 +1438,17 @@ This gives an active space of (28e, 76o) and a Hilbert space of $5\times10^{29}$
 We show how we obtain an accurate estimate of the full-CI energy in this large active space with our improved SHCI algorithm.
 
 We use PySCF~\cite{SunCha_etal_PySCF-ComMolSci-18} to generate the molecular orbital integrals for orbitals that minimize the HCI variational
-energy for $\epsilon_1=2\times 10^{-4}$ Ha, using the method of Ref.~\cite{SmiMusHolSha-JCTC-17}.
-We perform SHCI with several $\epsilon_1$ values from $5\times10^{-5}$ to $3\times10^{-6}$ Ha.
+energy for $\epsilon_1=2\times 10^{-4}$~Ha, using the method of Ref.~\cite{SmiMusHolSha-JCTC-17}.
+We perform SHCI with several $\epsilon_1$ values from $5\times10^{-5}$ to $3\times10^{-6}$~Ha.
 The Hamiltonian matrix is stored in memory and so needs to be constructed only once.
 %We keep the ratio between $\epsilon_2$ and $\epsilon_1$ to $10^{-6}$ and the target error for the stochastic perturbation to 0.01 mHa.
 We use very small values of $\epsilon_2 = 10^{-6} \epsilon_1$  to ensure that the perturbative correction is exceedingly well converged,
 and choose the target error for the stochastic perturbation to be 0.01 mHa.
 
 The improved SHCI is fast enough that we can use over two billion variational determinants and trillions of effective perturbative determinants.
-The largest variational calculation where we iteratively find and diagonalize 2 billion determinants for $\epsilon_1=3.0\times10^{-6}$ Ha takes only one day on 8 nodes, each of which has 4 Intel Xeon E7-8870 v4 CPUs.
+The largest variational calculation where we iteratively find and diagonalize 2 billion determinants for $\epsilon_1=3.0\times10^{-6}$~Ha takes only one day on 8 nodes, each of which has 4 Intel Xeon E7-8870 v4 CPUs.
 The corresponding perturbative calculation takes only 6 hours with one of these nodes. 
-During that perturbative calculation, we skip the deterministic step, perform a pseudo stochastic step with $\epsilon_2^{\rm psto}=1\times10^{-7}$ Ha, and a stochastic step with $\epsilon_2=3\times10^{-12}$Ha.
+During that perturbative calculation, we skip the deterministic step, perform a pseudo stochastic step with $\epsilon_2^{\rm psto}=1\times10^{-7}$~Ha, and a stochastic step with $\epsilon_2=3\times10^{-12}$~Ha.
 %why?
 The pseudo stochastic step uses 25 batches, each of which has about 8.9 billion determinants.
 We evaluate only one of them, from which we obtain an estimate of the total correction for all the 25 batches (223 billion determinants) to be -0.011681(1)~Ha.
@@ -1456,10 +1456,10 @@ Since the estimated error is already much smaller than our target error, we skip
 The pseudo stochastic step takes 1.6 hours.
 The stochastic step uses 128 batches and 6 million variational determinants in each sample,
 which results in about 3.7 billion determinants per batch.
-We run 10 iterations and obtain the additional correction from $\epsilon_2=3.0\times10^{-12}$ Ha to be -0.001203(6)~Ha.
+We run 10 iterations and obtain the additional correction from $\epsilon_2=3.0\times10^{-12}$~Ha to be -0.001203(6)~Ha.
 The combined uncertainty of the entire semistochastic perturbation stage is 6~$\mu$Ha.
-It is hard to estimate how many determinants are stochastically included for $\epsilon_2=3\times10^{-12}$Ha, so we estimate a lower bound with $\epsilon_2^{\rm psto}=1.4\times10^{-8}$ and obtain 1.8 trillion unique perturbative determinants.
-Hence, with $\epsilon_2=3\times10^{-12}$Ha, the value we are actually using, we stochastically estimate contributions from at least trillions of unique perturbative determinants and obtain better than 0.01~mHa statistical uncertainty in 6 hours using only one node.
+It is hard to estimate how many determinants are stochastically included for $\epsilon_2=3\times10^{-12}$~Ha, so we estimate a lower bound with $\epsilon_2^{\rm psto}=1.4\times10^{-8}$~Ha and obtain 1.8 trillion unique perturbative determinants.
+Hence, with $\epsilon_2=3\times10^{-12}$~Ha, the value we are actually using, we stochastically estimate contributions from at least trillions of unique perturbative determinants and obtain better than 0.01~mHa statistical uncertainty in 6 hours using only one node.
 %why?
 %This brings the accuracy selected-CI to a whole new level and enables us to obtain an estimation of the full-CI energy with sub-millihartree uncertainty in this large active space.
 
@@ -1580,7 +1580,7 @@ The DMRG calculations use up to bond dimension $M=16000$ and obtain an extrapola
 These two values are similar to our most accurate data point but higher than our extrapolated result by 3~mH, which is about the estimated error of the DMRG results.
 %The p-DMRG calculations use up to $M=4000$ and obtain an extrapolated energy of $-2099.9201$~Ha~\cite{GuoLiCha-JCTC-18}.
 The p-DMRG calculations use up to $M=4000$ and extrapolated energy obtained from a linear fit is $-2099.9201$~Ha~\cite{GuoLiCha-JCTC-18}.
-If instead, we perform a weighted quadratic fit (shown in Fig.~\ref{fig:extrapolation}), the extrapolated energy is $-2099.9225$ Ha,
+If instead, we perform a weighted quadratic fit (shown in Fig.~\ref{fig:extrapolation}), the extrapolated energy is $-2099.9225$~Ha,
 in perhaps fortuitously good agreement with our result of $-2099.9224(6)$~Ha.  However, the extrapolation uncertainty is larger than the SHCI extrapolation uncertainty.
 In contrast, the CCSD(T) energy is considerably higher.
 %In summary, our extrapolated value agrees with DMRG's and p-DMRG's extrapolated results but we achieve a smaller uncertainty.
