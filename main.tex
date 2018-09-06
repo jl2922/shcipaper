@@ -424,7 +424,7 @@ or the second-order perturbative correction to the energy.
 \eeq
 %which is based on a first-order perturbative estimate of the expansion coefficient.
 The reason we choose instead the selection criterion in Eq.~\ref{HCI_criterion} is that it can be implemented
-very efficiently without checking the vast majority of the determinants that don't meet the criterion, by taking advantage
+very efficiently without checking the vast majority of the determinants that do not meet the criterion, by taking advantage
 of the fact that % the number of distinct values of the double-excitation matrix elements is only $N_{\rm orb}^4$.
 most of the Hamiltonian matrix elements correspond to double excitations, and their values do not depend
 on the determinants themselves but only on the four orbitals whose occupancies change during the double excitation.
@@ -492,7 +492,8 @@ The first-order energy correction is zero, and the second-order energy correctio
 \eeq
 where $E_a=H_{aa}$.
 
-It is expensive to evaluate the expression in Eq.~\ref{eq:PTa} because the outer summation includes all determinants in the space $\P$ and their number is equal to ${\cal O}(n^2v^2N_v)$, where $N_V$ is the number of variational determinants, $n$ is the number of electrons and $v$ is
+It is expensive to evaluate the expression in Eq.~\ref{eq:PTa} because the outer summation includes all determinants in the space $\P$ and their number is equal to 
+{\color{red}${\cal O}(n^2v^2N_v)$, where $N_V$ (MJO - $N_v$ or $N_V$?)} is the number of variational determinants, $n$ is the number of electrons and $v$ is
 the number of virtual orbitals. For the calculation on Cr$_2$, described in Section~\ref{results},
 $n=28$, $v=62$ and $N_v=2 \times 10^9$, so the number of determinants in $\P$ is huge.
 The straightforward
@@ -1233,7 +1234,7 @@ This relies on having a sufficiently uniform hash function.
 Note that since we are using all the variational determinants in this step,
 the fluctuations come just from the perturbative determinants.
 In contrast, in the stochastic step, the fluctuations come both from the choice of variational determinants and the choice of batches.
-In that case, one cannot simply use the standard deviation of the corrections from the evaluated perturbative determinants to estimation the standard deviation of the total correction.
+In that case, one cannot simply use the standard deviation of the corrections from the evaluated perturbative determinants to estimate the standard deviation of the total correction.
 % In that case, one cannot use the intra-batch fluctuations to estimate the inter-batch fluctuations.  
 So, there we use a minimum of 10 samples in step 3, calculate the correction from each of these samples, and use standard deviation in these sample corrections to estimate the standard deviation of the total correction.
 
@@ -1246,15 +1247,14 @@ the number of batches actually computed is small in each of the three steps, so 
 Finally, we comment on two other algorithms that have been recently been proposed for calculating the perturbative correction.
 %We note that another very efficient semistochastic algorithm for calculating the perturbative correction has been proposed
 First, another very efficient semistochastic algorithm has been proposed
-by Garniron et al.~\cite{GarSceLooCaf-JCP-17}.  However, that algorithm has, for each perturbative determinant, a loop over all
-the variational determinants to find those that are connected.  For the very large number of variational determinants that we employ
+by Garniron et al.~\cite{GarSceLooCaf-JCP-17}.  However, that algorithm has, for each perturbative determinant, a loop over all variational determinants to find those that are connected.  For the very large number of variational determinants that we employ
 here (up to $2 \times 10^9$) this is less efficient than our algorithm.
 To avoid confusion, we should mention that the reason that their energy for Cr$_2$ is very different from ours is
 that they used a nonrelativistic Hamiltonian.
 Second, another algorithm that uses batches of perturbative determinants to overcome the memory bottleneck has been proposed
 very recently~\cite{TubLevHaiHeaWha-ARX-18}.
 It is an efficient deterministic algorithm for memory constrained environment, but for a reasonable statistical error tolerance, e.g., $10^{-5}$~Ha, a semistochastic approach is usually much faster, as we can see from Table~\ref{tab:pt}.
-In our Cr$_2$ calculation, we stochastically estimate the perturbative correction from at least trillions of perturbative determinants, which may involve quadrillions of contributions and is completely infeasible with a deterministic algorithm.
+Also, in our Cr$_2$ calculation, we stochastically estimate the perturbative correction from at least trillions of perturbative determinants, which may involve quadrillions of contributions and is infeasible with a deterministic algorithm.
 % The largest calculations in that paper use only $2 \times 10^6$ variational determinants, three orders of magnitude
 % less than our largest ones.
 
