@@ -1285,7 +1285,7 @@ Each bit represents a spin-orbital.
 The n-th orbital is represented by the (n mod 64)-th bit of
 the \lstinline{(n / 64)}-th integer, where ``\lstinline{/}'' means integer (Euclidean) division and the counting starts from zero.
 % If count from one, it is going to be (((n-1) mod 64) + 1)-th bit of the ((n-1)/64+1)-th integer, which is more confusing and is different from the implementation.
-(n mod 64) can be implemented as \lstinline{(n & 63)}, and \lstinline{(n / 64)} can be implemented as \lstinline{(n >> 6)}, where ``\lstinline{&}'' is the bitwise ``and'' and ``\lstinline{>>}'' is the bitwise right shift.
+(n mod 64) can be implemented as \lstinline{(n & 63)}, and \lstinline{(n / 64)} can be implemented as {\color{red} \lstinline{(n >> 6)} (MJO - is 6 correct? Or should it be 64? 6 seems odd}, where ``\lstinline{&}'' is the bitwise ``and'' and ``\lstinline{>>}'' is the bitwise right shift.
 Both operations cost only one clock cycle on modern CPUs.
 
 For transferring the determinants to other nodes or saving them to disk, we use base-128 variable-length integers
@@ -1729,19 +1729,22 @@ Future extensions of the method include going to yet larger variational spaces u
 Although this increases the computational cost, the increase is not overwhelming because of the use of the auxiliary arrays introduced in this paper.
 Other extensions include increasing the range of applicability of the method to larger systems by combining SHCI with range-separated density functional theory~\cite{Sav-INC-96},
 and the use of SHCI as an impurity solver in embedding theories.
-Applications include providing benchmark energies for a variety of organic molecules, as well as for transition metal atoms, dimers, and monoxides.
+Applications include providing benchmark energies for a variety of organic molecules, as well as for transition metal atoms, dimers, and monoxides, and providing calibration or training data for large scale methods,
+such as interatomic potentials in molecular dynamics, exchange correlation functionals in density functional theory, and machine learning based quantum chemistry solvers.
 Calculations on the homogeneous electron gas are also underway.\\[1mm]
 %Future works include applying SHCI to larger systems that have never been treated with essentially exact methods, making further improvements to the algorithm and extending its capability of calculating other quantities, such as the band structure.
 %We are also looking into merging the merits of SHCI with other methods with good size-extensivity so that we can treat strongly correlated areas with SHCI accurately while avoiding the exponential scaling of CI between a large number of weakly correlated regions.
 
 \begin{acknowledgements}
 This work was supported by the AFOSR through grant FA9550-18-1-0095.
+{\color{red}and NSF and MURI?}.
 A.A.H was supported by the NSF under the grant ACI-1534965 and by the University of Colorado.
 S.S. acknowledges the funding provided by the NSF through grant CHE-1800584.
 %The computations were performed on the Bridges cluster at the Pittsburgh Supercomputing Center under NSF grant ACI-1445606,
 %and on the Cooley and Theta clusters at Argonne National Laboratory.
 %This work used the Extreme Science and Engineering Discovery Environment (XSEDE), which is supported by National Science Foundation grant number ACI-1548562. Specifically, it used the Bridges system, which is supported by NSF award number ACI-1445606, at the Pittsburgh Supercomputing Center (PSC).
-The computations were performed on the Bridges computer at the Pittsburgh Supercomputing Center supported by NSF grant ACI-1445606, as part of the XSEDE program supported by NSF grant ACI-1548562.
+The computations were performed on the Bridges computer at the Pittsburgh Supercomputing Center supported by NSF grant ACI-1445606, as part of the XSEDE program supported by NSF grant ACI-1548562,
+and the Argonne Leadership Computing Facility (ALCF) at the Argonne National Laboratory.
 \end{acknowledgements}
 
 % \appendix
