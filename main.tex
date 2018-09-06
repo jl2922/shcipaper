@@ -90,6 +90,7 @@ reprint,
 \def\veca{\vec{\alpha}}
 \def\vecb{\vec{\beta}}
 \def\ia{i_\alpha}
+\def\ja{j_\alpha}
 \def\ib{i_\beta}
 \def\veciD{\vec{i}_D}
 \def\vecia{\vec{i}_\alpha}
@@ -164,8 +165,8 @@ The improved SHCI algorithm enables us to include in our variational wavefunctio
 than has been reported previously with other selected configuration interaction methods.
 We use our algorithm to calculate an accurate benchmark energy for the chromium dimer with the X2C relativistic Hamiltonian in the cc-pVDZ-DK basis, correlating 28 electrons in 76 spatial orbitals.
 Our largest calculation uses two billion Slater determinants in the variational space, and
-semistochastically includes perturbative contributions from at least trillions of additional determinants with better than 0.01~mHa statistical uncertainty.
-% semistochastically includes perturbative contributions from trillions of additional determinants to obtain better than 0.01~mHa statistical uncertainty.
+semistochastically includes perturbative contributions from at least trillions of additional determinants with better than $10^{-5}$~Ha statistical uncertainty.
+% semistochastically includes perturbative contributions from trillions of additional determinants to obtain better than $10^{-5}$~Ha statistical uncertainty.
 %Using two billion variational determinants and trillions of effective perturbative determinants, we estimate the full-CI energy of this system to be $-2099.9224(6)$~Ha.
 
 % Our algorithm extends
@@ -227,8 +228,8 @@ The recently developed semistochastic heat-bath configuration interaction (SHCI)
 In common with FCIQMC, the computational cost of the method scales exponentially in the number of electrons but with a
 much smaller exponent than in full configuration interation (FCI).  However, SHCI is much faster than FCIQMC.
 The comparison with DMRG is more involved.  SHCI is often much faster than DMRG for moderately correlated systems,
-however, is much less efficient than DMRG for quasi 1-dimensional systems.{\color{red} and some classes of strongly correlated 
-higher-dimensional spin systems. which?}
+however, is much less efficient than DMRG for quasi 1-dimensional systems and even some strongly correlated 
+higher-dimensional spin systems. %{\color{red} which? Sandeep wanted to leave this a bit vague because it is not completely clear.}
 
 SHCI is an example of the selected configuration interaction plus perturbation theory (SCI+PT)
 %method~\cite{HurMalRan-JCP-73,BuePey-TCA-74,EvaDauMal-CP-83,Cim-JCP-85,CimPer-JCoP-87,Kno-CPL-89,Har-JCP-91,PovRubIll-TCA-92,SteWenWilWil-CPL-94,GarCasCabMal-CPL-95,WenSteWil-IJQC-96,Nee-JCP-03,NakEha-JCP-05,AbrShe-CPL-05,BytRue-CP-09,Rot-PRC-09,BenBesHoyMay-JCP-11,LiuHof-TCA-14,Eva-JCP-14,Kno-MP-15,SchEva-JCP-16,LiuHof-JCTC-16,ZhaEva-JCTC-16,SceAppGinCaf-JCoC-16,GarSceLooCaf-JCP-17,SchEva-JCTC-17,TubLevHaiHeaWha-ARX-18},
@@ -493,7 +494,7 @@ The first-order energy correction is zero, and the second-order energy correctio
 where $E_a=H_{aa}$.
 
 It is expensive to evaluate the expression in Eq.~\ref{eq:PTa} because the outer summation includes all determinants in the space $\P$ and their number is equal to 
-{\color{red}${\cal O}(n^2v^2N_v)$, where $N_V$ (MJO - $N_v$ or $N_V$?)} is the number of variational determinants, $n$ is the number of electrons and $v$ is
+${\cal O}(n^2v^2N_\V)$, where $N_\V$ is the number of variational determinants, $n$ is the number of electrons and $v$ is
 the number of virtual orbitals. For the calculation on Cr$_2$, described in Section~\ref{results},
 $n=28$, $v=62$ and $N_v=2 \times 10^9$, so the number of determinants in $\P$ is huge.
 The straightforward
@@ -858,12 +859,11 @@ Some of these are appended to at each variational iteration because they contain
 currently included in the wavefunction, whereas others are constructed from scratch since part of their information content
 pertains to only the new determinants.
 
-% Table~\ref{auxiliary} and 
-%the data structures and our new algorithms for constructing the Hamiltonian matrix.
-% We discuss some additional details of the algorithm here.
-%focus on some details that are absent there.
-% Also, it is understood that for each operation that is not symmetric in alpha and beta, the
-% corresponding operation with the alpha and beta roles reversed is executed.
+%Since the data structures and the algorithms for constructing the Hamiltonian matrix are described
+%in Table~\ref{auxiliary} and Algorithms~\ref{same_spin} and \ref{opposite_spin},
+%here we focus on some details that are absent there.
+%Also, it is understood that for each operation that is not symmetric in alpha and beta, the
+%corresponding operation with the alpha and beta roles reversed is executed.
 The auxiliary arrays are constructed by looping over just the new determinants.
 First, for each new $\alpha$ encountered, array $\veca$ and hash map $\ia(\alpha)$ are appended to.
 Also, for each new determinant, the arrays $\veciDa(\ia)$ and $\veciba(\ia)$ are appended to.
@@ -937,7 +937,7 @@ have beta strings that are single excitations of $\beta(D_i)$, we need to filter
 to find the connected determinants.
 This is done in two different ways as described in Algorithm~\ref{opposite_spin}
 depending on the number of new determinants.
-When the number of new determinants is less than 20\% of the total number of determinants (such as in the later iterations of a given $\epsilon_1$), $\veciDa(\ia)$ and $\veciba(\ia)$ are sorted by $i_D$, otherwise, they are sorted by $\ib$.
+When the number of new determinants is less than 20\% of the total number of determinants (e.g. in the later iterations of a given $\epsilon_1$), $\veciDa(\ia)$ and $\veciba(\ia)$ are sorted by $i_D$, otherwise, they are sorted by $\ib$.
 % depending on which variational iteration we are at, because
 % in the early variational iterations for a given $\epsilon_1$, the number of new determinants is large
 % compared to the number of old determinants, but in the later variational iterations it is small.
@@ -973,9 +973,11 @@ the first point of the improved SHCI CPU time.}
   \label{fig:ham}
 \end{figure}
 
-In Fig~\ref{fig:ham}, we use a copper atom in the cc-pVTZ basis as an example to compare this algorithm with the original algorithm in SHCI
-and the brute force algorithm where we loop over each pair of determinants.
-We can see from this figure that this algorithm
+In Fig~\ref{fig:ham}, we use a copper atom~\footnote{We employ the Trail-Needs pseudopotential~\cite{TraNee-JCP-15},
+but the conclusions of this paper would be the same for an all-electron calculation.}
+in the cc-pVTZ basis to compare this algorithm to the original SHCI algorithm,
+and to the brute force algorithm where we loop over each pair of determinants.
+This algorithm
 is about an order of magnitude faster than the original SHCI for medium size calculations.
 For large calculations, e.g. the Cr$_2$ calculation described in Section~\ref{results}
 where we use billions of variational determinants, the speedup is even greater.
@@ -1046,7 +1048,7 @@ When we decrease the memory by a factor of four, the total CPU time of the origi
     SHCI uses the 2-step semistochastic perturbation algorithm of Ref.~\onlinecite{ShaHolJeaAlaUmr-JCTC-17}.
     Improved SHCI introduces the 3-step batch perturbation that significantly improves the efficiency of SHCI, especially for memory constrained cases.
     The timings for the 32GB machine are obtained by running on the same 128GB large memory machine but intentionally tuning the parameters so that the memory usage is kept below 32GB throughout the run.
-    We also provide the timing to reach a 2~$\mu$Ha uncertainty to illustrate that our statistical error goes down much faster than $1/\sqrt{T}$ since we use smaller $\epsilon^{\rm dtm}_2$ and $\epsilon^{\rm psto}_2$ values for smaller target errors.
+    We also provide the timing to reach a 1.8~$\mu$Ha uncertainty to illustrate that our statistical error goes down much faster than $1/\sqrt{T}$ since we use smaller $\epsilon^{\rm dtm}_2$ and $\epsilon^{\rm psto}_2$ values for smaller target errors.
 }
   \label{tab:pt}
 \end{table}
@@ -1077,7 +1079,7 @@ perturbative batches is randomly selected per variational sample.
 \end{enumerate}
 %The cutoffs get progressively smaller, i.e., $\epsilon_1 > \epsilon_2^{\rm dtm} > \epsilon_2^{\rm psto} > \epsilon_2$.
 The choice of these parameters depends on the system and the desired statistical error, but
-reaonable choices for a target error around 0.01~mHa are  $\epsilon_2^{\rm dtm} = \max(\epsilon_{1}/50,10^{-6}$~Ha),
+reaonable choices for a target error around $10^{-5}$~Ha are  $\epsilon_2^{\rm dtm} = \max(\epsilon_{1}/50,10^{-6}$~Ha),
 $\epsilon_2^{\rm psto} = \max(\epsilon_{1}/500,10^{-7}$~Ha), and,
 $\epsilon_2 = \epsilon_{1}/10^6$.
 %Of course, for small systems we can use smaller values of $\epsilon_2^{\rm dtm}$ and $\epsilon_2^{\rm psto}$, and employ
@@ -1254,7 +1256,8 @@ that they used a nonrelativistic Hamiltonian.
 Second, another algorithm that uses batches of perturbative determinants to overcome the memory bottleneck has been proposed
 very recently~\cite{TubLevHaiHeaWha-ARX-18}.
 It is an efficient deterministic algorithm for memory constrained environment, but for a reasonable statistical error tolerance, e.g., $10^{-5}$~Ha, a semistochastic approach is usually much faster, as we can see from Table~\ref{tab:pt}.
-Also, in our Cr$_2$ calculation, we stochastically estimate the perturbative correction from at least trillions of perturbative determinants for $\epsilon_2=2\times10^{-12}$, which probably involves quadrillions of contributions and is infeasible with a deterministic algorithm.
+Also, in our Cr$_2$ calculation, we stochastically estimate the perturbative correction from at least trillions of perturbative determinants
+for $\epsilon_2=2\times10^{-12}$, which probably involves quadrillions of contributions, which is infeasible with a deterministic algorithm.
 % The largest calculations in that paper use only $2 \times 10^6$ variational determinants, three orders of magnitude
 % less than our largest ones.
 
@@ -1285,7 +1288,9 @@ Each bit represents a spin-orbital.
 The n-th orbital is represented by the (n mod 64)-th bit of
 the \lstinline{(n / 64)}-th integer, where ``\lstinline{/}'' means integer (Euclidean) division and the counting starts from zero.
 % If count from one, it is going to be (((n-1) mod 64) + 1)-th bit of the ((n-1)/64+1)-th integer, which is more confusing and is different from the implementation.
-(n mod 64) can be implemented as \lstinline{(n & 63)}, and \lstinline{(n / 64)} can be implemented as {\color{red} \lstinline{(n >> 6)} (MJO - is 6 correct? Or should it be 64? 6 seems odd}, where ``\lstinline{&}'' is the bitwise ``and'' and ``\lstinline{>>}'' is the bitwise right shift.
+(n mod 64) can be implemented as \lstinline{(n & 63)}, and \lstinline{(n / 64)} can be implemented as \lstinline{(n >> 6)},
+where ``\lstinline{&}'' is the bitwise ``and'' and ``\lstinline{>>}'' is the bitwise right shift.
+% {\color{red} \lstinline{(n >> 6)} (MJO - is 6 correct? Or should it be 64? 6 seems odd}, where ``\lstinline{&}'' is the bitwise ``and'' and ``\lstinline{>>}'' is the bitwise right shift.
 Both operations cost only one clock cycle on modern CPUs.
 
 For transferring the determinants to other nodes or saving them to disk, we use base-128 variable-length integers
@@ -1336,7 +1341,7 @@ for intensive commutative insertion and update operations.
 The linear-probing technique for conflict resolution has better efficiency than separate chaining during parallel insertion,
 and the lock-free implementation allows all the threads to almost always operate at their full speed.
 
-On each node, we have $n$ of these concurrent hash tables, where $n$ the number of nodes.
+On each node, we have $n$ of these concurrent hash tables, where $n$ is the number of nodes.
 One of them stores the entries belonging to this node, and the other $(n-1)$ tables store the entries belonging to other nodes pending synchronization.
 Each concurrent hash table is implemented as lots of segments (at least four times the number of hardware threads) and each segment can be modified by only one thread at a time.
 When a thread wants to insert or update a (key, value) pair, it first checks whether the segment that the key belongs to is being used by other threads.
@@ -1350,7 +1355,7 @@ The inter-node synchronization also runs periodically so that most of the pertur
 \label{para}
 
 All the critical parts of SHCI are parallelized with MPI+OpenMP.
-This section describes how we parallelize them and the scalability of each part.
+This section describes the parallelization and the scalability of each part.
 
 When finding the connected determinants, performing the matrix-vector multiplication during the diagonalization,
 and constructing the Hamiltonian matrix from the auxiliary arrays, we use the round-robin scheme to distribute the load across the nodes
@@ -1373,10 +1378,10 @@ We parallelize the construction of the $\alpha$-singles and $\beta$-singles arra
 For each entry of $\veciaa$ and $\vecibb$, we initialize a lock to ensure exclusive modification.
 %Then, we do the following for each $\alpha$ in parallel:
 %We go through the $\alpha-1$ arrays of that $\alpha$ to find all the $\alpha^\prime$s that are one excitation away.
-We loop over all the $\vecia({\alpha^{(-1)}})$ arrays and for each ($\ia$, $\ia'$) pair (which are one excitation away) inside a particular $\vecia({\alpha^{(-1)}})$ array,
-We lock and append $\ia'$ to $\veciaa{(\ia)}$, and
-we lock and append $\ia$ to $\veciaa{(\ia')}$.
-When both $\ia$ and $\ia'$ occur only in the new determinants, the smaller of the two does the update.
+We loop over all the $\vecia({\alpha^{(-1)}})$ arrays and for each ($\ia$, $\ja$) pair (which are one excitation away) inside a particular $\vecia({\alpha^{(-1)}})$ array,
+We lock and append $\ja$ to $\veciaa{(\ia)}$, and
+we lock and append $\ia$ to $\veciaa{(\ja)}$.
+When both $\ia$ and $\ja$ occur only in the new determinants, the smaller of the two does the update.
 
 In Figs.~\ref{fig:paravar} and \ref{fig:parapt}, we demonstrate the parallel scalability of our SHCI implementation
 when applied to a copper atom in a cc-pVTZ basis. We use up to 16 nodes, and each node has 6 cores.
@@ -1392,10 +1397,10 @@ At 16 nodes we have 75\% parallel efficiency.
 
 For the perturbative stage, two major factors determine the speedup.
 One is the additional communication associated with
-the shuffling of the perturbative determinants across the nodes, which increases with the number of nodes.
+shuffling perturbative determinants across the nodes, which increases with the number of nodes.
 The other is the speedup from having more cores.
 % Not memory anymore.
-We can see from Fig.~\ref{fig:parapt} that from 1 to 4 nodes, the first factor dominates and there is a significant deviation from the ideal speedup.
+We can see from Fig.~\ref{fig:parapt} that from 1 to 4 nodes, the first factor dominates and there is significant deviation from ideal speedup.
 Starting from 8 nodes, we have to shuffle almost all the perturbative determinants from the spawning node to the storage node that each determinant belongs to,
 so there is little change in the first factor and the second factor starts to dominate, pushing the speedup curve upward and producing almost perfect scaling.
 Note that in the original SHCI algorithm~\cite{ShaHolJeaAlaUmr-JCTC-17}, there is a superlinear speedup from using more nodes
@@ -1428,7 +1433,7 @@ There is almost perfect scaling from up to 4 nodes and 75\% parallel efficiency 
 Parallel speedup for improved SHCI compared to the original SHCI for the perturbative stage of the
 calculation for a copper atom in a cc-pVTZ basis.
 From 1 node to 4 nodes, we see a significant deviation from linear speedup due to the additional communication from shuffling the perturbative determinants across nodes.
-Starting from 8 nodes, the number of shuffles approaches a constant and we can see an almost ideal speedup from using more processors.
+Starting from 8 nodes, the number of shuffles approaches a constant and we can see an almost linear speedup from using more processors.
 The estimate of the speedup of the original SHCI is based on the assumption that the total memory of 10 nodes is enough to support
 the optimal choice of $\epsilon_2^{\rm dtm}$ and $N_d$, in Eqs.~\ref{eq:semistoch_PT} and \ref{eq:stoch_PT}.
 The ``Original" curves are scaled to reflect the relative speed of original SHCI algorithm to that of the improved algorithm.
@@ -1471,11 +1476,13 @@ The Hamiltonian matrix is constructed only once.
 % The Hamiltonian matrix is stored in memory and so needs to be constructed only once.
 %We keep the ratio between $\epsilon_2$ and $\epsilon_1$ to $10^{-6}$ and the target error for the stochastic perturbation to 0.01 mHa.
 We use very small values of $\epsilon_2 = 10^{-6} \epsilon_1$  to ensure that the perturbative correction is exceedingly well converged,
-and choose the target error for the stochastic perturbation to be 0.01~mHa.
+and choose the target error for the stochastic perturbation energy to be $10^{-5}$~Ha.
 
-The improved SHCI is fast enough that we can use over two billion variational determinants and include at least trillions of effective perturbative determinants.
-The largest variational calculation where we iteratively find and diagonalize 2 billion determinants for $\epsilon_1=3.0\times10^{-6}$~Ha takes only one day on 8 nodes, each of which has 4 Intel Xeon E7-8870 v4 CPUs.
-The corresponding perturbative calculation takes only 6 hours with one of these nodes. 
+%The improved SHCI is fast enough that we can use over two billion variational determinants and include at least trillions of effective perturbative determinants.
+The improved SHCI is fast enough that we can use over two billion variational determinants, and stochastically include the contributions of at least trillions of perturbative determinants.
+The largest variational calculation, where we iteratively find and diagonalize 2 billion determinants
+for $\epsilon_1=3.0\times10^{-6}$~Ha, takes only one day on 8 nodes, each of which has 4 Intel Xeon E7-8870 v4 CPUs.
+The corresponding perturbative calculation takes only 6 hours using only one of these nodes. 
 During that perturbative calculation, we skip the deterministic step, perform a pseudo stochastic step with $\epsilon_2^{\rm psto}=1\times10^{-7}$~Ha, and a stochastic step with $\epsilon_2=3\times10^{-12}$~Ha.
 %why?
 The pseudo stochastic step uses 25 batches, each of which has about 8.9 billion determinants.
@@ -1484,10 +1491,12 @@ Since the estimated error is already much smaller than our target error, we skip
 The pseudo stochastic step takes 1.6 hours.
 The stochastic step uses 128 batches and 6 million variational determinants in each sample,
 which results in about 3.7 billion determinants per batch.
-We run 10 iterations and obtain the additional correction from $\epsilon_2=3.0\times10^{-12}$~Ha to be -0.001203(6)~Ha.
+We use 10 samples and obtain the additional correction from $\epsilon_2=3.0\times10^{-12}$~Ha to be -0.001203(6)~Ha.
 The combined uncertainty of the entire semistochastic perturbation stage is 6~$\mu$Ha.
-It is hard to estimate how many determinants are stochastically included for $\epsilon_2=3\times10^{-12}$~Ha, so we estimate a lower bound with $\epsilon_2^{\rm psto}=1.4\times10^{-8}$~Ha and obtain 1.8 trillion unique perturbative determinants.
-Hence, with $\epsilon_2=3\times10^{-12}$~Ha, the value we are actually using, we stochastically estimate contributions from at least trillions of unique perturbative determinants and obtain better than 0.01~mHa statistical uncertainty in 6 hours using only one node.
+It is hard to estimate how many determinants are stochastically included for $\epsilon_2=3\times10^{-12}$~Ha,
+so we estimate a lower bound with $\epsilon_2^{\rm psto}=1.4\times10^{-8}$~Ha and obtain 1.8 trillion unique perturbative determinants.
+Hence, with $\epsilon_2=3\times10^{-12}$~Ha (the value we are actually using) we stochastically estimate contributions from
+at least trillions of unique perturbative determinants and obtain better than $10^{-5}$~Ha statistical uncertainty in 6 hours using only one node.
 %why?
 %This brings the accuracy selected-CI to a whole new level and enables us to obtain an estimation of the full-CI energy with sub-millihartree uncertainty in this large active space.
 
@@ -1498,7 +1507,7 @@ Table~\ref{tab:Cr2} reports the results.
 \begin{table}[h]
   \begin{tabular}{| c | c | c | c |}
   \hline
-  $\epsilon_{1}$ (Ha) & $|V|$ & $E_{\rm var}$ (Ha) & $E_{\rm total}$ (Ha) \\
+  $\epsilon_{1}$ (Ha) & $N_\V$ & $E_{\rm var}$ (Ha) & $E_{\rm total}$ (Ha) \\
   \hline\hline
   $5.0\times10^{-5}$ & 24M & -2099.863816 & -2099.909741(7) \\
   \hline
@@ -1564,7 +1573,7 @@ Table~\ref{tab:Cr2} reports the results.
 %   \end{tabular}
   \caption{Results for Cr$_2$ at r=1.68\AA\ in the cc-pVDZ-DK basis.
   The active space is (28e, 76o).
-  $|\V|$ is the number of variational determinants.
+  $N_\V$ is the number of variational determinants.
   $\epsilon_2 = 10^{-6} \epsilon_1$.
   We use weighted quadratic extrapolation, shown in Fig.~\ref{fig:extrapolation}, to obtain the full-CI limit
   corresponding to $\Delta E=0$.}
@@ -1729,15 +1738,17 @@ Future extensions of the method include going to yet larger variational spaces u
 Although this increases the computational cost, the increase is not overwhelming because of the use of the auxiliary arrays introduced in this paper.
 Other extensions include increasing the range of applicability of the method to larger systems by combining SHCI with range-separated density functional theory~\cite{Sav-INC-96},
 and the use of SHCI as an impurity solver in embedding theories.
-Applications include providing benchmark energies for a variety of organic molecules, as well as for transition metal atoms, dimers, and monoxides, and providing calibration or training data for large scale methods,
-such as interatomic potentials in molecular dynamics, exchange correlation functionals in density functional theory, and machine learning based quantum chemistry solvers.
+Applications include providing benchmark energies for a variety of organic molecules, as well as for transition metal atoms, dimers, and monoxides,
+and providing calibration or training data for large scale methods,
+%e.g., potential energy surfaces interatomic potentials for molecular dynamics, exchange-correlation energies for improving density functional approximations, and training data for machine learning.
+e.g., to calibrate interatomic potentials for molecular dynamics and exchange-correlation functionals for density functional theory,
+and to train machine learning based quantum chemistry solvers.
 Calculations on the homogeneous electron gas are also underway.\\[1mm]
 %Future works include applying SHCI to larger systems that have never been treated with essentially exact methods, making further improvements to the algorithm and extending its capability of calculating other quantities, such as the band structure.
 %We are also looking into merging the merits of SHCI with other methods with good size-extensivity so that we can treat strongly correlated areas with SHCI accurately while avoiding the exponential scaling of CI between a large number of weakly correlated regions.
 
 \begin{acknowledgements}
 This work was supported by the AFOSR through grant FA9550-18-1-0095.
-{\color{red}and NSF and MURI?}.
 A.A.H was supported by the NSF under the grant ACI-1534965 and by the University of Colorado.
 S.S. acknowledges the funding provided by the NSF through grant CHE-1800584.
 %The computations were performed on the Bridges cluster at the Pittsburgh Supercomputing Center under NSF grant ACI-1445606,
@@ -1762,7 +1773,7 @@ and the Argonne Leadership Computing Facility (ALCF) at the Argonne National Lab
 \bibliographystyle{apsrev4-1}
 %\bibliographystyle{jchemphys}
 
-\bibliography{main,umrigar,toulouse,chan,hci}
+\bibliography{main,hci,umrigar,toulouse,chan,needs}
 %\bibliography{hci}
 
 \end{document}
