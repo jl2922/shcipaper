@@ -917,8 +917,8 @@ single excitations, same-spin double excitations and opposite-spin
 double excitations.
 For finding the same-spin connections, we use a method closely related
 to that in Ref.~\cite{SceAppGinCaf-JCoC-16}.
-Finding the opposite-spin connections are more computationally expensive and our algorithm speeds this up significantly.
-%is designed to speed compute these efficiently.
+Finding the opposite-spin connections is more computationally expensive and our algorithm speeds this up significantly.
+%is designed to compute these efficiently.
 
 \noindent \underline{\bf Same-spin excitations:} For determinants connected by single or double alpha excitations to a given determinant $D_i$, the beta strings must be the same as $\beta(D_i)$.
 %, which is the $\beta$ string of the determinant.
@@ -1275,7 +1275,6 @@ the distributed partial sums in the perturbative stage of the calculation.
 %This compression reduces the network traffic and the sizes of the wavefunction files significantly, especially for large basis sets.
 
 We use two different representations of determinants.
-
 For storing and accessing determinants locally in memory, we use arrays of bit-packed 64-bit unsigned integers.
 Each bit represents a spin-orbital.
 %Using the ridiculous {\color{red} maybe don't say this?} C++ convention that indices start at zero, the n-th orbital is represented by the \lstinline{(n | 63)}-th bit of
@@ -1290,7 +1289,7 @@ Both operations cost only one clock cycle on modern CPUs.
 For transferring the determinants to other nodes or saving them to disk, we use base-128 variable-length integers
 %(VarInts)~\cite{stuart2012encoding} to compress the integers.
 (VarInts)~\cite{StuFer-Protobuf-12} to compress the 64-bit integers.
-VarInts take only a few binary operations to compute and reduce the memory footprint by up to 87.5\% for small integers, which reduces the network traffic and the sizes of the wavefunction files considerably, especially for large basis sets.
+VarInts take only a few binary operations to compute and reduce the memory footprint by up to 87.5\% for small integers, which reduces the network traffic and the size of the wavefunction files considerably, especially for large basis sets.
 
 \subsection{Hamiltonian Matrix}
 
@@ -1300,9 +1299,9 @@ and when we reach the end of the node array, we loop back and start from the fir
 Each row is a sparse vector, represented by two arrays, one stores the indices of the nonzero elements and the other stores the values.
 
 
-During the matrix-vector multiplication, each node will apply its own trunk of the Hamiltonian to the given vector to get a partial resulting vector.
-The partial results are then merged together by doing a binomial tree reduction.
-The works on each node are distributed to the cores with dynamic load balancing.
+During the matrix-vector multiplication, each node will apply its own portion of the Hamiltonian to the vector to get a partial resulting vector.
+The partial results are then merged together using a binomial tree reduction.
+The work on each node is distributed to the cores with dynamic load balancing.
 To save space, we store only one copy of the partial resulting vector on each node and each thread updates that vector with hardware atomic operations.
 In addition, we cache the diagonal of the matrix on each node to speed up the Davidson diagonalization~\cite{Dav-CPC-89}.
 
@@ -1322,21 +1321,23 @@ In addition, we cache the diagonal of the matrix on each node to speed up the Da
 
 In the perturbative stage, we loop over all the variational determinants $\{D_i\}$ to compute the partial sum $\sum_i H_{ai}c_{i}$
 for each perturbative determinant $D_a$.
-To store this map from $D_a$ to $\sum_i H_{ai}c_{i}$, we use a distributed hash table.
-
-The choice of using a hash table versus using a sorted array is based on the number of determinants that we are dealing with.
+The map from $D_a$ to $\sum_i H_{ai}c_{i}$, is stored in a distributed hash table.
+%The choice of using a hash table versus using a sorted array is based on the number of determinants that we are dealing with.
+This choice is dictated by the enormous number of perturbative determinants we employ.
 The time complexity of inserting one element into the hash table is ${\cal O}(1)$, while for a sorted array it is ${\cal O}(\log(n))$.
 For large calculations, the prefactor from using hash tables is small compared to the $\log(n)$ cost from using a sorted array.
 
 %{\color{red} The following paragraph is not entirely clear to me.}
-The distributed hash table is based on lock-free open-addressing linear-probing concurrent hash tables specifically designed for commutative insertion and update operations at large scale, which is exactly the case for accumulating the partial sums.
+The distributed hash table is based on lock-free open-addressing linear-probing concurrent hash tables specifically designed
+for large numbers of commutative insertion and update operations.
+%, which is exactly the case for accumulating the partial sums.
 The linear-probing technique for conflict resolution has better efficiency than separate chaining during intensive parallel insertion,
 and the lock-free implementation allows all the threads to almost always operate at their full speed.
 
 On each node, we have $n$ of these concurrent hash tables, where $n$ the number of nodes.
 One of them stores the entries belonging to this node, and the other $(n-1)$ tables store the entries belonging to other nodes pending synchronization.
 Each concurrent hash table is implemented as lots of segments and each segment can be modified by only one thread at a time.
-When a thread wants to insert or update a (key, value) pair, it will first check whether the segment that the key belongs to is being used by other threads.
+When a thread wants to insert or update a (key, value) pair, it first checks whether the segment that the key belongs to is being used by other threads.
 If the segment is being used, the thread will insert or update the entry to a thread-local hash table, which will be merged to the main table later periodically.
 We can do this because the insertion and the update operations of the partial sums are commutative.
 Hence, each insertion and update is guaranteed to finish within ${\cal O}(1)$ time without getting locked, even for perturbative determinants with lots of connections to the reference determinants.
@@ -1461,7 +1462,7 @@ We perform SHCI with several $\epsilon_1$ values from $5\times10^{-5}$ to $3\tim
 The Hamiltonian matrix is stored in memory and so needs to be constructed only once.
 %We keep the ratio between $\epsilon_2$ and $\epsilon_1$ to $10^{-6}$ and the target error for the stochastic perturbation to 0.01 mHa.
 We use very small values of $\epsilon_2 = 10^{-6} \epsilon_1$  to ensure that the perturbative correction is exceedingly well converged,
-and choose the target error for the stochastic perturbation to be 0.01 mHa.
+and choose the target error for the stochastic perturbation to be 0.01~mHa.
 
 The improved SHCI is fast enough that we can use over two billion variational determinants and trillions of effective perturbative determinants.
 The largest variational calculation where we iteratively find and diagonalize 2 billion determinants for $\epsilon_1=3.0\times10^{-6}$~Ha takes only one day on 8 nodes, each of which has 4 Intel Xeon E7-8870 v4 CPUs.
