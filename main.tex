@@ -496,7 +496,7 @@ where $E_a=H_{aa}$.
 It is expensive to evaluate the expression in Eq.~\ref{eq:PTa} because the outer summation includes all determinants in the space $\P$ and their number is equal to 
 ${\cal O}(n^2v^2N_\V)$, where $N_\V$ is the number of variational determinants, $n$ is the number of electrons and $v$ is
 the number of virtual orbitals. For the calculation on Cr$_2$, described in Section~\ref{results},
-$n=28$, $v=62$ and $N_v=2 \times 10^9$, so the number of determinants in $\P$ is huge.
+$n=28$, $v=62$ and $N_\V=2 \times 10^9$, so the number of determinants in $\P$ is huge.
 The straightforward
 and time-efficient approach to computing the perturbative correction requires storing
 %and updating the partial sum for each $a$ ($\frac{\left(\sum_{i \in \V} H_{ai} c_i\right)^2}{E_0 - E_a}$) by
@@ -588,7 +588,7 @@ and that each sample is independent.
 %an extrapolation to the Full CI limit ($\epsilon_1=0$).
 %The extrapolation is performed by fitting a quadratic function to the total energy as a function of the perturbative correction $\Delta E$,
 %  weighting each point by $\left(\Delta E\right)^{-2}$.
-A useful feature of the method is that if the calculation is done for various values of the variational threshold $\epsilon_1$
+A another feature of the method is that if the calculation is done for various values of the variational threshold $\epsilon_1$
 a plot of the total energy (variational plus perturbative correction) plotted versus the perturbative correction yields a smooth curve that can be used to assess the convergence and extrapolate to the Full CI limit,  $\Delta E=0$~\cite{HolUmrSha-JCP-17}.
 We typically do this by fitting quadratic function weighting each point by $\left(\Delta E\right)^{-2}$~\cite{ChiHolOttUmrShaZim-JPCA-18}.
 
@@ -615,9 +615,9 @@ hundreds of millions or more.  With this many determinants, the construction of 
 Most of the matrix elements are zero, but finding the non-zero Hamiltonian elements quickly is challenging because
 the determinants in the variational wavefunction do not exhibit any pattern.
 (Efficient construction of the Hamiltonian matrix of the same size in FCI is much more straightforward than in SCI.)
-There are two straightforward ``brute force" approaches to building the Hamiltonian matrix:
+There are two straightforward ``brute force" approaches to build the Hamiltonian matrix:
 a) looping over all pairs of determinants to find those pairs that are related by single or double excitations, and, b)
-generating all connections of each det and binary searching for them in the sorted array of variational determinants.
+generating all connections of each det and searching for them in the sorted array of variational determinants.
 When the number of determinants is not very large, the former is the more efficient.
 Both of these are much too expensive for the very large number of variational determinants that we use.
 
@@ -718,7 +718,7 @@ The algorithm for a single or double beta excitations is very similar.
   \State Use hash map $\ib(\beta)$ to find $\ib$, the index of $\beta(D_i)$
   %\State \hskip 4mm \beta($D_i$). % in $\vecb$
   \State $s$ is the index of the first new determinant with $s \ge i$.
-  \FOR{$j$ in $\veciDa(\ib)$}
+  \FOR{$j$ in $\veciDb(\ib)$}
   \IF{$j \geq s$ and $D_i, D_j$ are connected}
     \State Compute and add $H_{ij}$ to the Hamiltonian
   \ENDIF
@@ -749,7 +749,7 @@ The algorithm for a single or double beta excitations is very similar.
 %     \FOR {$j \ge s$ (reverse loop over $\vecD$)}
 %       \State $\beta(D_j)$ is the $\beta$-string of $D_j$
 %       \IF {$\beta(D_j)$ present in $\vecb_{\beta_i}$ (binary search)}
-        \IF {$\ib(\beta(D_j))\in\veciba(\ia)$ (binary search)}
+        \IF {$\ib(\beta(D_j))\in\vecibb(\ib)$ (binary search)}
           \State Compute and add $H_{ij}$ to the Hamiltonian
         \ENDIF
       \ENDFOR
@@ -943,7 +943,7 @@ When the number of new determinants is less than 20\% of the total number of det
 % compared to the number of old determinants, but in the later variational iterations it is small.
 % When the number of new determinants is less than 20\% of the total number of determinants, $\veciDa(\ia)$ and $\veciba(\ia)$ are sorted by $i_D$, otherwise, they are sorted by $\ib$.
 The remaining determinants after filtering are the determinants connected to the given determinant through mixed double excitations.
-Each connection is generated only once during this process, which was not the case in the
+Each connection is visited only once during this process, which was not the case in the
 original SHCI method.
 
 %We then find all the determinants that have these $\alpha$ strings using $\vecD_{\alpha_k}$.
@@ -1072,7 +1072,7 @@ Hence our improved SHCI algorithm has the following 3 steps:
 \begin{enumerate}
 \item A deterministic step with cutoff $\epsilon_2^{\rm dtm} (< \epsilon_1)$, wherein all the perturbative batches are summed over.
 \item A ``pseudostochastic" step, with cutoff $\epsilon_2^{\rm psto} (< \epsilon_2^{\rm dtm})$, wherein typically only a small fraction of the perturbative batches
-need be summed over to achieve the target error.
+need be summed over to achieve an error much smaller than the target error.
 \item A stochastic step, with cutoff $\epsilon_2 (<\epsilon_2^{\rm psto}) $, wherein a few stochastic samples of variational determinants,
 each consisting of $N_d$ determinants, are sampled using Eq.~\ref{sampling_prob} and only one of the
 perturbative batches is randomly selected per variational sample.
@@ -1196,7 +1196,7 @@ number of variational determinants and all the perturbative determinants that sa
 or, by using a larger number of variational determinants and selecting just one batch of the perturbative determinants.
 The latter allows us to use much larger variational samples.
 Using larger variational samples is advantageous because we find that the additional fluctuations
-due to sampling the perturbative determinants is much smaller than the reduction in the fluctuations due to having larger variational samples.
+due to sampling the perturbative determinants is much smaller than the additional fluctuations due to having smaller variational samples.
 Typically, we use $\epsilon_2 = 10^{-6} \epsilon_{1}$.  Since the smallest $\epsilon_{1}$ that we use is typically around $10^{-5}$~Ha,
 this value is in fact much smaller than is needed to ensure that the perturbative correction is fully converged.
 For a statistical error of $10^{-5}$~Ha, 128 batches are usually good choices to start with.
@@ -1249,7 +1249,7 @@ the number of batches actually computed is small in each of the three steps, so 
 Finally, we comment on two other algorithms that have been recently been proposed for calculating the perturbative correction.
 %We note that another very efficient semistochastic algorithm for calculating the perturbative correction has been proposed
 First, another very efficient semistochastic algorithm has been proposed
-by Garniron et al.~\cite{GarSceLooCaf-JCP-17}.  However, that algorithm has, for each perturbative determinant, a loop over all variational determinants to find those that are connected.  For the very large number of variational determinants that we employ
+by Garniron et al.~\cite{GarSceLooCaf-JCP-17}.  However, that algorithm has, for each perturbative determinant, a loop over the variational determinants to find those that are connected.  For the very large number of variational determinants that we employ
 here (up to $2 \times 10^9$) this is less efficient than our algorithm.
 To avoid confusion, we should mention that the reason that their energy for Cr$_2$ is very different from ours is
 that they used a nonrelativistic Hamiltonian.
@@ -1347,7 +1347,7 @@ Each concurrent hash table is implemented as lots of segments (at least four tim
 When a thread wants to insert or update a (key, value) pair, it first checks whether the segment that the key belongs to is being used by other threads.
 If the segment is being used, the thread will insert or update the entry to a thread-local hash table, which will be merged to the main table later periodically.
 We can do this because the insertion and the update operations of the partial sums are commutative.
-Hence, each insertion and update is guaranteed to finish within ${\cal O}(1)$ time without getting locked, even for perturbative determinants with lots of connections to the reference determinants.
+Hence, each insertion and update is guaranteed to finish within ${\cal O}(1)$ time without getting blocked, even for perturbative determinants with lots of connections to the reference determinants.
 The inter-node synchronization also runs periodically so that most of the perturbative determinants will have only one copy during the entire run on the entire cluster, except for those with lots of connections to the reference determinants.
 % In the end when all the threads are done with the update, the data belongs to other nodes will be compressed with the algorithm in {sec:det} and sent to the corresponding nodes.
 
@@ -1623,7 +1623,7 @@ In contrast, the CCSD(T) energy is considerably higher.
 %In summary, our extrapolated value agrees with DMRG's and p-DMRG's extrapolated results but we achieve a smaller uncertainty.
 
 One of the merits of selected-CI is the ability to take higher-order excitations into account accurately.
-To see the contribution from excitation level we plot the number of selected determinants and the $\sum_i \left|c_i\right|^2$ for each excitation level in Fig.~\ref{fig:excit}.
+To see the contribution from each excitation level we plot the number of selected determinants and the $\sum_i \left|c_i\right|^2$ for each excitation level in Fig.~\ref{fig:excit}.
 Determinants with excitation levels up to 15 excitations are present in the variational wavefunction even though we are using optimized orbitals.
 (Using Hartree-Fock orbitals, we expect that determinants with even higher excitation levels will be present.)
 %This implies that truncating the CI or the CC at the double or the triple excitation level may not give reliable results for such strongly correlated systems.
