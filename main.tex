@@ -912,7 +912,13 @@ Note that if two $\alpha$ strings are a single excitation apart, they will be si
 
 Then, we update the Hamiltonian matrix using these auxiliary arrays and a loop over all the determinants.
 %Note that for each determinant, we only need to find all the determinants that are at most two excitations away.
-The Hamiltonian matrix elements are nonzero only for determinants that are at most two excitations apart.
+The Hamiltonian matrix elements are nonzero only for determinants that are at most two excitations apart, namely same-spin
+single excitations, same-spin double excitations and opposite-spin
+double excitations.
+For the same-spin excitations we use a method closely related
+to that in Ref.~\cite{SceAppGinCaf-JCoC-16}.
+The opposite-spin excitations are more computationally expensive
+and our algorithm is designed to speed compute these efficiently.
 
 \noindent \underline{\bf Same-spin excitations:} For determinants connected by single or double alpha excitations to a given determinant $D_i$, the beta strings must be the same as $\beta(D_i)$.
 %, which is the $\beta$ string of the determinant.
@@ -1246,6 +1252,7 @@ that they used a nonrelativistic Hamiltonian.
 Second, another algorithm that uses batches of perturbative determinants to overcome the memory bottleneck has been proposed
 very recently~\cite{TubLevHaiHeaWha-ARX-18}.
 It is an efficient deterministic algorithm for memory constrained environment, but for a reasonable statistical error tolerance, e.g., $10^{-5}$~Ha, a semistochastic approach is usually much faster, as we can see from Table~\ref{tab:pt}.
+In our Cr$_2$ calculation, we stochastically estimate the perturbative contribution from at least trillions of perturbative determinants, which is completely infeasible with a deterministic algorithm.
 % The largest calculations in that paper use only $2 \times 10^6$ variational determinants, three orders of magnitude
 % less than our largest ones.
 
