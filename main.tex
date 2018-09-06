@@ -227,8 +227,8 @@ The recently developed semistochastic heat-bath configuration interaction (SHCI)
 In common with FCIQMC, the computational cost of the method scales exponentially in the number of electrons but with a
 much smaller exponent than in full configuration interation (FCI).  However, SHCI is much faster than FCIQMC.
 The comparison with DMRG is more involved.  SHCI is often much faster than DMRG for moderately correlated systems,
-however, is much less efficient than DMRG for quasi 1-dimensional systems and even some classes of strongly correlated 
-higher-dimensional spin systems.
+however, is much less efficient than DMRG for quasi 1-dimensional systems.{\color{red} and some classes of strongly correlated 
+higher-dimensional spin systems. which?}
 
 SHCI is an example of the selected configuration interaction plus perturbation theory (SCI+PT)
 %method~\cite{HurMalRan-JCP-73,BuePey-TCA-74,EvaDauMal-CP-83,Cim-JCP-85,CimPer-JCoP-87,Kno-CPL-89,Har-JCP-91,PovRubIll-TCA-92,SteWenWilWil-CPL-94,GarCasCabMal-CPL-95,WenSteWil-IJQC-96,Nee-JCP-03,NakEha-JCP-05,AbrShe-CPL-05,BytRue-CP-09,Rot-PRC-09,BenBesHoyMay-JCP-11,LiuHof-TCA-14,Eva-JCP-14,Kno-MP-15,SchEva-JCP-16,LiuHof-JCTC-16,ZhaEva-JCTC-16,SceAppGinCaf-JCoC-16,GarSceLooCaf-JCP-17,SchEva-JCTC-17,TubLevHaiHeaWha-ARX-18},
@@ -857,11 +857,12 @@ Some of these are appended to at each variational iteration because they contain
 currently included in the wavefunction, whereas others are constructed from scratch since part of their information content
 pertains to only the new determinants.
 
-Since the data structures and the algorithms for constructing the Hamiltonian matrix are described
-in Table~\ref{auxiliary} and Algorithms~\ref{same_spin} and \ref{opposite_spin},
-here we focus on some details that are absent there.
-Also, it is understood that for each operation that is not symmetric in alpha and beta, the
-corresponding operation with the alpha and beta roles reversed is executed.
+% Table~\ref{auxiliary} and 
+%the data structures and our new algorithms for constructing the Hamiltonian matrix.
+% We discuss some additional details of the algorithm here.
+%focus on some details that are absent there.
+% Also, it is understood that for each operation that is not symmetric in alpha and beta, the
+% corresponding operation with the alpha and beta roles reversed is executed.
 The auxiliary arrays are constructed by looping over just the new determinants.
 First, for each new $\alpha$ encountered, array $\veca$ and hash map $\ia(\alpha)$ are appended to.
 Also, for each new determinant, the arrays $\veciDa(\ia)$ and $\veciba(\ia)$ are appended to.
@@ -872,7 +873,7 @@ and by $\ib$
 otherwise.
 Then, the hash map $\vecia(\alpha^{(-1)})$ is constructed, and finally the array $\veciaa(j_\alpha)$.
 The purpose of $\vecia(\alpha^{(-1)})$ is simply to speed up the construction of $\veciaa(j_\alpha)$.
-Note that if two $\alpha$ strings are a single excitation apart, they will be simultaneously present under one, and only one key of the hash map.
+Note that if two $\alpha$ strings are a single excitation apart, they will be simultaneously present under one, and only one key of the hash map $\vecia(\alpha^{(-1)})$.
 
 %Since identical steps are performed for up-spin (alpha) and down-spin (beta) electrons,
 %in this paragraph we mention only those for alpha.
@@ -911,6 +912,7 @@ Note that if two $\alpha$ strings are a single excitation apart, they will be si
 %Hence, we loop over pairs of $\alpha$'s in each of the $\veca_{(\alpha-1)_i}$ arrays to create the $\{\alpha\}_{\alpha_i}$ arrays.
 
 Then, we update the Hamiltonian matrix using these auxiliary arrays and a loop over all the determinants.
+Algorithms~\ref{same_spin} and \ref{opposite_spin} describe the algorithm with pseudocode.
 %Note that for each determinant, we only need to find all the determinants that are at most two excitations away.
 The Hamiltonian matrix elements are nonzero only for determinants that are at most two excitations apart, namely same-spin
 single excitations, same-spin double excitations and opposite-spin
@@ -934,7 +936,7 @@ have beta strings that are single excitations of $\beta(D_i)$, we need to filter
 to find the connected determinants.
 This is done in two different ways as described in Algorithm~\ref{opposite_spin}
 depending on the number of new determinants.
-When the number of new determinants is less than 20\% of the total number of determinants (in the later iterations of a given $\epsilon_1$), $\veciDa(\ia)$ and $\veciba(\ia)$ are sorted by $i_D$, otherwise, they are sorted by $\ib$.
+When the number of new determinants is less than 20\% of the total number of determinants (such as in the later iterations of a given $\epsilon_1$), $\veciDa(\ia)$ and $\veciba(\ia)$ are sorted by $i_D$, otherwise, they are sorted by $\ib$.
 % depending on which variational iteration we are at, because
 % in the early variational iterations for a given $\epsilon_1$, the number of new determinants is large
 % compared to the number of old determinants, but in the later variational iterations it is small.
@@ -1336,7 +1338,7 @@ and the lock-free implementation allows all the threads to almost always operate
 
 On each node, we have $n$ of these concurrent hash tables, where $n$ the number of nodes.
 One of them stores the entries belonging to this node, and the other $(n-1)$ tables store the entries belonging to other nodes pending synchronization.
-Each concurrent hash table is implemented as lots of segments and each segment can be modified by only one thread at a time.
+Each concurrent hash table is implemented as lots of segments (at least four times the number of hardware threads) and each segment can be modified by only one thread at a time.
 When a thread wants to insert or update a (key, value) pair, it first checks whether the segment that the key belongs to is being used by other threads.
 If the segment is being used, the thread will insert or update the entry to a thread-local hash table, which will be merged to the main table later periodically.
 We can do this because the insertion and the update operations of the partial sums are commutative.
