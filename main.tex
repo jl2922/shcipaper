@@ -410,12 +410,20 @@ preconditioned Davidson method~\cite{Dav-CPC-89}, to obtain an improved estimate
 This process is repeated until the change in $E_V$ falls below a certain threshold, e.g., 1~$\mu$Ha.
 %{\color{red} Needs clarification $\rightarrow$.}The selection of determinants is slightly better if a larger value of $\epsilon_1$ is used in the initial iterations.
 
-Other SCI methods, such as CIPSI~\cite{HurMalRan-JCP-73,EvaDauMal-CP-83} use a different criterion 
+Other SCI methods, such as CIPSI~\cite{HurMalRan-JCP-73,EvaDauMal-CP-83} use different criteria, usually based on either the first-order perturbative
+coefficient of the wavefunction,
+
 \beq
 \left|c_a^{(1)}\right|=\left|\frac{\sum_i H_{ai}c_i}{E_0-E_a}\right| > \epsilon_1
 \label{eq:cipsi_ground}
 \eeq
-which is based on a first-order perturbative estimate of the expansion coefficient. The reason we choose instead the selection criterion in Eq.~\ref{HCI_criterion} is that it can be implemented
+or the second-order perturbative correction to the energy.
+\beq
+-\Delta E_2=-\frac{\left(\sum_i H_{ai}c_i\right)^2}{E_0-E_a} > \epsilon_1.
+\label{eq:cipsi_energy}
+\eeq
+%which is based on a first-order perturbative estimate of the expansion coefficient.
+The reason we choose instead the selection criterion in Eq.~\ref{HCI_criterion} is that it can be implemented
 very efficiently without checking the vast majority of the determinants that don't meet the criterion, by taking advantage
 of the fact that % the number of distinct values of the double-excitation matrix elements is only $N_{\rm orb}^4$.
 most of the Hamiltonian matrix elements correspond to double excitations, and their values do not depend
@@ -432,8 +440,9 @@ the terms in the numerator of Eq.~\ref{eq:cipsi_ground}
 span many orders of magnitude, so the sum is highly correlated with the largest-magnitude term in the sum in Eq.~\ref{eq:cipsi_ground}.
 It was demonstrated in Ref.~\cite{HolTubUmr-JCTC-16} that the selected determinants give only slightly inferior convergence
 to those selected using the criterion in Eq.~\ref{eq:cipsi_ground}.  This is greatly outweighed by the improved selection speed.
-%Moreover, one could use the HCI criterion in Eq.~\ref{HCI_criterion} as a preselection criterion for selecting determinants
-%using the criterion in Eq.~\ref{eq:cipsi_ground}.
+Moreover, one could use the HCI criterion in Eq.~\ref{HCI_criterion} with a smaller value of $\epsilon_1$ as a preselection criterion, and then select determinants
+using the criterion in Eq.~\ref{eq:cipsi_energy}, thereby having the benefit of both a fast selection method and a
+close to optimal choice of determinants.
 %{\color{red} The Aug. Berkeley paper seems to show (with one exception)
 %that ASCI requires about 1.5 times fewer dets for the same energy.}
 
@@ -487,8 +496,10 @@ It is expensive to evaluate the expression in Eq.~\ref{eq:PTa} because the outer
 the number of virtual orbitals. For the calculation on Cr$_2$, described in Section~\ref{results},
 $n=28$, $v=62$ and $N_v=2 \times 10^9$, so the number of determinants in $\P$ is huge.
 The straightforward
-and time-efficient approach to computing the perturbative correction requires storing and updating the
-partial sum for each $a$ ($\frac{\left(\sum_{i \in \V} H_{ai} c_i\right)^2}{E_0 - E_a}$) by looping over all the determinants $i\in\V$. This creates a severe memory bottleneck.
+and time-efficient approach to computing the perturbative correction requires storing
+%and updating the partial sum for each $a$ ($\frac{\left(\sum_{i \in \V} H_{ai} c_i\right)^2}{E_0 - E_a}$) by
+the partial sum $\sum_{i \in \V} H_{ai} c_i$ for each $a$, while
+looping over all the determinants $i\in\V$. This creates a severe memory bottleneck.
 
 Various schemes for improving the efficiency have been implemented, including only exciting from
 a rediagonalized array of the largest-weight determinants~\cite{EvaDauMal-CP-83}, and its efficient approximation using
@@ -1234,7 +1245,7 @@ To avoid confusion, we should mention that the reason that their energy for Cr$_
 that they used a nonrelativistic Hamiltonian.
 Second, another algorithm that uses batches of perturbative determinants to overcome the memory bottleneck has been proposed
 very recently~\cite{TubLevHaiHeaWha-ARX-18}.
-It is an efficient deterministic algorithm for memory constrained environment, but for a reasonable statistical error tolerance, e.g., 0.01~mHa, a semistochastic approach is usually much faster, as we can see from Table~\ref{tab:pt}.
+It is an efficient deterministic algorithm for memory constrained environment, but for a reasonable statistical error tolerance, e.g., $10^{-5}$~Ha, a semistochastic approach is usually much faster, as we can see from Table~\ref{tab:pt}.
 % The largest calculations in that paper use only $2 \times 10^6$ variational determinants, three orders of magnitude
 % less than our largest ones.
 
