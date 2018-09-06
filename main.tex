@@ -1379,7 +1379,7 @@ For each entry of $\veciaa$ and $\vecibb$, we initialize a lock to ensure exclus
 %Then, we do the following for each $\alpha$ in parallel:
 %We go through the $\alpha-1$ arrays of that $\alpha$ to find all the $\alpha^\prime$s that are one excitation away.
 We loop over all the $\vecia({\alpha^{(-1)}})$ arrays and for each ($\ia$, $\ja$) pair (which are one excitation away) inside a particular $\vecia({\alpha^{(-1)}})$ array,
-We lock and append $\ja$ to $\veciaa{(\ia)}$, and
+we lock and append $\ja$ to $\veciaa{(\ia)}$, and
 we lock and append $\ia$ to $\veciaa{(\ja)}$.
 When both $\ia$ and $\ja$ occur only in the new determinants, the smaller of the two does the update.
 
