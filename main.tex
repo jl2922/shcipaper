@@ -1201,7 +1201,7 @@ Typically, for a target statistical error of $10^{-5}$~Ha, we choose $\epsilon_2
 
 The third step is a stochastic step that is similar to the stochastic step of the original SHCI algorithm, except that instead of keeping all the perturbative determinants
 that satisfy the $\epsilon_2$ criterion we keep only one randomly selected batch out of several.
-The available computer memory constrains the number of perturbative determinants, and one can obtain the same number of them by sampling a certain
+The available computer memory constrains the number of perturbative determinants, and one can obtain the same number sampling a certain
 number of variational determinants and all the perturbative determinants that satisfy the $\epsilon_2$ criterion (the original SHCI algorithm),
 or, by using a larger number of variational determinants and selecting just one batch of the perturbative determinants.
 The latter allows us to use much larger variational samples.
@@ -1210,7 +1210,7 @@ Using larger variational samples is advantageous because we find that the additi
 due to sampling the perturbative determinants is much smaller than the reduction in the fluctuations due to having larger variational samples.
 Typically, we use $\epsilon_2 = 10^{-6} \epsilon_{1}$.  Since the smallest $\epsilon_{1}$ that we use is typically around $10^{-5}$~Ha,
 this value is in fact much smaller than is needed to ensure that the perturbative correction is fully converged.
-For a statistical error of $10^{-5}$~Ha, 128 batches are usually good choices to start with.
+For a statistical error of $10^{-5}$~Ha, 128 batches is usually a good choice to start with.
 The size of the variational sample is chosen so that a single perturbative batch fits in the available memory.
 We use a minimum of 10 samples in our stochastic step in order to get a meaningful estimate of the uncertainty.
 On large memory machines, we often achieve a much smaller statistical error than the target with 10 samples.
@@ -1248,7 +1248,8 @@ the fluctuations come just from the perturbative determinants.
 In contrast, in the stochastic step, the fluctuations come both from the choice of variational determinants and the choice of batches.
 In that case, one cannot simply use the standard deviation of the corrections from the evaluated perturbative determinants to estimate the standard deviation of the total correction.
 % In that case, one cannot use the intra-batch fluctuations to estimate the inter-batch fluctuations.  
-So, there we use a minimum of 10 samples in step 3, calculate the correction from each of these samples, and use standard deviation of these sample corrections to estimate the standard deviation of the total correction.
+So, in the stochastic step we use a minimum of 10 samples, calculate the correction from each of these samples,
+and use standard deviation of these sample corrections to estimate the standard deviation of the total correction.
 
 Another point to note is that the use of batches carries a small computational overhead of having to regenerate the
 perturbative determinants for each batch.  Using our method, generating determinants is sufficiently fast that the
@@ -1268,8 +1269,8 @@ very recently~\cite{TubLevHaiHeaWha-ARX-18}.
 It is an efficient deterministic algorithm for memory constrained environments,
 but for a reasonable statistical error tolerance, e.g., $10^{-5}$~Ha,
 a semistochastic approach is usually much faster, as we can see from Table~\ref{tab:pt}.
-Also, in our Cr$_2$ calculation, we stochastically estimate the perturbative correction from at least trillions of perturbative determinants
-for $\epsilon_2=2\times10^{-12}$, which probably involves quadrillions of contributions, which is infeasible with a deterministic algorithm.
+Also, in our Cr$_2$ calculation, we stochastically estimate the perturbative correction from at least trillions of perturbative determinants,
+for $\epsilon_2=3\times10^{-12}$, which probably involves quadrillions of contributions, which is infeasible with a deterministic algorithm.
 % The largest calculations in that paper use only $2 \times 10^6$ variational determinants, three orders of magnitude
 % less than our largest ones.
 
@@ -1393,7 +1394,7 @@ For each entry of $\veciaa$ and $\vecibb$, we initialize a lock to ensure exclus
 We loop over all the $\vecia({\alpha^{(-1)}})$ arrays and for each ($\ia$, $\ja$) pair (which are one excitation away) inside a particular $\vecia({\alpha^{(-1)}})$ array,
 we lock and append $\ja$ to $\veciaa{(\ia)}$, and
 we lock and append $\ia$ to $\veciaa{(\ja)}$.
-When both $\ia$ and $\ja$ occur only in the new determinants, the smaller of the two does the update.
+When both $\ia$ and $\ja$ occur only in the new determinants, the smaller of the two does both appends.
 
 In Figs.~\ref{fig:paravar} and \ref{fig:parapt}, we demonstrate the parallel scalability of our SHCI implementation
 when applied to a copper atom in a cc-pVTZ basis. We use up to 16 nodes, and each node has 6 cores.
@@ -1421,7 +1422,7 @@ Here we have solved this problem with the 3-step batch perturbation, for which t
 is almost always 10.  (We require a minimum of 10 samples in order to have a reasonable estimate of the stochastic error.)
 Consequently, 
 on memory constrained environments,
-we can achieve a few orders of magnitude speedup.
+we achieve a few orders of magnitude speedup.
 %compared to the original SHCI algorithm.
 %for memory contrained environments where we need lots of samples orignally,
 %we have a few orders of magnitude speedup compared to the original SHCI algorithm.
@@ -1430,7 +1431,7 @@ we can achieve a few orders of magnitude speedup.
   \includegraphics[width=\linewidth]{scalability/var}
   %\includegraphics[width=\linewidth]{scalability/var.eps}
   \caption{Parallel speedup of the variational stage for a copper atom in a cc-pVTZ basis.
-There is almost perfect scaling from up to 4 nodes and 75\% parallel efficiency at 16 nodes.
+There is almost perfect scaling for up to 4 nodes and 75\% parallel efficiency at 16 nodes.
 % Staring from 8 nodes, there is some significant drop in the performance, which we believe it is mainly because the job scheduler starts to place the nodes onto different racks.
 }
   \label{fig:paravar}
