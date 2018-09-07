@@ -583,12 +583,11 @@ Consequently, this too contributes to a super-linear speedup.
 \label{other_features}
 We note that although SHCI has a stochastic component, it has the advantages compared to quantum Monte Carlo algorithms that there is no sign problem,
 and that each sample is independent.
-
 %Finally, a series of SHCI calculations with different values of the variational threshold $\epsilon_1$ can be performed, in order to enable
 %an extrapolation to the Full CI limit ($\epsilon_1=0$).
 %The extrapolation is performed by fitting a quadratic function to the total energy as a function of the perturbative correction $\Delta E$,
 %  weighting each point by $\left(\Delta E\right)^{-2}$.
-A another feature of the method is that if the calculation is done for various values of the variational threshold $\epsilon_1$
+Another feature of the method is that if the calculation is done for various values of the variational threshold $\epsilon_1$
 a plot of the total energy (variational plus perturbative correction) plotted versus the perturbative correction yields a smooth curve that can be used to assess the convergence and extrapolate to the Full CI limit,  $\Delta E=0$~\cite{HolUmrSha-JCP-17}.
 We typically do this by fitting quadratic function weighting each point by $\left(\Delta E\right)^{-2}$~\cite{ChiHolOttUmrShaZim-JPCA-18}.
 
@@ -615,7 +614,7 @@ hundreds of millions or more.  With this many determinants, the construction of 
 Most of the matrix elements are zero, but finding the non-zero Hamiltonian elements quickly is challenging because
 the determinants in the variational wavefunction do not exhibit any pattern.
 (Efficient construction of the Hamiltonian matrix of the same size in FCI is much more straightforward than in SCI.)
-There are two straightforward ``brute force" approaches to build the Hamiltonian matrix:
+There are two straightforward ``brute force" approaches to building the Hamiltonian matrix:
 a) looping over all pairs of determinants to find those pairs that are related by single or double excitations, and, b)
 generating all connections of each det and searching for them in the sorted array of variational determinants.
 When the number of determinants is not very large, the former is the more efficient.
@@ -1196,7 +1195,9 @@ number of variational determinants and all the perturbative determinants that sa
 or, by using a larger number of variational determinants and selecting just one batch of the perturbative determinants.
 The latter allows us to use much larger variational samples.
 Using larger variational samples is advantageous because we find that the additional fluctuations
-due to sampling the perturbative determinants is much smaller than the additional fluctuations due to having smaller variational samples.
+%due to sampling the perturbative determinants is much smaller than the additional fluctuations due to having smaller variational samples.
+due to sampling the perturbative determinants is much smaller than the reduction in the fluctuations due to having larger variational sa
+mples.
 Typically, we use $\epsilon_2 = 10^{-6} \epsilon_{1}$.  Since the smallest $\epsilon_{1}$ that we use is typically around $10^{-5}$~Ha,
 this value is in fact much smaller than is needed to ensure that the perturbative correction is fully converged.
 For a statistical error of $10^{-5}$~Ha, 128 batches are usually good choices to start with.
@@ -1290,7 +1291,7 @@ the \lstinline{(n / 64)}-th integer, where ``\lstinline{/}'' means integer (Eucl
 % If count from one, it is going to be (((n-1) mod 64) + 1)-th bit of the ((n-1)/64+1)-th integer, which is more confusing and is different from the implementation.
 (n mod 64) can be implemented as \lstinline{(n & 63)}, and \lstinline{(n / 64)} can be implemented as \lstinline{(n >> 6)},
 where ``\lstinline{&}'' is the bitwise ``and'' and ``\lstinline{>>}'' is the bitwise right shift.
-% {\color{red} \lstinline{(n >> 6)} (MJO - is 6 correct? Or should it be 64? 6 seems odd}, where ``\lstinline{&}'' is the bitwise ``and'' and ``\lstinline{>>}'' is the bitwise right shift.
+% {\color{red} \lstinline{(n >> 6)} (MJO - is 6 correct? Or should it be 64? 6 seems odd}
 Both operations cost only one clock cycle on modern CPUs.
 
 For transferring the determinants to other nodes or saving them to disk, we use base-128 variable-length integers
@@ -1623,7 +1624,7 @@ In contrast, the CCSD(T) energy is considerably higher.
 %In summary, our extrapolated value agrees with DMRG's and p-DMRG's extrapolated results but we achieve a smaller uncertainty.
 
 One of the merits of selected-CI is the ability to take higher-order excitations into account accurately.
-To see the contribution from each excitation level we plot the number of selected determinants and the $\sum_i \left|c_i\right|^2$ for each excitation level in Fig.~\ref{fig:excit}.
+To see the contribution from each excitation level we plot the number of selected determinants and the $\sum_i \left|c_i\right|^2$ versus excitation level in Fig.~\ref{fig:excit}.
 Determinants with excitation levels up to 15 excitations are present in the variational wavefunction even though we are using optimized orbitals.
 (Using Hartree-Fock orbitals, we expect that determinants with even higher excitation levels will be present.)
 %This implies that truncating the CI or the CC at the double or the triple excitation level may not give reliable results for such strongly correlated systems.
