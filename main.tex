@@ -1082,8 +1082,11 @@ perturbative batches is randomly selected per variational sample.
 \end{enumerate}
 %The cutoffs get progressively smaller, i.e., $\epsilon_1 > \epsilon_2^{\rm dtm} > \epsilon_2^{\rm psto} > \epsilon_2$.
 The choice of these parameters depends on the system and the desired statistical error, but
-reaonable choices for a target error around $10^{-5}$~Ha are  $\epsilon_2^{\rm dtm} = \max(\epsilon_{1}/50,10^{-6}$~Ha),
-$\epsilon_2^{\rm psto} = \max(\epsilon_{1}/500,10^{-7}$~Ha), and,
+reaonable choices for a target error around $10^{-5}$~Ha are
+%$\epsilon_2^{\rm dtm} = \max(\epsilon_{1}/50,10^{-6}$~Ha),
+%$\epsilon_2^{\rm psto} = \max(\epsilon_{1}/500,10^{-7}$~Ha), and,
+$\epsilon_2^{\rm dtm} = 10^{-6}$~Ha,
+$\epsilon_2^{\rm psto} = 10^{-7}$~Ha, and,
 $\epsilon_2 = \epsilon_{1}/10^6$.
 %Of course, for small systems we can use smaller values of $\epsilon_2^{\rm dtm}$ and $\epsilon_2^{\rm psto}$, and employ
 %just the first two, or even just the first step of the perturbative calculation.
@@ -1152,7 +1155,7 @@ where $h(D)$ is the hash function and $B$ is the hash value space for a batch.
 This method solves the memory bottleneck in a different way than the original SHCI algorithm.
 We could do the full calculation in this way, i.e., use a very small value for $\epsilon_2^{\rm dtm}$,
 but it is much more efficient to only evaluate the large contributions here and leave the huge number of small contributions to the later stochastic steps.
-Typically, we choose $\epsilon_2^{\rm dtm} = \max(\epsilon_{1}/50, 10^{-6}$~Ha) for a target error of $10^{-5}$~Ha.
+%Typically, we choose $\epsilon_2^{\rm dtm} = \max(\epsilon_{1}/50, 10^{-6}$~Ha) for a target error of $10^{-5}$~Ha.
 %The threshold $10^{-6}$ depends on the target statistic error we want.
 %From our experience, $10^{-6}$ is usually around the optimal choice for a target error of $10^{-5}$~mHa.
 % but since it requires regenerating the perturbative space for each batch, this is not
@@ -1192,8 +1195,9 @@ If we process all the batches, the pseudo stochastic step becomes deterministic 
 When the standard deviation of the total correction is smaller than 40\% of the target error, we exit the loop over batches.
 %However, since we have a good hash function, a single batch is often enough to reach a statistical error below that threshold
 However, a single batch is often sufficient to reach a statistical error below that threshold,
-and we have never found a case where we need to evaluate more than 10\% of the batches.
-Typically, for a target statistical error of $10^{-5}$~Ha, we choose $\epsilon_2^{\rm psto} = \max(\epsilon_{1}/500, 10^{-7}$~Ha).
+for the smallest $\epsilon_1$ values that we typically use.
+%and we have never found a case where we need to evaluate more than 10\% of the batches.
+%Typically, for a target statistical error of $10^{-5}$~Ha, we choose $\epsilon_2^{\rm psto} = \max(\epsilon_{1}/500, 10^{-7}$~Ha).
 
 % we estimate the total correction and its standard deviation based on the assumption that the sum and the standard deviation of the corrections from each of the remaining batches are the same as the averages of the evaluated batches.
 % This assumption is based on our numerous empirical evidence that both the sum and standard deviation almost do not change between batches.
