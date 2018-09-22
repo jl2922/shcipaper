@@ -231,13 +231,22 @@ The recently developed semistochastic heat-bath configuration interaction (SHCI)
 %(non-quasi 1-dimensional) spin systems.
 In common with FCIQMC, the computational cost of the method scales exponentially in the number of electrons but with a
 much smaller exponent than in full configuration interation (FCI).  However, SHCI is much faster than FCIQMC.
-The comparison with DMRG is more involved.  SHCI is often much faster than DMRG for moderately correlated systems,
-however, is much less efficient than DMRG for quasi 1-dimensional systems and even some strongly correlated 
-higher-dimensional spin systems. %{\color{red} which? Sandeep wanted to leave this a bit vague because it is not completely clear.}
+The comparison with DMRG is more involved.
+%SHCI is often much faster than DMRG for moderately correlated systems,
+%however, is much less efficient than DMRG for quasi 1-dimensional systems and even some strongly correlated 
+%higher-dimensional spin systems. %{\color{red} which? Sandeep wanted to leave this a bit vague because it is not completely clear.}
+While SHCI is much faster than DMRG for small moderately correlated systems, the ratio of costs changes in
+DMRG's favor as the system size increases and as the correlation strength increases, because the methods
+have different scaling with these parameters.
+%In particular SHCI scales exponentially with system size with a small prefactor, with the prefactor depending on
+In particular SHCI scales exponentially with system size with a prefactor that is typically small, but which grows with
+the strength of the correlation.
+DMRG scales exponentially with the $(D-1)/D$th power of the system size (where D is the system dimension) with a prefactor that is typically larger,
+but which is not very sensitive to the strength of the correlation.
 
 SHCI is an example of the selected configuration interaction plus perturbation theory (SCI+PT)
-%method~\cite{HurMalRan-JCP-73,BuePey-TCA-74,EvaDauMal-CP-83,Cim-JCP-85,CimPer-JCoP-87,Kno-CPL-89,Har-JCP-91,PovRubIll-TCA-92,SteWenWilWil-CPL-94,GarCasCabMal-CPL-95,WenSteWil-IJQC-96,Nee-JCP-03,NakEha-JCP-05,AbrShe-CPL-05,BytRue-CP-09,Rot-PRC-09,BenBesHoyMay-JCP-11,LiuHof-TCA-14,Eva-JCP-14,Kno-MP-15,SchEva-JCP-16,LiuHof-JCTC-16,ZhaEva-JCTC-16,SceAppGinCaf-JCoC-16,GarSceLooCaf-JCP-17,SchEva-JCTC-17,LooSceBloGarCafJac-JCP-18,TubLevHaiHeaWha-ARX-18},
-methods~\cite{HurMalRan-JCP-73,BuePey-TCA-74,EvaDauMal-CP-83,CimPer-JCoP-87,Har-JCP-91,BytRue-CP-09,Eva-JCP-14,SceAppGinCaf-JCoC-16,GarSceLooCaf-JCP-17,LooSceBloGarCafJac-JCP-18,TubLevHaiHeaWha-ARX-18},
+%method~\cite{HurMalRan-JCP-73,BuePey-TCA-74,EvaDauMal-CP-83,Cim-JCP-85,CimPer-JCoP-87,Kno-CPL-89,Har-JCP-91,PovRubIll-TCA-92,SteWenWilWil-CPL-94,GarCasCabMal-CPL-95,WenSteWil-IJQC-96,Wul-CPL-96,Nee-JCP-03,NakEha-JCP-05,AbrShe-CPL-05,BytRue-CP-09,Rot-PRC-09,BenBesHoyMay-JCP-11,LiuHof-TCA-14,Eva-JCP-14,Kno-MP-15,SchEva-JCP-16,LiuHof-JCTC-16,ZhaEva-JCTC-16,SceAppGinCaf-JCoC-16,GarSceLooCaf-JCP-17,SchEva-JCTC-17,LooSceBloGarCafJac-JCP-18,TubLevHaiHeaWha-ARX-18},
+methods~\cite{HurMalRan-JCP-73,BuePey-TCA-74,EvaDauMal-CP-83,CimPer-JCoP-87,Har-JCP-91,Wul-CPL-96,BytRue-CP-09,Eva-JCP-14,SceAppGinCaf-JCoC-16,GarSceLooCaf-JCP-17,LooSceBloGarCafJac-JCP-18,TubLevHaiHeaWha-ARX-18},
 the earliest of which being
 the CIPSI method~\cite{HurMalRan-JCP-73,EvaDauMal-CP-83} of Malrieu and collaborators.
 SCI+PT methods have two stages.  In the first stage a variational wavefunction is constructed iteratively, starting from
