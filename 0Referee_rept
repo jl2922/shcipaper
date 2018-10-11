@@ -1,0 +1,89 @@
+---------- Forwarded message ---------
+From: <jcp-edoffice@aip.org>
+Date: Mon, Oct 8, 2018 at 4:44 PM
+Subject: JCP: Manuscript No. A18.09.0071
+To: <jl2922@cornell.edu>
+Cc: <streaver91@gmail.com>
+
+08-Oct-2018
+
+Manuscript No.: A18.09.0071
+
+Title: Fast Semistochastic Heat-Bath Configuration Interaction
+
+Authors: Junhao Li, Matt Otten, Adam Holmes, Sandeep Sharma, and Cyrus Umrigar
+
+Mr. Junhao Li
+Cornell University
+Physics
+117 Clark Hall
+Cornell University
+Ithaca, NY 14853-0001
+
+Dear Mr. Li,
+
+I have just received the reviews of your manuscript from the referees to whom it was sent. The comments are below.
+
+Please revise your manuscript accordingly and return it within 4 weeks. For each comment from each reviewer, please respond in three ways: 1) reproduce the comment; 2) respond to the comment (even if you are not making any changes); and 3) indicate what changes (if any) you have made and where they appear (by page in the revised manuscript). In addition, please show all revisions made to the manuscript in color.
+
+You may submit a revised version (double spaced and in preprint format) at:
+
+https://jcp.peerx-press.org/cgi-bin/main.plex?el=A2BK3FwRF7A1HWIX1I7A9ftd7Ky2tTmKogjP69KDkByXgwY
+
+IMPORTANT: When you return your revision, please upload the original source file in Word or TeX format for the manuscript and the original source files in postscript, encapsulated postscript, or TIFF format for the figure files. (PDF figure files may be acceptable if they are of very, very high resolution; if that is what you must upload, be sure that they are perfectly clear and suitable for print reproduction.)
+
+* Acceptable article source files for your revised paper are Word or Latex/ReVTeX. Please replace your PDF file with an acceptable article source file. If you are having conversion issues, you may keep the PDF as the article file and upload the article source file using the "Additional Information for Reviewer" file type. This will allow a quicker handoff to the production team if the paper is accepted.
+
+* Separate figure files (separate from text and tables) are required for production purposes. Submit a separate figure file for each figure cited in the article, not just one file containing all figures. The allowed file formats for figure files include TIF, PS, EPS, JPEG, or high quality PDF. Figures may remain embedded in the article, but we must also have individual figure files in the indicated format. NOTE: DOC or DOCX figure files are not permitted. Please do not provide separate table files; tables should remain within the text. You will find more instructions here: http://publishing.aip.org/authors/preparing-graphics.
+
+With best regards,
+
+Professor David Reichmann
+Columbia University
+Department of Chemistry
+------------------------------------------------------------------------------
+
+Reviewer #1 Evaluations:
+Recommendation: Revision
+New Potential Energy Surface: No
+
+Reviewer #1 (Comments to the Author):
+
+This manuscript reports a new, more efficient implementation of the author's semi-stochastic heat-bath configuration interaction (SHCI). Selected CI is currently a "hot topic" in quantum chemistry, and this work presents some exciting technical developments that allow the authors to treat over 1 billion determinants variationally and estimate perturbative corrections for trillions of determinants. To handle such unprecedented large determinant spaces, the authors improved the speed of the SHCI algorithm using a series of very clever tricks, including batching and subdividing the stochastic PT2 energy corrections into three contributions. Some of the technical improvements included in the fast SHCI are new, and others have been known to the CI community for some time. The paper is highly technical as it focuses significantly on the algorithmic details of the fast SHCI method. However, I think that the value of this work is really in providing the "recipe" to implement a fast SHCI code, which I am sure other researchers in this field will find useful. The authors have benchmarked their method using two challenging systems (Cu atom, Cr2). The Cr2 computations are an impressive computational feat and show that this version of SHCI is competitive with well-established methods like DMRG and p-DRMG. Again, although it is a bit technical, I think that the paper certainly deserves publication in JCP. I have a few remarks that the authors should consider before acceptance:
+
+1. It is nice to see such a good agreement of SHCI with DMRG for Cr2 at equilibrium geometry (1.68 Ang.), but to test the limits of this approach, the authors should report computations at larger bond distances, say at 1.5-2 r_e, where methods like CCSD(T) ultimately fail. There is no doubt that a DZ basis is insufficient to capture the correct potential for Cr2, but the issue at stake here is different. The authors should at least comment on whether or not these computations are possible, or better try to do them and report them in the paper. Showing that SHCI can compute Cr2 away from equilibrium would give a big boost to the paper's impact. The authors also fail to give credit to the many researchers that have previously studied Cr2 with an array of diverse computational methods, e.g., see papers by Roos and co-workers, Scuseria, Chan, etc.. This issue should be easy to rectify.
+
+2. With the new implementation, the authors introduce additional energetic cutoff parameters used in the perturbative correction separated into three parts (deterministic, pseudo-stochastic, and stochastic). I would say that this is an undesirable feature, but several recent methods have started to use several parameters that determine the truncation of small quantities (e.g. Neese's DLPNO methods). This new scheme is a significant focus of the publication, but I think that a discussion of the sensitivity of the energy with respect to these parameters (perhaps via a comparative illustration or figure) and how those parameters are chosen relative to one another for a given type of system would be good to include. Currently, the paper only says that these 'depend on the system' and give 'reasonable' values for them, but I think elaborating on the rationale behind how these parameters are chosen would be very helpful.
+
+3. Perhaps this is covered in the earlier heat bath CI papers, but it might be a good idea to discuss the statistical error associated with stochastic sampling. The improvements in this regard are mentioned throughout the article, but it may be helpful to the reader to include a paragraph in the introduction (or the HCI review section) about stochastic vs. deterministic sampling, and what is it known about how the former introduces statistical errors.
+
+4. In the past couple of years, several other groups have been working on or have used HCI and other CIs to compute strongly correlated systems. The authors seem to be oblivious of other works by Ten-no, Zimmerman, Greer, Coe and Patterson, Evangelista, Scuseria, Gagliardi. I suspect some of these might be very relevant to this paper. The authors should also cite the ASCI work by Head-Gordon and Whaley that published recently in JCP.
+
+5. The discussion of hash tables mentions that a '... distributed hash table is based on lock-free open- addressing linear-probing concurrent hash tables specifically designed for intensive commutative insertion and update operations.' I would assume that most readers of JCP are not familiar with the CS technical jargon used here. It would be advisable to add a reference and perhaps explain a bit more what these terms mean.
+
+------------------------------------------------------------------------------
+
+Reviewer #2 Evaluations:
+Recommendation: Major revision
+New Potential Energy Surface: No
+
+Reviewer #2 (Comments to the Author):
+
+The authors provide a detailed description of a number of SHCI algorithm improvements that allow them to work with larger variational CI expansions than were previously possible in the theory. These improvements assist with both the variational and perturbative stages of the calculation, and ultimately allow for an impressive demonstration on the Cr dimer in an active space that only p-DMRG was capable of reaching before. Their results both confirm and perhaps slightly improve on the p-DMRG numbers. This paper will be suitable for publication in JCP, although it requires significant revisions, mostly for clarity, before publication.
+
+1. The authors make various strong statements comparing DMRG and FCIQMC in their introductions. Citations should be provided to substantiate these statements.
+
+2. Why do the authors not mention the related ASCI method in the introduction?
+
+3. Below equation 10, do the authors mean that DeltaE_2^s[epsilon_2] and DeltaE_2^s[epsilon_2^d] are computed on the same sample? They appear to have left of the "s" superscript here.
+
+4. The author's description of why a large number of small samples has a larger error than a small number of large samples is unclear. A more accessible explanation will be especially helpful to those quantum chemists less familiar with stochastic methods.
+
+5. Why does the step 1 batching provide a solution to the memory problem? For that matter, what object is it that is causing them to run out of memory in practice? Readers will better follow why the 3-step with batching is helpful if they are shown what specifically is causing the memory problems in the first place.
+
+6. As batching seems to be the key here, a clearer explanation of how the batches are chosen and why it helps with memory (and statistics, see below) seems merited.
+
+7. The main speedup here appears to be that their new 3-step PT2 method is attempting to avoid evaluating corrections from whole batches of determinants by assuming that the statistics they establish on a small number of batches will carry over to all of the other (unevaluated) batches. This sounds like a strong assumption, and the small discussion they provide about this is not entirely convincing, partly because it is hard to follow, with the logic scattered over two pages of text. Why are they so confident the different batches' contributions will be distributed in the same way such that this assumption is accurate? This probably goes back, at least in part, to the question of how the batches are chosen.
+
+8. After repeatedly pointing out the value of the deterministic stage of their original 2-stage and now 3-stage PT theory, the authors skip it in their Cr2 demonstration. This is quite confusing. Is this stage worth having, or not?
+

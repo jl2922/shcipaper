@@ -19,8 +19,8 @@
 %  4)  latex apssamp.tex
 %
 \documentclass[%
-preprint,
-%reprint,
+%preprint,
+reprint,
  superscriptaddress,
 %groupedaddress,
 %unsortedaddress,
@@ -579,7 +579,7 @@ p_{i} &=& {\left|c_{i}\right| \over \sum_j^\V \left|c_{j}\right|},
 \eeq
 using the Alias method~\cite{walker1977efficient,kronmal1979alias}, which allows samples to be drawn
 in ${\cal O}(1)$ time. (The more commonly used heatbath method requires ${\cal O}(\log(n))$ time to do a binary search of an array of cumulative probabilities.)
-$\Delta E_2[\epsilon_2]$ and $\Delta E_2[\epsilon_2^{\mathrm{d}}]$ are calculated using the same set of samples,
+$\Delta E_2^{\mathrm{s}}[\epsilon_2]$ and $\Delta E_2^{\mathrm{s}}[\epsilon_2^{\mathrm{d}}]$ are calculated using the same set of samples,
 and thus there is significant cancellation of stochastic error.
 Furthermore, because these two energies are calculated simultaneously, the additional cost of performing this
 calculation, compared to a purely stochastic summation, is very small.
