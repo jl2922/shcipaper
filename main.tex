@@ -1292,13 +1292,20 @@ increase in computational cost would be substantial only if this is done many ti
 deterministic algorithm, the number of batches would be very large, but with our 3-step semistochastic algorithm
 the number of batches actually computed is sufficiently small in each of the three steps that there is never a large computational overhead.
 
-4) The fluctuation between batches is quite small and usually much smaller than the fluctuation from sampling the variational determinants in the stochastic step.
-This is a numerical phenomenon that we observed.
+{\color{blue}
+4) The fluctuation between batches is quite small and is much smaller than the fluctuation from sampling the variational determinants in the stochastic step.
+This is a numerical phenomenon that we observed and is what inspired the development of our new perturbation algorithm.
 Here we provide some theoretical justification for this phenomenon.
 The hash function maps a determinant to a 64-bit integer $h$.
 We use a high-quality hash function which ensures a highly-uniform mapping.
-A batch contains all the determinants that satisfy $h \mod n = i$, where $i$ is the index of the batch and $n$ is the number of batches.
-
+A batch contains all the determinants that satisfy $h \mod n = i$, where $i$ is the batch id and $n$ is the number of batches.
+Hence, each batch has roughly the same number of determinants and the contribution from each determinant in each batch is like a random variable coming from the same distribution.
+In addition, these contributions are quite small as the important determinants are already included in either the variational stage or the deterministic step, so the fluctuation is also quite small. Therefore, the fluctuation in the sum of the contributions for each batch is also small.
+On the other hand, the total perturbative corrections connected to different variational samples vary sigificantly.
+For example, samples that include the Hartree-Fock determinant give much higher perturbative correction than those don't.
+That is why we have used importance sampling as described by Eq.~\ref{sampling_prob}.
+This equation is far from a perfect estimation for the relative correction from a sample, so in most cases, even with importance sampling, the fluctuation from sampling the variational determinants is still much bigger than the fluctuation between batches.
+}
 
 Finally, we comment on two other algorithms that have been recently been proposed for calculating the perturbative correction.
 %We note that another very efficient semistochastic algorithm for calculating the perturbative correction has been proposed
@@ -1541,7 +1548,9 @@ The largest variational calculation, where we iteratively find and diagonalize 2
 for $\epsilon_1=3.0\times10^{-6}$~Ha, takes only one day on 8 nodes, each of which has 4 Intel Xeon E7-8870 v4 CPUs.
 The corresponding perturbative calculation takes only 6 hours using only one of these nodes. 
 During that perturbative calculation, we skip the deterministic step, perform a pseudo stochastic step with $\epsilon_2^{\rm psto}=1\times10^{-7}$~Ha, and a stochastic step with $\epsilon_2=3\times10^{-12}$~Ha.
-%why?
+{\color{blue}
+We skip the deterministic step here because $\epsilon_1=3.0\10^{-6}$ is already close to our default $\epsilon_2^{\rm dtm}$ of $\epsilon_1=2.0\10^{-6}$ so skipping this won't 
+}
 The pseudo stochastic step uses 25 batches, each of which has about 8.9 billion determinants.
 We evaluate only one of them, from which we obtain an estimate of the total correction for all the 25 batches (223 billion determinants) to be -0.011681(1)~Ha.
 Since the estimated error is already much smaller than our target error, we skip the remaining 24 batches.
