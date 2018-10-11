@@ -1292,6 +1292,14 @@ increase in computational cost would be substantial only if this is done many ti
 deterministic algorithm, the number of batches would be very large, but with our 3-step semistochastic algorithm
 the number of batches actually computed is sufficiently small in each of the three steps that there is never a large computational overhead.
 
+4) The fluctuation between batches is quite small and usually much smaller than the fluctuation from sampling the variational determinants in the stochastic step.
+This is a numerical phenomenon that we observed.
+Here we provide some theoretical justification for this phenomenon.
+The hash function maps a determinant to a 64-bit integer $h$.
+We use a high-quality hash function which ensures a highly-uniform mapping.
+A batch contains all the determinants that satisfy $h \mod n = i$, where $i$ is the index of the batch and $n$ is the number of batches.
+
+
 Finally, we comment on two other algorithms that have been recently been proposed for calculating the perturbative correction.
 %We note that another very efficient semistochastic algorithm for calculating the perturbative correction has been proposed
 First, another very efficient semistochastic algorithm has been proposed
