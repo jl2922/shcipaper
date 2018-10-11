@@ -247,7 +247,7 @@ but which is not very sensitive to the strength of the correlation.
 
 SHCI is an example of the selected configuration interaction plus perturbation theory (SCI+PT)
 %method~\cite{HurMalRan-JCP-73,BuePey-TCA-74,EvaDauMal-CP-83,Cim-JCP-85,CimPer-JCoP-87,Kno-CPL-89,Har-JCP-91,PovRubIll-TCA-92,SteWenWilWil-CPL-94,GarCasCabMal-CPL-95,WenSteWil-IJQC-96,Wul-CPL-96,Nee-JCP-03,NakEha-JCP-05,AbrShe-CPL-05,BytRue-CP-09,Rot-PRC-09,BenBesHoyMay-JCP-11,LiuHof-TCA-14,Eva-JCP-14,Kno-MP-15,SchEva-JCP-16,LiuHof-JCTC-16,ZhaEva-JCTC-16,SceAppGinCaf-JCoC-16,GarSceLooCaf-JCP-17,SchEva-JCTC-17,LooSceBloGarCafJac-JCP-18,TubLevHaiHeaWha-ARX-18},
-methods~\cite{HurMalRan-JCP-73,BuePey-TCA-74,EvaDauMal-CP-83,CimPer-JCoP-87,Har-JCP-91,Wul-CPL-96,BytRue-CP-09,Eva-JCP-14,SceAppGinCaf-JCoC-16,GarSceLooCaf-JCP-17,LooSceBloGarCafJac-JCP-18,TubLevHaiHeaWha-ARX-18},
+methods~\cite{HurMalRan-JCP-73,BuePey-TCA-74,EvaDauMal-CP-83,CimPer-JCoP-87,Har-JCP-91,BytRue-CP-09,Eva-JCP-14,SceAppGinCaf-JCoC-16,GarSceLooCaf-JCP-17,LooSceBloGarCafJac-JCP-18,TubLevHaiHeaWha-ARX-18},
 the earliest of which being
 the CIPSI method~\cite{HurMalRan-JCP-73,EvaDauMal-CP-83} of Malrieu and collaborators.
 SCI+PT methods have two stages.  In the first stage a variational wavefunction is constructed iteratively, starting from
@@ -1095,7 +1095,7 @@ The choice of these parameters depends on the system and the desired statistical
 reaonable choices for a target error around $10^{-5}$~Ha are
 %$\epsilon_2^{\rm dtm} = \max(\epsilon_{1}/50,10^{-6}$~Ha),
 %$\epsilon_2^{\rm psto} = \max(\epsilon_{1}/500,10^{-7}$~Ha), and,
-$\epsilon_2^{\rm dtm} = 10^{-6}$~Ha,
+$\epsilon_2^{\rm dtm} = 2\times 10^{-6}$~Ha,
 $\epsilon_2^{\rm psto} = 10^{-7}$~Ha, and,
 $\epsilon_2 = \epsilon_{1}/10^6$.
 %Of course, for small systems we can use smaller values of $\epsilon_2^{\rm dtm}$ and $\epsilon_2^{\rm psto}$, and employ
@@ -1262,11 +1262,23 @@ The main reasons that the improved SHCI is much faster are:
 
 We now comment on a couple of aspects of our algorithm that are not obvious:
 
-{\color{blue}1) Both $\epsilon_2^{\rm dtm}$ and $\epsilon_2^{\rm psto}$ will only affect the efficiency of the algorithm and will not introduce any systematic error to the results.
-$\epsilon_2^{\rm sto}$ have the same effect on the results as in previous SHCI works. However, by using batches in the stochastic step, we can use a much smaller $\epsilon_2^{\rm sto}$ to include almost the entire perturbative space. In our calculations, we usually keep the $\epsilon_2^{\rm sto}=10^{-6}\epsilon_1$, which is much smaller than previous SHCI works and much smaller than necessary to keep the systematic error within the target statistical error.
-There is no additional systematic error introduced by our stochastic sampling, i.e. no fix-node problem.
-Hence, when we choose a small enough $\epsilon_2^{\rm sto}$, the systematic error that introduces is negligible.
-The choice of $\epsilon_2^{\rm sto}=10^{-6}\epsilon_1$ is from emperical experience for a target error of 0.1~mHa.
+{\color{blue}1)
+The value of the perturbative correction depends only on $\epsilon_2$ and not $\epsilon_2^{\rm dtm}$ and $\epsilon_2^{\rm psto}$.
+The latter two quantities affect only the efficiency of the calculation.
+By using batches in the stochastic step, we can use a much smaller $\epsilon_2^{\rm sto}$ and thereby
+include almost the entire perturbative space.
+In our calculations, we usually set $\epsilon_2^{\rm sto}=10^{-6}\epsilon_1$, which is much smaller
+than is possible using our previous 2-step perturbation method, and much smaller than necessary
+to keep the systematic error within the target statistical error.
+%Both $\epsilon_2^{\rm dtm}$ and $\epsilon_2^{\rm psto}$ do not affect the final energy; they are
+%used only toaffect the efficiency
+%of the algorithm and do not introduce any systematic error to the results.
+% Both $\epsilon_2^{\rm dtm}$ and $\epsilon_2^{\rm psto}$ affect the efficiency
+%of the algorithm and do not introduce any systematic error to the results.
+%$\epsilon_2^{\rm sto}$ have the same effect on the results as in previous SHCI works. However, by using batches in the stochastic step, we can use a much smaller $\epsilon_2^{\rm sto}$ to include almost the entire perturbative space. In our calculations, we usually keep the $\epsilon_2^{\rm sto}=10^{-6}\epsilon_1$, which is much smaller than previous SHCI works and much smaller than necessary to keep the systematic error within the target statistical error.
+%There is no additional systematic error introduced by our stochastic sampling, i.e. no fix-node problem.
+%Hence, when we choose a small enough $\epsilon_2^{\rm sto}$, the systematic error that introduces is negligible.
+%The choice of $\epsilon_2^{\rm sto}=10^{-6}\epsilon_1$ is from emperical experience for a target error of 0.1~mHa.
 }
 
 % In the pseudo stochastic step, we estimate the batch-to-batch fluctuations from just the fluctuations within a batch.
@@ -1549,7 +1561,9 @@ for $\epsilon_1=3.0\times10^{-6}$~Ha, takes only one day on 8 nodes, each of whi
 The corresponding perturbative calculation takes only 6 hours using only one of these nodes. 
 During that perturbative calculation, we skip the deterministic step, perform a pseudo stochastic step with $\epsilon_2^{\rm psto}=1\times10^{-7}$~Ha, and a stochastic step with $\epsilon_2=3\times10^{-12}$~Ha.
 {\color{blue}
-We skip the deterministic step here because $\epsilon_1=3.0\10^{-6}$ is already close to our default $\epsilon_2^{\rm dtm}$ of $\epsilon_1=2.0\10^{-6}$ so skipping this won't 
+We skip the deterministic step here because $\epsilon_1=3 \times 10^{-6}$ is already close to our
+default $\epsilon_2^{\rm dtm}$ of $2 \times 10^{-6}$ so skipping this won't affect the efficiency
+of subsequent steps much.
 }
 The pseudo stochastic step uses 25 batches, each of which has about 8.9 billion determinants.
 We evaluate only one of them, from which we obtain an estimate of the total correction for all the 25 batches (223 billion determinants) to be -0.011681(1)~Ha.
@@ -1845,7 +1859,7 @@ a DOE Office of Science User Facility supported under Contract DE-AC02-06CH11357
 \bibliographystyle{apsrev4-1}
 %\bibliographystyle{jchemphys}
 
-\bibliography{main,hci,umrigar,toulouse,chan,needs}
+\bibliography{main,hci,umrigar,toulouse,chan,needs,chemistry}
 %\bibliography{hci}
 
 \end{document}
