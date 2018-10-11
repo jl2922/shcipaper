@@ -19,7 +19,8 @@
 %  4)  latex apssamp.tex
 %
 \documentclass[%
-reprint,
+preprint,
+%reprint,
  superscriptaddress,
 %groupedaddress,
 %unsortedaddress,
@@ -1259,13 +1260,21 @@ The main reasons that the improved SHCI is much faster are:
 (2) A small fraction of the batches in the pseudo stochastic step is usually sufficient to give an accurate estimate of the total correction.
 (3) It uses much larger samples of variational determinants in the stochastic runs.
 
-We now comment on a couple of aspects of our algorithm that are not obvious.
+We now comment on a couple of aspects of our algorithm that are not obvious:
+
+{\color{blue}1) Both $\epsilon_2^{\rm dtm}$ and $\epsilon_2^{\rm psto}$ will only affect the efficiency of the algorithm and will not introduce any systematic error to the results.
+$\epsilon_2^{\rm sto}$ have the same effect on the results as in previous SHCI works. However, by using batches in the stochastic step, we can use a much smaller $\epsilon_2^{\rm sto}$ to include almost the entire perturbative space. In our calculations, we usually keep the $\epsilon_2^{\rm sto}=10^{-6}\epsilon_1$, which is much smaller than previous SHCI works and much smaller than necessary to keep the systematic error within the target statistical error.
+There is no additional systematic error introduced by our stochastic sampling, i.e. no fix-node problem.
+Hence, when we choose a small enough $\epsilon_2^{\rm sto}$, the systematic error that introduces is negligible.
+The choice of $\epsilon_2^{\rm sto}=10^{-6}\epsilon_1$ is from emperical experience for a target error of 0.1~mHa.
+}
+
 % In the pseudo stochastic step, we estimate the batch-to-batch fluctuations from just the fluctuations within a batch.
 % This relies on having a sufficiently good hash map and the fact that we have a very large number of perturbative determinants
 % in each batch (sometimes a billion or more).
 % Note that since we are using all the variational determinants in this step, the fluctuations come just from the perturbative
 % determinants.
-In the pseudo stochastic step, we estimate the fluctuations of the unevaluated perturbative determinants from the fluctuation of the evaluated perturbative determinants.
+2) In the pseudo stochastic step, we estimate the fluctuations of the unevaluated perturbative determinants from the fluctuation of the evaluated perturbative determinants.
 This relies on having a sufficiently uniform hash function.
 % and the fact that we have a very large number of perturbative determinants
 % in each batch (sometimes a billion or more). % not needed.
@@ -1277,7 +1286,7 @@ In that case, one cannot simply use the standard deviation of the corrections fr
 So, in the stochastic step we use a minimum of 10 samples, calculate the correction from each of these samples,
 and use standard deviation of these sample corrections to estimate the standard deviation of the total correction.
 
-Another point to note is that the use of batches carries a small computational overhead of having to regenerate the
+3) The use of batches carries a small computational overhead of having to regenerate the
 perturbative determinants for each batch.  Using our method, generating determinants is sufficiently fast that the
 increase in computational cost would be substantial only if this is done many times.  If we employed a purely
 deterministic algorithm, the number of batches would be very large, but with our 3-step semistochastic algorithm
@@ -1671,6 +1680,8 @@ Determinants with excitation levels up to 15 excitations are present in the vari
 %This implies that truncating the CI or the CC at the double or the triple excitation level may not give reliable results for such strongly correlated systems.
 This implies that truncating the CI expansion at the double, triple or quadruple excitation levels (which is the most that is usually done in systematic
 CI expansions), will give poor energies for such strongly correlated systems.
+
+{\color{blue} We have also performed some preliminary calculations for the energy surface with larger basis set, such as cc-pwCVTZ. However, due to the lack of reference values and that the focus of this paper is on the accuracy and performance of the new method, we will leave the extensive study of the chromium dimer to future works.}
 
 
 % The smallest $\epsilon_2$ we use for the perturbative stage is $3\times10^{-9}$.
