@@ -1404,14 +1404,14 @@ In addition, we cache the diagonal of the matrix on each node to speed up the Da
 
 In the perturbative stage, we loop over all the variational determinants $\{D_i\}$ to compute the partial sum $\sum_i H_{ai}c_{i}$
 for each perturbative determinant $D_a$.
-The map from $D_a$ to $\sum_i H_{ai}c_{i}$, is stored in a distributed hash table.
+The map from $D_a$ to $\sum_i H_{ai}c_{i}$, is stored in a distributed hash table~\cite{DHT}.
 %The choice of using a hash table versus using a sorted array is based on the number of determinants that we are dealing with.
 This choice is dictated by the enormous number of perturbative determinants we employ.
 The time complexity of inserting one element into the hash table is ${\cal O}(1)$, while for a sorted array it is ${\cal O}(\log(n))$.
 For large calculations, the prefactor from using hash tables is small compared to the $\log(n)$ cost from using a sorted array.
 
 %{\color{red} The following paragraph is not entirely clear to me.}
-The distributed hash table is based on lock-free open-addressing linear-probing concurrent hash tables specifically designed
+The distributed hash table is based on lock-free~\cite{LockFree} open-addressing~\cite{OpenAddressing} linear-probing~\cite{LinearProbing} concurrent hash tables~\cite{chen2018concurrent} specifically designed
 for intensive commutative insertion and update operations.
 %, which is exactly the case for accumulating the partial sums.
 The linear-probing technique for conflict resolution has better efficiency than separate chaining during parallel insertion,
