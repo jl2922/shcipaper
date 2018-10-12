@@ -9,6 +9,8 @@ onecolumn,
 ]{revtex4-1}
 
 \usepackage{xcolor}
+\usepackage{bm}% bold math
+
 \linespread{1.1}
 
 \begin{document}
@@ -176,7 +178,7 @@ reference and perhaps explain a bit more what these terms mean.
 }\color{black}
 
 We agree that most JCP readers are not familiar with these CS techniques and we have added in
-a citation.
+5 references.
 
 %------------------------------------------------------------------------------
 \vskip 8mm
@@ -201,9 +203,10 @@ introductions. Citations should be provided to substantiate these statements.
 
 There have been no published studies that compare the relative efficiencies of these methods,
 but the authors of this paper have
-between us contributed to all 3 methods.  Some of us are planning to publish a separate paper
-that discusses the strengths and weaknesses
-of the various methods.
+between us contributed to all 3 methods.  Some of us are planning to publish, in collaboration
+with other researchers a separate paper that discusses the strengths and weaknesses
+of the various methods.  We have modified the statements we make to make them more precise
+and to connect with known facts about DMRG.
 
 \vskip 5mm {\color{blue}
 2. Why do the authors not mention the related ASCI method in the introduction?
@@ -220,8 +223,8 @@ Also, the number of SCI+PT papers published since the original CIPSI paper in 19
 mention only those we deem most important.
 
 \vskip 5mm {\color{blue}
-3. Below equation 10, do the authors mean that DeltaE\_2\^s[epsilon\_2] and
-DeltaE\_2\^s[epsilon\_2\^d] are computed on the same sample? They appear to have left of the
+3. Below equation 10, do the authors mean that $\Delta E_2^s[\epsilon_2]$ and
+$\Delta E_2^s[\epsilon_2^d]$ are computed on the same sample? They appear to have left of the
 "s" superscript here.
 }\color{black}
 
@@ -232,6 +235,10 @@ We thank the referee for catching these typos and we have corrected them.
 a small number of large samples is unclear. A more accessible explanation will be especially
 helpful to those quantum chemists less familiar with stochastic methods.
 }\color{black}
+
+We have added a sentence explaining this further.  Intuitively it should be clear to the readers
+if they note that if the computer memory is large enough to store the entire space of perturbative
+determinants then there would be no statistical error at all.
 
 \vskip 5mm {\color{blue}
 5. Why does the step 1 batching provide a solution to the memory problem? For that matter,

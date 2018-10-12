@@ -236,14 +236,16 @@ The comparison with DMRG is more involved.
 %SHCI is often much faster than DMRG for moderately correlated systems,
 %however, is much less efficient than DMRG for quasi 1-dimensional systems and even some strongly correlated 
 %higher-dimensional spin systems. %{\color{red} which? Sandeep wanted to leave this a bit vague because it is not completely clear.}
+{\color{blue}
 While SHCI is much faster than DMRG for small moderately correlated systems, the ratio of costs changes in
 DMRG's favor as the system size increases and as the correlation strength increases, because the methods
 have different scaling with these parameters.
 %In particular SHCI scales exponentially with system size with a small prefactor, with the prefactor depending on
 In particular SHCI scales exponentially with system size with a prefactor that is typically small, but which grows with
 the strength of the correlation.
-DMRG scales exponentially with the $(D-1)/D$th power of the system size (where D is the system dimension) with a prefactor that is typically larger,
+DMRG scales exponentially with the $(D-1)/D$-th power of the system size (where D is the system dimension) with a prefactor that is typically larger,
 but which is not very sensitive to the strength of the correlation.
+}
 
 SHCI is an example of the selected configuration interaction plus perturbation theory (SCI+PT)
 %method~\cite{HurMalRan-JCP-73,BuePey-TCA-74,EvaDauMal-CP-83,Cim-JCP-85,CimPer-JCoP-87,Kno-CPL-89,Har-JCP-91,PovRubIll-TCA-92,SteWenWilWil-CPL-94,GarCasCabMal-CPL-95,WenSteWil-IJQC-96,Wul-CPL-96,Nee-JCP-03,NakEha-JCP-05,AbrShe-CPL-05,BytRue-CP-09,Rot-PRC-09,BenBesHoyMay-JCP-11,LiuHof-TCA-14,Eva-JCP-14,Kno-MP-15,SchEva-JCP-16,LiuHof-JCTC-16,ZhaEva-JCTC-16,SceAppGinCaf-JCoC-16,GarSceLooCaf-JCP-17,SchEva-JCTC-17,LooSceBloGarCafJac-JCP-18,TubLevHaiHeaWha-ARX-18},
@@ -265,8 +267,10 @@ Section~\ref{PT}, it drastically reduces the CPU cost as well as the memory cost
 %Second, it uses a semistochastic approach~\cite{ShaHolJeaAlaUmr-JCTC-17} to perform the perturbation theory that allows one to calculate second order correction to the energy without having to simultaneously store all the determinants that contribute the the first order wavefunction, thus overcoming a severe memory bottleneck.
 These two modifications have allowed SHCI to be used for systems as large as hexatriene
 in an ANO-L-pVDZ basis (32 correlated electrons in 118 orbitals) which has a Hilbert space of $10^{38}$ determinants~\cite{ChiHolOttUmrShaZim-JPCA-18}.
-SHCI has also recently been extended to (a) allow calculation of not just the ground state but also the low-lying excited states~\cite{HolUmrSha-JCP-17}, 
-(b) allow one to perform near-exact complete active space self consistent field calculations~\cite{SmiMusHolSha-JCTC-17} by optimizing the active space orbitals and (c) include relativistic effects including the spin-orbit coupling using ``one-step" calculations with two-component Hamiltonians~\cite{MusSha-JCTC-17}.
+SHCI has also recently been extended to (a) calculate not just the ground state but also the low-lying excited states~\cite{HolUmrSha-JCP-17}, 
+(b) perform self-consistent field orbital optimization in very large active spaces~\cite{SmiMusHolSha-JCTC-17},
+%(b) allow one to perform near-exact complete active space self consistent field calculations~\cite{SmiMusHolSha-JCTC-17} by optimizing the active space orbitals
+and (c) include relativistic effects including the spin-orbit coupling using ``one-step" calculations with two-component Hamiltonians~\cite{MusSha-JCTC-17}.
 
 %Since SHCI has greatly reduced the time required to select determinants, we find that for large systems the main bottlenecks
 %are the time required for Hamiltonian matrix construction
@@ -540,7 +544,7 @@ Note that the vast number of terms that do not meet this criterion are \emph{nev
 Even with this screening, the simultaneous storage of all terms indexed by $a$ in Eq.~\ref{eq:PTb} can exceed computer memory
 when $\epsilon_2$ is chosen small enough to obtain essentially the exact perturbation energy.
 The second innovation in the calculation of the SHCI perturbative correction is to overcome this memory bottleneck by
-evaluating this perturbation correction semistochastically~\cite{ShaHolUmr-JCTC-17}.
+evaluating this perturbation correction semistochastically~\cite{ShaHolJeaAlaUmr-JCTC-17}.
 The most important contributions are evaluated deterministically and the rest are sampled stochastically.
 The total perturbation correction is
 \beq
@@ -591,6 +595,8 @@ First, a larger fraction of the perturbative energy can be computed deterministi
 Second, a larger value of $N_d$ in Eq.~\ref{eq:stoch_PT} can be used.
 For a given total number of samples, the statistical error is smaller for a small number of large samples,
 than for a large number of small samples, because the number of sampled contributions to the energy correction is a quadratic function of the number of sampled variational determinants.
+{\color{blue} For example, $N_s$ samples, each of size $N_d$, will have $N_s N_d^2$ contributions to the energy, whereas
+$N_s/2$ samples, each of size $2N_d$, will have $2N_s N_d^2$ contributions.}
 Consequently, this too contributes to a super-linear speedup.
 
 \subsection{Other features of SHCI}
