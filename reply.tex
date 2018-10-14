@@ -12,6 +12,7 @@ onecolumn,
 \usepackage{bm}% bold math
 
 \linespread{1.1}
+\parskip 1mm
 
 \begin{document}
 
@@ -236,9 +237,11 @@ a small number of large samples is unclear. A more accessible explanation will b
 helpful to those quantum chemists less familiar with stochastic methods.
 }\color{black}
 
-We have added a sentence explaining this further.  Intuitively it should be clear to the readers
+We have added a sentence explaining this further in Section IIB.  Intuitively it should be clear to the readers
 if they note that if the computer memory is large enough to store the entire space of perturbative
 determinants then there would be no statistical error at all.
+In the original manuscript we were repeating almost the same explanation at the beginning of
+Section IV, so we have removed that.
 
 \vskip 5mm {\color{blue}
 5. Why does the step 1 batching provide a solution to the memory problem? For that matter,
@@ -246,6 +249,19 @@ what object is it that is causing them to run out of memory in practice? Readers
 follow why the 3-step with batching is helpful if they are shown what specifically is causing
 the memory problems in the first place.
 }\color{black}
+
+Batching in step 1 solves the memory problem for the following reason.  The memory needed
+is the product of the number of variational determinants in the sample, times the average number
+of determinants connected to each variational determinant.  When we use batches, since we only
+store one batch of connected determinants at a time this allows us to use a larger sample of
+variational determinants, and that reduces the fluctuations.
+Batching in step 1 solves the memory problem, i.e., one could do the entire PT calculation
+deterministically (with a small enough value of $\epsilon_2^{\rm dtm}$ to have negligible bias)
+by having a large number of batches.  However, the computer time would be
+large.  So, that is why we have steps 2 and 3 in our PT algorithm.
+
+The reason for running out of memory is described in the paragraph following Eq. 6, which we
+have added to in order to make it more explicit.
 
 \vskip 5mm {\color{blue}
 6. As batching seems to be the key here, a clearer explanation of how the batches are chosen
@@ -271,6 +287,8 @@ quite confusing. Is this stage worth having, or not?
 
 We agree, this was confusing.  The point is that in this case our $\epsilon_1$ is already
 small enough that doing the deterministic PT step would not affect the efficiency much,
-so we skip it.  We have added in an explanation on pg. xx.
+so we skip it.  We have added in an explanation on pg. xx. and have added a sentence
+before Eq. 11 pointing out that if $\epsilon_1 \le \epsilon_2^{\rm dtm}$ then the deterministic
+step is of course skipped.
 
 \end{document}

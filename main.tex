@@ -258,6 +258,7 @@ a determinant that is expected to have a significant amplitude in the final wave
 Each iteration of the variational stage has three steps: selection of important determinants, construction of the Hamiltonian matrix, and
 iterative diagonalization of the Hamiltonian matrix.
 In the second stage, 2$^{\rm nd}$-order perturbation theory is used to improve upon the variational energy.
+
 The SHCI algorithm has greatly improved the efficiency of both stages.
 First, as discussed in Section~\ref{Var}, it greatly speeds up the determinant selection, and, second, as discussed in
 Section~\ref{PT}, it drastically reduces the CPU cost as well as the memory cost of performing the perturbation step by using a semistochastic algorithm.
@@ -414,7 +415,7 @@ At each iteration, the variational wavefunction, $\Psi_V$, is written as a linea
 \end{align}
 and new determinants, ${D_a}$, from the space $\P$ that satisfy the criterion
 \beq
-\exists D_{i} \in \V , \mathrm{\ such\ that\ } \left|H_{a i} c_{i}\right| \ge \epsilon_{1}
+\exists\; D_{i} \in \V , \mathrm{\ such\ that\ } \left|H_{a i} c_{i}\right| \ge \epsilon_{1}
 \label{HCI_criterion}
 \eeq
 are added to the $\V$ space, where
@@ -607,7 +608,7 @@ and that each sample is independent.
 %an extrapolation to the Full CI limit ($\epsilon_1=0$).
 %The extrapolation is performed by fitting a quadratic function to the total energy as a function of the perturbative correction $\Delta E$,
 %  weighting each point by $\left(\Delta E\right)^{-2}$.
-Another feature of the method is that if the calculation is done for various values of the variational threshold $\epsilon_1$
+Another feature of the method is that if the calculation is done for various values of the variational threshold $\epsilon_1$,
 a plot of the total energy (variational plus perturbative correction) plotted versus the perturbative correction yields a smooth curve that can be used to assess the convergence and extrapolate to the Full CI limit,  $\Delta E=0$~\cite{HolUmrSha-JCP-17}.
 %We typically do this by fitting quadratic function weighting each point by $\left(\Delta E\right)^{-2}$~\cite{ChiHolOttUmrShaZim-JPCA-18}.
 We typically use a quadratic fit, with the points weighted by $\left(\Delta E\right)^{-2}$~\cite{ChiHolOttUmrShaZim-JPCA-18}.
@@ -627,7 +628,7 @@ which speed up the calculations by an order of magnitude or more for large syste
 
 The Hamiltonian matrix is stored in upper-triangular sparse matrix form.
 At each variational iteration, we have a set of old determinants, and a set of new determinants.
-We have calculated the Hamiltonian matrix for the old determinants, and need to calculate the old-new and the new-new
+We have already calculated the Hamiltonian matrix for the old determinants, and need to calculate the old-new and the new-new
 matrix elements.
 
 The SHCI algorithm greatly speeds up the step of finding the important determinants and one can very quickly generate
@@ -637,7 +638,7 @@ the determinants in the variational wavefunction do not exhibit any pattern.
 (Efficient construction of the Hamiltonian matrix of the same size in FCI is much more straightforward than in SCI.)
 There are two straightforward ``brute force" approaches to building the Hamiltonian matrix:
 a) looping over all pairs of determinants to find those pairs that are related by single or double excitations, and, b)
-generating all connections of each det and searching for them in the sorted array of variational determinants.
+generating all connections of each determinant in $\V$ and searching for the connections in the sorted array of variational determinants.
 When the number of determinants is not very large, the former is more efficient.
 Both of these are much too expensive for the very large number of variational determinants that we use.
 
@@ -654,12 +655,12 @@ Notation& \multicolumn{1}{c}{Description}\\
 %$\alpha, \alpha'$ & Symbol for the alpha strings\\
 %$\beta, \beta'$& Symbol for the beta strings\\
 %$i_D$, $i_\alpha$
-$\vecD$ & The array of determinants in $\V$ in the order\\
+$\vecD$ & The array of determinants in $\V$, in the order\\
 & they were generated. \\
 &\\
 $\veca$ & The array of all alpha strings, without repeats\\
 & that are present in at least one determinant in\\
-& $\V$ in the order they were generated. \\
+& $\V$, in the order they were generated. \\
 &\\
 %\{$\alpha^{(-1)}$\} & The array of all alpha strings for $n_\alpha-1$ electrons that\\
 %&can be obtained by removing one electron from the \{$\alpha$\}. \\
@@ -702,13 +703,11 @@ $\vecia(\alpha^{(-1)})$ & Hash map that takes an alpha string with one \\
 % & the alpha string $\alpha_i$ to give a Determinant\\
 % & in the space $\V$\\
 &\\
-$\veciaa(j_\alpha)$ & The array of indices of alpha strings \\
-& in the array $\veca$, connected by a single excitation \\
-& to the $j_\alpha^{th}$ alpha string of array $\veca$, sorted \\
-%& according to their indices in \{$\alpha$\}. These are \\
-& in ascending order. These are \\
-& generated only for the $j_\alpha$'s present in the new \\
-& determinants.\\
+$\veciaa(j_\alpha)$ & The array of indices of alpha strings in the \\
+& array $\veca$, connected by a single excitation to the \\
+& $j_\alpha^{th}$ alpha string of array $\veca$, sorted in ascending \\
+& order. These are generated only for the $j_\alpha$'s \\
+& present in the new determinants.\\
 % I sort by the indices in the unique alpha array, but I don't think we need to mention that, which will double the length of the section.
 % $\veca_{\alpha_i}$ & A array of all $\alpha$ string sorted according to\\
 % & their indices in \{$\alpha$\} and that are  connected to \\
@@ -1010,20 +1009,20 @@ by introducing a semistochastic algorithm for computing the perturbative correct
 In Section~\ref{overview} we have emphasized that the
 % efficiency of the calculation can dramatically improved
 statistical error can be dramatically reduced
-by decreasing the value of $\epsilon_2^{\rm dtm}$ in Eq.~\ref{eq:semistoch_PT}, and by increasing the size of the stochastic samples, $N_d$ in Eq.~\ref{eq:stoch_PT}.
-This occurs for two reasons:
-First, by using a smaller value of $\epsilon_{2} ^{\rm dtm}$ a larger fraction of the perturbative energy is computed deterministically
-and so the portion being evaluated stochastically has smaller expectation value and smaller fluctuations.
-Second, for a given total number of samples, the statistical error is smaller for a small number of large samples,
-than for a large number of small samples, because the number of sampled contributions to the energy correction is a quadratic function
-of the number of sampled variational determinants.
-%{\color{red} Sandeep, I added the above explanations because you pointed out that most people would think that only the total
-%number of samples would be relevant.  We can leave it here if you like, but it is probably not really necessary, because it is already
-%there in the review section. -- Cyrus}
+by decreasing the value of $\epsilon_2^{\rm d}$ in Eq.~\ref{eq:semistoch_PT}, and by increasing the size of the stochastic samples, $N_d$ in Eq.~\ref{eq:stoch_PT}.
+%This occurs for two reasons:
+%First, by using a smaller value of $\epsilon_{2} ^{\rm d}$ a larger fraction of the perturbative energy is computed deterministically
+%and so the portion being evaluated stochastically has smaller expectation value and smaller fluctuations.
+%Second, for a given total number of samples, the statistical error is smaller for a small number of large samples,
+%than for a large number of small samples, because the number of sampled contributions to the energy correction is a quadratic function
+%of the number of sampled variational determinants.
+%%{\color{red} Sandeep, I added the above explanations because you pointed out that most people would think that only the total
+%%number of samples would be relevant.  We can leave it here if you like, but it is probably not really necessary, because it is already
+%%there in the review section. -- Cyrus}
 
-However, decreasing $\epsilon_2^{\rm dtm}$ or increasing $N_d$ can quickly lead to calculations that require very large memory
+However, decreasing $\epsilon_2^{\rm d}$ or increasing $N_d$ can quickly lead to calculations that require very large memory
 making the calculations impractical even on large computers. In this situation, one is left with no choice but to run relatively
-inefficient calculations with larger $\epsilon_2^{\rm dtm}$ and smaller $N_d$.
+inefficient calculations with larger $\epsilon_2^{\rm d}$ and smaller $N_d$.
 For example, in Table~\ref{tab:pt} rows 3 and 4 show a comparison of the total CPU time of the perturbation stage
 for a copper atom in a cc-pVTZ basis on a machine with large memory versus on a machine with small memory.
 % {\color{red} can you specify epsilond and N in the table as well? -- Sandeep}.
@@ -1031,7 +1030,7 @@ for a copper atom in a cc-pVTZ basis on a machine with large memory versus on a 
 % {\color{red} Yes, those kind of paper are terrible because people start writing defensively, like we are doing. But I wonder if misinterpreting things like the Berkeley paper will become more difficult if we give more details. For example if we say that the deterministic calculation took xx cpu seconds to get xx accuracy, then to prove that their code is better, they will probably have to do more of an apples to apples comparison. With the current data they might try to get a 1e-8 accuracy and then multiply our timings with $100^2$.  -- Sandeep}.
 When we decrease the memory by a factor of four, the total CPU time of the original SHCI algorithm increases by almost a factor of 8.
 
-%For a given statistical error there is a choice for $\epsilon_2^{\rm dtm}$ and the size of each stochastic sample, $N_d$,
+%For a given statistical error there is a choice for $\epsilon_2^{\rm d}$ and the size of each stochastic sample, $N_d$,
 %in Eqs.~\ref{eq:semistoch_PT} and \ref{eq:stoch_PT} that minimizes the computer time.
 %We define a computer that does not permit the use of these optimal values to be a memory-constrained environment.
 %In memory constrained cases, the product of the size of the stochastic sample and number of samples is much larger than on a system with sufficient memory.
@@ -1072,7 +1071,7 @@ When we decrease the memory by a factor of four, the total CPU time of the origi
   \label{tab:pt}
 \end{table}
 
-For a given target error, assuming we have infinite computer memory, there is an optimal choice of $\epsilon_2^{\rm dtm}$ and $N_d$
+For a given target error, assuming we have infinite computer memory, there is an optimal choice of $\epsilon_2^{\rm d}$ and $N_d$
 for reaching that target error using the least computer time.
 %Our improved algorithm is designed to allow us to always use parameters such that the efficiency of the calculation does not
 %depend strongly on the available computer memory.
@@ -1106,6 +1105,7 @@ $\epsilon_2^{\rm psto} = 10^{-7}$~Ha, and,
 $\epsilon_2 = \epsilon_{1}/10^6$.
 %Of course, for small systems we can use smaller values of $\epsilon_2^{\rm dtm}$ and $\epsilon_2^{\rm psto}$, and employ
 %just the first two, or even just the first step of the perturbative calculation.
+{\color{blue} Of course, if $\epsilon_1 \le \epsilon_2^{\rm dtm}$ the deterministic step is skipped.
 The total perturbative correction is
 \beq
 \Delta E_{2} \left(\epsilon_{2}\right) &=& 
@@ -1114,6 +1114,7 @@ The total perturbative correction is
 &+& \Delta E_{2} ^{\mathrm{dtm}} \left(\epsilon_{2} ^{\mathrm{dtm}}\right)
 \label{eq:semistoch_3-step_PT}
 \eeq
+}
 We next describe each of the 3 steps in detail.
 
 %Sandeep:
@@ -1152,15 +1153,13 @@ We next describe each of the 3 steps in detail.
 The first step is a deterministic step similar to the original SHCI's deterministic step,
 % except that we use a smaller $\epsilon_2^{\rm dtm}$
 except that when there is not enough memory to afford the
-% optimal
 chosen $\epsilon_2^{\rm dtm}$, we divide the perturbative space into batches according to the hash value of the perturbative determinants and evaluate their contributions batch by batch.
-This deterministic step has the effect of greatly reducing the computational effort required to obtain a given statistical
-error in the subsequent steps.
-% We calculate the perturbation correction one batch at a time.
-When there is not enough memory to perform the original deterministic run with the
-%optimal choice of
-chosen $\epsilon_2^{\rm dtm}$, we divide the hash value space into several batches, and for each batch
-we calculate its contribution from only the perturbative determinants whose hash value belongs to that batch.
+%This deterministic step has the effect of greatly reducing the computational effort required to obtain a given statistical
+%error in the subsequent steps.
+%% We calculate the perturbation correction one batch at a time.
+%When there is not enough memory to perform the original deterministic run with the
+%chosen $\epsilon_2^{\rm dtm}$, we divide the hash value space into several batches, and for each batch
+%we calculate its contribution from only the perturbative determinants whose hash value belongs to that batch.
 The total deterministic correction is simply the sum of the corrections from all the batches
 \beq
 %$$\Delta E_{2}^{(d)} \left(\epsilon \right) = \sum_ {B} \sum_{D_{a}} \frac{\left(\sum_{D_{i} \in \V, \left|H_{a i} c_{i}\right| \ge \epsilon_{2}, h(D_a)\in B} H_{a i} c_{i}\right) ^{2}}{E_{V} - H_{a a}}$$
@@ -1169,7 +1168,8 @@ The total deterministic correction is simply the sum of the corrections from all
 \eeq
 where $h(D)$ is the hash function and $B$ is the hash value space for a batch.
 This method solves the memory bottleneck in a different way than the original SHCI algorithm.
-We could do the full calculation in this way, i.e., use a very small value for $\epsilon_2^{\rm dtm}$,
+We could do the full calculation in this way, i.e., use a very small value for $\epsilon_2^{\rm dtm}$
+{\color{blue} and a large number of batches},
 but it is much more efficient to only evaluate the large contributions here and leave the huge number of small contributions to the later stochastic steps.
 %Typically, we choose $\epsilon_2^{\rm dtm} = \max(\epsilon_{1}/50, 10^{-6}$~Ha) for a target error of $10^{-5}$~Ha.
 %The threshold $10^{-6}$ depends on the target statistic error we want.
@@ -1264,7 +1264,7 @@ The main reasons that the improved SHCI is much faster are:
 %(1) It computes a larger fraction of the perturbative correction in the deterministic step, and it uses much larger samples
 (1) It computes a larger fraction of the perturbative correction in the deterministic step.
 (2) A small fraction of the batches in the pseudo stochastic step is usually sufficient to give an accurate estimate of the total correction.
-(3) It uses much larger samples of variational determinants in the stochastic runs.
+(3) It uses much larger samples of variational determinants in the stochastic step.
 
 We now comment on a couple of aspects of our algorithm that are not obvious:
 
@@ -1302,7 +1302,7 @@ In contrast, in the stochastic step, the fluctuations come both from the choice 
 In that case, one cannot simply use the standard deviation of the corrections from the evaluated perturbative determinants to estimate the standard deviation of the total correction.
 % In that case, one cannot use the intra-batch fluctuations to estimate the inter-batch fluctuations.  
 So, in the stochastic step we use a minimum of 10 samples, calculate the correction from each of these samples,
-and use standard deviation of these sample corrections to estimate the standard deviation of the total correction.
+and use the standard deviation of these sample corrections to estimate the standard deviation of the total correction.
 
 3) The use of batches carries a small computational overhead of having to regenerate the
 perturbative determinants for each batch.  Using our method, generating determinants is sufficiently fast that the
@@ -1318,11 +1318,18 @@ The hash function maps a determinant to a 64-bit integer $h$.
 We use a high-quality hash function which ensures a highly-uniform mapping.
 A batch contains all the determinants that satisfy $h \mod n = i$, where $i$ is the batch id and $n$ is the number of batches.
 Hence, each batch has roughly the same number of determinants and the contribution from each determinant in each batch is like a random variable coming from the same distribution.
-In addition, these contributions are quite small as the important determinants are already included in either the variational stage or the deterministic step, so the fluctuation is also quite small. Therefore, the fluctuation in the sum of the contributions for each batch is also small.
+In addition, these contributions, and therefore their fluctuations are quite small as the important
+determinants are already included in either the variational stage or the deterministic step.
+Therefore, the fluctuation in the sum of the contributions for each batch is also small.
 On the other hand, the total perturbative corrections connected to different variational samples vary sigificantly.
-For example, samples that include the Hartree-Fock determinant give much higher perturbative correction than those don't.
-That is why we have used importance sampling as described by Eq.~\ref{sampling_prob}.
-This equation is far from a perfect estimation for the relative correction from a sample, so in most cases, even with importance sampling, the fluctuation from sampling the variational determinants is still much bigger than the fluctuation between batches.
+For example, samples that include the Hartree-Fock determinant give a much larger perturbative correction than those that don't.
+%That is why we use importance sampling as described by Eq.~\ref{sampling_prob}.
+%This equation is far from a perfect estimation for the relative correction from a sample,
+%so in most cases, even with importance sampling, the fluctuation from sampling the variational
+%determinants is still much bigger than the fluctuation between batches.
+That is why we use importance sampling as described by Eq.~\ref{sampling_prob},
+but even with importance sampling, the fluctuations from the choice of variational samples
+is much larger than the fluctuation from the choice of batches.
 }
 
 Finally, we comment on two other algorithms that have been recently been proposed for calculating the perturbative correction.
@@ -1408,7 +1415,7 @@ In addition, we cache the diagonal of the matrix on each node to speed up the Da
 %On each node, we have $n$ of these concurrent hash tables, where $n$ the total number of nodes.
 %One of them stores the entries belong to this node, and other $(n-1)$ tables store the entries belong to other nodes pending synchronization.
 
-In the perturbative stage, we loop over all the variational determinants $\{D_i\}$ to compute the partial sum $\sum_i H_{ai}c_{i}$
+In the perturbative stage, we loop over the variational determinants $\{D_i\}$ to compute the partial sum $\sum_i H_{ai}c_{i}$
 for each perturbative determinant $D_a$.
 The map from $D_a$ to $\sum_i H_{ai}c_{i}$, is stored in a distributed hash table~\cite{DHT}.
 %The choice of using a hash table versus using a sorted array is based on the number of determinants that we are dealing with.
@@ -1416,10 +1423,11 @@ This choice is dictated by the enormous number of perturbative determinants we e
 The time complexity of inserting one element into the hash table is ${\cal O}(1)$, while for a sorted array it is ${\cal O}(\log(n))$.
 For large calculations, the prefactor from using hash tables is small compared to the $\log(n)$ cost from using a sorted array.
 
-%{\color{red} The following paragraph is not entirely clear to me.}
+{\color{blue}
 The distributed hash table is based on lock-free~\cite{LockFree} open-addressing~\cite{OpenAddressing} linear-probing~\cite{LinearProbing} concurrent hash tables~\cite{chen2018concurrent} specifically designed
 for intensive commutative insertion and update operations.
 %, which is exactly the case for accumulating the partial sums.
+}
 The linear-probing technique for conflict resolution has better efficiency than separate chaining during parallel insertion,
 and the lock-free implementation allows all the threads to almost always operate at their full speed.
 
