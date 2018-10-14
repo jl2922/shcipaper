@@ -31,7 +31,7 @@ plt.plot(levelArray, nDetsArray, 'o-')
 plt.grid(True, ls=':')
 plt.setp(ax1.get_xticklabels(), visible=False)
 plt.ylabel('log$_{10}$(# Determinants)')
-plt.title('Contribution from Each Excitation Level in Variation')
+plt.title('Contribution from each excitation level in $\Psi_V$')
 
 ax2 = plt.subplot(212, sharex=ax1)
 sumWeightsArray = np.log10(np.array(sumWeightsArray))
