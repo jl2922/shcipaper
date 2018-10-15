@@ -128,9 +128,8 @@ NOT depend on the additional parameters.
 It is only the efficiency that depends on them.  The accuracy depends only on $\epsilon_2$
 and the increased efficiency of the 3-step PT
 allows us to use a really tiny value of $\epsilon_2$ which guarantees highly converged results.
-For the other parameters we provide a prescription (the default choice in our program) on pg. xx that 
-is efficient for most systems.
-We have added a paragraph with further explainions on pg. xx.
+For the other parameters we provide a prescription (the default choice in our program) in
+Section IV.  We have also elaborated on the reasoning behind the new algorithm in Section IV.
 
 \vskip 5mm {\color{blue}
 3. Perhaps this is covered in the earlier heat bath CI papers, but it might be a good idea to
@@ -154,7 +153,7 @@ as $1/\sqrt{T}$, where $N_{MC}$ is the number of Monte Carlo samples and $T$ is 
 However, as discussed in the caption of Table 2, in our approach the error goes down much faster because
 we have a multi-step PT method and we do larger deterministic and pseudostochastic calculations,
 rather than merely increasing the number of samples in the stochastic step.
-To further clarify matters, we have added in a paragraph on pg. xx.
+To further clarify matters, we have added in a paragraph in Section IV.
 
 
 \vskip 5mm {\color{blue}
@@ -166,9 +165,13 @@ ASCI work by Head-Gordon and Whaley that published recently in JCP.
 }\color{black}
 
 We have already cited a selected CI plus perturbation theory (SCI+PT) paper by Evangelista,
+a paper by Zimmerman,
 and the most recent ASCI paper from the Head-Gordon and Whaley group.
+We have now added in papers by Greer and Bartlett, and by Coe and Paterson, where we mention
+SCI+PT methods.  We have also added in  a reference to the very recent paper by Ten-no on selected coupled
+cluster in the conclusions.
 The other authors, as far as we know, have done work that is more distantly related to the subject
-of the current paper.  Nevertheless, we have added references to their work.
+of the current paper.
 
 \vskip 5mm {\color{blue}
 5. The discussion of hash tables mentions that a '... distributed hash table is based on
@@ -268,6 +271,8 @@ have added to in order to make it more explicit.
 and why it helps with memory (and statistics, see below) seems merited.
 }\color{black}
 
+We have added several sentences in Section IV to try to explain this.
+
 \vskip 5mm {\color{blue}
 7. The main speedup here appears to be that their new 3-step PT2 method is attempting to avoid
 evaluating corrections from whole batches of determinants by assuming that the statistics
@@ -279,6 +284,11 @@ be distributed in the same way such that this assumption is accurate? This proba
 at least in part, to the question of how the batches are chosen.
 }\color{black}
 
+Just as a good random number generator is necessary for any Monte Carlo evaluation that samples
+only a portion of the entire space, a good hash function is necessary for our estimate using
+only a few batches.  We have added some explanation in Section IV and have reorganized it
+slightly to make the logic clearer and to remove some duplication.
+
 \vskip 5mm {\color{blue}
 8. After repeatedly pointing out the value of the deterministic stage of their original
 2-stage and now 3-stage PT theory, the authors skip it in their Cr2 demonstration. This is
@@ -287,7 +297,7 @@ quite confusing. Is this stage worth having, or not?
 
 We agree, this was confusing.  The point is that in this case our $\epsilon_1$ is already
 small enough that doing the deterministic PT step would not affect the efficiency much,
-so we skip it.  We have added in an explanation on pg. xx. and have added a sentence
+so we skip it.  We have added this explanation in Section VII and have added a sentence
 before Eq. 11 pointing out that if $\epsilon_1 \le \epsilon_2^{\rm dtm}$ then the deterministic
 step is of course skipped.
 
