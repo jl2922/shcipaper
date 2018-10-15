@@ -244,7 +244,7 @@ have different scaling with these parameters.
 In particular SHCI scales exponentially with system size with a prefactor that is typically small, but which grows with
 the strength of the correlation.
 DMRG scales exponentially with the $(D-1)/D$-th power of the system size (where D is the system dimension) with a prefactor that is typically larger,
-but which is not very sensitive to the strength of the correlation.
+but is not very sensitive to the strength of the correlation.
 }
 
 SHCI is an example of the selected configuration interaction plus perturbation theory (SCI+PT)
@@ -1088,8 +1088,9 @@ only a subset of these batches.
 The hash function maps a determinant to a 64-bit integer $h$.
 A batch contains all the determinants that satisfy $h \mod n = i$, where $i$ is the batch index and $n$ is the number of batches.
 We use a high-quality hash function which ensures a highly-uniform mapping,
-so each batch has about the same number of determinants, i.e., the fluctuations in the number of
-determinants in the various batches is the square root of the average number of determinants in each batch.
+so each batch has about the same number of determinants
+, i.e., the fluctuations in the number of
+determinants in the various batches is the square root of the average number of determinants in each batch and $\sigma_N\approx\sqrt{N}/N\to0$ for large $N$.
 }
 
 In brief, our improved SHCI algorithm has the following 3 steps:
@@ -1752,7 +1753,7 @@ Determinants with excitation levels up to 15 excitations are present in the vari
 This implies that truncating the CI expansion at the double, triple or quadruple excitation levels (which is the most that is usually done in systematic
 CI expansions), will give poor energies for such strongly correlated systems.
 
-{\color{blue} We have also performed some preliminary calculations for the energy surface with larger basis set, such as cc-pwCVTZ. However, due to the lack of reference values and that the focus of this paper is on the accuracy and performance of the new method, we will leave the extensive study of the chromium dimer to future works.}
+{\color{blue} We have also performed some preliminary calculations for the energy surface with larger basis sets, such as cc-pwCVTZ. However, due to the lack of reference values and because the focus of this paper is on the accuracy and performance of the improved SHCI method, we leave the extensive study of the chromium dimer to future a future paper.}
 
 
 % The smallest $\epsilon_2$ we use for the perturbative stage is $3\times10^{-9}$.
@@ -1864,7 +1865,9 @@ Other extensions include increasing the range of applicability of the method to 
 and the use of SHCI as an impurity solver in embedding theories.
 {\color{blue}
 Recently, a selected coupled cluster method has been developed~\cite{XuUejTen-PRL-18}.
-Although the current version has not been used to compute the same size of systems that we have computed,
+Although the current version has
+%not been used to compute the same size of systems that we have computed,
+only been used with small basis sets,
 it is possible that with further development this will become a highly competitive method,
 especially for weakly correlated systems.
 }
