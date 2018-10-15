@@ -1019,8 +1019,8 @@ by decreasing the value of $\epsilon_2^{\rm d}$ in Eq.~\ref{eq:semistoch_PT}, an
 %%{\color{red} Sandeep, I added the above explanations because you pointed out that most people would think that only the total
 %%number of samples would be relevant.  We can leave it here if you like, but it is probably not really necessary, because it is already
 %%there in the review section. -- Cyrus}
-
-However, decreasing $\epsilon_2^{\rm d}$ or increasing $N_d$ can quickly lead to calculations that require very large memory
+%However, decreasing $\epsilon_2^{\rm d}$ or increasing $N_d$ can quickly lead to calculations that require very large memory
+However, decreasing $\epsilon_2^{\rm d}$ or increasing $N_d$ can quickly lead to very large memory requirements,
 making the calculations impractical even on large computers. In this situation, one is left with no choice but to run relatively
 inefficient calculations with larger $\epsilon_2^{\rm d}$ and smaller $N_d$.
 For example, in Table~\ref{tab:pt} rows 3 and 4 show a comparison of the total CPU time of the perturbation stage
@@ -1082,14 +1082,22 @@ To achieve that we replace the original 2-step SHCI algorithm with a 3-step algo
 In each of the three steps, the perturbative determinants are divided into batches using a hash function~\cite{Jen-Hash-97, Boost-2012},
 and the energy correction is computed either by adding, in succession, the contribution from each batch,
 or by estimating their sum by evaluating
-% sampling
-% $-$ without replacement $-$
-% (without replacement)
+% sampling (without replacement)
 only a subset of these batches.
-Hence our improved SHCI algorithm has the following 3 steps:
+The hash function maps a determinant to a 64-bit integer $h$.
+We use a high-quality hash function which ensures a highly-uniform mapping.
+A batch contains all the determinants that satisfy $h \mod n = i$, where $i$ is the batch id and $n$ is the number of batches.
+Hence each batch has about the same number of determinants, i.e., the fluctuations in the number of
+determinants in the various batches is the square root of the average number of determinants in each batch.
+
+In brief, our improved SHCI algorithm has the following 3 steps:
 \begin{enumerate}
-\item A deterministic step with cutoff $\epsilon_2^{\rm dtm} (< \epsilon_1)$, wherein all the perturbative batches are summed over.
-\item A ``pseudostochastic" step, with cutoff $\epsilon_2^{\rm psto} (< \epsilon_2^{\rm dtm})$, wherein typically only a small fraction of the perturbative batches
+\item A deterministic step with cutoff $\epsilon_2^{\rm dtm} (< \epsilon_1)$, wherein
+{\color{blue} all the variational determinants are used}, and
+all the perturbative batches are summed over.
+\item A ``pseudostochastic" step, with cutoff $\epsilon_2^{\rm psto} (< \epsilon_2^{\rm dtm})$, wherein
+{\color{blue} all the variational determinants are used}, and
+typically only a small fraction of the perturbative batches
 need be summed over to achieve an error much smaller than the target error.
 \item A stochastic step, with cutoff $\epsilon_2 (<\epsilon_2^{\rm psto}) $, wherein a few stochastic samples of variational determinants,
 each consisting of $N_d$ determinants, are sampled using Eq.~\ref{sampling_prob} and only one of the
