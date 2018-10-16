@@ -1088,9 +1088,12 @@ only a subset of these batches.
 The hash function maps a determinant to a 64-bit integer $h$.
 A batch contains all the determinants that satisfy $h \mod n = i$, where $i$ is the batch index and $n$ is the number of batches.
 We use a high-quality hash function which ensures a highly-uniform mapping,
-so each batch has about the same number of determinants
-, i.e., the fluctuations in the number of
-determinants in the various batches is the square root of the average number of determinants in each batch and $\sigma_N\approx\sqrt{N}/N\to0$ for large $N$.
+so each batch has about the same number of determinants, i.e., the fluctuations in the number of
+determinants in the various batches is the square root of the average number of determinants in each batch.
+% and $\sigma_N\approx\sqrt{N}/N\to0$ for large $N$.
+The contributions of the various batches fluctuate both because the contributions of the perturbative
+determinants within a batch fluctuate and the number of perturbative determinants in a batch fluctuate.
+For both contributions, the ratio of the fluctuation to the expected value is $\sim\sqrt{N}/N\to0$ for large $N$.
 }
 
 In brief, our improved SHCI algorithm has the following 3 steps:
@@ -1412,7 +1415,7 @@ Both operations cost only one clock cycle on modern CPUs.
 For transferring the determinants to other nodes or saving them to disk, we use base-128 variable-length integers
 %(VarInts)~\cite{stuart2012encoding} to compress the integers.
 (VarInts)~\cite{StuFer-Protobuf-12} to compress the 64-bit integers.
-VarInts take only a few binary operations to compute and reduce the memory footprint by up to 87.5\% for small integers, which reduces the network traffic and the size of the wavefunction files considerably, especially for large basis sets.
+VarInts take only a few bit operations to compute and reduce the memory footprint by up to 87.5\% for small integers, which reduces the network traffic and the size of the wavefunction files considerably, especially for large basis sets.
 
 \subsection{Hamiltonian Matrix}
 
@@ -1459,13 +1462,13 @@ The linear-probing technique for conflict resolution has better efficiency than 
 and the lock-free implementation allows all the threads to almost always operate at their full speed.
 
 On each node, we have $n$ of these concurrent hash tables, where $n$ is the number of nodes.
-One of them stores the entries belonging to this node, and the other $(n-1)$ tables store the entries belonging to other nodes pending synchronization.
+One of them stores the entries belonging to that node, and the other $(n-1)$ tables store the entries belonging to other nodes pending synchronization.
 Each concurrent hash table is implemented as lots of segments (at least four times the number of hardware threads) and each segment can be modified by only one thread at a time.
 When a thread wants to insert or update a (key, value) pair, it first checks whether the segment that the key belongs to is being used by other threads.
 If the segment is being used, the thread will insert or update the entry to a thread-local hash table, which will be merged to the main table later periodically.
 We can do this because the insertion and the update operations of the partial sums are commutative.
 Hence, each insertion and update is guaranteed to finish within ${\cal O}(1)$ time without getting blocked, even for perturbative determinants with lots of connections to the reference determinants.
-The inter-node synchronization also runs periodically so that most of the perturbative determinants will have only one copy during the entire run on the entire cluster, except for those with lots of connections to the reference determinants.
+The inter-node synchronization runs periodically so that most of the perturbative determinants will have only one copy during the entire run on the entire cluster, except for those with lots of connections to the reference determinants.
 % In the end when all the threads are done with the update, the data belongs to other nodes will be compressed with the algorithm in {sec:det} and sent to the corresponding nodes.
 
 \section{Parallelization}
@@ -1487,7 +1490,8 @@ and use dynamic load balancing for all the cores on the same node.
 %Similarly, we lock and append $\alpha$ to the single array of $\alpha^\prime$.
 %When both $\alpha$ and $\alpha^\prime$ are in the updated $\alpha$ array, only the smaller of the two do the update.
 
-We parallelize the construction of the $\alpha$-singles and $\beta$-singles arrays on each node, which is the most time-consuming part of constructing the auxiliary arrays.
+We parallelize the construction of the $\alpha$-singles, $\veciaa(j_\alpha)$, and $\beta$-singles, $\vecibb(j_\beta)$,
+arrays on each node, which is the most time-consuming part of constructing the auxiliary arrays.
 %We first update the $\alpha$ and $\beta$ arrays to add in the $\alpha$ and $\beta$ strings of the new determinants found in the current variational iteration,
 %if the $\alpha$ and $\beta$ strings were not already present.
 %Then we update the $\alpha-1$ and $\beta-1$ arrays to include the $\alpha-1$, $\beta-1$, $\alpha$, $\beta$ strings that were not already present.
@@ -1580,7 +1584,10 @@ The ``Original" curves are scaled to reflect the relative speed of original SHCI
 \section{Results}
 \label{results}
 
-In this section, we apply SHCI to the chromium dimer, which is a challenging strongly-correlated system.
+In this section, we apply SHCI to the chromium dimer, which is a challenging strongly-correlated system
+that has been studied using a variety of methods~\cite{Scu-JCP-91,KurYan-JCP-11,PurZhaKra-JCP-15,MaManOlsGag-JCTC-16,VanMalVer-JCTC-16,GuoWatHuSunCha-JCTC-16}.
+We will publish the potential energy surface in a separate publication; here instead our goal is just
+to use it as a test case for the improved SHCI method.
 %We use a cc-pVDZ basis with active semi-core electrons.
 We use a relativistic exact two-component (X2C) Hamiltonian, the cc-pVDZ-DK basis, and we correlate the valence and the semi-core electrons.
 This gives an active space of (28e, 76o) and a Hilbert space of $5\times10^{29}$ determinants, which is far beyond the reach of full-CI.
@@ -1753,7 +1760,7 @@ Determinants with excitation levels up to 15 excitations are present in the vari
 This implies that truncating the CI expansion at the double, triple or quadruple excitation levels (which is the most that is usually done in systematic
 CI expansions), will give poor energies for such strongly correlated systems.
 
-{\color{blue} We have also performed some preliminary calculations for the energy surface with larger basis sets, such as cc-pwCVTZ. However, due to the lack of reference values and because the focus of this paper is on the accuracy and performance of the improved SHCI method, we leave the extensive study of the chromium dimer to future a future paper.}
+%{\color{blue} We have also performed some preliminary calculations for the energy surface with larger basis sets, such as cc-pwCVTZ. However, due to the lack of reference values and because the focus of this paper is on the accuracy and performance of the improved SHCI method, we leave the extensive study of the chromium dimer to future a future paper.}
 
 
 % The smallest $\epsilon_2$ we use for the perturbative stage is $3\times10^{-9}$.
@@ -1911,7 +1918,7 @@ a DOE Office of Science User Facility supported under Contract DE-AC02-06CH11357
 \bibliographystyle{apsrev4-1}
 %\bibliographystyle{jchemphys}
 
-\bibliography{main,hci,umrigar,toulouse,chan,needs,chemistry}
+\bibliography{main,hci,umrigar,toulouse,chan,needs,zhang,chemistry}
 %\bibliography{hci}
 
 \end{document}
