@@ -210,7 +210,7 @@ Density functional theory
 %(DFT)~\cite{parr1979local,perdew1996generalized,kohn1999nobel}
 (DFT)~\cite{ParYan-BOOK-89,DreGro-BOOK-90,kohn1999nobel}
 methods with approximate density functionals
-are popular and efficient, but are often not sufficiently accurate.  CCSD(T)~\cite{raghavachari1989fifth} is very accurate for single reference systems, but
+are popular and efficient, but are often not sufficiently accurate.  Coupled cluster with single, double, and perturbative triple excitations CCSD(T)~\cite{raghavachari1989fifth} is very accurate for single reference systems, but
 not for strongly-correlated systems, such as systems with stretched bonds.
 Density matrix renormalization group (DMRG)~\cite{white1993density,white1999ab,chan2002highly,chan2011density,ShaCha-JCP-12,olivares2015ab,schollwock2005density,GuoLiCha-JCTC-18}
 and full configuration interaction quantum Monte Carlo (FCIQMC)~\cite{BooThoAla-JCP-09,CleBooAla-JCP-10,PetHolChaNigUmr-PRL-12,BooGruKreAla-Nat-13,HolChaUmr-JCTC-16}
@@ -251,7 +251,7 @@ SHCI is an example of the selected configuration interaction plus perturbation t
 %method~\cite{HurMalRan-JCP-73,BuePey-TCA-74,EvaDauMal-CP-83,Cim-JCP-85,CimPer-JCoP-87,Kno-CPL-89,Har-JCP-91,PovRubIll-TCA-92,SteWenWilWil-CPL-94,GarCasCabMal-CPL-95,WenSteWil-IJQC-96,Wul-CPL-96,Nee-JCP-03,NakEha-JCP-05,AbrShe-CPL-05,BytRue-CP-09,Rot-PRC-09,BenBesHoyMay-JCP-11,LiuHof-TCA-14,CoeMurPat-CPL-14,Eva-JCP-14,Kno-MP-15,SchEva-JCP-16,LiuHof-JCTC-16,ZhaEva-JCTC-16,SceAppGinCaf-JCoC-16,GarSceLooCaf-JCP-17,SchEva-JCTC-17,LooSceBloGarCafJac-JCP-18,TubLevHaiHeaWha-ARX-18},
 methods~\cite{HurMalRan-JCP-73,BuePey-TCA-74,EvaDauMal-CP-83,CimPer-JCoP-87,Har-JCP-91,BytRue-CP-09,KelPerBarGre-JCP-14,CoeMurPat-CPL-14,Eva-JCP-14,SceAppGinCaf-JCoC-16,GarSceLooCaf-JCP-17,LooSceBloGarCafJac-JCP-18,TubLevHaiHeaWha-ARX-18},
 the earliest of which being
-the CIPSI method~\cite{HurMalRan-JCP-73,EvaDauMal-CP-83} of Malrieu and collaborators.
+the configuration interaction by perturbatively selecting iteratively (CIPSI) method~\cite{HurMalRan-JCP-73,EvaDauMal-CP-83} of Malrieu and collaborators.
 SCI+PT methods have two stages.  In the first stage a variational wavefunction is constructed iteratively, starting from
 %the Hartree-Fock determinant, or more generally a determinant
 a determinant that is expected to have a significant amplitude in the final wavefunction, e.g., the Hartree-Fock determinant.
@@ -261,7 +261,7 @@ In the second stage, 2$^{\rm nd}$-order perturbation theory is used to improve u
 
 The SHCI algorithm has greatly improved the efficiency of both stages.
 First, as discussed in Section~\ref{Var}, it greatly speeds up the determinant selection, and, second, as discussed in
-Section~\ref{PT}, it drastically reduces the CPU cost as well as the memory cost of performing the perturbation step by using a semistochastic algorithm.
+Section~\ref{PT}, it drastically reduces the central processing unit (CPU) cost as well as the memory cost of performing the perturbation step by using a semistochastic algorithm.
 %SHCI differs from previous SCI+PT methods in two important ways.
 %First, it uses a simpler criterion for selecting determinants~\cite{HolTubUmr-JCTC-16} that avoids spending any computational time on determinants
 %that do not enter in the final variational wavefunction, as well as saving time on vast numbers of determinants that make negligible perturbative contributions.
@@ -302,15 +302,15 @@ We also describe important implementation details of the algorithm, including th
 %adequate for computing a realistic potential energy curve.
 %Recently DMRG and its perturbative extension (p-DMRG)~\cite{GuoLiCha-JCTC-18} have been used to calculate the ground state energy of Cr$_2$ using the same number of correlated
 %electrons and the same basis as in our calculation.
-%Using up to $2\times10^9$ determinants and extrapolating the total energy, we estimate the full-CI energy at equilibrium in this large active space to be $-2099.9224(6)$~Ha.
+%Using up to $2\times10^9$ determinants and extrapolating the total energy, we estimate the FCI energy at equilibrium in this large active space to be $-2099.9224(6)$~Ha.
 %This compares well with a p-DMRG energy of $-2099.9225$~Ha using a quadratic extrapolation.
 %(The linear extrapolation used in Ref.~\onlinecite{GuoLiCha-JCTC-18} gives an energy of $-2099.9201$.)
 %It should be noted that the $2\times10^9$ determinants used in our SHCI calculations are two orders of magnitude larger than the largest number of determinants
 %used in any other SCI+PT method ($2\times10^7$ were used in Ref.~\cite{GarSceLooCaf-JCP-17}.)
 
 %are the first two methods to include semi-core electrons in a cc-pVDZ basis~\cite{GuoLiCha-JCTC-18}.
-%The active space of this calculation is (28e, 76o), which is exceedingly large for full-CI.
-%By using SHCI with an unprecedented number of determinants and rigorous extrapolation, we achieve a significantly more accurate estimation of the full-CI energy of this large active space to be 2099.9224(6) Ha.
+%The active space of this calculation is (28e, 76o), which is exceedingly large for FCI.
+%By using SHCI with an unprecedented number of determinants and rigorous extrapolation, we achieve a significantly more accurate estimation of the FCI energy of this large active space to be 2099.9224(6) Ha.
 
 %The Semistochastic heat-bath configuration interaction (SHCI)~\cite{HolTubUmr-JCTC-16, ShaHolJeaAlaUmr-JCTC-17,HolUmrSha-JCP-17,SmiMusHolSha-JCTC-17,MusSha-JCTC-17}
 %method is a recently developed selected configuration interaction plus perturbation theory method (SCI+PT)~\cite{HurMalRan-JCP-73,buenker1975energy,buenker1978applicability,harrison1991approximating,ben2011direct}.
@@ -337,8 +337,8 @@ We also describe important implementation details of the algorithm, including th
 %We apply the improved SHCI to Cr$_2$ in the cc-pVDZ basis to provide an accurate benchmark for this molecule in a large active space.
 %Cr$_2$ is a challenging system for many quantum chemistry methods due to its strongly-correlated nature, and accurate results are only available for small active spaces, which are not sufficient for predicting some important physical quantities, such as the energy curve.
 %DMRG and its perturbative extension are the first two methods to include semi-core electrons in a cc-pVDZ basis~\cite{GuoLiCha-JCTC-18}.
-%The active space of this calculation is (28e, 76o), which is exceedingly large for full-CI.
-%By using SHCI with an unprecedented number of determinants and rigorous extrapolation, we achieve a significantly more accurate estimation of the full-CI energy of this large active space to be 2099.9224(6) Ha.
+%The active space of this calculation is (28e, 76o), which is exceedingly large for FCI.
+%By using SHCI with an unprecedented number of determinants and rigorous extrapolation, we achieve a significantly more accurate estimation of the FCI energy of this large active space to be 2099.9224(6) Ha.
 
 % This paper describes in detail our latest version of SHCI.
 % We discuss the key data structures, such as how we store the determinants, the Hamiltonian matrix, and the partials sums in the perturbation stage.
@@ -379,7 +379,7 @@ emphasizing the two important ways it differs from other SCI+PT methods.
 %Second, it uses an efficient semistochastic algorithm to compute the perturbative correction that overcomes
 %the memory bottleneck in that stage of the calculation~\cite{ShaHolJeaAlaUmr-JCTC-17}.
 %(A different semistochastic algorithm has been proposed by Garniron et al.~\cite{GarSceLooCaf-JCP-17}, which is also efficient.)
-In the following, we use $\V$ for the set of variational determinants, and $\P$ for the set of perturbative determinants, that is, the set of determinants that are connected to the variational determinants with a non-zero Hamiltonian matrix element but are not present in $\V$.
+In the following, we use $\V$ for the set of variational determinants, and $\P$ for the set of perturbative determinants, that is, the set of determinants that are connected to the variational determinants by at least one non-zero Hamiltonian matrix element but are not present in $\V$.
 
 \subsection{Variational Stage}
 \label{Var}
@@ -390,19 +390,19 @@ In the following, we use $\V$ for the set of variational determinants, and $\P$ 
 %In each iteration, we first find a set of new determinants $V'$ that connects to the current determinants set $V$.
 %A new determinant $D_a$ is connected to a determinant in $V$ if and only if
 %$$
-%\exists D_{i} \in \V , \mathrm{s . t .} \left|H_{a i} c_{i}\right| \ge \epsilon_{1}
+%\exists D_i \in \V , \mathrm{s . t .} \left|H_{a i} c_{i}\right| \ge \epsilon_{1}
 %$$
 %where $c_i$ is the coefficient of determinant $D_i$, $H_{ai}$ is the Hamiltonian matrix element between determinant $D_a$ and $D_i$.
 %$\epsilon_1$ is a small value that controls the accuracy of the variational stage.
-%When $\epsilon_1=0$, it becomes a full-CI calculation.
+%When $\epsilon_1=0$, it becomes a FCI calculation.
 %
 %We add these new determinants into $V$, diagonalize and obtain a new set of lowest eigenvalue $E_{V}$ and eigenvector
-%$\Psi_{V} = \sum_{D_{i} \in \V} c_{i} \left|D_{i}\right\rangle$.
+%$\Psi_{V} = \sum_{D_i \in \V} c_{i} \left|D_{i}\right\rangle$.
 %
 %We repeat this process until the change in $E_V$ falls below a certain threshold, e.g., 1~$\mu$Ha.
 %
 %This process differs from other SCI methods in its criterion and the algorithm for finding new determinants.
-%Conventional SCI methods often use the perturbation correction as the criteria which are expensive to evaluate,
+%Conventional SCI methods often use the perturbative correction as the criteria which are expensive to evaluate,
 %such as the $\left|\frac{\sum_{i} H_{a i} c_{i}}{E_{0} - H_{a a}}\right| > \epsilon_{1}$ in CIPSI~\cite{HurMalRan-JCP-73}.
 %SHCI uses the much less expensive $\left|H_{a i} c_{i}\right| \ge \epsilon_{1}$ as the criterion and
 %the new determinants can be found efficiently by looking up a few precomputed arrays~\cite{HolTubUmr-JCTC-16}.
@@ -411,11 +411,11 @@ SHCI starts from an initial determinant
 and generates the variational wave function through an iterative process.
 At each iteration, the variational wavefunction, $\Psi_V$, is written as a linear combination of the determinants in the space $\V$
 \begin{align}
-\Psi_{V} = \sum_{D_{i} \in \V} c_{i} \left|D_{i}\right\rangle
+\Psi_{V} = \sum_{D_i \in \V} c_{i} \left|D_{i}\right\rangle
 \end{align}
 and new determinants, ${D_a}$, from the space $\P$ that satisfy the criterion
 \beq
-\exists\; D_{i} \in \V , \mathrm{\ such\ that\ } \left|H_{a i} c_{i}\right| \ge \epsilon_{1}
+\exists\; D_i \in \V , \mathrm{\ such\ that\ } \left|H_{a i} c_{i}\right| \ge \epsilon_{1}
 \label{HCI_criterion}
 \eeq
 are added to the $\V$ space, where
@@ -454,8 +454,10 @@ in decreasing order by magnitude, along with the corresponding pairs of orbitals
 Then the double excitations that meet the criterion in Eq.~\ref{HCI_criterion} can be generated by
 looping over all pairs of occupied orbitals in the reference determinant, and
 traversing the array of sorted double-excitation matrix elements for each pair.
-As soon as the cutoff is reached, the loop is exited.
-Although the criterion in Eq.~\ref{HCI_criterion} is not optimal, the two selection criteria are not significantly different because
+As soon as the cutoff is reached, the loop for that pair of occupied orbitals is exited.
+%Although the criterion in Eq.~\ref{HCI_criterion} is not optimal, the two selection criteria are not significantly different because
+Although the criterion in Eq.~\ref{HCI_criterion} does not include information from the diagonal elements,
+the HCI selection criterion is not significantly different from either of the two CIPSI-like criteria because
 the terms in the numerator of Eq.~\ref{eq:cipsi_ground}
 span many orders of magnitude, so the sum is highly correlated with the largest-magnitude term in the sum in Eq.~\ref{eq:cipsi_ground}.
 It was demonstrated in Ref.~\cite{HolTubUmr-JCTC-16} that the selected determinants give only slightly inferior convergence
@@ -520,7 +522,7 @@ The straightforward
 and time-efficient approach to computing the perturbative correction requires storing
 %and updating the partial sum for each $a$ ($\frac{\left(\sum_{i \in \V} H_{ai} c_i\right)^2}{E_0 - E_a}$) by
 the partial sum $\sum_{i \in \V} H_{ai} c_i$ for each $a$, while
-looping over all the determinants $i\in\V$. This creates a severe memory bottleneck.
+looping over all the determinants $i \in \V$. This creates a severe memory bottleneck.
 
 Various schemes for improving the efficiency have been implemented, including only exciting from
 a rediagonalized array of the largest-weight determinants~\cite{EvaDauMal-CP-83}, and its efficient approximation using
@@ -532,8 +534,8 @@ The SHCI algorithm instead uses two other strategies to reduce both the computat
 
 First, SHCI screens the sum~\cite{HolTubUmr-JCTC-16} using a second threshold, $\epsilon_2$ (where $\epsilon_2<\epsilon_1$) as the criterion for selecting perturbative determinants $\P$,
 \begin{equation}
-%\Delta E_{2} \left(\epsilon_{2}\right) = \sum_{D_{a}} \frac{\left(\sum_{D_{i} \in \V, \left|H_{a i} c_{i}\right| \ge \epsilon_{2}} H_{a i} c_{i}\right) ^{2}}{E_{V} - H_{a a}} \\
-\Delta E_{2} \left(\epsilon_{2}\right) = \sum_a \frac{\left(\sum_{D_{i} \in \V}^{(\epsilon_{2})}  H_{a i} c_{i}\right) ^{2}}{E_{V} - H_{a a}}
+%\Delta E_{2} \left(\epsilon_{2}\right) = \sum_{D_{a}} \frac{\left(\sum_{D_i \in \V, \left|H_{a i} c_{i}\right| \ge \epsilon_{2}} H_{a i} c_{i}\right) ^{2}}{E_{V} - H_{a a}} \\
+\Delta E_{2} \left(\epsilon_{2}\right) = \sum_a \frac{\left(\sum_{D_i \in \V}^{(\epsilon_{2})}  H_{a i} c_{i}\right) ^{2}}{E_{V} - H_{a a}}
 \label{eq:PTb}
 \end{equation}
 where $\sum^{(\epsilon_{2})}$ indicates that only terms in the sum for which $\left|H_{a i} c_{i}\right| \ge \epsilon_{2}$ are included.
@@ -545,9 +547,9 @@ Note that the vast number of terms that do not meet this criterion are \emph{nev
 Even with this screening, the simultaneous storage of all terms indexed by $a$ in Eq.~\ref{eq:PTb} can exceed computer memory
 when $\epsilon_2$ is chosen small enough to obtain essentially the exact perturbation energy.
 The second innovation in the calculation of the SHCI perturbative correction is to overcome this memory bottleneck by
-evaluating this perturbation correction semistochastically~\cite{ShaHolJeaAlaUmr-JCTC-17}.
+evaluating this perturbative correction semistochastically~\cite{ShaHolJeaAlaUmr-JCTC-17}.
 The most important contributions are evaluated deterministically and the rest are sampled stochastically.
-The total perturbation correction is
+The total perturbative correction is
 \beq
 %\Delta E_{2} \left(\epsilon_{2}\right) = \left[\Delta E_{2} ^{\left(\mathrm{s}\right)} \left(\epsilon_{2} \right) - \Delta E_{2} ^{\left(\mathrm{s}\right)} \left(\epsilon_{2} ^{\left(\mathrm{d}\right)}\right)\right] + \Delta E_{2} ^{\left(\mathrm{d}\right)} \left(\epsilon_{2} ^{\left(\mathrm{d}\right)}\right)
 \Delta E_{2} \left(\epsilon_{2}\right) = \left[\Delta E_{2} ^{\mathrm{s}} \left(\epsilon_{2} \right) - \Delta E_{2} ^{\mathrm{s}} \left(\epsilon_{2} ^{\mathrm{d}}\right)\right] + \Delta E_{2} ^{\mathrm{d}} \left(\epsilon_{2} ^{\mathrm{d}}\right)
@@ -555,20 +557,20 @@ The total perturbation correction is
 \eeq
 %where $\Delta E_{2} ^{\left(\mathrm{d}\right)}$
 where $\Delta E_{2} ^{\mathrm{d}}$
-is the deterministic perturbation correction obtained by using a larger threshold $\epsilon_2^\mathrm{d}\ge \epsilon_2$ in Eq.~\ref{eq:PTb}.
+is the deterministic perturbative correction obtained by using a larger threshold $\epsilon_2^\mathrm{d}\ge \epsilon_2$ in Eq.~\ref{eq:PTb}.
 %$\epsilon_{2} ^{\left(\mathrm{d}\right)} > \epsilon_2$.
 %$\epsilon_{2} ^{\mathrm{d}} \ge \epsilon_2$.
 %$\Delta E_{2} ^{\left(\mathrm{s}\right)}$
 $\Delta E_{2} ^{\mathrm{s}}$
-is the stochastic perturbation correction from randomly selected samples of the variational determinants, and is given by
+is the stochastic perturbative correction from randomly selected samples of the variational determinants, and is given by
 \beq
-%\Delta E_{2} ^{\left(\mathrm{s}\right)} = & \frac{1}{N_{d} \left(N_{d} - 1\right)} \left\langle \sum_{D_{a} \in \P} \left[\left(\sum_{D_i \in \V} ^{N_{d} ^{\mathrm{(unique)}}} \frac{w_{i} c_{i} H_{a i}}{p_{i}}\right) ^{2} \right. \right. \\ + 
+%\Delta E_{2} ^{\left(\mathrm{s}\right)} = & \frac{1}{N_{d} \left(N_{d} - 1\right)} \left\langle \sum_{D_a \in \P} \left[\left(\sum_{D_i \in \V} ^{N_{d} ^{\mathrm{(unique)}}} \frac{w_{i} c_{i} H_{a i}}{p_{i}}\right) ^{2} \right. \right. \\ + 
 % & \left. \left. \sum_{D_i \in \V} ^{N_{d} ^{\mathrm{(unique)}}} \left(\frac{w_{i} \left(N_{d} - 1\right)}{p_{i}} - \frac{w_{i} ^{2}}{p_{i} ^{2}}\right) c_{i} ^{2} H_{a i} ^{2}\right] \frac{1}{E_{0} - E_{a}} \right\rangle
 %\Delta E_{2} ^{\mathrm{s}}(\epsilon_2)
-%=& \frac{1}{N_{d} \left(N_{d} - 1\right)} \left\langle \sum_{D_{a} \in \P}^{(\epsilon_2)} \left[\left(\sum_{D_i \in \V} ^{N_{d} ^{\Nddiff}} \frac{w_{i} c_{i} H_{a i}}{p_{i}}\right) ^{2} \right. \right. \nonumber \\
+%=& \frac{1}{N_{d} \left(N_{d} - 1\right)} \left\langle \sum_{D_a \in \P}^{(\epsilon_2)} \left[\left(\sum_{D_i \in \V} ^{N_{d} ^{\Nddiff}} \frac{w_{i} c_{i} H_{a i}}{p_{i}}\right) ^{2} \right. \right. \nonumber \\
 %+& \left. \left. \sum_{D_i \in \V} ^{N_{d} ^{\Nddiff}} \left(\frac{w_{i} \left(N_{d} - 1\right)}{p_{i}} - \frac{w_{i} ^{2}}{p_{i} ^{2}}\right) c_{i} ^{2} H_{a i} ^{2}\right] \frac{1}{E_{0} - E_{a}} \right\rangle
 \lefteqn{\!\!\!\!\!\!\!\!\Delta E_{2} ^{\mathrm{s}}(\epsilon_2) =
- \frac{1}{N_{d} \left(N_{d} - 1\right)} \left\langle \sum_{D_{a} \in \P} \left[\left(\sum_{D_i \in \V} ^{{\Nddiff}, \left(\epsilon_2\right)} \frac{w_{i} c_{i} H_{a i}}{p_{i}}\right) ^{2} \right. \right.} \nonumber \\
+ \frac{1}{N_{d} \left(N_{d} - 1\right)} \left\langle \sum_{D_a \in \P} \left[\left(\sum_{D_i \in \V} ^{{\Nddiff}, \left(\epsilon_2\right)} \frac{w_{i} c_{i} H_{a i}}{p_{i}}\right) ^{2} \right. \right.} \nonumber \\
 &&\!\!\!\!\!\!\!+ \left. \left. \sum_{D_i \in \V} ^{{\Nddiff}, \left(\epsilon_2\right)} \left(\frac{w_{i} \left(N_{d} - 1\right)}{p_{i}} - \frac{w_{i} ^{2}}{p_{i} ^{2}}\right) c_{i} ^{2} H_{a i} ^{2}\right] \frac{1}{E_{0} - E_{a}} \right\rangle
 \label{eq:stoch_PT}
 \eeq
@@ -579,7 +581,7 @@ $p_i$ and $w_i$ are the probability of selecting determinant $D_i$ and the numbe
 sample, respectively.
 The $N_d$ determinants are sampled from the discrete probability distribution
 \beq
-p_{i} &=& {\left|c_{i}\right| \over \sum_j^\V \left|c_{j}\right|},
+p_{i} &=& {\left|c_{i}\right| \over \sum_j^{N_\V} \left|c_{j}\right|},
 \label{sampling_prob}
 \eeq
 using the Alias method~\cite{walker1977efficient,kronmal1979alias}, which allows samples to be drawn
@@ -618,7 +620,7 @@ depends on the choice of orbitals.  Natural orbitals, calculated within HCI, are
 and optimized orbitals~\cite{SmiMusHolSha-JCTC-17} are a yet better choice.  For systems with more than a few atoms,
 split-localized optimized orbitals lead to yet better convergence~\cite{ChiHolOttUmrShaZim-JPCA-18}.
 
-We describe, in the next two sections, improvements we have made to the variational and the perturbative stages of the SHCI algorithm,
+We describe, in Sections~\ref{fast} and \ref{multi}, improvements we have made to the variational and the perturbative stages of the SHCI algorithm,
 which speed up the calculations by an order of magnitude or more for large systems.
 
 \section{Fast Hamiltonian Construction}
@@ -884,8 +886,8 @@ pertains to only the new determinants.
 %Also, it is understood that for each operation that is not symmetric in alpha and beta, the
 %corresponding operation with the alpha and beta roles reversed is executed.
 The auxiliary arrays are constructed by looping over just the new determinants.
-First, for each new $\alpha$ encountered, array $\veca$ and hash map $\ia(\alpha)$ are appended to.
-Also, for each new determinant, the arrays $\veciDa(\ia)$ and $\veciba(\ia)$ are appended to.
+First, each new $\alpha$ encountered is appended to array $\veca$ and hash map $\ia(\alpha)$.
+Also, each new determinant is appended to the arrays $\veciDa(\ia)$ and $\veciba(\ia)$.
 In order to speed up the generation of the Hamiltonian matrix (described later) these
 are sorted by $i_D$ when the number of new determinants is much smaller than the number of old determinants,
 and by $\ib$
@@ -948,7 +950,7 @@ and if they are, we compute that Hamiltonian matrix element.
 Similarly, we can find the single and double beta excitations by looping over the determinants in
 the $\veciDa(\ia)$ array.
 
-\noindent \underline{\bf Opposite-spin excitations:} For the mixed double excitations, we first loop over all $k_\alpha$ in the $\veciaa(\ia)$ array,
+\noindent \underline{\bf Opposite-spin excitations:} For the opposite-spin double excitations, we first loop over all $k_\alpha$ in the $\veciaa(\ia)$ array,
 i.e., the indices of $\veca$ connected by single excitations to $\alpha(D_i)$.
 The determinants that have alpha string $k_\alpha$ are in $\veciDa(k_\alpha)$, but since only some of these
 have beta strings that are single excitations of $\beta(D_i)$, we need to filter $\veciDa(k_\alpha)$
@@ -960,7 +962,7 @@ When the number of new determinants is less than 20\% of the total number of det
 % in the early variational iterations for a given $\epsilon_1$, the number of new determinants is large
 % compared to the number of old determinants, but in the later variational iterations it is small.
 % When the number of new determinants is less than 20\% of the total number of determinants, $\veciDa(\ia)$ and $\veciba(\ia)$ are sorted by $i_D$, otherwise, they are sorted by $\ib$.
-The remaining determinants after filtering are the determinants connected to the given determinant through mixed double excitations.
+The remaining determinants after filtering are the determinants connected to the given determinant through opposite-spin double excitations.
 Each connection is visited only once during this process, which was not the case in the
 original SHCI method.
 
@@ -976,7 +978,7 @@ original SHCI method.
 %with $\beta$ strings in $\vecb_{\beta_i}$;
 %otherwise, these determinants are sorted by $\beta$, so are the $\beta$ strings,
 %so we keep only the intersection of these two sorted arrays which takes ${\cal O}(n)$ time.
-%The remaining determinants are all the determinants connected to the given determinant through mixed double excitations.
+%The remaining determinants are all the determinants connected to the given determinant through opposite-spin double excitations.
 %Each connection is generated only once during this process (unlike the $(\alpha-1)\beta$ algorithm in the original SHCI method).
 
 \begin{figure}
@@ -991,9 +993,9 @@ the first point of the improved SHCI CPU time.}
   \label{fig:ham}
 \end{figure}
 
-In Fig~\ref{fig:ham}, we use a copper atom~\footnote{We employ the Trail-Needs pseudopotential~\cite{TraNee-JCP-15},
+In Fig~\ref{fig:ham}, we use a copper atom with a pseudopotential~\cite{TraNee-JCP-15}~\footnote{We employ the Trail-Needs pseudopotential~\cite{TraNee-JCP-15},
 but the conclusions of this paper would be the same for an all-electron calculation.}
-in the cc-pVTZ basis to compare the improved SHCI algorithm to the original SHCI algorithm,
+and the cc-pVTZ basis to compare the improved SHCI algorithm to the original SHCI algorithm,
 and to the brute force algorithm where we loop over each pair of determinants.
 The improved algorithm
 is about an order of magnitude faster than the original SHCI for medium size calculations.
@@ -1093,7 +1095,8 @@ determinants in the various batches is the square root of the average number of 
 % and $\sigma_N\approx\sqrt{N}/N\to0$ for large $N$.
 The contributions of the various batches fluctuate both because the contributions of the perturbative
 determinants within a batch fluctuate and the number of perturbative determinants in a batch fluctuate.
-For both contributions, the ratio of the fluctuation to the expected value is $\sim\sqrt{N}/N\to0$ for large $N$.
+For both contributions, the ratio of the fluctuation to the expected value is $\sim\sqrt{N}/N\to0$ for large $N$,
+where $N$ is the average number of determinants in a batch.
 }
 
 In brief, our improved SHCI algorithm has the following 3 steps:
@@ -1101,7 +1104,7 @@ In brief, our improved SHCI algorithm has the following 3 steps:
 \item A deterministic step with cutoff $\epsilon_2^{\rm dtm} (< \epsilon_1)$, wherein
 {\color{blue} all the variational determinants are used}, and
 all the perturbative batches are summed over.
-\item A ``pseudostochastic" step, with cutoff $\epsilon_2^{\rm psto} (< \epsilon_2^{\rm dtm})$, wherein
+\item A ``pseudo-stochastic" step, with cutoff $\epsilon_2^{\rm psto} (< \epsilon_2^{\rm dtm})$, wherein
 {\color{blue} all the variational determinants are used}, and
 typically only a small fraction of the perturbative batches
 need be summed over to achieve an error much smaller than the target error.
@@ -1138,7 +1141,7 @@ We next describe each of the 3 steps in detail.
 %without increasing the memory requirement of the calculation.
 %The key ingredient of the new algorithm is that
 %now we partition the determinants in the $\P$ space into batches using a hash function~\cite{Jen-Hash-97, Boost-2012},
-%and one can then use the fact that the total perturbation correction is equal to the sum of contributions from each batch.
+%and one can then use the fact that the total perturbative correction is equal to the sum of contributions from each batch.
 %To make effective use of the batches we modify the original 2-step SHCI algorithm into one that makes use of the the following 3-steps
 %\begin{itemize}
 %\item first, a series of deterministic steps are performed with a cutoff $\epsilon_2^{\rm dtm}$, where in each step the contribution from only a single batch is evaluated and is subsequently accumulated
@@ -1150,14 +1153,14 @@ We next describe each of the 3 steps in detail.
 %% We don't do larger dtm or sto runs. we do optimal runs.
 %For a given target error, assuming we have infinite amount of memory, there is a set of optimal meta parameters for reaching that target error in the shortest time.
 %Our improved algorithm is initially designed to allow us to always use optimal values of $\epsilon_2^{\rm dtm}$ and $N_d$ regardless of the memory available.
-%To achieve that, we partition the determinants in the $\P$ space into batches using a hash function~\cite{Jen-Hash-97, Boost-2012}, and we can then use the fact that the total perturbation correction is equal to the sum of contribution from each batch.
+%To achieve that, we partition the determinants in the $\P$ space into batches using a hash function~\cite{Jen-Hash-97, Boost-2012}, and we can then use the fact that the total perturbative correction is equal to the sum of contribution from each batch.
 %
 %While doing the batch calculations, we find that with a high-quality hash function, the contribution from different batches are almost the same.
 %Hence, we can evaluate just a few batches and use them to estimate the total contribution from all the batches.
 %
 %Based on these ideas and findings, we develop the 3-step batch perturbation method.
 
-%% In addition to the original 2-step algorithm, we introduce a new pseudo stochastic step between them, and we apply the batch idea to all of the 3 steps.
+%% In addition to the original 2-step algorithm, we introduce a new pseudo-stochastic step between them, and we apply the batch idea to all of the 3 steps.
 %% We describe each of the 3 steps in detail.
 %% To make effective use of the batches we modify the original 2-step SHCI algorithm into one that makes use of the the following 3-steps
 %% \begin{itemize}
@@ -1172,15 +1175,15 @@ except that when there is not enough memory to afford the
 chosen $\epsilon_2^{\rm dtm}$, we divide the perturbative space into batches according to the hash value of the perturbative determinants and evaluate their contributions batch by batch.
 %This deterministic step has the effect of greatly reducing the computational effort required to obtain a given statistical
 %error in the subsequent steps.
-%% We calculate the perturbation correction one batch at a time.
+%% We calculate the perturbative correction one batch at a time.
 %When there is not enough memory to perform the original deterministic run with the
 %chosen $\epsilon_2^{\rm dtm}$, we divide the hash value space into several batches, and for each batch
 %we calculate its contribution from only the perturbative determinants whose hash value belongs to that batch.
 The total deterministic correction is simply the sum of the corrections from all the batches
 \beq
-%$$\Delta E_{2}^{(d)} \left(\epsilon \right) = \sum_ {B} \sum_{D_{a}} \frac{\left(\sum_{D_{i} \in \V, \left|H_{a i} c_{i}\right| \ge \epsilon_{2}, h(D_a)\in B} H_{a i} c_{i}\right) ^{2}}{E_{V} - H_{a a}}$$
-%$$\Delta E_{2} \left(\epsilon^{\rm det} \right) = \sum_{B} \sum_{D_{a} \in \P, h(D_a)\in B} \frac{\left(\sum^{(\epsilon_{2}^{\rm det})}_{D_{i} \in \V} H_{a i} c_{i}\right) ^{2}}{E_{V} - H_{a a}}$$
-\Delta E_{2} \left(\epsilon_2^{\rm dtm} \right) = \sum_{B} \sum_{\substack{D_{a} \in \P \\ h(D_a)\in B}} \frac{\left(\sum^{(\epsilon_2^{\rm dtm})}_{D_{i} \in \V} H_{a i} c_{i}\right) ^{2}}{E_{V} - H_{a a}}
+%$$\Delta E_{2}^{(d)} \left(\epsilon \right) = \sum_ {B} \sum_{D_{a}} \frac{\left(\sum_{D_i \in \V, \left|H_{a i} c_{i}\right| \ge \epsilon_{2}, h(D_a)\in B} H_{a i} c_{i}\right) ^{2}}{E_{V} - H_{a a}}$$
+%$$\Delta E_{2} \left(\epsilon^{\rm det} \right) = \sum_{B} \sum_{D_a \in \P, h(D_a)\in B} \frac{\left(\sum^{(\epsilon_{2}^{\rm det})}_{D_i \in \V} H_{a i} c_{i}\right) ^{2}}{E_{V} - H_{a a}}$$
+\Delta E_{2} \left(\epsilon_2^{\rm dtm} \right) = \sum_{B} \sum_{\substack{D_a \in \P \\ h(D_a)\in B}} \frac{\left(\sum^{(\epsilon_2^{\rm dtm})}_{D_i \in \V} H_{a i} c_{i}\right) ^{2}}{E_{V} - H_{a a}}
 \eeq
 where $h(D)$ is the hash function and $B$ is the hash value space for a batch.
 This method solves the memory bottleneck in a different way than the original SHCI algorithm.
@@ -1206,7 +1209,7 @@ but it is much more efficient to only evaluate the large contributions here and 
 % using just a small subset of the batches.
 
 %{\color{red} The determinisitc with batches is clear to me, but the following two are not entirely clear. for exmaple you are sampling the variational determinants and the PT determinants as well and more words are needed to describe how exactly this is done. Again I think if it is possible provide a pseudo code or a figure then it will make things much easier to understand.}
-The second step is a pseudo stochastic step.
+The second step is a pseudo-stochastic step.
 It is similar to the deterministic step, except for the following differences: 
 a) we use an $\epsilon_2^{\rm psto}$ much smaller than $\epsilon_2^{\rm dtm}$ as the selection criterion,
 b) we divide the perturbative space into as many batches as is needed in order for one batch to fit in memory,
@@ -1219,7 +1222,7 @@ At the end of each batch iteration, we calculate the mean and standard deviation
 evaluated perturbative determinants and use these to estimate the total correction from all the perturbative determinants.
 Note that the standard deviation of the total correction is the standard deviation of the sum of only the unevaluated determinants.
 %If we process all the batches, the second step becomes a deterministic calculation, which has zero uncertainty.
-If we process all the batches, the pseudo stochastic step becomes deterministic and has zero standard deviation.
+If we process all the batches, the pseudo-stochastic step becomes deterministic and has zero standard deviation.
 %At the end of each batch iteration, we scale these three values by the ratio between the remaining number of batches and the number of evaluated batches to estimate these three values for all the perturbative determinants, which
 %give us both the total correction and the standard deviation of the total correction.
 % We calculate the energy correction from the batch and the variance of the energy correction from the batch. (I don't do that for each batch)
@@ -1279,7 +1282,7 @@ Even when memory is abundant, the improved SHCI is still a few times faster.
 The main reasons that the improved SHCI is much faster are:
 %(1) It computes a larger fraction of the perturbative correction in the deterministic step, and it uses much larger samples
 (1) It computes a larger fraction of the perturbative correction in the deterministic step.
-(2) A small fraction of the batches in the pseudo stochastic step is usually sufficient to give an accurate estimate of the total correction.
+(2) A small fraction of the batches in the pseudo-stochastic step is usually sufficient to give an accurate estimate of the total correction.
 (3) It uses much larger samples of variational determinants in the stochastic step.
 
 We now comment on a couple of aspects of our algorithm that may not be obvious:
@@ -1303,12 +1306,12 @@ to keep the systematic error within the target statistical error.
 %The choice of $\epsilon_2^{\rm sto}=10^{-6}\epsilon_1$ is from emperical experience for a target error of 0.1~mHa.
 }
 
-% In the pseudo stochastic step, we estimate the batch-to-batch fluctuations from just the fluctuations within a batch.
+% In the pseudo-stochastic step, we estimate the batch-to-batch fluctuations from just the fluctuations within a batch.
 % This relies on having a sufficiently good hash map and the fact that we have a very large number of perturbative determinants
 % in each batch (sometimes a billion or more).
 % Note that since we are using all the variational determinants in this step, the fluctuations come just from the perturbative
 % determinants.
-2) In the pseudo stochastic step, we estimate the fluctuations of the unevaluated perturbative determinants from the fluctuation of the evaluated perturbative determinants.
+2) In the pseudo-stochastic step, we estimate the fluctuations of the unevaluated perturbative determinants from the fluctuation of the evaluated perturbative determinants.
 This relies on having a sufficiently uniform hash function.
 % and the fact that we have a very large number of perturbative determinants
 % in each batch (sometimes a billion or more). % not needed.
@@ -1327,7 +1330,7 @@ The reason for this is that there are many more perturbative determinants in a b
 only a small contribution) than there are variational determinants in a sample.
 Further, the variational determinants vary greatly in importance.
 This is why we use importance sampling as described by Eq.~\ref{sampling_prob} when selecting variational determinants,
-and why we precede the stochastic step with the deterministic and pseudostochastic steps, but
+and why we precede the stochastic step with the deterministic and pseudo-stochastic steps, but
 even with these improvements the fluctuations from the choice of variational samples
 is much larger than the fluctuation from the choice of batches.
 Hence, we use only one randomly selected batch of perturbative determinants (typically out of 128 batches)
@@ -1366,7 +1369,7 @@ Finally, we comment on two other algorithms that have been recently been propose
 %We note that another very efficient semistochastic algorithm for calculating the perturbative correction has been proposed
 First, another very efficient semistochastic algorithm has been proposed
 by Garniron et al.~\cite{GarSceLooCaf-JCP-17}.  However, that algorithm has, for each perturbative determinant, a loop over the variational determinants to find those that are connected.  For the very large number of variational determinants that we employ
-here (up to $2 \times 10^9$) this is less efficient than our algorithm.
+here (up to $2 \times 10^9$) this is impractical.
 To avoid confusion, we should mention that the reason that their energy for Cr$_2$ is very different from ours is
 that they used a nonrelativistic Hamiltonian.
 Second, another algorithm that uses batches of perturbative determinants to overcome the memory bottleneck has been proposed
@@ -1375,7 +1378,7 @@ It is an efficient deterministic algorithm for memory constrained environments,
 but for a reasonable statistical error tolerance, e.g., $10^{-5}$~Ha,
 a semistochastic approach is usually much faster, as we can see from Table~\ref{tab:pt}.
 Also, in our Cr$_2$ calculation, we stochastically estimate the perturbative correction from at least trillions of perturbative determinants,
-for $\epsilon_2=3\times10^{-12}$, which probably involves quadrillions of contributions
+for $\epsilon_2=3\times10^{-12}$ Ha, which probably involves quadrillions of contributions
 ($n^2v^2N_\V = 9 \times 10^{15}$), which is infeasible with a deterministic algorithm.
 % The largest calculations in that paper use only $2 \times 10^6$ variational determinants, three orders of magnitude
 % less than our largest ones.
@@ -1590,8 +1593,8 @@ We will publish the potential energy surface in a separate publication; here ins
 to use it as a test case for the improved SHCI method.
 %We use a cc-pVDZ basis with active semi-core electrons.
 We use a relativistic exact two-component (X2C) Hamiltonian, the cc-pVDZ-DK basis, and we correlate the valence and the semi-core electrons.
-This gives an active space of (28e, 76o) and a Hilbert space of $5\times10^{29}$ determinants, which is far beyond the reach of full-CI.
-We show how we obtain an accurate estimate of the full-CI energy in this large active space with our improved SHCI algorithm.
+This gives an active space of (28e, 76o) and a Hilbert space of $5\times10^{29}$ determinants, which is far beyond the reach of FCI.
+We show how we obtain an accurate estimate of the FCI energy in this large active space with our improved SHCI algorithm.
 
 We use PySCF~\cite{SunCha_etal_PySCF-ComMolSci-18} to generate the molecular orbital integrals for orbitals that minimize the HCI variational
 energy for $\epsilon_1=2\times 10^{-4}$~Ha, using the method of Ref.~\cite{SmiMusHolSha-JCTC-17}.
@@ -1607,16 +1610,16 @@ The improved SHCI is fast enough that we can use over two billion variational de
 The largest variational calculation, where we iteratively find and diagonalize 2 billion determinants
 for $\epsilon_1=3.0\times10^{-6}$~Ha, takes only one day on 8 nodes, each of which has 4 Intel Xeon E7-8870 v4 CPUs.
 The corresponding perturbative calculation takes only 6 hours using only one of these nodes. 
-During that perturbative calculation, we skip the deterministic step, perform a pseudo stochastic step with $\epsilon_2^{\rm psto}=1\times10^{-7}$~Ha, and a stochastic step with $\epsilon_2=3\times10^{-12}$~Ha.
+During that perturbative calculation, we skip the deterministic step, perform a pseudo-stochastic step with $\epsilon_2^{\rm psto}=1\times10^{-7}$~Ha, and a stochastic step with $\epsilon_2=3\times10^{-12}$~Ha.
 {\color{blue}
 We skip the deterministic step here because $\epsilon_1=3 \times 10^{-6}$ is already close to our
 default $\epsilon_2^{\rm dtm}$ of $2 \times 10^{-6}$ so skipping this won't affect the efficiency
 of subsequent steps much.
 }
-The pseudo stochastic step uses 25 batches, each of which has about 8.9 billion determinants.
+The pseudo-stochastic step uses 25 batches, each of which has about 8.9 billion determinants.
 We evaluate only one of them, from which we obtain an estimate of the total correction for all the 25 batches (223 billion determinants) to be -0.011681(1)~Ha.
 Since the estimated error is already much smaller than our target error, we skip the remaining 24 batches.
-The pseudo stochastic step takes 1.6 hours.
+The pseudo-stochastic step takes 1.6 hours.
 The stochastic step uses 128 batches and 6 million variational determinants in each sample,
 which results in about 3.7 billion determinants per batch.
 We use 10 samples and obtain the additional correction from $\epsilon_2=3.0\times10^{-12}$~Ha to be -0.001203(6)~Ha.
@@ -1626,9 +1629,9 @@ so we estimate a lower bound with $\epsilon_2^{\rm psto}=1.4\times10^{-8}$~Ha an
 Hence, with $\epsilon_2=3\times10^{-12}$~Ha (the value we are actually using) we stochastically estimate contributions from
 at least trillions of unique perturbative determinants and obtain better than $10^{-5}$~Ha statistical uncertainty in 6 hours using only one node.
 %why?
-%This brings the accuracy selected-CI to a whole new level and enables us to obtain an estimation of the full-CI energy with sub-millihartree uncertainty in this large active space.
+%This brings the accuracy selected-CI to a whole new level and enables us to obtain an estimation of the FCI energy with sub-millihartree uncertainty in this large active space.
 
-These large calculations enable us to obtain an estimate of the full-CI energy with sub-millihartree uncertainty in this large active space.
+These large calculations enable us to obtain an estimate of the FCI energy with sub-millihartree uncertainty in this large active space.
 Table~\ref{tab:Cr2} reports the results.
 
 
@@ -1703,7 +1706,7 @@ Table~\ref{tab:Cr2} reports the results.
   The active space is (28e, 76o).
   $N_\V$ is the number of variational determinants.
   $\epsilon_2 = 10^{-6} \epsilon_1$.
-  We use weighted quadratic extrapolation, shown in Fig.~\ref{fig:extrapolation}, to obtain the full-CI limit
+  We use weighted quadratic extrapolation, shown in Fig.~\ref{fig:extrapolation}, to obtain the FCI limit
   corresponding to $\Delta E=0$.}
   \label{tab:Cr2}
 \end{table}
@@ -1724,8 +1727,8 @@ The weight of each point is $(E_{\rm var} - E_{\rm tot})^{-2}$.
 Fig.~\ref{fig:extrapolation} shows the computed energies and the extrapolation.
 We also perform a weighted linear fit and use the difference of the extrapolated values from the quadratic and the linear fits (0.6~mHa) as the uncertainty.
 %If we look at the trends of the data points in Fig.~\ref{fig:extrapolation}, we can see that 0.55~mHa is a reasonable estimation of the uncertainty.
-%In summary, the estimated full-CI energy of Cr$_2$ in the cc-pVDZ basis with active semi-core electrons is $-2099.9224(6)$~Ha.
-In summary, the estimated full-CI energy of Cr$_2$ in the cc-pVDZ-DK basis with 28 correlated electrons and the relativistic X2C Hamiltonian
+%In summary, the estimated FCI energy of Cr$_2$ in the cc-pVDZ basis with active semi-core electrons is $-2099.9224(6)$~Ha.
+In summary, the estimated FCI energy of Cr$_2$ in the cc-pVDZ-DK basis with 28 correlated electrons and the relativistic X2C Hamiltonian
 %(the rest of the electrons are frozen in
 %Hartree-Fock orbitals)
 is $-2099.9224(6)$~Ha.
@@ -1765,7 +1768,7 @@ CI expansions), will give poor energies for such strongly correlated systems.
 
 % The smallest $\epsilon_2$ we use for the perturbative stage is $3\times10^{-9}$.
 % Due to the stochastic nature of our algorithm, we do not know exactly how much perturbative determinants are in effect during our calculation.
-% However, we can estimate the lower bound based on our largest pseudo stochastic run.
+% However, we can estimate the lower bound based on our largest pseudo-stochastic run.
 % In that run, we use an $\epsilon$ of $3\times10^{-8}$ and 457 batches, and we got about 39.3 billion determinants per batch.
 % Hence, the total number of effective determinants for the pseudo-stochastic stage is 18 trillion, which is also the lower bound of the number of effective determinants for $\epsilon_2=3\times10^{-9}$.
 
