@@ -236,7 +236,7 @@ The comparison with DMRG is more involved.
 %SHCI is often much faster than DMRG for moderately correlated systems,
 %however, is much less efficient than DMRG for quasi 1-dimensional systems and even some strongly correlated 
 %higher-dimensional spin systems. %{\color{red} which? Sandeep wanted to leave this a bit vague because it is not completely clear.}
-{\color{blue}
+{\color{black}
 While SHCI is much faster than DMRG for small moderately correlated systems, the ratio of costs changes in
 DMRG's favor as the system size increases and as the correlation strength increases, because the methods
 have different scaling with these parameters.
@@ -282,7 +282,7 @@ and (c) include relativistic effects including the spin-orbit coupling using ``o
 Since SHCI has greatly reduced the time required to select determinants, we find, for large systems, that Hamiltonian construction is the
 most time-consuming step of the variational stage.
 % {\color{red} semicore Cr2 in cc-pVDZ-DK? (since number of connections etc matters in timing)--Sandeep.}\\
-% {\color{blue} As an order of magnitude statement, I think it is true for most molecules--Cyrus.}\\
+% {\color{black} As an order of magnitude statement, I think it is true for most molecules--Cyrus.}\\
 For around $10^8$ variational determinants, it takes two orders of magnitude more time to construct the Hamiltonian matrix than to select the determinants for most molecules.
 In addition, if a small stochastic error is required, the perturbative stage can be expensive,
 particularly on computer systems that do not have enough memory.
@@ -598,7 +598,7 @@ First, a larger fraction of the perturbative energy can be computed deterministi
 Second, a larger value of $N_d$ in Eq.~\ref{eq:stoch_PT} can be used.
 For a given total number of samples, the statistical error is smaller for a small number of large samples,
 than for a large number of small samples, because the number of sampled contributions to the energy correction is a quadratic function of the number of sampled variational determinants.
-{\color{blue} For example, $N_s$ samples, each of size $N_d$, will have $N_s N_d^2$ contributions to the energy, whereas
+{\color{black} For example, $N_s$ samples, each of size $N_d$, will have $N_s N_d^2$ contributions to the energy, whereas
 $N_s/2$ samples, each of size $2N_d$, will have $2N_s N_d^2$ contributions.}
 Consequently, this too contributes to a super-linear speedup.
 
@@ -1028,7 +1028,7 @@ inefficient calculations with larger $\epsilon_2^{\rm d}$ and smaller $N_d$.
 For example, in Table~\ref{tab:pt} rows 3 and 4 show a comparison of the total CPU time of the perturbation stage
 for a copper atom in a cc-pVTZ basis on a machine with large memory versus on a machine with small memory.
 % {\color{red} can you specify epsilond and N in the table as well? -- Sandeep}.
-% {\color{blue} I intentionally exclude the details so that people won't misinterpret the timing and use that for comparison as the Berkeley paper did.  -- Junhao}\\
+% {\color{black} I intentionally exclude the details so that people won't misinterpret the timing and use that for comparison as the Berkeley paper did.  -- Junhao}\\
 % {\color{red} Yes, those kind of paper are terrible because people start writing defensively, like we are doing. But I wonder if misinterpreting things like the Berkeley paper will become more difficult if we give more details. For example if we say that the deterministic calculation took xx cpu seconds to get xx accuracy, then to prove that their code is better, they will probably have to do more of an apples to apples comparison. With the current data they might try to get a 1e-8 accuracy and then multiply our timings with $100^2$.  -- Sandeep}.
 When we decrease the memory by a factor of four, the total CPU time of the original SHCI algorithm increases by almost a factor of 8.
 
@@ -1086,7 +1086,7 @@ and the energy correction is computed either by adding, in succession, the contr
 or by estimating their sum by evaluating
 % sampling (without replacement)
 only a subset of these batches.
-{\color{blue}
+{\color{black}
 The hash function maps a determinant to a 64-bit integer $h$.
 A batch contains all the determinants that satisfy $h \mod n = i$, where $i$ is the batch index and $n$ is the number of batches.
 We use a high-quality hash function which ensures a highly-uniform mapping,
@@ -1102,17 +1102,17 @@ where $N$ is the average number of determinants in a batch.
 In brief, our improved SHCI algorithm has the following 3 steps:
 \begin{enumerate}
 \item A deterministic step with cutoff $\epsilon_2^{\rm dtm} (< \epsilon_1)$, wherein
-{\color{blue} all the variational determinants are used}, and
+{\color{black} all the variational determinants are used}, and
 all the perturbative batches are summed over.
 \item A ``pseudo-stochastic" step, with cutoff $\epsilon_2^{\rm psto} (< \epsilon_2^{\rm dtm})$, wherein
-{\color{blue} all the variational determinants are used}, and
+{\color{black} all the variational determinants are used}, and
 typically only a small fraction of the perturbative batches
 need be summed over to achieve an error much smaller than the target error.
 \item A stochastic step, with cutoff $\epsilon_2 (<\epsilon_2^{\rm psto}) $, wherein a few stochastic samples of variational determinants,
 each consisting of $N_d$ determinants, are sampled using Eq.~\ref{sampling_prob} and only one of the
 perturbative batches is randomly selected per variational sample.
 \end{enumerate}
-{\color{blue}
+{\color{black}
 The total perturbative correction is
 \beq
 \Delta E_{2} \left(\epsilon_{2}\right) &=& 
@@ -1132,7 +1132,7 @@ $\epsilon_2^{\rm psto} = 10^{-7}$~Ha, and,
 $\epsilon_2 = \epsilon_{1}/10^6$.
 %Of course, for small systems we can use smaller values of $\epsilon_2^{\rm dtm}$ and $\epsilon_2^{\rm psto}$, and employ
 %just the first two, or even just the first step of the perturbative calculation.
-{\color{blue} Of course, if $\epsilon_1 \le \epsilon_2^{\rm dtm}$ the deterministic step is skipped.
+{\color{black} Of course, if $\epsilon_1 \le \epsilon_2^{\rm dtm}$ the deterministic step is skipped.
 }
 We next describe each of the 3 steps in detail.
 
@@ -1188,7 +1188,7 @@ The total deterministic correction is simply the sum of the corrections from all
 where $h(D)$ is the hash function and $B$ is the hash value space for a batch.
 This method solves the memory bottleneck in a different way than the original SHCI algorithm.
 We could do the full calculation in this way, i.e., use a very small value for $\epsilon_2^{\rm dtm}$
-{\color{blue} and a large number of batches},
+{\color{black} and a large number of batches},
 but it is much more efficient to only evaluate the large contributions here and leave the huge number of small contributions to the later stochastic steps.
 %Typically, we choose $\epsilon_2^{\rm dtm} = \max(\epsilon_{1}/50, 10^{-6}$~Ha) for a target error of $10^{-5}$~Ha.
 %The threshold $10^{-6}$ depends on the target statistic error we want.
@@ -1287,7 +1287,7 @@ The main reasons that the improved SHCI is much faster are:
 
 We now comment on a couple of aspects of our algorithm that may not be obvious:
 
-{\color{blue}1)
+{\color{black}1)
 The value of the perturbative correction depends only on $\epsilon_2$ and not $\epsilon_2^{\rm dtm}$ and $\epsilon_2^{\rm psto}$.
 The latter two quantities affect only the efficiency of the calculation.
 By using batches in the stochastic step, we can use a much smaller $\epsilon_2^{\rm sto}$ and thereby
@@ -1323,7 +1323,7 @@ In that case, one cannot simply use the standard deviation of the corrections fr
 So, in the stochastic step we use a minimum of 10 samples, calculate the correction from each of these samples,
 and use the standard deviation of these sample corrections to estimate the standard deviation of the total correction.
 
-{\color{blue}
+{\color{black}
 3) In the stochastic step, the fluctuation between batches of perturbative determinants is much smaller than the fluctuation
 between samples of variational determinants.
 The reason for this is that there are many more perturbative determinants in a batch (each making
@@ -1343,7 +1343,7 @@ increase in computational cost would be substantial only if this is done many ti
 deterministic algorithm, the number of batches would be very large, but with our 3-step semistochastic algorithm
 the number of batches actually computed is sufficiently small in each of the three steps that there is never a large computational overhead.
 
-%{\color{blue}
+%{\color{black}
 %4) The fluctuation between batches is quite small and is much smaller than the fluctuation from sampling the variational determinants in the stochastic step.
 %This is a numerical phenomenon that we observed and is what inspired the development of our new perturbation algorithm.
 %Here we provide some theoretical justification for this phenomenon.
@@ -1456,7 +1456,7 @@ This choice is dictated by the enormous number of perturbative determinants we e
 The time complexity of inserting one element into the hash table is ${\cal O}(1)$, while for a sorted array it is ${\cal O}(\log(n))$.
 For large calculations, the prefactor from using hash tables is small compared to the $\log(n)$ cost from using a sorted array.
 
-{\color{blue}
+{\color{black}
 The distributed hash table is based on lock-free~\cite{LockFree} open-addressing~\cite{OpenAddressing} linear-probing~\cite{LinearProbing} concurrent hash tables~\cite{chen2018concurrent} specifically designed
 for intensive commutative insertion and update operations.
 %, which is exactly the case for accumulating the partial sums.
@@ -1552,7 +1552,7 @@ There is almost perfect scaling for up to 4 nodes and 75\% parallel efficiency a
   \includegraphics[width=\linewidth]{scalability/dtm.eps}
   \caption{
 %{\color{red} my preference is to give cpu time on the y-axis and the guiding line to show ideal parallelization. -- Sandeep}\\
-%{\color{blue} This would however have the downside of not being symmetrical with the speedup of the variational stage and
+%{\color{black} This would however have the downside of not being symmetrical with the speedup of the variational stage and
 %also that linear scaling would now be an inverse power rather than linear.}\\
 Parallel speedup for improved SHCI compared to the original SHCI for the perturbative stage of the
 calculation for a copper atom in a cc-pVTZ basis.
@@ -1611,7 +1611,7 @@ The largest variational calculation, where we iteratively find and diagonalize 2
 for $\epsilon_1=3.0\times10^{-6}$~Ha, takes only one day on 8 nodes, each of which has 4 Intel Xeon E7-8870 v4 CPUs.
 The corresponding perturbative calculation takes only 6 hours using only one of these nodes. 
 During that perturbative calculation, we skip the deterministic step, perform a pseudo-stochastic step with $\epsilon_2^{\rm psto}=1\times10^{-7}$~Ha, and a stochastic step with $\epsilon_2=3\times10^{-12}$~Ha.
-{\color{blue}
+{\color{black}
 We skip the deterministic step here because $\epsilon_1=3 \times 10^{-6}$ is already close to our
 default $\epsilon_2^{\rm dtm}$ of $2 \times 10^{-6}$ so skipping this won't affect the efficiency
 of subsequent steps much.
@@ -1763,7 +1763,7 @@ Determinants with excitation levels up to 15 excitations are present in the vari
 This implies that truncating the CI expansion at the double, triple or quadruple excitation levels (which is the most that is usually done in systematic
 CI expansions), will give poor energies for such strongly correlated systems.
 
-%{\color{blue} We have also performed some preliminary calculations for the energy surface with larger basis sets, such as cc-pwCVTZ. However, due to the lack of reference values and because the focus of this paper is on the accuracy and performance of the improved SHCI method, we leave the extensive study of the chromium dimer to future a future paper.}
+%{\color{black} We have also performed some preliminary calculations for the energy surface with larger basis sets, such as cc-pwCVTZ. However, due to the lack of reference values and because the focus of this paper is on the accuracy and performance of the improved SHCI method, we leave the extensive study of the chromium dimer to future a future paper.}
 
 
 % The smallest $\epsilon_2$ we use for the perturbative stage is $3\times10^{-9}$.
@@ -1873,7 +1873,7 @@ Future extensions of the method include going to yet larger variational spaces u
 Although this increases the computational cost, the increase is not overwhelming because of the use of the auxiliary arrays introduced in this paper.
 Other extensions include increasing the range of applicability of the method to larger systems by combining SHCI with range-separated density functional theory~\cite{Sav-INC-96},
 and the use of SHCI as an impurity solver in embedding theories.
-{\color{blue}
+{\color{black}
 Recently, a selected coupled cluster method has been developed~\cite{XuUejTen-PRL-18}.
 Although the current version has
 %not been used to compute the same size of systems that we have computed,
